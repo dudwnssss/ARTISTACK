@@ -9,21 +9,51 @@
 /* Begin PBXBuildFile section */
 		107A75D82A7A69F300E9201B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A75D72A7A69F300E9201B /* AppDelegate.swift */; };
 		107A75DA2A7A69F300E9201B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A75D92A7A69F300E9201B /* SceneDelegate.swift */; };
-		107A75DC2A7A69F300E9201B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A75DB2A7A69F300E9201B /* ViewController.swift */; };
-		107A75DF2A7A69F300E9201B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107A75DD2A7A69F300E9201B /* Main.storyboard */; };
+		107A75DC2A7A69F300E9201B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A75DB2A7A69F300E9201B /* HomeViewController.swift */; };
 		107A75E12A7A69F400E9201B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107A75E02A7A69F400E9201B /* Assets.xcassets */; };
 		107A75E42A7A69F400E9201B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107A75E22A7A69F400E9201B /* LaunchScreen.storyboard */; };
+		107A75F32A7A6EF400E9201B /* UIVIew+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A75F22A7A6EF400E9201B /* UIVIew+.swift */; };
+		10831AD02A7A76C100FB460C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 10831ACF2A7A76C100FB460C /* SnapKit */; };
+		10831AD32A7A76CE00FB460C /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 10831AD22A7A76CE00FB460C /* Then */; };
+		10831AD52A7A772000FB460C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10831AD42A7A772000FB460C /* UserCell.swift */; };
+		10831AD82A7A77DC00FB460C /* BaseVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10831AD72A7A77DC00FB460C /* BaseVIewController.swift */; };
+		10831AE72A7A7F0A00FB460C /* LikedListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10831AE02A7A7F0A00FB460C /* LikedListDTO.swift */; };
+		10831AE82A7A7F0A00FB460C /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10831AE12A7A7F0A00FB460C /* Stack.swift */; };
+		10831AE92A7A7F0A00FB460C /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10831AE22A7A7F0A00FB460C /* Like.swift */; };
+		10831AEA2A7A7F0A00FB460C /* InstrumentDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10831AE32A7A7F0A00FB460C /* InstrumentDTO.swift */; };
+		10831AEB2A7A7F0A00FB460C /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10831AE42A7A7F0A00FB460C /* UserDTO.swift */; };
+		10831AEC2A7A7F0A00FB460C /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10831AE52A7A7F0A00FB460C /* Project.swift */; };
+		10831AED2A7A7F0A00FB460C /* PostDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10831AE62A7A7F0A00FB460C /* PostDTO.swift */; };
+		10831AEF2A7A81B100FB460C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10831AEE2A7A81B100FB460C /* PostCell.swift */; };
+		10831AF12A7A924300FB460C /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10831AF02A7A924300FB460C /* UIStackView+.swift */; };
+		10C9B62F2A7BDCAF00026EE0 /* UITableView+Reuseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C9B62C2A7BDCAE00026EE0 /* UITableView+Reuseable.swift */; };
+		10C9B6302A7BDCAF00026EE0 /* UICollection+ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C9B62D2A7BDCAE00026EE0 /* UICollection+ReusableView.swift */; };
+		10C9B6312A7BDCAF00026EE0 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C9B62E2A7BDCAF00026EE0 /* ReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		107A75D42A7A69F300E9201B /* ARTISTACK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARTISTACK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		107A75D72A7A69F300E9201B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		107A75D92A7A69F300E9201B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		107A75DB2A7A69F300E9201B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		107A75DE2A7A69F300E9201B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		107A75DB2A7A69F300E9201B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		107A75E02A7A69F400E9201B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		107A75E32A7A69F400E9201B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		107A75E52A7A69F400E9201B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		107A75F22A7A6EF400E9201B /* UIVIew+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+.swift"; sourceTree = "<group>"; };
+		10831AD42A7A772000FB460C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		10831AD72A7A77DC00FB460C /* BaseVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVIewController.swift; sourceTree = "<group>"; };
+		10831AE02A7A7F0A00FB460C /* LikedListDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikedListDTO.swift; sourceTree = "<group>"; };
+		10831AE12A7A7F0A00FB460C /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		10831AE22A7A7F0A00FB460C /* Like.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
+		10831AE32A7A7F0A00FB460C /* InstrumentDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentDTO.swift; sourceTree = "<group>"; };
+		10831AE42A7A7F0A00FB460C /* UserDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		10831AE52A7A7F0A00FB460C /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		10831AE62A7A7F0A00FB460C /* PostDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDTO.swift; sourceTree = "<group>"; };
+		10831AEE2A7A81B100FB460C /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		10831AF02A7A924300FB460C /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		10C9B62C2A7BDCAE00026EE0 /* UITableView+Reuseable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Reuseable.swift"; sourceTree = "<group>"; };
+		10C9B62D2A7BDCAE00026EE0 /* UICollection+ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollection+ReusableView.swift"; sourceTree = "<group>"; };
+		10C9B62E2A7BDCAF00026EE0 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10831AD02A7A76C100FB460C /* SnapKit in Frameworks */,
+				10831AD32A7A76CE00FB460C /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +88,118 @@
 		107A75D62A7A69F300E9201B /* ARTISTACK */ = {
 			isa = PBXGroup;
 			children = (
-				107A75D72A7A69F300E9201B /* AppDelegate.swift */,
-				107A75D92A7A69F300E9201B /* SceneDelegate.swift */,
-				107A75DB2A7A69F300E9201B /* ViewController.swift */,
-				107A75DD2A7A69F300E9201B /* Main.storyboard */,
-				107A75E02A7A69F400E9201B /* Assets.xcassets */,
-				107A75E22A7A69F400E9201B /* LaunchScreen.storyboard */,
+				107A75EE2A7A6DB300E9201B /* Application */,
+				107A75ED2A7A6DA900E9201B /* Global */,
+				10831AD92A7A7D4800FB460C /* Data */,
+				107A75EB2A7A6D4A00E9201B /* Presentation */,
 				107A75E52A7A69F400E9201B /* Info.plist */,
 			);
 			path = ARTISTACK;
+			sourceTree = "<group>";
+		};
+		107A75EB2A7A6D4A00E9201B /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				10831AD62A7A77BA00FB460C /* Base */,
+				107A75EC2A7A6D5800E9201B /* Home */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		107A75EC2A7A6D5800E9201B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				107A75DB2A7A69F300E9201B /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		107A75ED2A7A6DA900E9201B /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				10C9B62B2A7BDC8A00026EE0 /* Util */,
+				107A75F12A7A6E0E00E9201B /* Component */,
+				107A75F02A7A6DFC00E9201B /* Extension */,
+				107A75EF2A7A6DD700E9201B /* Resource */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		107A75EE2A7A6DB300E9201B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				107A75D72A7A69F300E9201B /* AppDelegate.swift */,
+				107A75D92A7A69F300E9201B /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		107A75EF2A7A6DD700E9201B /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				107A75E22A7A69F400E9201B /* LaunchScreen.storyboard */,
+				107A75E02A7A69F400E9201B /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		107A75F02A7A6DFC00E9201B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				107A75F22A7A6EF400E9201B /* UIVIew+.swift */,
+				10831AF02A7A924300FB460C /* UIStackView+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		107A75F12A7A6E0E00E9201B /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				10831AD42A7A772000FB460C /* UserCell.swift */,
+				10831AEE2A7A81B100FB460C /* PostCell.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		10831AD62A7A77BA00FB460C /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				10831AD72A7A77DC00FB460C /* BaseVIewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		10831AD92A7A7D4800FB460C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				10831ADF2A7A7F0A00FB460C /* Model */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		10831ADF2A7A7F0A00FB460C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				10831AE02A7A7F0A00FB460C /* LikedListDTO.swift */,
+				10831AE12A7A7F0A00FB460C /* Stack.swift */,
+				10831AE22A7A7F0A00FB460C /* Like.swift */,
+				10831AE32A7A7F0A00FB460C /* InstrumentDTO.swift */,
+				10831AE42A7A7F0A00FB460C /* UserDTO.swift */,
+				10831AE52A7A7F0A00FB460C /* Project.swift */,
+				10831AE62A7A7F0A00FB460C /* PostDTO.swift */,
+			);
+			name = Model;
+			path = Model/Model;
+			sourceTree = "<group>";
+		};
+		10C9B62B2A7BDC8A00026EE0 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				10C9B62E2A7BDCAF00026EE0 /* ReusableView.swift */,
+				10C9B62D2A7BDCAE00026EE0 /* UICollection+ReusableView.swift */,
+				10C9B62C2A7BDCAE00026EE0 /* UITableView+Reuseable.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +218,10 @@
 			dependencies = (
 			);
 			name = ARTISTACK;
+			packageProductDependencies = (
+				10831ACF2A7A76C100FB460C /* SnapKit */,
+				10831AD22A7A76CE00FB460C /* Then */,
+			);
 			productName = ARTISTACK;
 			productReference = 107A75D42A7A69F300E9201B /* ARTISTACK.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +250,10 @@
 				Base,
 			);
 			mainGroup = 107A75CB2A7A69F300E9201B;
+			packageReferences = (
+				10831ACE2A7A76C100FB460C /* XCRemoteSwiftPackageReference "SnapKit" */,
+				10831AD12A7A76CE00FB460C /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			productRefGroup = 107A75D52A7A69F300E9201B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +270,6 @@
 			files = (
 				107A75E42A7A69F400E9201B /* LaunchScreen.storyboard in Resources */,
 				107A75E12A7A69F400E9201B /* Assets.xcassets in Resources */,
-				107A75DF2A7A69F300E9201B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +280,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				107A75DC2A7A69F300E9201B /* ViewController.swift in Sources */,
+				10831AEB2A7A7F0A00FB460C /* UserDTO.swift in Sources */,
+				10831AE72A7A7F0A00FB460C /* LikedListDTO.swift in Sources */,
+				10831AD52A7A772000FB460C /* UserCell.swift in Sources */,
+				107A75F32A7A6EF400E9201B /* UIVIew+.swift in Sources */,
+				107A75DC2A7A69F300E9201B /* HomeViewController.swift in Sources */,
+				10831AEC2A7A7F0A00FB460C /* Project.swift in Sources */,
+				10831AEA2A7A7F0A00FB460C /* InstrumentDTO.swift in Sources */,
+				10831AEF2A7A81B100FB460C /* PostCell.swift in Sources */,
+				10831AD82A7A77DC00FB460C /* BaseVIewController.swift in Sources */,
+				10C9B6312A7BDCAF00026EE0 /* ReusableView.swift in Sources */,
 				107A75D82A7A69F300E9201B /* AppDelegate.swift in Sources */,
+				10C9B62F2A7BDCAF00026EE0 /* UITableView+Reuseable.swift in Sources */,
+				10831AF12A7A924300FB460C /* UIStackView+.swift in Sources */,
+				10831AED2A7A7F0A00FB460C /* PostDTO.swift in Sources */,
+				10831AE82A7A7F0A00FB460C /* Stack.swift in Sources */,
+				10831AE92A7A7F0A00FB460C /* Like.swift in Sources */,
 				107A75DA2A7A69F300E9201B /* SceneDelegate.swift in Sources */,
+				10C9B6302A7BDCAF00026EE0 /* UICollection+ReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		107A75DD2A7A69F300E9201B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				107A75DE2A7A69F300E9201B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		107A75E22A7A69F400E9201B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,9 +441,7 @@
 				INFOPLIST_FILE = ARTISTACK/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,9 +467,7 @@
 				INFOPLIST_FILE = ARTISTACK/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,6 +503,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		10831ACE2A7A76C100FB460C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		10831AD12A7A76CE00FB460C /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		10831ACF2A7A76C100FB460C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10831ACE2A7A76C100FB460C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		10831AD22A7A76CE00FB460C /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10831AD12A7A76CE00FB460C /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 107A75CC2A7A69F300E9201B /* Project object */;
 }
