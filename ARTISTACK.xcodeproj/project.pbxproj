@@ -26,6 +26,12 @@
 		10831AED2A7A7F0A00FB460C /* PostDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10831AE62A7A7F0A00FB460C /* PostDTO.swift */; };
 		10831AEF2A7A81B100FB460C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10831AEE2A7A81B100FB460C /* PostCell.swift */; };
 		10831AF12A7A924300FB460C /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10831AF02A7A924300FB460C /* UIStackView+.swift */; };
+		10AB4AC12A94B4B900E1B514 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB4AC02A94B4B900E1B514 /* ProfileCell.swift */; };
+		10AB4AC32A94B4F300E1B514 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB4AC22A94B4F300E1B514 /* ProjectCell.swift */; };
+		10AB4AC52A94C3B000E1B514 /* ProjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB4AC42A94C3B000E1B514 /* ProjectHeaderView.swift */; };
+		10AB4AC82A94CCF700E1B514 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB4AC72A94CCF700E1B514 /* Tab.swift */; };
+		10AB4ACA2A94CD6B00E1B514 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB4AC92A94CD6B00E1B514 /* MainTabBarController.swift */; };
+		10B067722A9485C100BFA002 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B067712A9485C100BFA002 /* ProfileViewController.swift */; };
 		10C9B62F2A7BDCAF00026EE0 /* UITableView+Reuseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C9B62C2A7BDCAE00026EE0 /* UITableView+Reuseable.swift */; };
 		10C9B6302A7BDCAF00026EE0 /* UICollection+ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C9B62D2A7BDCAE00026EE0 /* UICollection+ReusableView.swift */; };
 		10C9B6312A7BDCAF00026EE0 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C9B62E2A7BDCAF00026EE0 /* ReusableView.swift */; };
@@ -51,6 +57,12 @@
 		10831AE62A7A7F0A00FB460C /* PostDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDTO.swift; sourceTree = "<group>"; };
 		10831AEE2A7A81B100FB460C /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		10831AF02A7A924300FB460C /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		10AB4AC02A94B4B900E1B514 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		10AB4AC22A94B4F300E1B514 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
+		10AB4AC42A94C3B000E1B514 /* ProjectHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderView.swift; sourceTree = "<group>"; };
+		10AB4AC72A94CCF700E1B514 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		10AB4AC92A94CD6B00E1B514 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		10B067712A9485C100BFA002 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		10C9B62C2A7BDCAE00026EE0 /* UITableView+Reuseable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Reuseable.swift"; sourceTree = "<group>"; };
 		10C9B62D2A7BDCAE00026EE0 /* UICollection+ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollection+ReusableView.swift"; sourceTree = "<group>"; };
 		10C9B62E2A7BDCAF00026EE0 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
@@ -100,8 +112,10 @@
 		107A75EB2A7A6D4A00E9201B /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				10AB4AC62A94CCEC00E1B514 /* Tab */,
 				10831AD62A7A77BA00FB460C /* Base */,
 				107A75EC2A7A6D5800E9201B /* Home */,
+				10B067702A94859400BFA002 /* Profile */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -109,6 +123,7 @@
 		107A75EC2A7A6D5800E9201B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				10AB4ACB2A94EF3500E1B514 /* PopUp */,
 				107A75DB2A7A69F300E9201B /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -157,6 +172,9 @@
 			children = (
 				10831AD42A7A772000FB460C /* UserCell.swift */,
 				10831AEE2A7A81B100FB460C /* PostCell.swift */,
+				10AB4AC02A94B4B900E1B514 /* ProfileCell.swift */,
+				10AB4AC22A94B4F300E1B514 /* ProjectCell.swift */,
+				10AB4AC42A94C3B000E1B514 /* ProjectHeaderView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -190,6 +208,30 @@
 			);
 			name = Model;
 			path = Model/Model;
+			sourceTree = "<group>";
+		};
+		10AB4AC62A94CCEC00E1B514 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				10AB4AC72A94CCF700E1B514 /* Tab.swift */,
+				10AB4AC92A94CD6B00E1B514 /* MainTabBarController.swift */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
+		10AB4ACB2A94EF3500E1B514 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PopUp;
+			sourceTree = "<group>";
+		};
+		10B067702A94859400BFA002 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				10B067712A9485C100BFA002 /* ProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		10C9B62B2A7BDC8A00026EE0 /* Util */ = {
@@ -282,16 +324,22 @@
 			files = (
 				10831AEB2A7A7F0A00FB460C /* UserDTO.swift in Sources */,
 				10831AE72A7A7F0A00FB460C /* LikedListDTO.swift in Sources */,
+				10AB4ACA2A94CD6B00E1B514 /* MainTabBarController.swift in Sources */,
 				10831AD52A7A772000FB460C /* UserCell.swift in Sources */,
 				107A75F32A7A6EF400E9201B /* UIVIew+.swift in Sources */,
+				10AB4AC82A94CCF700E1B514 /* Tab.swift in Sources */,
 				107A75DC2A7A69F300E9201B /* HomeViewController.swift in Sources */,
 				10831AEC2A7A7F0A00FB460C /* Project.swift in Sources */,
 				10831AEA2A7A7F0A00FB460C /* InstrumentDTO.swift in Sources */,
 				10831AEF2A7A81B100FB460C /* PostCell.swift in Sources */,
 				10831AD82A7A77DC00FB460C /* BaseVIewController.swift in Sources */,
+				10AB4AC12A94B4B900E1B514 /* ProfileCell.swift in Sources */,
+				10AB4AC32A94B4F300E1B514 /* ProjectCell.swift in Sources */,
+				10B067722A9485C100BFA002 /* ProfileViewController.swift in Sources */,
 				10C9B6312A7BDCAF00026EE0 /* ReusableView.swift in Sources */,
 				107A75D82A7A69F300E9201B /* AppDelegate.swift in Sources */,
 				10C9B62F2A7BDCAF00026EE0 /* UITableView+Reuseable.swift in Sources */,
+				10AB4AC52A94C3B000E1B514 /* ProjectHeaderView.swift in Sources */,
 				10831AF12A7A924300FB460C /* UIStackView+.swift in Sources */,
 				10831AED2A7A7F0A00FB460C /* PostDTO.swift in Sources */,
 				10831AE82A7A7F0A00FB460C /* Stack.swift in Sources */,

@@ -7,14 +7,51 @@
 
 import UIKit
 
+enum stackCount: Int, CaseIterable {
+    case one = 1
+    case two
+    case three
+    case four
+    case five
+    case six
+    
+    var height: Int {
+        switch self{
+        case .one:
+            return 60
+        case .two:
+            return 120
+        case .three:
+            return 180
+        case .four:
+            return 180
+        case .five:
+            return 180
+        case .six:
+            return 180
+        }
+    }
+    
+    
+}
+
+
 final class PostCell: UITableViewCell{
+        
+    let count: stackCount = .three
     
     let contentBackgroundView = UIView().then{
         $0.backgroundColor = .systemMint
     }
-    
-    let userTableView = UITableView()
-    
+    lazy var userTableView = UITableView().then{
+        $0.showsVerticalScrollIndicator = false
+        $0.rowHeight = 55
+        $0.register(cell: UserCell.self)
+        $0.delegate = self
+        $0.dataSource = self
+        $0.separatorStyle = .none
+        $0.backgroundColor = .clear
+    }
     let codeButton = UIButton().then{
         $0.setImage(UIImage(named: "code"), for: .normal)
     }
@@ -43,6 +80,7 @@ final class PostCell: UITableViewCell{
         $0.text = "오랜만에피아노라서약간어색하네요최대최대글자수입최대최대최대최대최대최대글자수입니다최대최대최대"
         $0.numberOfLines = 0
         $0.font = .boldSystemFont(ofSize: 14)
+        $0.isHidden = true
 
     }
     let infoStackView = UIStackView().then{
@@ -55,7 +93,6 @@ final class PostCell: UITableViewCell{
     let othersButton = UIButton().then{
         $0.setImage(UIImage(named: "more"), for: .normal)
     }
-    
     let moreButton = UIButton().then{
         $0.setTitle("더보기", for: .normal)
         $0.titleLabel?.font = .boldSystemFont(ofSize: 14)
@@ -74,11 +111,7 @@ final class PostCell: UITableViewCell{
     }
     
     func setLayouts() {
-        //        contentView.addSubview(contentBackgroundView)
-        //        contentBackgroundView.snp.makeConstraints {
-        //            $0.edges.equalToSuperview()
-        //        }
-        contentView.addSubviews(othersButton, stackButton, stackCountLabel, likeButton, likeCountLabel, codeButton, infoStackView, moreButton)
+        contentView.addSubviews(othersButton, stackButton, stackCountLabel, likeButton, likeCountLabel, codeButton, infoStackView, moreButton, userTableView)
         infoStackView.addArrangedSubviews(titleLabel, descriptionLabel)
         othersButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().offset(-8)
@@ -121,23 +154,37 @@ final class PostCell: UITableViewCell{
             $0.leading.equalTo(titleLabel.snp.trailing).offset(12)
             $0.centerY.equalTo(titleLabel)
         }
+        
+        userTableView.snp.makeConstraints {
+            $0.leading.equalTo(infoStackView)
+            $0.trailing.equalTo(moreButton.snp.trailing).offset(80)
+            $0.height.equalTo(count.height)
+            $0.bottom.equalTo(titleLabel.snp.top).offset(-20)
+        }
     }
     func setProperties(){
         contentView.backgroundColor = .black
+        moreButton.addTarget(self, action: #selector(moreButtonDidTap), for: .touchUpInside)
+    }
+    
+    
+    @objc func moreButtonDidTap(){
+        descriptionLabel.isHidden.toggle()
     }
 }
 
-//extension PostCell: UITableViewDelegate, UITableViewDataSource{
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 0
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: UserCell.identifier) as? UserCell else{
-//            return UITableViewCell()
-//        }
-//        return cell
-//    }
-//    
-//    
-//}
+extension PostCell: UITableViewDelegate, UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UserCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
+        cell.selectionStyle = .none
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return count.rawValue
+    }
+    
+    
+}

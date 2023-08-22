@@ -23,8 +23,9 @@ class HomeViewController: BaseViewController {
         $0.dataSource = self
         $0.showsVerticalScrollIndicator = false
         $0.contentInsetAdjustmentBehavior = .never
-
     }
+    
+
     
     let progressView = UIView().then{
         $0.backgroundColor = .white
@@ -50,6 +51,8 @@ class HomeViewController: BaseViewController {
     override func setProperties() {
 
     }
+    
+
 
 }
 
@@ -61,6 +64,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         let cell: PostCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         cell.contentView.backgroundColor = [UIColor.red, UIColor.blue, UIColor.purple, UIColor.darkGray, UIColor.black].randomElement()
 //        cell.backgroundColor = .clear
+        cell.userTableView.reloadData()
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
