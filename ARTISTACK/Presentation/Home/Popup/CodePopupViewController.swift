@@ -9,67 +9,17 @@ import UIKit
 
 class CodePopupViewController: BaseViewController {
     
-    let darkBackgroundImageView = UIImageView().then{
-        $0.image = UIImage(named: "background.dark.top")
-        $0.contentMode = .scaleAspectFill
-    }
+    let codePopupView = CodePopupView()
     
-    let clearButton = UIButton()
-    
-    let titleLabel = UILabel().then{
-        $0.text = "곡정보"
-        $0.font = .boldSystemFont(ofSize: 18)
-    }
-    let codeTitleLabel = UILabel().then{
-        $0.text = "코드진행"
-        $0.font = .boldSystemFont(ofSize: 22)
-    }
-    let bpmTitleLabel = UILabel().then{
-        $0.text = "BPM"
-        $0.font = .boldSystemFont(ofSize: 22)
-    }
-    let codeLabel = UILabel().then{
-        $0.text = "C F Am Dm "
-        $0.font = .systemFont(ofSize: 22)
-    }
-    let bpmLabel = UILabel().then{
-        $0.text = "128"
-        $0.font = .systemFont(ofSize: 22)
+    override func loadView() {
+        self.view = codePopupView
     }
     
     override func setProperties() {
         view.backgroundColor = .white
     }
     
-    override func setLayouts() {
-        view.addSubviews(darkBackgroundImageView, titleLabel, codeTitleLabel, codeLabel, bpmTitleLabel, bpmLabel, clearButton)
-        darkBackgroundImageView.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.horizontalEdges.equalToSuperview()
-            $0.height.equalToSuperview().multipliedBy(0.5)
-        }
-        titleLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(20)
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(20)
-        }
-        codeTitleLabel.snp.makeConstraints {
-            $0.leading.equalTo(titleLabel)
-            $0.top.equalTo(titleLabel.snp.bottom).offset(58)
-        }
-        codeLabel.snp.makeConstraints {
-            $0.top.equalTo(codeTitleLabel.snp.bottom).offset(8)
-            $0.leading.equalTo(titleLabel)
-        }
-        
-        bpmTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(codeLabel.snp.bottom).offset(24)
-            $0.leading.equalTo(titleLabel)
-        }
-        bpmLabel.snp.makeConstraints {
-            $0.top.equalTo(bpmTitleLabel.snp.bottom).offset(8)
-            $0.leading.equalTo(titleLabel)
-        }
-    }
+    
     
 }
 

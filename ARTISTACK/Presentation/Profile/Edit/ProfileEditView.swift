@@ -1,13 +1,13 @@
 //
-//  ProfileEditViewController.swift
+//  ProfileEditView.swift
 //  ARTISTACK
 //
-//  Created by 임영준 on 2023/08/26.
+//  Created by 임영준 on 2023/08/28.
 //
 
 import UIKit
 
-class ProfileEditViewController: BaseViewController {
+class ProfileEditView: BaseView {
     
     var isToolTipHidden = true
     
@@ -53,17 +53,12 @@ class ProfileEditViewController: BaseViewController {
         $0.buttonTitleLabel.text = "저장하기"
     }
     
-    override func setProperties() {
-        hideKeyboardWhenTappedAround()
-    }
-    
-    
     override func setLayouts() {
-        view.addSubviews(profileImageView, separator1View, nicknameLabel, nicknameTextField, nicknameCountLabel, separator2View, descriptionLabel, descriptionTextView, descriptionCountLabel, separator3View, storeButton, toolTipView)
+        addSubviews(profileImageView, separator1View, nicknameLabel, nicknameTextField, nicknameCountLabel, separator2View, descriptionLabel, descriptionTextView, descriptionCountLabel, separator3View, storeButton, toolTipView)
         profileImageView.snp.makeConstraints {
             $0.size.equalTo(100)
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.top.equalTo(self.safeAreaLayoutGuide).offset(20)
         }
         separator1View.snp.makeConstraints {
             $0.top.equalTo(profileImageView.snp.bottom).offset(22)

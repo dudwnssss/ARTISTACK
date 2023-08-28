@@ -10,50 +10,16 @@ import UIKit
 
 class HomeViewController: BaseViewController {
     
-    let headerLabel = UILabel().then{
-        $0.text = "최신"
-        $0.font = .boldSystemFont(ofSize: 18)
-    }
-
-    lazy var postTableView = UITableView().then{
-        $0.register(cell: PostCell.self)
-        $0.isPagingEnabled = true
-        $0.backgroundColor = .black
-        $0.delegate = self
-        $0.dataSource = self
-        $0.showsVerticalScrollIndicator = false
-        $0.contentInsetAdjustmentBehavior = .never
-    }
-
+    let homeView = HomeView()
     
-    let progressView = UIView().then{
-        $0.backgroundColor = .white
-    }
-    
-    
-    override func setLayouts() {
-        view.addSubviews(postTableView, headerLabel, progressView)
-        postTableView.snp.makeConstraints {
-            $0.leading.trailing.top.equalToSuperview()
-            $0.bottom.equalTo(progressView.snp.top)
-        }
-        headerLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(20)
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(20)
-        }
-        progressView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(3)
-        }
+    override func loadView() {
+        self.view = homeView
     }
     
     override func setProperties() {
-
+        homeView.postTableView.delegate = self
+        homeView.postTableView.dataSource = self
     }
-    
-
-
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
@@ -63,12 +29,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PostCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         cell.contentView.backgroundColor = [UIColor.red, UIColor.blue, UIColor.purple, UIColor.darkGray, UIColor.black].randomElement()
-//        cell.userTableView.reloadData()
-//        cell.descriptionLabel.isHidden = true
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return postTableView.frame.height
+        return homeView.postTableView.frame.height
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

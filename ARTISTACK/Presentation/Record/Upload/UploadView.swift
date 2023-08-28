@@ -1,14 +1,14 @@
 //
-//  UploadViewController.swift
+//  UploadView.swift
 //  ARTISTACK
 //
-//  Created by 임영준 on 2023/08/26.
+//  Created by 임영준 on 2023/08/28.
 //
 
 import UIKit
 
-class UploadViewController: BaseViewController {
-
+class UploadView: BaseView {
+    
     let scrollView = UIScrollView().then{
         $0.showsVerticalScrollIndicator = false
         $0.backgroundColor = .systemPurple
@@ -145,15 +145,10 @@ class UploadViewController: BaseViewController {
     
     let tooltipView = ToolTipView(title: "제목을 작성해주세요!", tipPosition: .bottom, isRounded: true)
     
-    override func setProperties() {
-        title = "게시하기"
-        hideKeyboardWhenTappedAround()
-    }
-    
     override func setLayouts() {
-        view.addSubviews(scrollView, uploadButon, tooltipView)
+        addSubviews(scrollView, uploadButon, tooltipView)
         scrollView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(self.safeAreaLayoutGuide)
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
@@ -281,9 +276,5 @@ class UploadViewController: BaseViewController {
             $0.trailing.equalTo(thumbnailImageView.snp.leading).offset(-24)
             $0.bottom.equalTo(separator3View).offset(-20)
         }
-        
-
     }
-
-
 }
