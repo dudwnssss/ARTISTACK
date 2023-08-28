@@ -22,7 +22,6 @@ class ProfileViewController: BaseViewController {
     }
     
     override func setProperties() {
-        view.backgroundColor = .systemIndigo
         setNavigationBar()
         profileView.projectCollectionView.dataSource = self
         profileView.projectCollectionView.delegate = self
@@ -30,8 +29,22 @@ class ProfileViewController: BaseViewController {
     
     func setNavigationBar(){
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: titleLabel)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "setting"), style: .plain, target: self, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "setting"), style: .plain, target: self, action: #selector(settingButtonDidTap))
         navigationController?.navigationBar.tintColor = .lightGray
+    }
+    
+    @objc func profileEditButtonDidTap(){
+        let vc = ProfileEditViewController()
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
+        vc.hidesBottomBarWhenPushed = false
+    }
+    
+    @objc func settingButtonDidTap(){
+        let vc = SettingViewController()
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
+        vc.hidesBottomBarWhenPushed = false
     }
 }
 
@@ -47,6 +60,9 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let profileCell: ProfileCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        profileCell.buttonAction = { [weak self] in
+            self?.profileEditButtonDidTap()
+        }
         let projectCell: ProjectCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         return indexPath.section == 0 ? profileCell : projectCell
     }

@@ -27,6 +27,8 @@ extension MainTabBarController {
     }
     
     private func setViewControllers() {
+        
+        
         let homeVC = HomeViewController()
         let homeNavigationController = UINavigationController(rootViewController: homeVC)
         homeNavigationController.tabBarItem = UITabBarItem(title: nil, image: Tab.home.image, tag: 0)

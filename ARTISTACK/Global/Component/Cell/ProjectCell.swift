@@ -22,14 +22,14 @@ final class ProjectCell: UICollectionViewCell {
         $0.font = .boldSystemFont(ofSize: 12)
     }
     let stackImageView = UIImageView().then{
-        $0.image = UIImage(named: "stack.small")
+        $0.image = UIImage(named: "stack.profile")
     }
     let stackCountLabel = UILabel().then{
         $0.text = "5"
         $0.font = .systemFont(ofSize: 12)
     }
     let likeImageVIew = UIImageView().then{
-        $0.image = UIImage(named: "like.small")
+        $0.image = UIImage(named: "like.profile")
     }
     let likeCountLabel = UILabel().then{
         $0.text = "333"

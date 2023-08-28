@@ -11,11 +11,8 @@ class UploadView: BaseView {
     
     let scrollView = UIScrollView().then{
         $0.showsVerticalScrollIndicator = false
-        $0.backgroundColor = .systemPurple
     }
-    let contentView = UIView().then{
-        $0.backgroundColor = .black
-    }
+    let contentView = UIView()
     
     let separator1View = SeparatorView()
     let titleTextFieldView = InfoTextFieldView().then{

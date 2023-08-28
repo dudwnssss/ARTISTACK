@@ -20,6 +20,9 @@ class UploadViewController: BaseViewController {
         hideKeyboardWhenTappedAround()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
     
 
     

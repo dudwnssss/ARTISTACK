@@ -1,0 +1,91 @@
+//
+//  SettingViewController.swift
+//  ARTISTACK
+//
+//  Created by 임영준 on 2023/08/28.
+//
+
+import UIKit
+
+enum SettingType: CaseIterable{
+    case account
+    case terms
+    case privacy
+    
+    var settingTitle: String {
+        switch self {
+        case .account:
+            return "계정"
+        case .terms:
+            return "이용약관"
+        case .privacy:
+            return "개인정보처리방침"
+        }
+    }
+    
+    var settingImage: UIImage {
+        switch self {
+        case .account:
+            return UIImage(named: "account")!
+        case .terms:
+            return UIImage(named: "terms")!
+        case .privacy:
+            return UIImage(named: "privacy")!
+        }
+    }
+}
+
+class SettingViewController: BaseViewController {
+    
+    private lazy var tableView = UITableView().then{
+        $0.separatorColor = .lightGray
+        $0.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        $0.delegate = self
+        $0.dataSource = self
+        $0.backgroundColor = .clear
+        $0.rowHeight = 55
+    }
+    let settingType = SettingType.allCases
+    
+    override func setLayouts() {
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints {
+            $0.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
+    
+}
+
+extension SettingViewController: UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        settingType.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = UITableViewCell()
+        cell.backgroundColor = .clear
+        
+        let accessoryImageView = UIImageView().then{
+            $0.image = UIImage(named: "accessory")
+        }
+
+        accessoryImageView.sizeToFit()
+        cell.accessoryView = accessoryImageView
+//        cell.accessoryType = .disclosureIndicator
+        
+        cell.textLabel?.text = settingType[indexPath.row].settingTitle
+        cell.textLabel?.textColor = .white
+        cell.imageView?.image = settingType[indexPath.row].settingImage
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.reloadRows(at: [indexPath], with: .none)
+        if indexPath.row == 0{
+            let vc = AccountViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            print(indexPath)
+        }
+    }
+}

@@ -19,9 +19,18 @@ class RecordViewController: BaseViewController {
         dismiss(animated: true)
     }
     
+    @objc func recordButtonDidTap(){
+        let vc = CheckRecordViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        nav.isNavigationBarHidden = true
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: false)
+    }
+    
     override func setProperties() {
         view.backgroundColor = .black
         recordView.dismissButton.addTarget(self, action: #selector(dismissButtonDidTap), for: .touchUpInside)
+        recordView.recordButton.addTarget(self, action: #selector(recordButtonDidTap), for: .touchUpInside)
     }
     
     

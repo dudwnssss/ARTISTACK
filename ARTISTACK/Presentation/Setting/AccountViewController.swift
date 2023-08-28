@@ -1,0 +1,59 @@
+//
+//  AccountViewController.swift
+//  ARTISTACK
+//
+//  Created by 임영준 on 2023/08/28.
+//
+
+import UIKit
+//todo
+enum SystemType: String, CaseIterable{
+    case logout = "로그아웃"
+    case withdraw = "탈퇴하기"
+}
+
+class AccountViewController: BaseViewController {
+
+    private lazy var tableView = UITableView().then{
+        $0.register(cell: AccountCell.self)
+        $0.separatorColor = .lightGray
+        $0.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        $0.delegate = self
+        $0.dataSource = self
+        $0.backgroundColor = .clear
+    }
+    let systemType = SystemType.allCases
+    
+    override func setLayouts() {
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints {
+            $0.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
+
+}
+
+extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            let accountCell: AccountCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
+            accountCell.accountType = .apple
+            return accountCell
+        }
+        else {
+            let cell = UITableViewCell()
+            cell.backgroundColor = .clear
+            cell.textLabel?.text = systemType[indexPath.row - 1].rawValue
+            cell.textLabel?.textColor = .white
+            return cell
+        }
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return indexPath.row == 0 ? 110 : 55
+    }
+}

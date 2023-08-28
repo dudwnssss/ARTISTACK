@@ -9,6 +9,8 @@ import UIKit
 
 final class ProfileCell: UICollectionViewCell {
     
+    var buttonAction : ()->Void = {}
+    
     let backgroundImageView = UIImageView().then{
         $0.image = UIImage(named: "background.gradient")
     }
@@ -16,17 +18,14 @@ final class ProfileCell: UICollectionViewCell {
         $0.image = UIImage(named: "person")
     }
     let nicknameLabel = UILabel().then{
-        $0.backgroundColor = .systemPink
         $0.text = "dudansthanswkd"
         $0.font = .boldSystemFont(ofSize: 19)
     }
     let idLabel = UILabel().then{
-        $0.backgroundColor = .systemPink
         $0.text = "@mikeannn"
         $0.font = .systemFont(ofSize: 15)
     }
     let descriptionLabel = UILabel().then{
-        $0.backgroundColor = .systemPink
         $0.text = "최대글자수최대글자수최대글자수최대글자수최대글자수최대글자수최대글자수최대글"
         $0.numberOfLines = 2
         $0.font = .boldSystemFont(ofSize: 14)
@@ -35,6 +34,11 @@ final class ProfileCell: UICollectionViewCell {
     let profileEditButton = UIButton().then{
         $0.setImage(UIImage(systemName: "pencil"), for: .normal)
         $0.tintColor = .lightGray
+    }
+    
+    
+    @objc func profileEditButtonDidTap(){
+        buttonAction()
     }
 
     override init(frame: CGRect) {
@@ -45,6 +49,7 @@ final class ProfileCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        buttonAction = {}
     }
 
     @available(*, unavailable)
@@ -90,7 +95,7 @@ final class ProfileCell: UICollectionViewCell {
     }
     
     func setProperties(){
-        
+        profileEditButton.addTarget(self, action: #selector(profileEditButtonDidTap), for: .touchUpInside)
     }
     
 }

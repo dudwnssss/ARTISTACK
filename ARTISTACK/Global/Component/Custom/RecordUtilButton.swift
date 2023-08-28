@@ -7,23 +7,72 @@
 
 import UIKit
 
-class RecordUtilButton: UIButton {
+enum UtilType: CaseIterable {
+    case timer
+    case camera
+    case volume
+    case retake
+    case replay
     
+    var utilTitle: String {
+        switch self {
+        case .timer:
+            return "타이머"
+        case .camera:
+            return "화면전환"
+        case .volume:
+            return "볼륨조절"
+        case .retake:
+            return  "재촬영"
+        case .replay:
+            return "다시재생"
+        }
+        
+    }
+    var utilImage: UIImage {
+        switch self {
+        case .timer:
+            return UIImage(named: "timer")!
+        case .camera:
+            return UIImage(named: "transition")!
+        case .volume:
+            return UIImage(named: "volume")!
+        case .retake:
+            return UIImage(named: "retake")!
+        case .replay:
+            return UIImage(named: "replay")!
+        }
+    }
+}
+
+class RecordUtilButton: UIButton {
+    var utilType: UtilType?
     let utilTitleLabel = UILabel().then{
         $0.text = "temp"
         $0.font = .boldSystemFont(ofSize: 11)
     }
-    let utilImageView = UIImageView().then{
-        $0.backgroundColor = .blue
-    }
+    let utilImageView = UIImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setProperties()
+        setLayouts()
+    }
+    
+    convenience init(utilType: UtilType){
+        self.init(frame: .zero)
+        self.utilType = utilType
+        setProperties()
         setLayouts()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setProperties(){
+        utilImageView.image = utilType?.utilImage
+        utilTitleLabel.text = utilType?.utilTitle
     }
     
     func setLayouts(){
@@ -39,7 +88,7 @@ class RecordUtilButton: UIButton {
         utilImageView.snp.makeConstraints {
             $0.size.equalTo(42)
             $0.centerX.equalToSuperview()
-            $0.bottom.equalTo(utilTitleLabel).offset(-2)
+            $0.bottom.equalTo(utilTitleLabel.snp.top).offset(-2)
         }
     }
 }

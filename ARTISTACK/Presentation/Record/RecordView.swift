@@ -12,8 +12,9 @@ class RecordView: BaseView {
     let dismissButton = UIButton().then{
         $0.setImage(UIImage(named: "dismiss"), for: .normal)
     }
-    let timerButton = RecordUtilButton()
-    let switchCameraButton = RecordUtilButton()
+    let timerButton = RecordUtilButton(utilType: .timer)
+    let switchCameraButton = RecordUtilButton(utilType: .camera)
+    
     let recordButton = UIButton().then{
         $0.setImage(UIImage(named: "record.start"), for: .normal)
     }
@@ -25,9 +26,10 @@ class RecordView: BaseView {
         $0.text = "최대글자수입니다다다글자수입니다다다"
         $0.font = .systemFont(ofSize: 14)
     }
+    let musicProgressView = MusicProgressView()
     
     override func setLayouts() {
-        addSubviews(dismissButton, timerButton, switchCameraButton, recordButton, artistackOnLabel, musicTitleLabel)
+        addSubviews(dismissButton, timerButton, switchCameraButton, recordButton, artistackOnLabel, musicTitleLabel, musicProgressView)
         recordButton.snp.makeConstraints {
             $0.size.equalTo(82)
             $0.centerX.equalToSuperview()
@@ -40,7 +42,7 @@ class RecordView: BaseView {
         }
         timerButton.snp.makeConstraints {
             $0.centerY.equalToSuperview().offset(-50)
-            $0.trailing.equalToSuperview().offset(-13)
+            $0.trailing.equalToSuperview().offset(-4)
         }
         switchCameraButton.snp.makeConstraints {
             $0.centerX.equalTo(timerButton)
@@ -53,6 +55,10 @@ class RecordView: BaseView {
         musicTitleLabel.snp.makeConstraints {
             $0.centerX.equalTo(artistackOnLabel)
             $0.top.equalTo(artistackOnLabel.snp.bottom).offset(3)
+        }
+        musicProgressView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview().offset(56)
         }
     }
 
