@@ -8,6 +8,7 @@
 import UIKit
 
 extension UITableViewCell: ReusableView {}
+extension UITableViewHeaderFooterView: ReusableView {}
 
 extension UITableView {
     func dequeueReusableCell<T: UITableViewCell>(forIndexPath indexPath: IndexPath) -> T {
@@ -17,6 +18,13 @@ extension UITableView {
             fatalError("Could not dequeue cell with identifier: \(T.reuseIdentifier)")
         }
         return cell
+    }
+    
+    func dequeHeaderFooterView<T: UITableViewHeaderFooterView>() -> T {
+        guard let view = dequeueReusableHeaderFooterView(withIdentifier: T.reuseIdentifier) as? T else {
+            fatalError("Could not dequeue cell with identifier: \(T.reuseIdentifier)")
+        }
+        return view
     }
 
     func register<T>(
@@ -30,3 +38,4 @@ extension UITableView {
         backgroundView = nil
     }
 }
+

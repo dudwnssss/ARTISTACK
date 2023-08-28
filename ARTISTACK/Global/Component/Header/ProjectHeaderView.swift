@@ -11,10 +11,14 @@ final class ProjectHeaderView: UICollectionReusableView {
         
     let headerTitleLabel = UILabel().then{
         $0.text = "내 연주"
+        $0.font = .systemFont(ofSize: 15)
     }
     let projectCountLabel = UILabel().then{
         $0.text = "13"
+        $0.font = .boldSystemFont(ofSize: 15)
     }
+    let separatorView = SeparatorView()
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,10 +27,10 @@ final class ProjectHeaderView: UICollectionReusableView {
     }
     
     func setProperties(){
-        
+        backgroundColor = .blue
     }
     func setLayouts(){
-        addSubviews(headerTitleLabel, projectCountLabel)
+        addSubviews(headerTitleLabel, projectCountLabel, separatorView)
         headerTitleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(20)
             $0.centerY.equalToSuperview()
@@ -34,6 +38,11 @@ final class ProjectHeaderView: UICollectionReusableView {
         projectCountLabel.snp.makeConstraints {
             $0.leading.equalTo(headerTitleLabel.snp.trailing).offset(15)
             $0.centerY.equalTo(headerTitleLabel)
+        }
+        separatorView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(1)
         }
     }
     

@@ -13,6 +13,10 @@ extension UIView {
             addSubview(view)
         }
     }
+
+
+
+    
     
     func addDiamondMask(cornerRadius: CGFloat = 0) {
         let path = UIBezierPath()

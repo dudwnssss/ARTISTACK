@@ -9,23 +9,17 @@ import UIKit
 
 enum Tab: Int, CaseIterable {
     case home
+    case record
     case profile
     
     var image: UIImage {
         switch self {
         case .home:
             return UIImage(named: "home")!
+        case .record:
+            return UIImage(named: "record")!
         case .profile:
             return UIImage(named: "profile")!
-        }
-    }
-    
-    var selectedImage: UIImage {
-        switch self {
-        case .home:
-            return UIImage(named: "home.selected")!
-        case .profile:
-            return UIImage(named: "profile.selected")!
         }
     }
 }

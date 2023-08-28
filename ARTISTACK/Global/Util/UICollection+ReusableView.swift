@@ -29,6 +29,7 @@ extension UICollectionView {
         }
         return view
     }
+    
 
     func dequeueFooterView<T: UICollectionReusableView>(forIndexPath indexPath: IndexPath) -> T {
         guard let view = dequeueReusableSupplementaryView(

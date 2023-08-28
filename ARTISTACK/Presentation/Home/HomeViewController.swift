@@ -24,12 +24,12 @@ class HomeViewController: BaseViewController {
         $0.showsVerticalScrollIndicator = false
         $0.contentInsetAdjustmentBehavior = .never
     }
-    
 
     
     let progressView = UIView().then{
         $0.backgroundColor = .white
     }
+    
     
     override func setLayouts() {
         view.addSubviews(postTableView, headerLabel, progressView)
@@ -63,8 +63,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PostCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         cell.contentView.backgroundColor = [UIColor.red, UIColor.blue, UIColor.purple, UIColor.darkGray, UIColor.black].randomElement()
-//        cell.backgroundColor = .clear
-        cell.userTableView.reloadData()
+//        cell.userTableView.reloadData()
+//        cell.descriptionLabel.isHidden = true
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

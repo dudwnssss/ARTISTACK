@@ -13,6 +13,7 @@ class MainTabBarController: UITabBarController {
         setViewControllers()
         setTabBarItemImageInsets()
         self.tabBar.tintColor = .white
+        self.delegate = self
     }
 }
 
@@ -28,27 +29,39 @@ extension MainTabBarController {
     private func setViewControllers() {
         let homeVC = HomeViewController()
         let homeNavigationController = UINavigationController(rootViewController: homeVC)
-        homeNavigationController.tabBarItem = UITabBarItem(
-            title: nil,
-            image: Tab.home.image,
-            selectedImage: Tab.home.selectedImage
-        )
+        homeNavigationController.tabBarItem = UITabBarItem(title: nil, image: Tab.home.image, tag: 0)
         homeNavigationController.navigationBar.isHidden = true
         
-
+        let recordVC = RecordViewController()
+        let recordNavigationController = UINavigationController(rootViewController: recordVC)
+        recordNavigationController.tabBarItem = UITabBarItem(title: nil, image: Tab.record.image, tag: 1)
+        recordNavigationController.navigationBar.isHidden = true
+        
         let profileVC = ProfileViewController()
         let myPageNavigationController = UINavigationController(rootViewController: profileVC)
-        myPageNavigationController.tabBarItem = UITabBarItem(
-            title: nil,
-            image: Tab.profile.image,
-            selectedImage: Tab.profile.selectedImage
-        )
-
+        myPageNavigationController.tabBarItem = UITabBarItem(title: nil, image: Tab.profile.image, tag: 2)
+        
         super.setViewControllers([
             homeNavigationController,
+            recordNavigationController,
             myPageNavigationController
         ], animated: true)
     }
 }
 
+extension MainTabBarController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if viewController.tabBarItem.tag == 1 {
+            // Present View Controller
+            let recordVC = RecordViewController()
+            recordVC.modalPresentationStyle = .fullScreen
+            present(recordVC, animated: true)
+            return false
+        }
+        return true
+    }
+    
+    
+}
 

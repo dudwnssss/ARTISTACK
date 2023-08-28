@@ -33,7 +33,6 @@ final class ProfileCell: UICollectionViewCell {
     }
     
     let profileEditButton = UIButton().then{
-        $0.backgroundColor = .brown
         $0.setImage(UIImage(systemName: "pencil"), for: .normal)
         $0.tintColor = .lightGray
     }
@@ -57,12 +56,12 @@ final class ProfileCell: UICollectionViewCell {
         contentView.addSubviews(backgroundImageView, profileImageView, nicknameLabel, idLabel, descriptionLabel, profileEditButton)
         backgroundImageView.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(20)
-            $0.size.equalTo(contentView.snp.width).multipliedBy(0.3)
+            $0.size.equalTo(contentView.snp.width).multipliedBy(0.25)
             $0.centerY.equalToSuperview()
         }
         profileImageView.snp.makeConstraints {
             $0.center.equalTo(backgroundImageView)
-            $0.size.equalTo(backgroundImageView).multipliedBy(0.8)
+            $0.size.equalTo(backgroundImageView).multipliedBy(0.9)
         }
         
         idLabel.snp.makeConstraints {
@@ -78,14 +77,14 @@ final class ProfileCell: UICollectionViewCell {
         descriptionLabel.snp.makeConstraints {
             $0.top.equalTo(idLabel.snp.bottom).offset(10)
             $0.leading.equalTo(idLabel)
-            $0.trailing.lessThanOrEqualToSuperview().offset(-6)
+            $0.trailing.lessThanOrEqualToSuperview().offset(-20)
             $0.bottom.lessThanOrEqualTo(backgroundImageView.snp.bottom)
         }
         
         profileEditButton.snp.makeConstraints {
             $0.leading.equalTo(nicknameLabel.snp.trailing)
             $0.centerY.equalTo(nicknameLabel)
-            $0.size.equalTo(44)
+            $0.size.equalTo(40)
         }
         
     }
