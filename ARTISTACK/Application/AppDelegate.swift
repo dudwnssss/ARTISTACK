@@ -11,23 +11,29 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         if #available(iOS 15.0, *) {
             let navigationBarAppearance = UINavigationBarAppearance()
             navigationBarAppearance.configureWithDefaultBackground()
-            navigationBarAppearance.backgroundColor = .artistackBackground
+            let backButtonImage = UIImage(named: "back6")
+            let backButtonAppearance = UIBarButtonItemAppearance()
+            backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear, .font: UIFont.systemFont(ofSize: 0.0)]
+            navigationBarAppearance.backButtonAppearance = backButtonAppearance
+            navigationBarAppearance.setBackIndicatorImage(backButtonImage, transitionMaskImage: backButtonImage)
+            navigationBarAppearance.backgroundColor = .artistackSystem1
+            UINavigationBar.appearance().isTranslucent = false
             UINavigationBar.appearance().standardAppearance = navigationBarAppearance
-            UINavigationBar.appearance().compactAppearance = navigationBarAppearance
             UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+            UINavigationBar.appearance().tintColor = .white
         }
         
         if #available(iOS 15.0, *) {
             let appearance = UITabBarAppearance()
             appearance.configureWithDefaultBackground()
-            UITabBar.appearance().barTintColor = .artistackBackground
-            UITabBar.appearance().backgroundColor = .artistackBackground
+            UITabBar.appearance().barTintColor = .artistackSystem1
+            UITabBar.appearance().backgroundColor = .artistackSystem1
             UITabBar.appearance().isTranslucent = false
         }
-        
         UILabel.appearance().textColor = .white
         sleep(1)
         return true

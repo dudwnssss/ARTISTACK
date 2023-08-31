@@ -10,13 +10,9 @@ import UIKit
 final class ProfileCell: UICollectionViewCell {
     
     var buttonAction : ()->Void = {}
+
+    let profileImageView = ProfileImageView()
     
-    let backgroundImageView = UIImageView().then{
-        $0.image = UIImage(named: "background.gradient")
-    }
-    let profileImageView = UIImageView().then{
-        $0.image = UIImage(named: "person")
-    }
     let nicknameLabel = UILabel().then{
         $0.text = "dudansthanswkd"
         $0.font = .boldSystemFont(ofSize: 19)
@@ -33,7 +29,7 @@ final class ProfileCell: UICollectionViewCell {
     
     let profileEditButton = UIButton().then{
         $0.setImage(UIImage(systemName: "pencil"), for: .normal)
-        $0.tintColor = .lightGray
+        $0.tintColor = .artistackSystem6
     }
     
     
@@ -58,20 +54,17 @@ final class ProfileCell: UICollectionViewCell {
     }
     
     func setLayouts(){
-        contentView.addSubviews(backgroundImageView, profileImageView, nicknameLabel, idLabel, descriptionLabel, profileEditButton)
-        backgroundImageView.snp.makeConstraints {
+        contentView.addSubviews( profileImageView, nicknameLabel, idLabel, descriptionLabel, profileEditButton)
+
+        profileImageView.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(20)
             $0.size.equalTo(contentView.snp.width).multipliedBy(0.25)
             $0.centerY.equalToSuperview()
         }
-        profileImageView.snp.makeConstraints {
-            $0.center.equalTo(backgroundImageView)
-            $0.size.equalTo(backgroundImageView).multipliedBy(0.9)
-        }
         
         idLabel.snp.makeConstraints {
-            $0.centerY.equalTo(backgroundImageView).offset(-4)
-            $0.leading.equalTo(backgroundImageView.snp.trailing).offset(20)
+            $0.centerY.equalTo(profileImageView).offset(-4)
+            $0.leading.equalTo(profileImageView.snp.trailing).offset(20)
         }
         
         nicknameLabel.snp.makeConstraints {
@@ -83,7 +76,7 @@ final class ProfileCell: UICollectionViewCell {
             $0.top.equalTo(idLabel.snp.bottom).offset(10)
             $0.leading.equalTo(idLabel)
             $0.trailing.lessThanOrEqualToSuperview().offset(-20)
-            $0.bottom.lessThanOrEqualTo(backgroundImageView.snp.bottom)
+            $0.bottom.lessThanOrEqualTo(profileImageView.snp.bottom)
         }
         
         profileEditButton.snp.makeConstraints {

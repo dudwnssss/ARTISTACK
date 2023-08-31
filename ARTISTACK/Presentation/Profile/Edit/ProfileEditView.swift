@@ -20,41 +20,22 @@ class ProfileEditView: BaseView {
     }
     
     let nicknameLabel = UILabel().then{
-        $0.text = "닉네임"
-        $0.font = .boldSystemFont(ofSize: 16)
+        $0.configureTitle(title: "닉네임", titleType: .sub)
     }
     let descriptionLabel = UILabel().then{
-        $0.text = "소개"
-        $0.font = .boldSystemFont(ofSize: 16)
+        $0.configureTitle(title: "소개", titleType: .sub)
     }
-    let nicknameCountLabel = UILabel().then{
-        $0.text = "0"
-        $0.textColor = .lightGray
-        $0.font = .systemFont(ofSize: 14)
-    }
-    let descriptionCountLabel = UILabel().then{
-        $0.text = "0"
-        $0.textColor = .lightGray
-        $0.font = .systemFont(ofSize: 14)
-    }
-    let nicknameTextField = UITextField().then{
-        $0.placeholder = "4-14자 (영문 소문자, 숫자, 밑줄 가능)"
-        $0.font = .boldSystemFont(ofSize: 14)
-        $0.textColor = .white
-    }
-    let descriptionTextView = UITextView().then{
-        $0.isScrollEnabled = false
-        $0.text = "스태커님은 어떤 음악을 하시나요?"
-        $0.font = .boldSystemFont(ofSize: 14)
-        $0.textColor = .white
-        $0.backgroundColor = .clear
-    }
+    
+    let nicknameTextFieldView = CustomTextFieldView(placeholder: "4-14자 (영문 소문자, 숫자, 밑줄 가능)", limitCount: 14, fontSize: 14, isBold: true)
+
+    let descriptionTextView = CustomTextView(placeholder: "스태커님은 어떤 음악을 하시나요?", limitCount: 38, fontSize: 14, isBold: true)
+    
     let storeButton = CompleteButton().then{
         $0.buttonTitleLabel.text = "저장하기"
     }
     
     override func setLayouts() {
-        addSubviews(profileImageView, separator1View, nicknameLabel, nicknameTextField, nicknameCountLabel, separator2View, descriptionLabel, descriptionTextView, descriptionCountLabel, separator3View, storeButton, toolTipView)
+        addSubviews(profileImageView, separator1View, nicknameLabel, nicknameTextFieldView, separator2View, descriptionTextView, descriptionLabel, separator3View, storeButton, toolTipView)
         profileImageView.snp.makeConstraints {
             $0.size.equalTo(100)
             $0.centerX.equalToSuperview()
@@ -69,14 +50,12 @@ class ProfileEditView: BaseView {
             $0.width.equalTo(42)
             $0.top.equalTo(separator1View.snp.bottom).offset(12)
         }
-        nicknameTextField.snp.makeConstraints {            $0.leading.equalTo(nicknameLabel.snp.trailing).offset(30)
-            $0.trailing.equalTo(nicknameCountLabel.snp.leading).offset(-8)
-            $0.centerY.equalTo(nicknameLabel)
-        }
-        nicknameCountLabel.snp.makeConstraints {
-            $0.width.equalTo(10)
-            $0.trailing.equalToSuperview().offset(-16)
-            $0.centerY.equalTo(nicknameLabel)
+        
+        nicknameTextFieldView.snp.makeConstraints {
+            $0.leading.equalTo(nicknameLabel.snp.trailing).offset(30)
+            $0.trailing.equalToSuperview().offset(-20)
+            $0.height.equalTo(28)
+            $0.top.equalTo(nicknameLabel)
         }
         separator2View.snp.makeConstraints {
             $0.top.equalTo(nicknameLabel.snp.bottom).offset(12)
@@ -87,22 +66,16 @@ class ProfileEditView: BaseView {
             $0.top.equalTo(separator2View.snp.bottom).offset(12)
         }
         descriptionTextView.snp.makeConstraints {
-            $0.leading.equalTo(nicknameTextField)
-            $0.trailing.equalTo(nicknameCountLabel)
-            $0.top.equalTo(descriptionLabel).offset(-6)
+            $0.leading.trailing.equalTo(nicknameTextFieldView)
+            $0.top.equalTo(descriptionLabel)
             $0.bottom.equalTo(separator3View.snp.top).offset(-12)
-        }
-        
-        descriptionCountLabel.snp.makeConstraints {
-            $0.trailing.equalTo(nicknameCountLabel)
-            $0.bottom.equalTo(descriptionTextView)
         }
         
         separator3View.snp.makeConstraints {
             $0.top.equalTo(separator2View.snp.bottom).offset(106)
             $0.horizontalEdges.equalToSuperview()
         }
-
+        
         storeButton.snp.makeConstraints {
             $0.bottom.equalToSuperview().offset(-46)
             $0.width.equalTo(128)

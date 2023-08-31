@@ -15,23 +15,7 @@ class UploadView: BaseView {
     let contentView = UIView()
     
     let separator1View = SeparatorView()
-    let titleTextFieldView = InfoTextFieldView().then{
-        $0.underLineView.isHidden = true
-        $0.textCountLabel.text = "18"
-        $0.infoTextField.placeholder = "프로젝트 제목을 입력해주세요"
-        $0.infoTextField.font = .boldSystemFont(ofSize: 16)
-    }
-    
-    let titleTextField = UITextField().then{
-        $0.font = .boldSystemFont(ofSize: 16)
-        $0.textColor = .white
-        $0.placeholder = "프로젝트 제목을 입력해주세요"
-    }
-    let titleCountLabel = UILabel().then{
-        $0.text = "18"
-        $0.textColor = .lightGray
-        $0.font = .systemFont(ofSize: 14)
-    }
+    let titleTextFieldView = CustomTextFieldView(placeholder: "프로젝트 제목을 입력해주세요", limitCount: 18)
     
     let separator2View = SeparatorView()
 
@@ -53,7 +37,7 @@ class UploadView: BaseView {
     }
     
     let thumbnailImageView = UIImageView().then{
-        $0.backgroundColor = .yellow
+        $0.backgroundColor = .darkGray
         $0.layer.cornerRadius = 3
         $0.clipsToBounds = true
     }
@@ -61,34 +45,24 @@ class UploadView: BaseView {
     let separator3View = SeparatorView()
 
     let infoLabel = UILabel().then{
-        $0.text = "곡정보"
-        $0.font = .boldSystemFont(ofSize: 18)
+        $0.configureTitle(title: "곡정보", titleType: .main)
     }
     
     let bpmLabel = UILabel().then{
-        $0.text = "BPM"
-        $0.font = .boldSystemFont(ofSize: 16)
+        $0.configureTitle(title: "BPM", titleType: .sub)
     }
     
     
-    let bpmTextFieldView = InfoTextFieldView().then{
-        $0.infoTextField.placeholder = "Ex) 123"
-        $0.textCountLabel.text = "26"
-    }
+    let bpmTextFieldView = CustomTextFieldView(placeholder: "Ex) 123", limitCount: 26, isUnderLined: true)
     
     let codeLabel = UILabel().then{
-        $0.text = "코드진행"
-        $0.font = .boldSystemFont(ofSize: 16)
+        $0.configureTitle(title: "코드진행", titleType: .sub)
     }
     
-    let codeTextFieldView = InfoTextFieldView().then{
-        $0.infoTextField.placeholder = "Ex) C F Am Dm"
-        $0.textCountLabel.text = "26"
-    }
+    let codeTextFieldView = CustomTextFieldView(placeholder: "Ex) C F Am Dm", limitCount: 26, isUnderLined: true)
     
     let instLabel = UILabel().then{
-        $0.text = "악기선택"
-        $0.font = .boldSystemFont(ofSize: 16)
+        $0.configureTitle(title: "악기선택", titleType: .sub)
     }
     
     let pianoButton = InstButton(type: .piano)
@@ -101,26 +75,25 @@ class UploadView: BaseView {
     let separator4View = SeparatorView()
     
     let settingLabel = UILabel().then{
-        $0.text = "설정"
-        $0.font = .boldSystemFont(ofSize: 18)
+        $0.configureTitle(title: "설정", titleType: .main)
     }
     
     let publicSettingLabel =  UILabel().then{
-        $0.text = "공개 설정"
-        $0.font = .boldSystemFont(ofSize: 16)
+        $0.configureTitle(title: "공개 설정", titleType: .sub)
     }
     
     let publicSettingSwitch = UISwitch().then{
-        $0.onTintColor = .systemBlue
+        $0.isOn = true
+        $0.onTintColor = .artistackPurple
     }
     
     let stackAllowLabel = UILabel().then{
-        $0.text = "스택 허용"
-        $0.font = .boldSystemFont(ofSize: 16)
+        $0.configureTitle(title: "스택 허용", titleType: .sub)
     }
 
     let stackAllowSwitch = UISwitch().then{
-        $0.onTintColor = .systemBlue
+        $0.isOn = true
+        $0.onTintColor = .artistackPurple
     }
     
     let uploadButon = CompleteButton().then{
@@ -128,14 +101,17 @@ class UploadView: BaseView {
     }
     
     let instTopStackView = UIStackView().then{
+        $0.distribution = .fillEqually
         $0.spacing = 8
         $0.axis = .horizontal
     }
     let instBottomStackView = UIStackView().then{
+        $0.distribution = .fillEqually
         $0.spacing = 8
         $0.axis = .horizontal
     }
     let instStackView = UIStackView().then{
+        $0.distribution = .fill
         $0.spacing = 8
         $0.axis = .vertical
     }
@@ -155,7 +131,7 @@ class UploadView: BaseView {
             $0.width.equalToSuperview()
             $0.height.equalToSuperview().offset(72)
         }
-        contentView.addSubviews(separator1View, titleTextFieldView, titleTextField, titleCountLabel, separator2View, descriptionTextView, descriptionCountLabel, thumbnailImageView, separator3View, infoLabel, bpmLabel, bpmTextFieldView, codeLabel, codeTextFieldView, instLabel, instStackView, separator4View, settingLabel, publicSettingLabel, publicSettingSwitch, stackAllowLabel, stackAllowSwitch)
+        contentView.addSubviews(separator1View, titleTextFieldView, separator2View, descriptionTextView, descriptionCountLabel, thumbnailImageView, separator3View, infoLabel, bpmLabel, bpmTextFieldView, codeLabel, codeTextFieldView, instLabel, instStackView, separator4View, settingLabel, publicSettingLabel, publicSettingSwitch, stackAllowLabel, stackAllowSwitch)
         
         separator1View.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
@@ -208,15 +184,15 @@ class UploadView: BaseView {
         
         bpmTextFieldView.snp.makeConstraints {
             $0.leading.trailing.equalTo(codeTextFieldView)
-            $0.centerY.equalTo(bpmLabel)
-            $0.height.equalTo(bpmLabel)
+            $0.top.equalTo(bpmLabel)
+            $0.height.equalTo(28)
         }
         
         codeTextFieldView.snp.makeConstraints {
             $0.leading.equalTo(codeLabel.snp.trailing).offset(36)
             $0.trailing.equalToSuperview().offset(-20)
-            $0.centerY.equalTo(codeLabel)
-            $0.height.equalTo(24)
+            $0.top.equalTo(codeLabel)
+            $0.height.equalTo(28)
         }
         
         instStackView.addArrangedSubviews(instTopStackView, instBottomStackView)

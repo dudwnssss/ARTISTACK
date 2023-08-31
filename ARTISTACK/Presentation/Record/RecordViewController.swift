@@ -21,10 +21,8 @@ class RecordViewController: BaseViewController {
     
     @objc func recordButtonDidTap(){
         let vc = CheckRecordViewController()
-        let nav = UINavigationController(rootViewController: vc)
-        nav.isNavigationBarHidden = true
-        nav.modalPresentationStyle = .fullScreen
-        present(nav, animated: false)
+        navigationController?.pushViewController(vc, animated: false)
+        
     }
     
     override func setProperties() {

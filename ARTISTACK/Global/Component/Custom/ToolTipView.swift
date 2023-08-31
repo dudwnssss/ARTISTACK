@@ -21,7 +21,7 @@ final class ToolTipView: UIView {
     private let textColor: UIColor
     private let bgColor: UIColor
     
-    init(title: String?, textColor: UIColor = .white, backgroundColor: UIColor = .systemIndigo, tipPosition: TipPosition, isRounded: Bool = false) {
+    init(title: String?, textColor: UIColor = .white, backgroundColor: UIColor = .artistackPurple!, tipPosition: TipPosition, isRounded: Bool = false) {
         label.text = title
         tipView.tipPosition = tipPosition
         self.textColor = textColor

@@ -7,6 +7,26 @@
 
 import UIKit
 
+enum TimerType: Int, CaseIterable{
+    case none = 0
+    case three = 3
+    case five = 5
+    case ten = 10
+    
+    var timerImage : UIImage{
+        switch self {
+        case .none:
+            return UIImage(named: "timer")!
+        case .three:
+            return UIImage(named: "timer")!
+        case .five:
+            return UIImage(named: "timer")!
+        case .ten:
+            return UIImage(named: "timer")!
+        }
+    }
+}
+
 enum UtilType: CaseIterable {
     case timer
     case camera

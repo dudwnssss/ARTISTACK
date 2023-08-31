@@ -14,10 +14,6 @@ extension UIView {
         }
     }
 
-
-
-    
-    
     func addDiamondMask(cornerRadius: CGFloat = 0) {
         let path = UIBezierPath()
         path.move(to: CGPoint(x: bounds.midX, y: bounds.minY + cornerRadius))

@@ -11,24 +11,15 @@ import Then
 
 class BaseViewController: UIViewController {
     
-    init(){
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .artistackBackground
-        setLayouts()
+        view.backgroundColor = .artistackSystem1
         setProperties()
-        print(#fileID, #function, #line, "- ")
+        setLayouts()
     }
     
+    func setProperties(){}
     func setLayouts(){}
     
-    func setProperties(){}
     
 }

@@ -33,6 +33,12 @@ final class UserCell: UITableViewCell {
         setLayouts()
         setProperties()
     }
+    
+    override func layoutIfNeeded() { //??
+        super.layoutIfNeeded()
+        profileImageView.addDiamondMask()
+
+    }
 
     @available(*, unavailable)
     required init?(coder _: NSCoder) {
@@ -50,7 +56,7 @@ final class UserCell: UITableViewCell {
         
         profileImageView.snp.makeConstraints {
             $0.center.equalTo(backgroundImageView)
-            $0.size.equalTo(40)
+            $0.size.equalTo(backgroundImageView).multipliedBy(0.85)
         }
         
         instImageView.snp.makeConstraints {

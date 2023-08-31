@@ -37,8 +37,16 @@ enum SettingType: CaseIterable{
 
 class SettingViewController: BaseViewController {
     
+    let barButtonItem = CustomBarButtonItem(isTitleWithBackButton: true).then{
+        $0.titleLabel.text = "설정"
+    }
+    
+    override func setProperties() {
+        setNavigationBar()
+    }
+    
     private lazy var tableView = UITableView().then{
-        $0.separatorColor = .lightGray
+        $0.separatorColor = .artistackSystem2
         $0.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         $0.delegate = self
         $0.dataSource = self
@@ -52,6 +60,11 @@ class SettingViewController: BaseViewController {
         tableView.snp.makeConstraints {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
+    }
+    
+    func setNavigationBar(){
+        navigationItem.leftItemsSupplementBackButton = true
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: barButtonItem)
     }
     
 }
@@ -71,9 +84,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate{
         }
 
         accessoryImageView.sizeToFit()
-        cell.accessoryView = accessoryImageView
-//        cell.accessoryType = .disclosureIndicator
-        
+        cell.accessoryView = accessoryImageView        
         cell.textLabel?.text = settingType[indexPath.row].settingTitle
         cell.textLabel?.textColor = .white
         cell.imageView?.image = settingType[indexPath.row].settingImage

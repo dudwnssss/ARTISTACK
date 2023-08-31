@@ -55,6 +55,7 @@ class InstButton: UIButton {
     
     let instTitleLabel = UILabel().then{
         $0.font = .systemFont(ofSize: 13)
+        $0.textColor = .artistackSystem5
     }
     let instImageView = UIImageView()
     
@@ -78,7 +79,7 @@ class InstButton: UIButton {
     func setProperties(){
         layer.cornerRadius = 5
         layer.borderWidth = 1
-        layer.borderColor = UIColor.white.cgColor
+        layer.borderColor = UIColor.artistackSystem4?.cgColor
         instTitleLabel.text = instType?.title
         instImageView.image = instType?.instImage
     }
@@ -87,8 +88,7 @@ class InstButton: UIButton {
         addSubviews(instTitleLabel, instImageView)
 
         snp.makeConstraints {
-            $0.width.equalTo(80)
-            $0.height.equalTo(83)
+            $0.height.equalTo(self.snp.width)
         }
         instTitleLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()

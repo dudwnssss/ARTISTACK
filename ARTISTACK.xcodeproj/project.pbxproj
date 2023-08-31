@@ -19,7 +19,7 @@
 		102089A32A99EFA900A34EFC /* ToolTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102089A22A99EFA900A34EFC /* ToolTipView.swift */; };
 		102089A52A9A2ED200A34EFC /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102089A42A9A2ED200A34EFC /* UploadViewController.swift */; };
 		102089A72A9A2F2D00A34EFC /* InstButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102089A62A9A2F2D00A34EFC /* InstButton.swift */; };
-		102089A92A9A719300A34EFC /* InfoTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102089A82A9A719300A34EFC /* InfoTextFieldView.swift */; };
+		102089A92A9A719300A34EFC /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102089A82A9A719300A34EFC /* CustomTextFieldView.swift */; };
 		102089AB2A9BB53200A34EFC /* RecordUtilButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102089AA2A9BB53200A34EFC /* RecordUtilButton.swift */; };
 		102089E12A9C57E800A34EFC /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102089E02A9C57E800A34EFC /* BaseView.swift */; };
 		102089E32A9C582A00A34EFC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102089E22A9C582A00A34EFC /* HomeView.swift */; };
@@ -36,6 +36,7 @@
 		102089FD2A9C9D0600A34EFC /* ReportPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102089FC2A9C9D0600A34EFC /* ReportPopupViewController.swift */; };
 		102089FF2A9CABC100A34EFC /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102089FE2A9CABC100A34EFC /* AccountCell.swift */; };
 		10208A012A9CADC700A34EFC /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10208A002A9CADC700A34EFC /* AccountViewController.swift */; };
+		102144182AA0B0A300BCCB08 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102144172AA0B0A300BCCB08 /* CustomTextView.swift */; };
 		1049419C2A9CB77B006B52BC /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049419B2A9CB77B006B52BC /* UIColor+.swift */; };
 		1049419E2A9CBB01006B52BC /* CustomBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049419D2A9CBB01006B52BC /* CustomBarButtonItem.swift */; };
 		107A75D82A7A69F300E9201B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A75D72A7A69F300E9201B /* AppDelegate.swift */; };
@@ -67,6 +68,7 @@
 		10AB4AE12A97123000E1B514 /* CodePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB4AE02A97123000E1B514 /* CodePopupViewController.swift */; };
 		10AB4AEA2A9739C300E1B514 /* PreStackPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB4AE92A9739C300E1B514 /* PreStackPopupViewController.swift */; };
 		10B067722A9485C100BFA002 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B067712A9485C100BFA002 /* ProfileViewController.swift */; };
+		10C929B82A9F73F200BA83D9 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C929B72A9F73F200BA83D9 /* UILabel+.swift */; };
 		10C9B62F2A7BDCAF00026EE0 /* UITableView+Reuseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C9B62C2A7BDCAE00026EE0 /* UITableView+Reuseable.swift */; };
 		10C9B6302A7BDCAF00026EE0 /* UICollection+ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C9B62D2A7BDCAE00026EE0 /* UICollection+ReusableView.swift */; };
 		10C9B6312A7BDCAF00026EE0 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C9B62E2A7BDCAF00026EE0 /* ReusableView.swift */; };
@@ -85,7 +87,7 @@
 		102089A22A99EFA900A34EFC /* ToolTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTipView.swift; sourceTree = "<group>"; };
 		102089A42A9A2ED200A34EFC /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		102089A62A9A2F2D00A34EFC /* InstButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstButton.swift; sourceTree = "<group>"; };
-		102089A82A9A719300A34EFC /* InfoTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTextFieldView.swift; sourceTree = "<group>"; };
+		102089A82A9A719300A34EFC /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 		102089AA2A9BB53200A34EFC /* RecordUtilButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordUtilButton.swift; sourceTree = "<group>"; };
 		102089E02A9C57E800A34EFC /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		102089E22A9C582A00A34EFC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		102089FC2A9C9D0600A34EFC /* ReportPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPopupViewController.swift; sourceTree = "<group>"; };
 		102089FE2A9CABC100A34EFC /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		10208A002A9CADC700A34EFC /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		102144172AA0B0A300BCCB08 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		1049419B2A9CB77B006B52BC /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		1049419D2A9CBB01006B52BC /* CustomBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBarButtonItem.swift; sourceTree = "<group>"; };
 		107A75D42A7A69F300E9201B /* ARTISTACK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARTISTACK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +136,7 @@
 		10AB4AE02A97123000E1B514 /* CodePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodePopupViewController.swift; sourceTree = "<group>"; };
 		10AB4AE92A9739C300E1B514 /* PreStackPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreStackPopupViewController.swift; sourceTree = "<group>"; };
 		10B067712A9485C100BFA002 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		10C929B72A9F73F200BA83D9 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		10C9B62C2A7BDCAE00026EE0 /* UITableView+Reuseable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Reuseable.swift"; sourceTree = "<group>"; };
 		10C9B62D2A7BDCAE00026EE0 /* UICollection+ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollection+ReusableView.swift"; sourceTree = "<group>"; };
 		10C9B62E2A7BDCAF00026EE0 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
@@ -183,10 +187,11 @@
 				10AB4AD92A96DC1D00E1B514 /* SeparatorView.swift */,
 				102089902A989A2800A34EFC /* popupContentButton.swift */,
 				102089A62A9A2F2D00A34EFC /* InstButton.swift */,
-				102089A82A9A719300A34EFC /* InfoTextFieldView.swift */,
 				102089AA2A9BB53200A34EFC /* RecordUtilButton.swift */,
 				102089F02A9C647B00A34EFC /* MusicProgressView.swift */,
 				1049419D2A9CBB01006B52BC /* CustomBarButtonItem.swift */,
+				102144172AA0B0A300BCCB08 /* CustomTextView.swift */,
+				102089A82A9A719300A34EFC /* CustomTextFieldView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -316,6 +321,7 @@
 				10831AF02A7A924300FB460C /* UIStackView+.swift */,
 				102089982A99D87C00A34EFC /* UIViewController+.swift */,
 				1049419B2A9CB77B006B52BC /* UIColor+.swift */,
+				10C929B72A9F73F200BA83D9 /* UILabel+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -493,12 +499,13 @@
 			files = (
 				10AB4ADA2A96DC1E00E1B514 /* SeparatorView.swift in Sources */,
 				10831AEB2A7A7F0A00FB460C /* UserDTO.swift in Sources */,
-				102089A92A9A719300A34EFC /* InfoTextFieldView.swift in Sources */,
+				102089A92A9A719300A34EFC /* CustomTextFieldView.swift in Sources */,
 				10831AE72A7A7F0A00FB460C /* LikedListDTO.swift in Sources */,
 				10AB4ACA2A94CD6B00E1B514 /* MainTabBarController.swift in Sources */,
 				102089E32A9C582A00A34EFC /* HomeView.swift in Sources */,
 				10831AD52A7A772000FB460C /* UserCell.swift in Sources */,
 				102089A72A9A2F2D00A34EFC /* InstButton.swift in Sources */,
+				102144182AA0B0A300BCCB08 /* CustomTextView.swift in Sources */,
 				107A75F32A7A6EF400E9201B /* UIVIew+.swift in Sources */,
 				10AB4AC82A94CCF700E1B514 /* Tab.swift in Sources */,
 				102089F12A9C647B00A34EFC /* MusicProgressView.swift in Sources */,
@@ -533,6 +540,7 @@
 				10C9B62F2A7BDCAF00026EE0 /* UITableView+Reuseable.swift in Sources */,
 				102089E12A9C57E800A34EFC /* BaseView.swift in Sources */,
 				10AB4AC52A94C3B000E1B514 /* ProjectHeaderView.swift in Sources */,
+				10C929B82A9F73F200BA83D9 /* UILabel+.swift in Sources */,
 				102089EB2A9C5C6600A34EFC /* RecordView.swift in Sources */,
 				102089F92A9C82B400A34EFC /* SettingViewController.swift in Sources */,
 				10831AF12A7A924300FB460C /* UIStackView+.swift in Sources */,

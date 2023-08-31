@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import PhotosUI
+
 
 class ProfileViewController: BaseViewController {
 
@@ -13,6 +15,10 @@ class ProfileViewController: BaseViewController {
 
     override func loadView() {
         self.view = profileView
+    }
+    
+    let barButtonItem = CustomBarButtonItem().then{
+        $0.titleLabel.text = "프로필"
     }
     
     let titleLabel = UILabel().then{
@@ -28,9 +34,9 @@ class ProfileViewController: BaseViewController {
     }
     
     func setNavigationBar(){
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: titleLabel)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: barButtonItem)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "setting"), style: .plain, target: self, action: #selector(settingButtonDidTap))
-        navigationController?.navigationBar.tintColor = .lightGray
+        navigationItem.rightBarButtonItem?.tintColor = .artistackSystem6
     }
     
     @objc func profileEditButtonDidTap(){
@@ -44,7 +50,6 @@ class ProfileViewController: BaseViewController {
         let vc = SettingViewController()
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
-        vc.hidesBottomBarWhenPushed = false
     }
 }
 

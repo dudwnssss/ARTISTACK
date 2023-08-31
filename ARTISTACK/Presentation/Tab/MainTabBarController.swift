@@ -57,8 +57,10 @@ extension MainTabBarController: UITabBarControllerDelegate {
         if viewController.tabBarItem.tag == 1 {
             // Present View Controller
             let recordVC = RecordViewController()
-            recordVC.modalPresentationStyle = .fullScreen
-            present(recordVC, animated: true)
+            let nav = UINavigationController(rootViewController: recordVC)
+            nav.modalPresentationStyle = .fullScreen
+            nav.isNavigationBarHidden = true
+            present(nav, animated: true)
             return false
         }
         return true

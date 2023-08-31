@@ -16,11 +16,11 @@ final class TipView: UIView {
     
     var tipPosition = TipPosition.bottom
 
-    var bgColor = UIColor.systemIndigo
+    var bgColor = UIColor.artistackPurple
     
     override func draw(_ rect: CGRect) {
         backgroundColor = .clear
-        bgColor.setFill()
+        bgColor?.setFill()
         switch tipPosition {
         case .top:
             drawTopTip(rect)

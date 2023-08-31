@@ -17,6 +17,9 @@ class ProfileImageView: UIView {
         $0.backgroundColor = .red
         $0.clipsToBounds = true
     }
+    let instImageView = UIImageView().then{
+        $0.image = UIImage(named: "piano")
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,5 +51,5 @@ class ProfileImageView: UIView {
             $0.size.equalTo(backgroundImageView).multipliedBy(0.9)
         }
     }
-
+    
 }
