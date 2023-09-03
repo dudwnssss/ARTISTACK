@@ -119,6 +119,7 @@ class UploadView: BaseView {
     let tooltipView = ToolTipView(title: "제목을 작성해주세요!", tipPosition: .bottom, isRounded: true)
     
     override func setLayouts() {
+
         addSubviews(scrollView, uploadButon, tooltipView)
         scrollView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide)

@@ -9,9 +9,7 @@ import UIKit
 
 class RecordView: BaseView {
     
-    let dismissButton = UIButton().then{
-        $0.setImage(UIImage(named: "dismiss"), for: .normal)
-    }
+  
     let timerButton = RecordUtilButton(utilType: .timer)
     let switchCameraButton = RecordUtilButton(utilType: .camera)
     
@@ -29,16 +27,13 @@ class RecordView: BaseView {
     let musicProgressView = MusicProgressView()
     
     override func setLayouts() {
-        addSubviews(dismissButton, timerButton, switchCameraButton, recordButton, artistackOnLabel, musicTitleLabel, musicProgressView)
+    
+        
+        addSubviews(timerButton, switchCameraButton, recordButton, artistackOnLabel, musicTitleLabel, musicProgressView)
         recordButton.snp.makeConstraints {
             $0.size.equalTo(82)
             $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview().offset(-32)
-        }
-        dismissButton.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(8)
-            $0.top.equalToSuperview().offset(36)
-            $0.size.equalTo(44)
         }
         timerButton.snp.makeConstraints {
             $0.centerY.equalToSuperview().offset(-50)

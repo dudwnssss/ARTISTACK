@@ -34,7 +34,7 @@ class CustomTextView: UITextView{
     func setProperties(){
         isScrollEnabled = false
         textColor = .white
-//        backgroundColor = .clear
+        backgroundColor = .clear
         
         
         textContainerInset = .zero
@@ -44,8 +44,7 @@ class CustomTextView: UITextView{
     func setLayouts(){
         addSubview(textCountLabel)
         textCountLabel.snp.makeConstraints {
-            $0.bottom.trailing.equalToSuperview()
-            $0.width.equalTo(20)
+            $0.leading.top.equalToSuperview()
         }
     }
     

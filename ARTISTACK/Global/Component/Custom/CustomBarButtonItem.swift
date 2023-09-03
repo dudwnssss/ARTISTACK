@@ -9,14 +9,17 @@ import UIKit
 
 class CustomBarButtonItem: BaseView {
         
-    var isTitleWithBackButton : Bool?
+    var isTitleWithBackButton : Bool = false
     
-    convenience init(isTitleWithBackButton: Bool? = false) {
-        self.init()
+    init(isTitleWithBackButton: Bool = false) {
         self.isTitleWithBackButton = isTitleWithBackButton
-        setLayouts()
+        super.init(frame: .zero)
     }
 
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     let titleLabel = UILabel().then{
         $0.text = "temp3"
         $0.font = .boldSystemFont(ofSize: 18)

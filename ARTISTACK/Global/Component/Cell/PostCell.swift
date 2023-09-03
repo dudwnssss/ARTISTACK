@@ -125,8 +125,8 @@ final class PostCell: UITableViewCell{
         $0.isHidden = true
     }
     
-    let separator1View = SeparatorView(inset: 5)
-    let separator2View = SeparatorView(inset: 5)
+    let separator1View = SeparatorView( inset: 5)
+    let separator2View = SeparatorView( inset: 5)
 
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

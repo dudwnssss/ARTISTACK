@@ -21,6 +21,7 @@ class UploadViewController: BaseViewController {
     override func setProperties() {
         hideKeyboardWhenTappedAround()
         setNavigationBar()
+        uploadView.uploadButon.addTarget(self, action: #selector(uploadButtonDidTap), for: .touchUpInside)
     }
     
     func setNavigationBar(){
@@ -32,6 +33,10 @@ class UploadViewController: BaseViewController {
         super.viewDidLoad()
         print(#fileID, #function, #line, "- ")
         navigationController?.isNavigationBarHidden = false
+    }
+    
+    @objc func uploadButtonDidTap(){
+        navigationController?.popToRootViewController(animated: true)
     }
     
 //    override func viewWillDisappear(_ animated: Bool) {

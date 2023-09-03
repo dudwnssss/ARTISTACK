@@ -13,12 +13,24 @@ class SeparatorView: BaseView {
     
     let separatorView = UIView()
     
-    convenience init(isUnderLine: Bool = false, inset: Int? = nil){
-        self.init()
+//    convenience init(isUnderLine: Bool = false, inset: Int? = nil){
+//        self.init()
+//        self.inset = inset
+//        separatorView.backgroundColor = isUnderLine ? .artistackSystem3 : .artistackSystem2
+//        setLayouts()
+//    }
+    
+    init(isUnderLine: Bool = false, inset: Int? = nil){
         self.inset = inset
         separatorView.backgroundColor = isUnderLine ? .artistackSystem3 : .artistackSystem2
-        setLayouts()
+        super.init(frame: .zero)
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     
     override func setProperties() {
         separatorView.backgroundColor = .artistackSystem2

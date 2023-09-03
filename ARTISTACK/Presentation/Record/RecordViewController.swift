@@ -25,11 +25,23 @@ class RecordViewController: BaseViewController {
         
     }
     
+    func setNavigationBar(){
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = .clear
+//        navigationController?.changeNavigationBar(isClear: true)
+        navigationController?.navigationBar.isTranslucent = true
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "dismiss"), style: .plain, target: self, action: #selector(dismissButtonDidTap))
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+    }
+    
     override func setProperties() {
+        setNavigationBar()
         view.backgroundColor = .black
-        recordView.dismissButton.addTarget(self, action: #selector(dismissButtonDidTap), for: .touchUpInside)
         recordView.recordButton.addTarget(self, action: #selector(recordButtonDidTap), for: .touchUpInside)
     }
+    
     
     
 }
