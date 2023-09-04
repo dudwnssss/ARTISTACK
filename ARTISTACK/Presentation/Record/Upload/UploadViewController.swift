@@ -25,42 +25,25 @@ class UploadViewController: BaseViewController {
     }
     
     func setNavigationBar(){
+        navigationController?.setNavigationBarAppearance(isClear: false)
         navigationItem.leftItemsSupplementBackButton = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: barButtonItem)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(#fileID, #function, #line, "- ")
-        navigationController?.isNavigationBarHidden = false
     }
     
     @objc func uploadButtonDidTap(){
-        navigationController?.popToRootViewController(animated: true)
+        navigationController?.dismiss(animated: true)
     }
     
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        print(#fileID, #function, #line, "- ")
-//        navigationController?.isNavigationBarHidden = false
-//    }
-    
-//    override func viewDidDisappear(_ animated: Bool) {
-//        super.viewDidDisappear(animated)
-//        print(#fileID, #function, #line, "- ")
-//    }
-//
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        navigationController?.isNavigationBarHidden = false
-        print("***", #fileID, #function, #line, "- ")
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarAppearance(isClear: false)
     }
-//
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        print("***", #fileID, #function, #line, "- ")
-//        navigationController?.isNavigationBarHidden = false
-//    }
+
+
     
 
 

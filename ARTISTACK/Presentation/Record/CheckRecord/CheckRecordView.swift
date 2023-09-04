@@ -9,9 +9,6 @@ import UIKit
 
 class CheckRecordView: BaseView {
     
-    let dismissButton = UIButton().then{
-        $0.setImage(UIImage(named: "dismiss"), for: .normal)
-    }
     let volumeButton = RecordUtilButton(utilType: .volume)
     let retakeButton = RecordUtilButton(utilType: .retake)
     let replayButton = RecordUtilButton(utilType: .replay)
@@ -22,12 +19,8 @@ class CheckRecordView: BaseView {
     }
     
     override func setLayouts() {
-        addSubviews(dismissButton, volumeButton, retakeButton, replayButton, completeButton)
-        dismissButton.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(8)
-            $0.top.equalToSuperview().offset(36)
-            $0.size.equalTo(44)
-        }
+        addSubviews( volumeButton, retakeButton, replayButton, completeButton)
+
         volumeButton.snp.makeConstraints {
             $0.centerY.equalToSuperview().offset(-20)
             $0.trailing.equalToSuperview().offset(-4)

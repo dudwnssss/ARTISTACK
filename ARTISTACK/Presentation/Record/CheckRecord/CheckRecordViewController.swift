@@ -15,19 +15,18 @@ class CheckRecordViewController: BaseViewController {
         self.view = checkRecordView
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = true
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarAppearance(isClear: true)
     }
     
+    
     override func setProperties() {
+        setNavigationBar()
         checkRecordView.completeButton.addTarget(self, action: #selector(completeButtonDidTap), for: .touchUpInside)
-        checkRecordView.dismissButton.addTarget(self, action: #selector(dismissButtonDidTap), for: .touchUpInside)
     }
     
     @objc func dismissButtonDidTap(){
-        navigationController?.popViewController(animated: false)
-        print(#fileID, #function, #line, "- ")
+        navigationController?.dismiss(animated: true)
     }
     
     @objc func completeButtonDidTap(){
@@ -36,20 +35,8 @@ class CheckRecordViewController: BaseViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("***", #function)
+    func setNavigationBar(){
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "dismiss"), style: .plain, target: self, action: #selector(dismissButtonDidTap))
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        navigationController?.isNavigationBarHidden = true
-        print("***", #function)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        print("***", #function)
-        navigationController?.isNavigationBarHidden = true
-    }
+
 }

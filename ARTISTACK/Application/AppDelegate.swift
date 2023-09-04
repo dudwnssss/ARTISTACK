@@ -13,17 +13,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         if #available(iOS 15.0, *) {
-            let navigationBarAppearance = UINavigationBarAppearance()
-            navigationBarAppearance.configureWithDefaultBackground()
-            let backButtonImage = UIImage(named: "back6")
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithDefaultBackground()
             let backButtonAppearance = UIBarButtonItemAppearance()
-            backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear, .font: UIFont.systemFont(ofSize: 0.0)]
-            navigationBarAppearance.backButtonAppearance = backButtonAppearance
-            navigationBarAppearance.setBackIndicatorImage(backButtonImage, transitionMaskImage: backButtonImage)
-            navigationBarAppearance.backgroundColor = .artistackSystem1
+            backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear, .font: UIFont.systemFont(ofSize: 0)]
+            let backButtonImage = UIImage(named: "back6")
+            appearance.setBackIndicatorImage(backButtonImage, transitionMaskImage: backButtonImage)
+            appearance.backButtonAppearance = backButtonAppearance
+            appearance.backgroundColor = .artistackSystem1
             UINavigationBar.appearance().isTranslucent = false
-            UINavigationBar.appearance().standardAppearance = navigationBarAppearance
-            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
             UINavigationBar.appearance().tintColor = .white
         }
         

@@ -26,14 +26,9 @@ class RecordViewController: BaseViewController {
     }
     
     func setNavigationBar(){
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        appearance.backgroundColor = .clear
-//        navigationController?.changeNavigationBar(isClear: true)
-        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.setNavigationBarAppearance(isClear: true)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "dismiss"), style: .plain, target: self, action: #selector(dismissButtonDidTap))
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+
     }
     
     override func setProperties() {

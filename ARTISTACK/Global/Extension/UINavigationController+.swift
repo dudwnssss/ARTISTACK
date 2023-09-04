@@ -9,20 +9,28 @@ import UIKit
 
 extension UINavigationController {
     
-    // 완전 안보임
-    func hideNavigationBar() {
-        navigationBar.isHidden = true
-    }
     
-    // 투명하게 만들기 (버튼 등은 보임)
-    func changeNavigationBar(isClear: Bool) {
-        navigationBar.isHidden = false
+    func setNavigationBarAppearance(isClear: Bool) {
         if isClear {
-            navigationBar.shadowImage = UIImage()
-            navigationBar.setBackgroundImage(UIImage(), for: .default)
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithTransparentBackground()
+            navigationBar.isTranslucent = true
+            navigationBar.standardAppearance = appearance
+            navigationBar.scrollEdgeAppearance = appearance
         } else {
-            navigationBar.shadowImage = nil
-            navigationBar.setBackgroundImage(nil, for: .default)
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithDefaultBackground()
+            let backButtonAppearance = UIBarButtonItemAppearance()
+            backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear, .font: UIFont.systemFont(ofSize: 0)]
+            let backButtonImage = UIImage(named: "back6")
+            appearance.setBackIndicatorImage(backButtonImage, transitionMaskImage: backButtonImage)
+            appearance.backButtonAppearance = backButtonAppearance
+            appearance.backgroundColor = .artistackSystem1
+            navigationBar.isTranslucent = false
+            navigationBar.standardAppearance = appearance
+            navigationBar.scrollEdgeAppearance = appearance
+            navigationBar.tintColor = .white
         }
+        navigationController?.setNeedsStatusBarAppearanceUpdate()
     }
 }
