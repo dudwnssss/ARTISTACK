@@ -17,7 +17,7 @@ enum Tab: Int, CaseIterable {
         case .home:
             return UIImage(named: "home")!
         case .record:
-            return UIImage(named: "record")!
+            return StackButton.shared.stackType.buttonImage
         case .profile:
             return UIImage(named: "profile")!
         }

@@ -20,6 +20,7 @@ class HomeViewController: BaseViewController {
         homeView.postTableView.delegate = self
         homeView.postTableView.dataSource = self
     }
+
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{

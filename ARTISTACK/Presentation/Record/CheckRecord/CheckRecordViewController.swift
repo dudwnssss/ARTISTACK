@@ -15,9 +15,9 @@ class CheckRecordViewController: BaseViewController {
         self.view = checkRecordView
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarAppearance(isClear: true)
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        navigationController?.setNavigationBarAppearance(isClear: true)
+//    }
     
     
     override func setProperties() {

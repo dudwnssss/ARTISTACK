@@ -30,7 +30,7 @@ class CustomBarButtonItem: BaseView {
         switch isTitleWithBackButton{
         case true:
             titleLabel.snp.makeConstraints {
-                $0.leading.equalToSuperview().offset(-4)
+                $0.leading.equalToSuperview().offset(-12)
                 $0.centerY.equalToSuperview()
             }
         default:

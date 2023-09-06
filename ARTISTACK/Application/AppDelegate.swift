@@ -13,18 +13,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         if #available(iOS 15.0, *) {
+            //            let appearance = UINavigationBarAppearance()
+            //            appearance.configureWithDefaultBackground()
+            //            let backButtonAppearance = UIBarButtonItemAppearance()
+            //            backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear, .font: UIFont.systemFont(ofSize: 0)]
+            //            let backButtonImage = UIImage(named: "back6")
+            //            appearance.setBackIndicatorImage(backButtonImage, transitionMaskImage: backButtonImage)
+            //            appearance.backButtonAppearance = backButtonAppearance
+            //            appearance.backgroundColor = .artistackSystem1
+            //            UINavigationBar.appearance().isTranslucent = false
+            //            UINavigationBar.appearance().standardAppearance = appearance
+            //            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+            //            UINavigationBar.appearance().tintColor = .white
+            
+            
             let appearance = UINavigationBarAppearance()
-            appearance.configureWithDefaultBackground()
+            appearance.configureWithTransparentBackground()
             let backButtonAppearance = UIBarButtonItemAppearance()
             backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear, .font: UIFont.systemFont(ofSize: 0)]
             let backButtonImage = UIImage(named: "back6")
             appearance.setBackIndicatorImage(backButtonImage, transitionMaskImage: backButtonImage)
             appearance.backButtonAppearance = backButtonAppearance
-            appearance.backgroundColor = .artistackSystem1
-            UINavigationBar.appearance().isTranslucent = false
+            UINavigationBar.appearance().isTranslucent = true
             UINavigationBar.appearance().standardAppearance = appearance
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
             UINavigationBar.appearance().tintColor = .white
+            
         }
         
         if #available(iOS 15.0, *) {

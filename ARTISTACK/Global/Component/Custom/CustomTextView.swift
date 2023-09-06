@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomTextView: UITextView{
+class CustomTextView: UIView{
     
     let textCountLabel = UILabel().then{
         $0.textColor = .artistackSystem4
@@ -15,8 +15,16 @@ class CustomTextView: UITextView{
         $0.backgroundColor = .systemPink
     }
     
-    override init(frame: CGRect, textContainer: NSTextContainer?) {
-        super.init(frame: frame, textContainer: textContainer)
+    let textView = UITextView().then{
+        $0.isScrollEnabled = false
+        $0.textColor = .white
+        $0.textContainerInset = .zero
+        $0.textContainer.lineFragmentPadding = 0
+        $0.backgroundColor = .clear
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
 
     required init?(coder: NSCoder) {
@@ -26,25 +34,29 @@ class CustomTextView: UITextView{
     convenience init(placeholder: String, limitCount: Int, fontSize: CGFloat, isBold: Bool){
         self.init()
         textCountLabel.text = "\(limitCount)"
-        font = isBold ? .boldSystemFont(ofSize: fontSize) : .systemFont(ofSize: fontSize)
+        textView.font = isBold ? UIFont.boldSystemFont(ofSize: fontSize) : .systemFont(ofSize: fontSize)
         setProperties()
         setLayouts()
     }
     
     func setProperties(){
-        isScrollEnabled = false
-        textColor = .white
-        backgroundColor = .clear
-        
-        
-        textContainerInset = .zero
-        textContainer.lineFragmentPadding = 0
     }
     
     func setLayouts(){
-        addSubview(textCountLabel)
+        addSubviews(textCountLabel, textView)
         textCountLabel.snp.makeConstraints {
-            $0.leading.top.equalToSuperview()
+            $0.bottom.trailing.equalToSuperview()
+        }
+        textView.snp.makeConstraints {
+            $0.top.horizontalEdges.equalToSuperview()
+            $0.bottom.equalTo(textCountLabel.snp.top)
+        }
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        textCountLabel.snp.makeConstraints {
+            $0.height.equalTo(18)
+            $0.bottom.trailing.equalToSuperview()
         }
     }
     

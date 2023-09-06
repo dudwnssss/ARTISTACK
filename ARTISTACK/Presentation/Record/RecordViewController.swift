@@ -26,9 +26,7 @@ class RecordViewController: BaseViewController {
     }
     
     func setNavigationBar(){
-        navigationController?.setNavigationBarAppearance(isClear: true)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "dismiss"), style: .plain, target: self, action: #selector(dismissButtonDidTap))
-
     }
     
     override func setProperties() {

@@ -35,9 +35,7 @@ extension MainTabBarController {
         homeNavigationController.navigationBar.isHidden = true
         
         let recordVC = RecordViewController()
-        let recordNavigationController = UINavigationController(rootViewController: recordVC)
-        recordNavigationController.tabBarItem = UITabBarItem(title: nil, image: Tab.record.image, tag: 1)
-        recordNavigationController.navigationBar.isHidden = true
+        recordVC.tabBarItem = UITabBarItem(title: nil, image: Tab.record.image, tag: 1)
         
         let profileVC = ProfileViewController()
         let myPageNavigationController = UINavigationController(rootViewController: profileVC)
@@ -45,7 +43,7 @@ extension MainTabBarController {
         
         super.setViewControllers([
             homeNavigationController,
-            recordNavigationController,
+            recordVC,
             myPageNavigationController
         ], animated: true)
     }

@@ -31,8 +31,10 @@ enum stackCount: Int, CaseIterable {
             return 180
         }
     }
-    
-    
+}
+
+protocol othersButtonProtocol {
+    func othersButtonDidTap()
 }
 
 
@@ -103,15 +105,15 @@ final class PostCell: UITableViewCell{
     }
     
     
-    let sharePopupView = popupContentButton().then{
+    let shareButton = popupContentButton().then{
         $0.popupTitleLabel.text = "공유하기"
         $0.iconImageView.image = UIImage(named: "share")
     }
-    let reportPopupView = popupContentButton().then{
+    let reportButton = popupContentButton().then{
         $0.popupTitleLabel.text = "신고하기"
         $0.iconImageView.image = UIImage(named: "report")
     }
-    let deletePopupView = popupContentButton().then{
+    let deleteButton = popupContentButton().then{
         $0.popupTitleLabel.text = "삭제하기"
         $0.iconImageView.image = UIImage(named: "delete")
     }
@@ -128,6 +130,7 @@ final class PostCell: UITableViewCell{
     let separator1View = SeparatorView( inset: 5)
     let separator2View = SeparatorView( inset: 5)
 
+    var othersButtonDelegate : othersButtonProtocol!
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -199,7 +202,7 @@ final class PostCell: UITableViewCell{
             $0.height.equalTo(count.height)
             $0.bottom.equalTo(titleLabel.snp.top).offset(-20)
         }
-        popupStackView.addArrangedSubviews(sharePopupView, separator1View, reportPopupView, separator2View, deletePopupView)
+        popupStackView.addArrangedSubviews(shareButton, separator1View, reportButton, separator2View, deleteButton)
         
         popupStackView.snp.makeConstraints {
             $0.trailing.equalTo(othersButton.snp.trailing)

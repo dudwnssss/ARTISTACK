@@ -25,9 +25,9 @@ class UploadViewController: BaseViewController {
     }
     
     func setNavigationBar(){
-        navigationController?.setNavigationBarAppearance(isClear: false)
         navigationItem.leftItemsSupplementBackButton = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: barButtonItem)
+        navigationController?.navigationBar.topItem?.title = ""
     }
     
     override func viewDidLoad() {
@@ -40,7 +40,7 @@ class UploadViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarAppearance(isClear: false)
+//        navigationController?.setNavigationBarAppearance(isClear: false)
     }
 
 

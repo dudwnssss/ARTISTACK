@@ -11,8 +11,14 @@ import PhotosUI
 
 class ProfileViewController: BaseViewController {
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        StackButton.shared.stackType = .first
+        StackButton.shared.setProperties()
+    }
+    
     let profileView = ProfileView()
-
+    
     override func loadView() {
         self.view = profileView
     }
@@ -79,6 +85,14 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
             return header
         } else {
             return UICollectionReusableView()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            let vc = HomeViewController()
+            vc.homeView.headerLabel.isHidden = true
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     
