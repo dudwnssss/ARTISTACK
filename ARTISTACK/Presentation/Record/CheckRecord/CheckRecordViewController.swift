@@ -15,14 +15,11 @@ class CheckRecordViewController: BaseViewController {
         self.view = checkRecordView
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        navigationController?.setNavigationBarAppearance(isClear: true)
-//    }
-    
-    
     override func setProperties() {
+        view.backgroundColor = .black
         setNavigationBar()
         checkRecordView.completeButton.addTarget(self, action: #selector(completeButtonDidTap), for: .touchUpInside)
+        checkRecordView.volumeButton.addTarget(self, action: #selector(volumeButtonDidTap), for: .touchUpInside)
     }
     
     @objc func dismissButtonDidTap(){
@@ -35,8 +32,12 @@ class CheckRecordViewController: BaseViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    @objc func volumeButtonDidTap(){
+    }
+    
     func setNavigationBar(){
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "dismiss"), style: .plain, target: self, action: #selector(dismissButtonDidTap))
     }
+
 
 }

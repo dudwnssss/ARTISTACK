@@ -20,6 +20,4 @@ class BaseViewController: UIViewController {
     
     func setProperties(){}
     func setLayouts(){}
-    
-    
 }

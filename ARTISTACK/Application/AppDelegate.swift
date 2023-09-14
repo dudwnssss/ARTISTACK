@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
-        if #available(iOS 15.0, *) {
+        if #available(iOS 13.0, *) {
             let appearance = UITabBarAppearance()
             appearance.configureWithDefaultBackground()
             UITabBar.appearance().barTintColor = .artistackSystem1

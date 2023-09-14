@@ -12,14 +12,7 @@ class SeparatorView: BaseView {
     var inset: Int?
     
     let separatorView = UIView()
-    
-//    convenience init(isUnderLine: Bool = false, inset: Int? = nil){
-//        self.init()
-//        self.inset = inset
-//        separatorView.backgroundColor = isUnderLine ? .artistackSystem3 : .artistackSystem2
-//        setLayouts()
-//    }
-    
+        
     init(isUnderLine: Bool = false, inset: Int? = nil){
         self.inset = inset
         separatorView.backgroundColor = isUnderLine ? .artistackSystem3 : .artistackSystem2

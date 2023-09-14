@@ -33,11 +33,6 @@ enum stackCount: Int, CaseIterable {
     }
 }
 
-protocol othersButtonProtocol {
-    func othersButtonDidTap()
-}
-
-
 final class PostCell: UITableViewCell{
         
     let count: stackCount = .three
@@ -104,7 +99,6 @@ final class PostCell: UITableViewCell{
         $0.titleLabel?.font = .boldSystemFont(ofSize: 14)
     }
     
-    
     let shareButton = popupContentButton().then{
         $0.popupTitleLabel.text = "공유하기"
         $0.iconImageView.image = UIImage(named: "share")
@@ -122,7 +116,7 @@ final class PostCell: UITableViewCell{
         $0.axis = .vertical
         $0.distribution = .fillProportionally
         $0.alignment = .fill
-        $0.layer.backgroundColor = (UIColor.black.cgColor).copy(alpha: 0.95)
+        $0.layer.backgroundColor = (UIColor.artistackSystem1!.cgColor).copy(alpha: 0.95)
         $0.layer.cornerRadius = 5
         $0.isHidden = true
     }
@@ -130,7 +124,11 @@ final class PostCell: UITableViewCell{
     let separator1View = SeparatorView( inset: 5)
     let separator2View = SeparatorView( inset: 5)
 
-    var othersButtonDelegate : othersButtonProtocol!
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        popupStackView.isHidden = true
+        descriptionLabel.isHidden = true
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -213,12 +211,18 @@ final class PostCell: UITableViewCell{
     func setProperties(){
         contentView.backgroundColor = .black
         moreButton.addTarget(self, action: #selector(moreButtonDidTap), for: .touchUpInside)
+        othersButton.addTarget(self, action: #selector(othersButtonDidTap), for: .touchUpInside)
     }
     
     //확장됐는지 아닌지 상태를 저장하고 있어야함
     @objc func moreButtonDidTap(){
         descriptionLabel.isHidden.toggle()
         contentView.layoutIfNeeded()
+    }
+    
+    
+    @objc func othersButtonDidTap(){
+        popupStackView.isHidden.toggle()
     }
 }
 

@@ -19,12 +19,21 @@ class ProfileEditViewController: BaseViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: barButtonItem)
     }
     
+    @objc func profileEditButtonDidTap(){
+        let bottomSheetViewController = BottomSheetViewController(isTouchPassable: false, contentViewController: ProfileImageViewController() as! ScrollableViewController)
+        present(bottomSheetViewController, animated: true)
+    }
+    
     override func loadView() {
         self.view = profileEditView
     }
     
     
     override func setProperties() {
+        profileEditView.do {
+            $0.profileEditButton.addTarget(self, action: #selector(profileEditButtonDidTap), for: .touchUpInside)
+        }
+
         hideKeyboardWhenTappedAround()
         setNavigationBar()
     }

@@ -37,6 +37,12 @@
 		102089FF2A9CABC100A34EFC /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102089FE2A9CABC100A34EFC /* AccountCell.swift */; };
 		10208A012A9CADC700A34EFC /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10208A002A9CADC700A34EFC /* AccountViewController.swift */; };
 		102144182AA0B0A300BCCB08 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102144172AA0B0A300BCCB08 /* CustomTextView.swift */; };
+		1022BA342AB097DC0028C2DF /* VolumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA332AB097DC0028C2DF /* VolumeViewController.swift */; };
+		1022BA372AB09B150028C2DF /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 1022BA362AB09B150028C2DF /* FloatingPanel */; };
+		1022BA842AB2ECE70028C2DF /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA832AB2ECE70028C2DF /* BottomSheetViewController.swift */; };
+		1022BA862AB2F14D0028C2DF /* SelfSizingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA852AB2F14D0028C2DF /* SelfSizingTableView.swift */; };
+		1022BA882AB2F1710028C2DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA872AB2F1710028C2DF /* ViewController.swift */; };
+		1022BA8B2AB2F6D70028C2DF /* ProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA8A2AB2F6D70028C2DF /* ProfileImageViewController.swift */; };
 		1049419C2A9CB77B006B52BC /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049419B2A9CB77B006B52BC /* UIColor+.swift */; };
 		1049419E2A9CBB01006B52BC /* CustomBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049419D2A9CBB01006B52BC /* CustomBarButtonItem.swift */; };
 		107A75D82A7A69F300E9201B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A75D72A7A69F300E9201B /* AppDelegate.swift */; };
@@ -107,6 +113,11 @@
 		102089FE2A9CABC100A34EFC /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		10208A002A9CADC700A34EFC /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		102144172AA0B0A300BCCB08 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
+		1022BA332AB097DC0028C2DF /* VolumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeViewController.swift; sourceTree = "<group>"; };
+		1022BA832AB2ECE70028C2DF /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		1022BA852AB2F14D0028C2DF /* SelfSizingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingTableView.swift; sourceTree = "<group>"; };
+		1022BA872AB2F1710028C2DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1022BA8A2AB2F6D70028C2DF /* ProfileImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageViewController.swift; sourceTree = "<group>"; };
 		1049419B2A9CB77B006B52BC /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		1049419D2A9CBB01006B52BC /* CustomBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBarButtonItem.swift; sourceTree = "<group>"; };
 		107A75D42A7A69F300E9201B /* ARTISTACK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARTISTACK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1022BA372AB09B150028C2DF /* FloatingPanel in Frameworks */,
 				10831AD02A7A76C100FB460C /* SnapKit in Frameworks */,
 				10831AD32A7A76CE00FB460C /* Then in Frameworks */,
 			);
@@ -197,6 +209,8 @@
 				102144172AA0B0A300BCCB08 /* CustomTextView.swift */,
 				102089A82A9A719300A34EFC /* CustomTextFieldView.swift */,
 				10C76E852AA8822900D5AFA6 /* StackButton.swift */,
+				1022BA832AB2ECE70028C2DF /* BottomSheetViewController.swift */,
+				1022BA852AB2F14D0028C2DF /* SelfSizingTableView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -224,6 +238,7 @@
 			children = (
 				102089F32A9C691E00A34EFC /* CheckRecordViewController.swift */,
 				102089F52A9C692E00A34EFC /* CheckRecordView.swift */,
+				1022BA332AB097DC0028C2DF /* VolumeViewController.swift */,
 			);
 			path = CheckRecord;
 			sourceTree = "<group>";
@@ -237,6 +252,14 @@
 				102089FC2A9C9D0600A34EFC /* ReportPopupViewController.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		1022BA892AB2F6960028C2DF /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				1022BA8A2AB2F6D70028C2DF /* ProfileImageViewController.swift */,
+			);
+			path = Popup;
 			sourceTree = "<group>";
 		};
 		107A75CB2A7A69F300E9201B = {
@@ -276,6 +299,7 @@
 				10AB4ACC2A95BEFF00E1B514 /* Record */,
 				10B067702A94859400BFA002 /* Profile */,
 				102089F72A9C829D00A34EFC /* Setting */,
+				1022BA872AB2F1710028C2DF /* ViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -354,6 +378,7 @@
 		10831AD92A7A7D4800FB460C /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				10C76ED92AA9AEE900D5AFA6 /* Network */,
 				10831ADF2A7A7F0A00FB460C /* Model */,
 			);
 			path = Data;
@@ -408,11 +433,19 @@
 		10B067702A94859400BFA002 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				1022BA892AB2F6960028C2DF /* Popup */,
 				102089EF2A9C5DE900A34EFC /* Edit */,
 				10B067712A9485C100BFA002 /* ProfileViewController.swift */,
 				102089E42A9C590500A34EFC /* ProfileView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		10C76ED92AA9AEE900D5AFA6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		10C9B62B2A7BDC8A00026EE0 /* Util */ = {
@@ -444,6 +477,7 @@
 			packageProductDependencies = (
 				10831ACF2A7A76C100FB460C /* SnapKit */,
 				10831AD22A7A76CE00FB460C /* Then */,
+				1022BA362AB09B150028C2DF /* FloatingPanel */,
 			);
 			productName = ARTISTACK;
 			productReference = 107A75D42A7A69F300E9201B /* ARTISTACK.app */;
@@ -476,6 +510,7 @@
 			packageReferences = (
 				10831ACE2A7A76C100FB460C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				10831AD12A7A76CE00FB460C /* XCRemoteSwiftPackageReference "Then" */,
+				1022BA352AB09B150028C2DF /* XCRemoteSwiftPackageReference "FloatingPanel" */,
 			);
 			productRefGroup = 107A75D52A7A69F300E9201B /* Products */;
 			projectDirPath = "";
@@ -509,11 +544,13 @@
 				10831AE72A7A7F0A00FB460C /* LikedListDTO.swift in Sources */,
 				10AB4ACA2A94CD6B00E1B514 /* MainTabBarController.swift in Sources */,
 				102089E32A9C582A00A34EFC /* HomeView.swift in Sources */,
+				1022BA882AB2F1710028C2DF /* ViewController.swift in Sources */,
 				10831AD52A7A772000FB460C /* UserCell.swift in Sources */,
 				102089A72A9A2F2D00A34EFC /* InstButton.swift in Sources */,
 				102144182AA0B0A300BCCB08 /* CustomTextView.swift in Sources */,
 				107A75F32A7A6EF400E9201B /* UIVIew+.swift in Sources */,
 				10AB4AC82A94CCF700E1B514 /* Tab.swift in Sources */,
+				1022BA8B2AB2F6D70028C2DF /* ProfileImageViewController.swift in Sources */,
 				102089F12A9C647B00A34EFC /* MusicProgressView.swift in Sources */,
 				102089992A99D87C00A34EFC /* UIViewController+.swift in Sources */,
 				102089F42A9C691E00A34EFC /* CheckRecordViewController.swift in Sources */,
@@ -541,12 +578,14 @@
 				10C9B6312A7BDCAF00026EE0 /* ReusableView.swift in Sources */,
 				102089932A99AB8400A34EFC /* popupMenuButton.swift in Sources */,
 				1020898F2A988CB700A34EFC /* LikePopupHeaderView.swift in Sources */,
+				1022BA842AB2ECE70028C2DF /* BottomSheetViewController.swift in Sources */,
 				107A75D82A7A69F300E9201B /* AppDelegate.swift in Sources */,
 				102089FD2A9C9D0600A34EFC /* ReportPopupViewController.swift in Sources */,
 				102089E72A9C5AB500A34EFC /* ProfileEditView.swift in Sources */,
 				10C9B62F2A7BDCAF00026EE0 /* UITableView+Reuseable.swift in Sources */,
 				102089E12A9C57E800A34EFC /* BaseView.swift in Sources */,
 				10AB4AC52A94C3B000E1B514 /* ProjectHeaderView.swift in Sources */,
+				1022BA342AB097DC0028C2DF /* VolumeViewController.swift in Sources */,
 				10C929B82A9F73F200BA83D9 /* UILabel+.swift in Sources */,
 				102089EB2A9C5C6600A34EFC /* RecordView.swift in Sources */,
 				102089F92A9C82B400A34EFC /* SettingViewController.swift in Sources */,
@@ -558,6 +597,7 @@
 				102089FF2A9CABC100A34EFC /* AccountCell.swift in Sources */,
 				10208A012A9CADC700A34EFC /* AccountViewController.swift in Sources */,
 				10831AE82A7A7F0A00FB460C /* Stack.swift in Sources */,
+				1022BA862AB2F14D0028C2DF /* SelfSizingTableView.swift in Sources */,
 				10C76E862AA8822900D5AFA6 /* StackButton.swift in Sources */,
 				10831AE92A7A7F0A00FB460C /* Like.swift in Sources */,
 				107A75DA2A7A69F300E9201B /* SceneDelegate.swift in Sources */,
@@ -773,6 +813,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1022BA352AB09B150028C2DF /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scenee/FloatingPanel";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		10831ACE2A7A76C100FB460C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -792,6 +840,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1022BA362AB09B150028C2DF /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1022BA352AB09B150028C2DF /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
+		};
 		10831ACF2A7A76C100FB460C /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 10831ACE2A7A76C100FB460C /* XCRemoteSwiftPackageReference "SnapKit" */;

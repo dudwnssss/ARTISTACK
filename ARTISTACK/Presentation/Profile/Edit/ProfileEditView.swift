@@ -15,6 +15,9 @@ class ProfileEditView: BaseView {
     let separator1View = SeparatorView()
     let separator2View = SeparatorView()
     let separator3View = SeparatorView()
+    let profileEditButton = UIButton()
+    
+    
     lazy var toolTipView = ToolTipView(title: "닉네임은 1-14자까지 설정가능합니다.", tipPosition: .top).then{
         $0.isHidden = isToolTipHidden
     }
@@ -35,12 +38,17 @@ class ProfileEditView: BaseView {
     }
     
     override func setLayouts() {
-        addSubviews(profileImageView, separator1View, nicknameLabel, nicknameTextFieldView, separator2View, descriptionTextView, descriptionLabel, separator3View, storeButton, toolTipView)
+        addSubviews(profileImageView, separator1View, nicknameLabel, nicknameTextFieldView, separator2View, descriptionTextView, descriptionLabel, separator3View, storeButton, toolTipView, profileEditButton)
         profileImageView.snp.makeConstraints {
             $0.size.equalTo(100)
             $0.centerX.equalToSuperview()
             $0.top.equalTo(self.safeAreaLayoutGuide).offset(20)
         }
+        profileEditButton.snp.makeConstraints {
+            $0.size.equalTo(profileImageView)
+            $0.center.equalTo(profileImageView)
+        }
+        
         separator1View.snp.makeConstraints {
             $0.top.equalTo(profileImageView.snp.bottom).offset(22)
             $0.horizontalEdges.equalToSuperview()
