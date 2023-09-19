@@ -75,6 +75,7 @@
 		10AB4AE12A97123000E1B514 /* CodePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB4AE02A97123000E1B514 /* CodePopupViewController.swift */; };
 		10AB4AEA2A9739C300E1B514 /* PreStackPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB4AE92A9739C300E1B514 /* PreStackPopupViewController.swift */; };
 		10B067722A9485C100BFA002 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B067712A9485C100BFA002 /* ProfileViewController.swift */; };
+		10C375032AB4773E00462A1B /* editProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C375022AB4773E00462A1B /* editProfileImageView.swift */; };
 		10C76E862AA8822900D5AFA6 /* StackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C76E852AA8822900D5AFA6 /* StackButton.swift */; };
 		10C929B82A9F73F200BA83D9 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C929B72A9F73F200BA83D9 /* UILabel+.swift */; };
 		10C9B62F2A7BDCAF00026EE0 /* UITableView+Reuseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C9B62C2A7BDCAE00026EE0 /* UITableView+Reuseable.swift */; };
@@ -150,6 +151,7 @@
 		10AB4AE02A97123000E1B514 /* CodePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodePopupViewController.swift; sourceTree = "<group>"; };
 		10AB4AE92A9739C300E1B514 /* PreStackPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreStackPopupViewController.swift; sourceTree = "<group>"; };
 		10B067712A9485C100BFA002 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		10C375022AB4773E00462A1B /* editProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editProfileImageView.swift; sourceTree = "<group>"; };
 		10C76E852AA8822900D5AFA6 /* StackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackButton.swift; sourceTree = "<group>"; };
 		10C929B72A9F73F200BA83D9 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		10C9B62C2A7BDCAE00026EE0 /* UITableView+Reuseable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Reuseable.swift"; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				1022BA8A2AB2F6D70028C2DF /* ProfileImageViewController.swift */,
+				10C375022AB4773E00462A1B /* editProfileImageView.swift */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				10B067722A9485C100BFA002 /* ProfileViewController.swift in Sources */,
 				10C9B6312A7BDCAF00026EE0 /* ReusableView.swift in Sources */,
 				102089932A99AB8400A34EFC /* popupMenuButton.swift in Sources */,
+				10C375032AB4773E00462A1B /* editProfileImageView.swift in Sources */,
 				1020898F2A988CB700A34EFC /* LikePopupHeaderView.swift in Sources */,
 				1022BA842AB2ECE70028C2DF /* BottomSheetViewController.swift in Sources */,
 				107A75D82A7A69F300E9201B /* AppDelegate.swift in Sources */,

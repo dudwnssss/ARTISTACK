@@ -58,9 +58,12 @@ extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
         }
         else {
             let cell = UITableViewCell()
+            
             cell.backgroundColor = .clear
-            cell.textLabel?.text = systemType[indexPath.row - 1].rawValue
-            cell.textLabel?.textColor = .white
+            var content = cell.defaultContentConfiguration()
+            content.text = systemType[indexPath.row - 1].rawValue
+            content.textProperties.color = .white
+            cell.contentConfiguration = content
             return cell
         }
     }

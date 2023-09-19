@@ -23,40 +23,17 @@ enum EditType{
 
 class ProfileImageViewController: BaseViewController, ScrollableViewController{
     
+    let editProfileView = EditProfileImageView()
+    
     var scrollView: UIScrollView{
-        return UIScrollView()
-    }
-    
-    let albumButton = UIButton()
-    let normalButton = UIButton()
-    let separatorView = SeparatorView()
-    
-    override func setProperties() {
-        albumButton.do {
-            $0.setTitle("앨범에서 선택", for: .normal)
-            $0.setTitleColor(.white, for: .normal)
-        }
-        normalButton.do {
-            $0.setTitle("기본이미지로 변경", for: .normal)
-            $0.setTitleColor(.white, for: .normal)
-        }
+        editProfileView
     }
     
     override func setLayouts() {
-        view.addSubviews(albumButton, separatorView, normalButton)
-        separatorView.snp.makeConstraints {
-            $0.center.equalToSuperview()
-            $0.horizontalEdges.equalToSuperview().inset(20)
-        }
-        normalButton.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.size.equalTo(200)
-            $0.top.equalTo(separatorView.snp.bottom).offset(25)
-        }
-        albumButton.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.size.equalTo(200)
-            $0.bottom.equalTo(separatorView.snp.top).offset(-25)
+        view.addSubview(editProfileView)
+        editProfileView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
+
 }

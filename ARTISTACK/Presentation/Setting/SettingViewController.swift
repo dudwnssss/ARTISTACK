@@ -84,10 +84,12 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate{
         }
 
         accessoryImageView.sizeToFit()
-        cell.accessoryView = accessoryImageView        
-        cell.textLabel?.text = settingType[indexPath.row].settingTitle
-        cell.textLabel?.textColor = .white
-        cell.imageView?.image = settingType[indexPath.row].settingImage
+        cell.accessoryView = accessoryImageView
+        var content = cell.defaultContentConfiguration()
+        content.text =  settingType[indexPath.row].settingTitle
+        content.textProperties.color = .white
+        content.image = settingType[indexPath.row].settingImage
+        cell.contentConfiguration = content
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

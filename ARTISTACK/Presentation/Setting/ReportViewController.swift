@@ -64,9 +64,9 @@ extension ReportViewController: UITableViewDataSource, UITableViewDelegate{
 
         accessoryImageView.sizeToFit()
         cell.accessoryView = accessoryImageView
-        
-        cell.textLabel?.text = reportType[indexPath.row].rawValue
-        cell.textLabel?.textColor = .white
+        var content = cell.defaultContentConfiguration()
+        content.text = reportType[indexPath.row].rawValue
+        content.textProperties.color = .white
         return cell
     }
     
