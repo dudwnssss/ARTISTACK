@@ -21,19 +21,12 @@ enum EditType{
     }
 }
 
-class ProfileImageViewController: BaseViewController, ScrollableViewController{
+class ProfileImageViewController: BaseViewController{
     
-    let editProfileView = EditProfileImageView()
-    
-    var scrollView: UIScrollView{
-        editProfileView
-    }
-    
-    override func setLayouts() {
-        view.addSubview(editProfileView)
-        editProfileView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+    let editProfileImageView = EditProfileImageView()
+
+    override func loadView() {
+        self.view = editProfileImageView
     }
 
 }

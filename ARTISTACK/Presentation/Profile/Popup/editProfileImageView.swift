@@ -7,32 +7,36 @@
 
 import UIKit
 
-class EditProfileImageView: UIScrollView {
+class EditProfileImageView: BaseView {
     
-    let scrollView = UIScrollView()
-    let contentView = UIView()
     let albumButton = UIButton()
     let normalButton = UIButton()
-    let separatorView = SeparatorView()
+    let separatorView = SeparatorView(isUnderLine: true)
     
     override var intrinsicContentSize: CGSize {
-        CGSize(width: UIScreen().bounds.width, height: UIScreen().bounds.height * 0.4)
+        CGSize(width: UIScreen().bounds.width, height: UIScreen().bounds.height * 0.8)
     }
     
-    func setProperties() {
+    override func setProperties() {
+        invalidateIntrinsicContentSize()
         albumButton.do {
             $0.setTitle("앨범에서 선택", for: .normal)
             $0.setTitleColor(.white, for: .normal)
+            $0.titleLabel?.font = .boldSystemFont(ofSize: 16)
+            
+            $0.backgroundColor = .systemPink
         }
         normalButton.do {
             $0.setTitle("기본이미지로 변경", for: .normal)
+            $0.titleLabel?.font = .boldSystemFont(ofSize: 16)
+
             $0.setTitleColor(.white, for: .normal)
         }
     }
     
-    func setLayouts() {
-        addSubview(contentView)
-        contentView.addSubviews(albumButton, separatorView, normalButton)
+    override func setLayouts() {
+        addSubviews(albumButton, separatorView, normalButton)
+
         separatorView.snp.makeConstraints {
             $0.center.equalToSuperview()
             $0.horizontalEdges.equalToSuperview().inset(20)
@@ -40,12 +44,10 @@ class EditProfileImageView: UIScrollView {
         
         normalButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.size.equalTo(200)
             $0.top.equalTo(separatorView.snp.bottom).offset(25)
         }
         albumButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.size.equalTo(200)
             $0.bottom.equalTo(separatorView.snp.top).offset(-25)
         }
     }

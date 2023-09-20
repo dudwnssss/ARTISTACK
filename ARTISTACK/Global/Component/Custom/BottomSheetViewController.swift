@@ -16,7 +16,7 @@ final class BottomSheetViewController: FloatingPanelController{
     
     private let isTouchPassable: Bool
     
-    init(isTouchPassable: Bool, contentViewController: ScrollableViewController){
+    init(isTouchPassable: Bool, contentViewController: UIViewController){
         self.isTouchPassable = isTouchPassable
         
         super.init(delegate: nil)
@@ -29,19 +29,19 @@ final class BottomSheetViewController: FloatingPanelController{
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupView(contentViewController: ScrollableViewController){
+    private func setupView(contentViewController: UIViewController){
         set(contentViewController: contentViewController)
-        track(scrollView: contentViewController.scrollView)
+//        track(scrollView: contentViewController.scrollView)
         
         let appearance = SurfaceAppearance().then{
-            $0.cornerRadius = 16.0
+            $0.cornerRadius = 5
             $0.backgroundColor = .white
         }
         
         surfaceView.do {
             $0.grabberHandle.isHidden = false
-            $0.grabberHandle.backgroundColor = .gray
-            $0.grabberHandleSize = .init(width: 40, height: 4)
+            $0.grabberHandle.backgroundColor = .artistackSystem3?.withAlphaComponent(0.5)
+            $0.grabberHandleSize = .init(width: 35, height: 3)
             $0.appearance = appearance
         }
         
@@ -88,10 +88,31 @@ final class TouchPassIntrinsicPanelLayout: FloatingPanelBottomLayout {
 final class TouchBlockIntrinsicPanelLayout: FloatingPanelBottomLayout {
     override var initialState: FloatingPanelState {.full}
     override var anchors: [FloatingPanelState : FloatingPanelLayoutAnchoring] {
-        return [
-            .full: FloatingPanelIntrinsicLayoutAnchor(fractionalOffset: 0, referenceGuide: .safeArea)]
+        return [ .full: FloatingPanelLayoutAnchor(fractionalInset: 190/844, edge: .bottom, referenceGuide: .safeArea)]
     }
     override func backdropAlpha(for state: FloatingPanelState) -> CGFloat {
-        0.5
+        0.8
     }
 }
+
+//class MyFloatingPanelLayout: FloatingPanelLayout {
+//
+//    var anchors: [FloatingPanelState : FloatingPanelLayoutAnchoring] {
+//        return [.half: FloatingPanelIntrinsicLayoutAnchor(fractionalOffset: <#T##CGFloat#>)]
+//    }
+//
+//
+//
+//    var position: FloatingPanelPosition {
+//        return .bottom
+//    }
+//
+//    var initialState: FloatingPanelState {
+//        return .half
+//    }
+//
+//
+//    func backdropAlpha(for state: FloatingPanelState) -> CGFloat {
+//        0.8
+//    }
+//}
