@@ -42,7 +42,7 @@
 		1022BA842AB2ECE70028C2DF /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA832AB2ECE70028C2DF /* BottomSheetViewController.swift */; };
 		1022BA862AB2F14D0028C2DF /* SelfSizingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA852AB2F14D0028C2DF /* SelfSizingTableView.swift */; };
 		1022BA882AB2F1710028C2DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA872AB2F1710028C2DF /* ViewController.swift */; };
-		1022BA8B2AB2F6D70028C2DF /* ProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA8A2AB2F6D70028C2DF /* ProfileImageViewController.swift */; };
+		1022BA8B2AB2F6D70028C2DF /* EditProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA8A2AB2F6D70028C2DF /* EditProfileImageViewController.swift */; };
 		1049419C2A9CB77B006B52BC /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049419B2A9CB77B006B52BC /* UIColor+.swift */; };
 		1049419E2A9CBB01006B52BC /* CustomBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049419D2A9CBB01006B52BC /* CustomBarButtonItem.swift */; };
 		107A75D82A7A69F300E9201B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A75D72A7A69F300E9201B /* AppDelegate.swift */; };
@@ -75,7 +75,8 @@
 		10AB4AE12A97123000E1B514 /* CodePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB4AE02A97123000E1B514 /* CodePopupViewController.swift */; };
 		10AB4AEA2A9739C300E1B514 /* PreStackPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB4AE92A9739C300E1B514 /* PreStackPopupViewController.swift */; };
 		10B067722A9485C100BFA002 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B067712A9485C100BFA002 /* ProfileViewController.swift */; };
-		10C375032AB4773E00462A1B /* editProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C375022AB4773E00462A1B /* editProfileImageView.swift */; };
+		10C31A602ABD692E00C69791 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C31A5F2ABD692E00C69791 /* VolumeView.swift */; };
+		10C375032AB4773E00462A1B /* EditProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C375022AB4773E00462A1B /* EditProfileImageView.swift */; };
 		10C76E862AA8822900D5AFA6 /* StackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C76E852AA8822900D5AFA6 /* StackButton.swift */; };
 		10C929B82A9F73F200BA83D9 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C929B72A9F73F200BA83D9 /* UILabel+.swift */; };
 		10C9B62F2A7BDCAF00026EE0 /* UITableView+Reuseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C9B62C2A7BDCAE00026EE0 /* UITableView+Reuseable.swift */; };
@@ -118,7 +119,7 @@
 		1022BA832AB2ECE70028C2DF /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		1022BA852AB2F14D0028C2DF /* SelfSizingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingTableView.swift; sourceTree = "<group>"; };
 		1022BA872AB2F1710028C2DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1022BA8A2AB2F6D70028C2DF /* ProfileImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageViewController.swift; sourceTree = "<group>"; };
+		1022BA8A2AB2F6D70028C2DF /* EditProfileImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileImageViewController.swift; sourceTree = "<group>"; };
 		1049419B2A9CB77B006B52BC /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		1049419D2A9CBB01006B52BC /* CustomBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBarButtonItem.swift; sourceTree = "<group>"; };
 		107A75D42A7A69F300E9201B /* ARTISTACK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARTISTACK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,7 +152,8 @@
 		10AB4AE02A97123000E1B514 /* CodePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodePopupViewController.swift; sourceTree = "<group>"; };
 		10AB4AE92A9739C300E1B514 /* PreStackPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreStackPopupViewController.swift; sourceTree = "<group>"; };
 		10B067712A9485C100BFA002 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		10C375022AB4773E00462A1B /* editProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editProfileImageView.swift; sourceTree = "<group>"; };
+		10C31A5F2ABD692E00C69791 /* VolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
+		10C375022AB4773E00462A1B /* EditProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileImageView.swift; sourceTree = "<group>"; };
 		10C76E852AA8822900D5AFA6 /* StackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackButton.swift; sourceTree = "<group>"; };
 		10C929B72A9F73F200BA83D9 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		10C9B62C2A7BDCAE00026EE0 /* UITableView+Reuseable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Reuseable.swift"; sourceTree = "<group>"; };
@@ -238,9 +240,9 @@
 		102089F22A9C690A00A34EFC /* CheckRecord */ = {
 			isa = PBXGroup;
 			children = (
+				10C31A5D2ABD690400C69791 /* Popup */,
 				102089F32A9C691E00A34EFC /* CheckRecordViewController.swift */,
 				102089F52A9C692E00A34EFC /* CheckRecordView.swift */,
-				1022BA332AB097DC0028C2DF /* VolumeViewController.swift */,
 			);
 			path = CheckRecord;
 			sourceTree = "<group>";
@@ -259,8 +261,8 @@
 		1022BA892AB2F6960028C2DF /* Popup */ = {
 			isa = PBXGroup;
 			children = (
-				1022BA8A2AB2F6D70028C2DF /* ProfileImageViewController.swift */,
-				10C375022AB4773E00462A1B /* editProfileImageView.swift */,
+				1022BA8A2AB2F6D70028C2DF /* EditProfileImageViewController.swift */,
+				10C375022AB4773E00462A1B /* EditProfileImageView.swift */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
@@ -444,6 +446,15 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		10C31A5D2ABD690400C69791 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				1022BA332AB097DC0028C2DF /* VolumeViewController.swift */,
+				10C31A5F2ABD692E00C69791 /* VolumeView.swift */,
+			);
+			path = Popup;
+			sourceTree = "<group>";
+		};
 		10C76ED92AA9AEE900D5AFA6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -553,7 +564,7 @@
 				102144182AA0B0A300BCCB08 /* CustomTextView.swift in Sources */,
 				107A75F32A7A6EF400E9201B /* UIVIew+.swift in Sources */,
 				10AB4AC82A94CCF700E1B514 /* Tab.swift in Sources */,
-				1022BA8B2AB2F6D70028C2DF /* ProfileImageViewController.swift in Sources */,
+				1022BA8B2AB2F6D70028C2DF /* EditProfileImageViewController.swift in Sources */,
 				102089F12A9C647B00A34EFC /* MusicProgressView.swift in Sources */,
 				102089992A99D87C00A34EFC /* UIViewController+.swift in Sources */,
 				102089F42A9C691E00A34EFC /* CheckRecordViewController.swift in Sources */,
@@ -580,9 +591,10 @@
 				10B067722A9485C100BFA002 /* ProfileViewController.swift in Sources */,
 				10C9B6312A7BDCAF00026EE0 /* ReusableView.swift in Sources */,
 				102089932A99AB8400A34EFC /* popupMenuButton.swift in Sources */,
-				10C375032AB4773E00462A1B /* editProfileImageView.swift in Sources */,
+				10C375032AB4773E00462A1B /* EditProfileImageView.swift in Sources */,
 				1020898F2A988CB700A34EFC /* LikePopupHeaderView.swift in Sources */,
 				1022BA842AB2ECE70028C2DF /* BottomSheetViewController.swift in Sources */,
+				10C31A602ABD692E00C69791 /* VolumeView.swift in Sources */,
 				107A75D82A7A69F300E9201B /* AppDelegate.swift in Sources */,
 				102089FD2A9C9D0600A34EFC /* ReportPopupViewController.swift in Sources */,
 				102089E72A9C5AB500A34EFC /* ProfileEditView.swift in Sources */,

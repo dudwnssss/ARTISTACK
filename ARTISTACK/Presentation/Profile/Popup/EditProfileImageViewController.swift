@@ -21,7 +21,7 @@ enum EditType{
     }
 }
 
-class ProfileImageViewController: BaseViewController{
+class EditProfileImageViewController: BaseViewController{
     
     let editProfileImageView = EditProfileImageView()
 
