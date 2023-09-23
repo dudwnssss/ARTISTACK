@@ -20,7 +20,7 @@ class ProfileEditViewController: BaseViewController {
     }
     
     @objc func profileEditButtonDidTap(){
-        let bottomSheetViewController = BottomSheetViewController(isTouchPassable: false, contentViewController: EditProfileImageViewController())
+        let bottomSheetViewController = BottomSheetViewController(type: .profileImage, contentViewController: EditProfileImageViewController())
         present(bottomSheetViewController, animated: true)
     }
     

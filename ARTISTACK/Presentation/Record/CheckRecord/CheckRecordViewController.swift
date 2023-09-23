@@ -33,6 +33,8 @@ class CheckRecordViewController: BaseViewController {
     }
     
     @objc func volumeButtonDidTap(){
+        let bottomSheetViewController = BottomSheetViewController(type: .volume, contentViewController: VolumeViewController())
+        present(bottomSheetViewController, animated: true)
     }
     
     func setNavigationBar(){

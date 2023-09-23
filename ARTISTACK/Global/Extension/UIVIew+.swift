@@ -32,6 +32,27 @@ extension UIView {
         
         layer.mask = shapeLayer
     }
+    
+    func addGradient(
+        colors: [UIColor],
+        startPoint: CGPoint? = CGPoint(x: 0.5, y: 0.0),
+        endPoint: CGPoint? = CGPoint(x: 0.5, y: 1.0)
+    ) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.colors = colors.map { $0.cgColor }
+        gradientLayer.startPoint = startPoint ?? CGPoint(x: 0.5, y: 0.0)
+        gradientLayer.endPoint = endPoint ?? CGPoint(x: 0.5, y: 0.7)
+        layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    var snapshot: UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        let capturedImage = renderer.image { context in
+            layer.render(in: context.cgContext)
+        }
+        return capturedImage
+    }
 }
 
 #if DEBUG

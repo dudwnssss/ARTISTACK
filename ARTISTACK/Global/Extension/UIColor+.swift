@@ -39,5 +39,7 @@ extension UIColor {
     static let artistackSystem10 = UIColor(hex: "#DEE0E7")
 
     static let artistackPurple = UIColor(hex: "#6036F2")
+    static let artistackPink = UIColor(hex: "#A83A99")
+
 
 }

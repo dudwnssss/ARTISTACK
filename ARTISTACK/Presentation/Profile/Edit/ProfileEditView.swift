@@ -33,9 +33,7 @@ class ProfileEditView: BaseView {
 
     let descriptionTextView = CustomTextView(placeholder: "스태커님은 어떤 음악을 하시나요?", limitCount: 38, fontSize: 14, isBold: true)
     
-    let storeButton = CompleteButton().then{
-        $0.buttonTitleLabel.text = "저장하기"
-    }
+    let storeButton = CompleteButton(title: "저장하기")
     
     override func setLayouts() {
         addSubviews(profileImageView, separator1View, nicknameLabel, nicknameTextFieldView, separator2View, descriptionTextView, descriptionLabel, separator3View, storeButton, toolTipView, profileEditButton)

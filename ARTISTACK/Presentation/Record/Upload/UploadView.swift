@@ -96,9 +96,7 @@ class UploadView: BaseView {
         $0.onTintColor = .artistackPurple
     }
     
-    let uploadButon = CompleteButton().then{
-        $0.buttonTitleLabel.text = "게시하기"
-    }
+    let uploadButon = CompleteButton(title: "게시하기")
     
     let instTopStackView = UIStackView().then{
         $0.distribution = .fillEqually

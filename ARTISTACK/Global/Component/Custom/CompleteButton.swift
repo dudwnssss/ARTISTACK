@@ -18,9 +18,10 @@ class CompleteButton: UIButton {
         $0.font = .boldSystemFont(ofSize: 18)
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setLayouts()
+    init(title: String) {
+        buttonTitleLabel.text = title
+        super.init(frame: .zero)
+        self.setLayouts()
     }
     
     func setLayouts(){

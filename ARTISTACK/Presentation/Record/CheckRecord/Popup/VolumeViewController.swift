@@ -9,4 +9,10 @@ import UIKit
 
 class VolumeViewController: BaseViewController {
     
+    let volumeView = VolumeView()
+    override func loadView() {
+        self.view = volumeView
+    }
+    
+    
 }

@@ -41,7 +41,6 @@
 		1022BA372AB09B150028C2DF /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 1022BA362AB09B150028C2DF /* FloatingPanel */; };
 		1022BA842AB2ECE70028C2DF /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA832AB2ECE70028C2DF /* BottomSheetViewController.swift */; };
 		1022BA862AB2F14D0028C2DF /* SelfSizingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA852AB2F14D0028C2DF /* SelfSizingTableView.swift */; };
-		1022BA882AB2F1710028C2DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA872AB2F1710028C2DF /* ViewController.swift */; };
 		1022BA8B2AB2F6D70028C2DF /* EditProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA8A2AB2F6D70028C2DF /* EditProfileImageViewController.swift */; };
 		1049419C2A9CB77B006B52BC /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049419B2A9CB77B006B52BC /* UIColor+.swift */; };
 		1049419E2A9CBB01006B52BC /* CustomBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049419D2A9CBB01006B52BC /* CustomBarButtonItem.swift */; };
@@ -76,6 +75,7 @@
 		10AB4AEA2A9739C300E1B514 /* PreStackPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB4AE92A9739C300E1B514 /* PreStackPopupViewController.swift */; };
 		10B067722A9485C100BFA002 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B067712A9485C100BFA002 /* ProfileViewController.swift */; };
 		10C31A602ABD692E00C69791 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C31A5F2ABD692E00C69791 /* VolumeView.swift */; };
+		10C31A622ABEB9CA00C69791 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C31A612ABEB9CA00C69791 /* CustomSlider.swift */; };
 		10C375032AB4773E00462A1B /* EditProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C375022AB4773E00462A1B /* EditProfileImageView.swift */; };
 		10C76E862AA8822900D5AFA6 /* StackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C76E852AA8822900D5AFA6 /* StackButton.swift */; };
 		10C929B82A9F73F200BA83D9 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C929B72A9F73F200BA83D9 /* UILabel+.swift */; };
@@ -118,7 +118,6 @@
 		1022BA332AB097DC0028C2DF /* VolumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeViewController.swift; sourceTree = "<group>"; };
 		1022BA832AB2ECE70028C2DF /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		1022BA852AB2F14D0028C2DF /* SelfSizingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingTableView.swift; sourceTree = "<group>"; };
-		1022BA872AB2F1710028C2DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1022BA8A2AB2F6D70028C2DF /* EditProfileImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileImageViewController.swift; sourceTree = "<group>"; };
 		1049419B2A9CB77B006B52BC /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		1049419D2A9CBB01006B52BC /* CustomBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBarButtonItem.swift; sourceTree = "<group>"; };
@@ -153,6 +152,7 @@
 		10AB4AE92A9739C300E1B514 /* PreStackPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreStackPopupViewController.swift; sourceTree = "<group>"; };
 		10B067712A9485C100BFA002 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		10C31A5F2ABD692E00C69791 /* VolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
+		10C31A612ABEB9CA00C69791 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		10C375022AB4773E00462A1B /* EditProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileImageView.swift; sourceTree = "<group>"; };
 		10C76E852AA8822900D5AFA6 /* StackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackButton.swift; sourceTree = "<group>"; };
 		10C929B72A9F73F200BA83D9 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
@@ -215,6 +215,7 @@
 				10C76E852AA8822900D5AFA6 /* StackButton.swift */,
 				1022BA832AB2ECE70028C2DF /* BottomSheetViewController.swift */,
 				1022BA852AB2F14D0028C2DF /* SelfSizingTableView.swift */,
+				10C31A612ABEB9CA00C69791 /* CustomSlider.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -304,7 +305,6 @@
 				10AB4ACC2A95BEFF00E1B514 /* Record */,
 				10B067702A94859400BFA002 /* Profile */,
 				102089F72A9C829D00A34EFC /* Setting */,
-				1022BA872AB2F1710028C2DF /* ViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -553,12 +553,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				10AB4ADA2A96DC1E00E1B514 /* SeparatorView.swift in Sources */,
+				10C31A622ABEB9CA00C69791 /* CustomSlider.swift in Sources */,
 				10831AEB2A7A7F0A00FB460C /* UserDTO.swift in Sources */,
 				102089A92A9A719300A34EFC /* CustomTextFieldView.swift in Sources */,
 				10831AE72A7A7F0A00FB460C /* LikedListDTO.swift in Sources */,
 				10AB4ACA2A94CD6B00E1B514 /* MainTabBarController.swift in Sources */,
 				102089E32A9C582A00A34EFC /* HomeView.swift in Sources */,
-				1022BA882AB2F1710028C2DF /* ViewController.swift in Sources */,
 				10831AD52A7A772000FB460C /* UserCell.swift in Sources */,
 				102089A72A9A2F2D00A34EFC /* InstButton.swift in Sources */,
 				102144182AA0B0A300BCCB08 /* CustomTextView.swift in Sources */,

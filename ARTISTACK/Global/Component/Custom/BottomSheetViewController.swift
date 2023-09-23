@@ -8,16 +8,32 @@
 import UIKit
 import FloatingPanel
 
+enum BottomSheetType{
+    case volume
+    case profileImage
+    
+    var fractionalHeight: CGFloat {
+        switch self {
+        case .volume:
+            return 352/844
+        case .profileImage:
+            return 190/844
+        }
+    }
+}
+
+
 protocol ScrollableViewController where Self: UIViewController {
     var scrollView: UIScrollView {get}
 }
 
 final class BottomSheetViewController: FloatingPanelController{
     
-    private let isTouchPassable: Bool
+    var bottomSheetType : BottomSheetType?
+
     
-    init(isTouchPassable: Bool, contentViewController: UIViewController){
-        self.isTouchPassable = isTouchPassable
+    init(type: BottomSheetType, contentViewController: UIViewController){
+        self.bottomSheetType = type
         
         super.init(delegate: nil)
         
@@ -46,12 +62,13 @@ final class BottomSheetViewController: FloatingPanelController{
         }
         
         backdropView.do {
-            $0.dismissalTapGestureRecognizer.isEnabled = !isTouchPassable
-            let backdropColor = isTouchPassable ? UIColor.clear : .black
+            $0.dismissalTapGestureRecognizer.isEnabled = true
+            let backdropColor = UIColor.black
             $0.backgroundColor = backdropColor
         }
         
-        let layout = isTouchPassable ? TouchPassIntrinsicPanelLayout() : TouchBlockIntrinsicPanelLayout()
+        guard let type = bottomSheetType else {return}
+        let layout = TouchBlockIntrinsicPanelLayout(type: type)
         self.layout = layout
 
         
@@ -65,7 +82,7 @@ extension BottomSheetViewController: FloatingPanelControllerDelegate{
         let loc = fpc.surfaceLocation
         let minY = fpc.surfaceLocation(for: .full).y
         let maxY = fpc.surfaceLocation(for: .tip).y
-        let y = isTouchPassable ? max(min(loc.y, minY), maxY) : min(max(loc.y, minY), maxY)
+        let y =  min(max(loc.y, minY), maxY)
         fpc.surfaceLocation = CGPoint(x: loc.x, y: y)
     }
     
@@ -75,44 +92,17 @@ extension BottomSheetViewController: FloatingPanelControllerDelegate{
     }
 }
 
-final class TouchPassIntrinsicPanelLayout: FloatingPanelBottomLayout {
-    override var initialState: FloatingPanelState {.tip}
-    override var anchors: [FloatingPanelState : FloatingPanelLayoutAnchoring] {
-        return [
-            .tip: FloatingPanelIntrinsicLayoutAnchor(fractionalOffset: 0, referenceGuide: .safeArea)
-        ]
-    }
-}
-
-
 final class TouchBlockIntrinsicPanelLayout: FloatingPanelBottomLayout {
+    init(type: BottomSheetType) {
+        bottomSheetType = type
+        super.init()
+    }
+    var bottomSheetType : BottomSheetType?
     override var initialState: FloatingPanelState {.full}
     override var anchors: [FloatingPanelState : FloatingPanelLayoutAnchoring] {
-        return [ .full: FloatingPanelLayoutAnchor(fractionalInset: 190/844, edge: .bottom, referenceGuide: .safeArea)]
+        return [ .full: FloatingPanelLayoutAnchor(fractionalInset: bottomSheetType?.fractionalHeight ?? 0, edge: .bottom, referenceGuide: .safeArea)]
     }
     override func backdropAlpha(for state: FloatingPanelState) -> CGFloat {
         0.8
     }
 }
-
-//class MyFloatingPanelLayout: FloatingPanelLayout {
-//
-//    var anchors: [FloatingPanelState : FloatingPanelLayoutAnchoring] {
-//        return [.half: FloatingPanelIntrinsicLayoutAnchor(fractionalOffset: <#T##CGFloat#>)]
-//    }
-//
-//
-//
-//    var position: FloatingPanelPosition {
-//        return .bottom
-//    }
-//
-//    var initialState: FloatingPanelState {
-//        return .half
-//    }
-//
-//
-//    func backdropAlpha(for state: FloatingPanelState) -> CGFloat {
-//        0.8
-//    }
-//}

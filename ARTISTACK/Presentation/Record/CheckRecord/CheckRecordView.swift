@@ -12,10 +12,9 @@ class CheckRecordView: BaseView {
     let volumeButton = RecordUtilButton(utilType: .volume)
     let retakeButton = RecordUtilButton(utilType: .retake)
     let replayButton = RecordUtilButton(utilType: .replay)
-    let completeButton = CompleteButton().then{
+    let completeButton = CompleteButton(title: "완료").then{
         $0.backgroundImageView.layer.cornerRadius = 22
         $0.backgroundImageView.clipsToBounds = true
-        $0.buttonTitleLabel.text = "완료"
     }
     
     override func setLayouts() {
