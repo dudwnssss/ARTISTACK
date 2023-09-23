@@ -28,12 +28,12 @@ class VolumeView : BaseView {
         }
         originalSoundLabel.do {
             $0.text = "오리지널 사운드"
-            $0.font = .systemFont(ofSize: 16)
+            $0.font = .boldSystemFont(ofSize: 16)
             $0.textColor = .artistackSystem5
         }
         addedSoundLabel.do {
             $0.text = "추가된 사운드"
-            $0.font = .systemFont(ofSize: 16)
+            $0.font = .boldSystemFont(ofSize: 16)
             $0.textColor = .artistackSystem5
         }
     }
@@ -47,10 +47,10 @@ class VolumeView : BaseView {
         }
         addedSoundSlider.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview().inset(20)
-            $0.bottom.equalTo(completeButton.snp.top).offset(-40)
+            $0.bottom.equalTo(completeButton.snp.top).offset(-36)
         }
         addedSoundLabel.snp.makeConstraints {
-            $0.bottom.equalTo(addedSoundSlider.snp.top).offset(-26)
+            $0.bottom.equalTo(addedSoundSlider.snp.top).offset(-16)
             $0.leading.equalTo(addedSoundSlider)
         }
         originalSoundSlider.snp.makeConstraints {
@@ -58,7 +58,7 @@ class VolumeView : BaseView {
             $0.bottom.equalTo(addedSoundLabel.snp.top).offset(-36)
         }
         originalSoundLabel.snp.makeConstraints {
-            $0.bottom.equalTo(originalSoundSlider.snp.top).offset(-26)
+            $0.bottom.equalTo(originalSoundSlider.snp.top).offset(-16)
             $0.leading.equalTo(addedSoundSlider)
         }
         headerLabel.snp.makeConstraints {

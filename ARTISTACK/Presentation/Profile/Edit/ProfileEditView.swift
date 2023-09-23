@@ -74,7 +74,7 @@ class ProfileEditView: BaseView {
         }
         descriptionTextView.snp.makeConstraints {
             $0.leading.trailing.equalTo(nicknameTextFieldView)
-            $0.height.equalTo(descriptionLabel)
+            $0.top.equalTo(descriptionLabel)
             $0.bottom.equalTo(separator3View.snp.top).offset(-12)
         }
         descriptionTextView.layoutSubviews()

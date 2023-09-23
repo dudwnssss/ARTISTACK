@@ -6,45 +6,65 @@
 //
 
 import UIKit
+import SnapKit
 
-class CustomTextView: UIView{
+class CustomTextView: UIView {
     
-    let textCountLabel = UILabel().then{
-        $0.textColor = .artistackSystem4
-        $0.font = .systemFont(ofSize: 14)
-        $0.backgroundColor = .systemPink
+    var placeholder: String? {
+        didSet {
+            setPlaceholder()
+        }
     }
     
-    let textView = UITextView().then{
-        $0.isScrollEnabled = false
-        $0.textColor = .white
-        $0.textContainerInset = .zero
-        $0.textContainer.lineFragmentPadding = 0
-        $0.backgroundColor = .clear
+    var limitCount: Int = 0 {
+        didSet {
+            updateCountLabel()
+        }
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    let textView = UITextView()
+    let textCountLabel = UILabel()
     
-    convenience init(placeholder: String, limitCount: Int, fontSize: CGFloat, isBold: Bool){
-        self.init()
+    
+    init(placeholder: String, limitCount: Int, fontSize: CGFloat, isBold: Bool) {
+        self.placeholder = placeholder
+        self.limitCount = limitCount
+        super.init(frame: .zero)
         textCountLabel.text = "\(limitCount)"
         textView.font = isBold ? UIFont.boldSystemFont(ofSize: fontSize) : .systemFont(ofSize: fontSize)
         setProperties()
         setLayouts()
     }
     
-    func setProperties(){
+    func setProperties() {
+        textView.do {
+            $0.delegate = self
+            $0.isScrollEnabled = false
+            $0.textContainerInset = .zero
+            $0.textContainer.lineFragmentPadding = 0
+            $0.backgroundColor = .clear
+        }
+        textCountLabel.do {
+            $0.textColor = .artistackSystem4
+            $0.font = .systemFont(ofSize: 14)
+            $0.backgroundColor = .systemPink
+        }
+
+
+        setPlaceholder()
     }
     
-    func setLayouts(){
+    private func setPlaceholder() {
+        if let placeholderText = placeholder {
+            textView.text = placeholderText
+            textView.textColor = .artistackSystem3
+        }
+    }
+    
+    func setLayouts() {
         addSubviews(textCountLabel, textView)
         textCountLabel.snp.makeConstraints {
+            $0.height.equalTo(18)
             $0.bottom.trailing.equalToSuperview()
         }
         textView.snp.makeConstraints {
@@ -52,13 +72,45 @@ class CustomTextView: UIView{
             $0.bottom.equalTo(textCountLabel.snp.top)
         }
     }
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        textCountLabel.snp.makeConstraints {
-            $0.height.equalTo(18)
-            $0.bottom.trailing.equalToSuperview()
-        }
-    }
     
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
+extension CustomTextView: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text == placeholder {
+            textView.text = ""
+            textView.textColor = .white
+        }
+        
+        if let text = textView.text, text.count > limitCount {
+            let index = text.index(text.startIndex, offsetBy: limitCount)
+            textView.text = String(text.prefix(upTo: index))
+        }
+        updateCountLabel()
+    }
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        if textView.text == placeholder {
+            textView.text = ""
+            textView.textColor = .white
+        }
+        return true
+    }
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        if textView.text.isEmpty {
+            setPlaceholder()
+        }
+        return true
+    }
+    
+    
+    func updateCountLabel() {
+        let remainingCount = limitCount - (textView.text?.count ?? 0)
+        textCountLabel.text = "\(remainingCount)"
+    }
+}
