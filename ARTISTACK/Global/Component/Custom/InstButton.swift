@@ -52,11 +52,14 @@ enum InstType: Int, CaseIterable {
 
 class InstButton: UIButton {
     var instType: InstType?
-    
-    let instTitleLabel = UILabel().then{
-        $0.font = .systemFont(ofSize: 13)
-        $0.textColor = .artistackSystem5
+    var isTapped = false {
+        didSet{
+            configureButton()
+        }
     }
+    
+
+    let instTitleLabel = UILabel()
     let instImageView = UIImageView()
     
     convenience init(type: InstType){
@@ -77,9 +80,9 @@ class InstButton: UIButton {
     }
     
     func setProperties(){
-        layer.cornerRadius = 5
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.artistackSystem4?.cgColor
+        cornerRadius = 5
+        borderWidth = 0.5
+        configureButton()
         instTitleLabel.text = instType?.title
         instImageView.image = instType?.instImage
     }
@@ -100,5 +103,20 @@ class InstButton: UIButton {
             $0.centerX.equalToSuperview()
         }
         
+    }
+    
+    func configureButton(){
+        switch isTapped{
+        case true:
+            borderColor = .artistackSystem5!
+            backgroundColor = .artistackSystem2
+            instTitleLabel.font = .boldSystemFont(ofSize: 13)
+            instTitleLabel.textColor = .artistackSystem6
+        case false:
+            borderColor = .artistackSystem4!
+            backgroundColor = .artistackSystem1
+            instTitleLabel.font = .systemFont(ofSize: 13)
+            instTitleLabel.textColor = .artistackSystem5
+        }
     }
 }

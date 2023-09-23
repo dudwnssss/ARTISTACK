@@ -46,6 +46,7 @@ class CustomTextView: UIView {
         }
         textCountLabel.do {
             $0.textColor = .artistackSystem4
+            $0.textAlignment = .right
             $0.font = .systemFont(ofSize: 14)
         }
 

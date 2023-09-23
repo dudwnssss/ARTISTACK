@@ -76,6 +76,7 @@
 		10B067722A9485C100BFA002 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B067712A9485C100BFA002 /* ProfileViewController.swift */; };
 		10C31A602ABD692E00C69791 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C31A5F2ABD692E00C69791 /* VolumeView.swift */; };
 		10C31A622ABEB9CA00C69791 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C31A612ABEB9CA00C69791 /* CustomSlider.swift */; };
+		10C31A642ABF3E4300C69791 /* UploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C31A632ABF3E4300C69791 /* UploadViewModel.swift */; };
 		10C375032AB4773E00462A1B /* EditProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C375022AB4773E00462A1B /* EditProfileImageView.swift */; };
 		10C76E862AA8822900D5AFA6 /* StackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C76E852AA8822900D5AFA6 /* StackButton.swift */; };
 		10C929B82A9F73F200BA83D9 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C929B72A9F73F200BA83D9 /* UILabel+.swift */; };
@@ -153,6 +154,7 @@
 		10B067712A9485C100BFA002 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		10C31A5F2ABD692E00C69791 /* VolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
 		10C31A612ABEB9CA00C69791 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		10C31A632ABF3E4300C69791 /* UploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewModel.swift; sourceTree = "<group>"; };
 		10C375022AB4773E00462A1B /* EditProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileImageView.swift; sourceTree = "<group>"; };
 		10C76E852AA8822900D5AFA6 /* StackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackButton.swift; sourceTree = "<group>"; };
 		10C929B72A9F73F200BA83D9 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			children = (
 				102089A42A9A2ED200A34EFC /* UploadViewController.swift */,
 				102089E82A9C5BC800A34EFC /* UploadView.swift */,
+				10C31A632ABF3E4300C69791 /* UploadViewModel.swift */,
 			);
 			path = Upload;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				10AB4ADA2A96DC1E00E1B514 /* SeparatorView.swift in Sources */,
 				10C31A622ABEB9CA00C69791 /* CustomSlider.swift in Sources */,
 				10831AEB2A7A7F0A00FB460C /* UserDTO.swift in Sources */,
+				10C31A642ABF3E4300C69791 /* UploadViewModel.swift in Sources */,
 				102089A92A9A719300A34EFC /* CustomTextFieldView.swift in Sources */,
 				10831AE72A7A7F0A00FB460C /* LikedListDTO.swift in Sources */,
 				10AB4ACA2A94CD6B00E1B514 /* MainTabBarController.swift in Sources */,

@@ -13,6 +13,7 @@ class CustomTextFieldView: BaseView {
     let textCountLabel = UILabel().then {
         $0.textColor = .artistackSystem4
         $0.font = .systemFont(ofSize: 14)
+        $0.textAlignment = .right
     }
     let textField = UITextField().then {
         $0.textColor = .white

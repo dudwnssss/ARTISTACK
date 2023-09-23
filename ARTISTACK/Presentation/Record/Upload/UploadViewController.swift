@@ -22,6 +22,9 @@ class UploadViewController: BaseViewController {
         hideKeyboardWhenTappedAround()
         setNavigationBar()
         uploadView.uploadButon.addTarget(self, action: #selector(uploadButtonDidTap), for: .touchUpInside)
+        for item in uploadView.instButtonList{
+            item.addTarget(self, action: #selector(instButtonDidTap(sender:)), for: .touchUpInside)
+        }
     }
     
     func setNavigationBar(){
@@ -36,6 +39,13 @@ class UploadViewController: BaseViewController {
     
     @objc func uploadButtonDidTap(){
         navigationController?.dismiss(animated: true)
+    }
+    
+    @objc func instButtonDidTap(sender: InstButton){
+        for item in uploadView.instButtonList{
+            item.isTapped = false
+        }
+        sender.isTapped = true
     }
     
     override func viewWillAppear(_ animated: Bool) {

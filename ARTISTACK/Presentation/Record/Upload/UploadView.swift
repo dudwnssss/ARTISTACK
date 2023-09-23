@@ -58,6 +58,8 @@ class UploadView: BaseView {
     let vocalButton = InstButton(type: .vocal)
     let othersButton = InstButton(type: .others)
     
+    lazy var instButtonList = [pianoButton, guitarButton, bassButton, drumButton, vocalButton, othersButton]
+    
     let separator4View = SeparatorView()
     
     let settingLabel = UILabel().then{
