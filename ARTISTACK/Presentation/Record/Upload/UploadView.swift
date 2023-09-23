@@ -11,6 +11,7 @@ class UploadView: BaseView {
     
     let scrollView = UIScrollView().then{
         $0.showsVerticalScrollIndicator = false
+        $0.keyboardDismissMode = .onDrag
     }
     let contentView = UIView()
     
@@ -19,22 +20,7 @@ class UploadView: BaseView {
     
     let separator2View = SeparatorView()
 
-    
-    let descriptionTextView = UITextView().then{
-        $0.isScrollEnabled = false
-        $0.text = "연주에 대해 설명해주세요"
-        $0.font = .boldSystemFont(ofSize: 16)
-        $0.textColor = .white
-        $0.backgroundColor = .clear
-        $0.textContainer.lineFragmentPadding = 0
-        $0.textContainerInset = .zero
-    }
-    
-    let descriptionCountLabel = UILabel().then{
-        $0.text = "48"
-        $0.textColor = .lightGray
-        $0.font = .systemFont(ofSize: 14)
-    }
+    let descriptionTextView = CustomTextView(placeholder: "연주에 대해 설명해주세요", limitCount: 48, fontSize: 16, isBold: false)
     
     let thumbnailImageView = UIImageView().then{
         $0.backgroundColor = .darkGray
@@ -130,7 +116,7 @@ class UploadView: BaseView {
             $0.width.equalToSuperview()
             $0.height.equalToSuperview().offset(72)
         }
-        contentView.addSubviews(separator1View, titleTextFieldView, separator2View, descriptionTextView, descriptionCountLabel, thumbnailImageView, separator3View, infoLabel, bpmLabel, bpmTextFieldView, codeLabel, codeTextFieldView, instLabel, instStackView, separator4View, settingLabel, publicSettingLabel, publicSettingSwitch, stackAllowLabel, stackAllowSwitch)
+        contentView.addSubviews(separator1View, titleTextFieldView, separator2View, descriptionTextView, thumbnailImageView, separator3View, infoLabel, bpmLabel, bpmTextFieldView, codeLabel, codeTextFieldView, instLabel, instStackView, separator4View, settingLabel, publicSettingLabel, publicSettingSwitch, stackAllowLabel, stackAllowSwitch)
         
         separator1View.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
@@ -239,14 +225,10 @@ class UploadView: BaseView {
         
         descriptionTextView.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalTo(descriptionCountLabel)
-            $0.top.equalTo(separator2View).offset(22)
-            $0.bottom.equalTo(descriptionCountLabel)
-        }
-        
-        descriptionCountLabel.snp.makeConstraints {
             $0.trailing.equalTo(thumbnailImageView.snp.leading).offset(-24)
+            $0.top.equalTo(separator2View).offset(22)
             $0.bottom.equalTo(separator3View).offset(-20)
         }
+        
     }
 }

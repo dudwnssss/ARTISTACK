@@ -7,35 +7,37 @@
 
 import UIKit
 
-class CustomTextFieldView : BaseView{
+class CustomTextFieldView: BaseView {
     
     let underLineView = SeparatorView(isUnderLine: true)
-    let textCountLabel = UILabel().then{
-        $0.text = "26"
+    let textCountLabel = UILabel().then {
         $0.textColor = .artistackSystem4
         $0.font = .systemFont(ofSize: 14)
     }
-    let textField = UITextField().then{
+    let textField = UITextField().then {
         $0.textColor = .white
     }
     
-    convenience init(placeholder: String, limitCount: Int, isUnderLined: Bool = false, fontSize: CGFloat = 16, isBold: Bool = false) {
-        self.init(frame: .zero)
+    var limitCount: Int = 0
+    
+    init(placeholder: String, limitCount: Int, isUnderLined: Bool = false, fontSize: CGFloat = 16, isBold: Bool = false) {
+        self.limitCount = limitCount
+        super.init(frame: .zero)
         textField.font = isBold ? .boldSystemFont(ofSize: fontSize) : .systemFont(ofSize: fontSize)
-        textField.attributedPlaceholder =  NSAttributedString(string: placeholder, attributes: [.foregroundColor : UIColor.artistackSystem3!, .font : UIFont.systemFont(ofSize: fontSize)])
+        textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: UIColor.artistackSystem3!, .font: UIFont.systemFont(ofSize: fontSize)])
         underLineView.isHidden = !isUnderLined
         textCountLabel.text = "\(limitCount)"
         setProperties()
         setLayouts()
     }
     
-
-    
-    override func setProperties(){
-//        textField.delegate = self
+    override func setProperties() {
+        textField.delegate = self
+        textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged) // Add editing changed event
+        updateCountLabel() // Update the character count label initially
     }
     
-    override func setLayouts(){
+    override func setLayouts() {
         addSubviews(underLineView, textCountLabel, textField)
         underLineView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
@@ -53,13 +55,28 @@ class CustomTextFieldView : BaseView{
             $0.top.equalToSuperview()
         }
     }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        updateCountLabel()
+    }
+    
+    func updateCountLabel() {
+        let remainingCount = limitCount - (textField.text?.count ?? 0)
+        
+        if remainingCount >= 0 {
+            textCountLabel.text = "\(remainingCount)"
+        } else {
+            textCountLabel.text = "0"
+        }
+        
+        if remainingCount < 0 {
+            textField.text = String(textField.text?.prefix(limitCount) ?? "")
+        }
+    }
 }
 
-//extension CustomTextFieldView: UITextFieldDelegate{
-//
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        var length = textField.text?.count
-//        print(length)
-//        return true
-//    }
-//}
+extension CustomTextFieldView: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return true
+    }
+}
