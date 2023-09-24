@@ -26,6 +26,12 @@ class RecordView: BaseView {
     }
     let musicProgressView = MusicProgressView()
     
+    override func setProperties() {
+        musicProgressView.do {
+            $0.isHidden = true
+        }
+
+    }
     override func setLayouts() {
     
         

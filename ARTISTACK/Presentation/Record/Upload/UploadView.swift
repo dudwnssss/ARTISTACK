@@ -71,6 +71,7 @@ class UploadView: BaseView {
     }
     
     let publicSettingSwitch = UISwitch().then{
+        $0.thumbTintColor = .artistackSystem10
         $0.isOn = true
         $0.onTintColor = .artistackPurple
     }
@@ -80,6 +81,7 @@ class UploadView: BaseView {
     }
 
     let stackAllowSwitch = UISwitch().then{
+        $0.thumbTintColor = .artistackSystem10
         $0.isOn = true
         $0.onTintColor = .artistackPurple
     }
