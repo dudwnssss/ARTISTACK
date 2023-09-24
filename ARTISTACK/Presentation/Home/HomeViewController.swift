@@ -19,6 +19,7 @@ class HomeViewController: BaseViewController {
     override func setProperties() {
         homeView.postTableView.delegate = self
         homeView.postTableView.dataSource = self
+        print(UserDefaults.standard.string(forKey: "accessToken"))
     }
     
 

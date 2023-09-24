@@ -20,8 +20,25 @@ class OnboardingAgreementViewController: BaseViewController {
     }
     
     @objc func completeButtonDidTap(){
-        let vc = WelcomViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        
+        guard let artistackId = UserDefaults.standard.string(forKey: "artistackId") else {return}
+        guard let nickname = UserDefaults.standard.string(forKey: "nickname") else {return}
+        
+        let request = SignupRequest(artistackId: artistackId, nickname: nickname, description: nil, providerType: "APPLE", profileImgUrl: nil, instruments: nil)
+        
+        Network.shared.request(type: LoginResponse.self, api: OAuthTarget.signup(request)) { response in
+            switch response {
+            case .success(let success):
+                if success.success == true{
+                    UserDefaults.standard.set(success.data?.accessToken, forKey: "accessToken")
+                    UserDefaults.standard.set(success.data?.refreshToken, forKey: "refressToken")
+                    let vc = WelcomViewController()
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true)
+                }
+            case .failure(let failure):
+                debugPrint(response)
+            }
+        }
     }
 }

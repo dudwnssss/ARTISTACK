@@ -25,6 +25,8 @@ class OnboardingUserNameViewController : BaseViewController {
     
     @objc func nextButtonDidTap(){
         let vc = OnboardingProfileViewController()
+        let nickname = onboardingUserNameView.textField.text
+        UserDefaults.standard.set(nickname, forKey: "nickname")
         navigationController?.pushViewController(vc, animated: true)
     }
 }

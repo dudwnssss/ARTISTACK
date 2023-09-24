@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct LoginResponse: Codable {
+struct LoginResponse: Decodable {
     let success: Bool
     let code: Int
     let message: String
     let data: DataClass?
 }
 
-struct DataClass: Codable {
+struct DataClass: Decodable {
     let grantType, accessToken, refreshToken: String?
     let accessTokenExpiresIn: Int?
 }

@@ -16,8 +16,10 @@ class BaseViewController: UIViewController {
         view.backgroundColor = .artistackSystem1
         setProperties()
         setLayouts()
+        bind()
     }
     
     func setProperties(){}
     func setLayouts(){}
+    func bind(){}
 }

@@ -10,7 +10,7 @@ import Alamofire
 
 enum OAuthTarget{
     case login(LoginRequest)
-    case signup
+    case signup(SignupRequest)
 }
 
 extension OAuthTarget: TargetType {
@@ -53,8 +53,8 @@ extension OAuthTarget: TargetType {
         switch self {
         case .login(let request):
             return .query(request)
-        case .signup:
-            return .query("")
+        case .signup(let request):
+            return .body(request)
         }
     }
 }

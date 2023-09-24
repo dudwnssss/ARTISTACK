@@ -104,8 +104,14 @@
 		10F79D332AC041CD00E31063 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D322AC041CD00E31063 /* LoginRequest.swift */; };
 		10F79D352AC041D600E31063 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D342AC041D600E31063 /* LoginResponse.swift */; };
 		10F79D382AC0447400E31063 /* OAuthTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D372AC0447400E31063 /* OAuthTarget.swift */; };
-		10F79D3A2AC04BF100E31063 /* OAuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D392AC04BF100E31063 /* OAuthAPI.swift */; };
 		10F79D3C2AC0508200E31063 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D3B2AC0508200E31063 /* Network.swift */; };
+		10F79D3F2AC059E400E31063 /* UsersTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D3E2AC059E400E31063 /* UsersTarget.swift */; };
+		10F79D432AC05B1900E31063 /* DuplicateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D422AC05B1900E31063 /* DuplicateRequest.swift */; };
+		10F79D452AC05B2300E31063 /* DuplicateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D442AC05B2300E31063 /* DuplicateResponse.swift */; };
+		10F79D482AC05C7D00E31063 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D472AC05C7C00E31063 /* Observable.swift */; };
+		10F79D4A2AC05D1800E31063 /* OnboardingAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D492AC05D1800E31063 /* OnboardingAccountViewModel.swift */; };
+		10F79D4C2AC06C3100E31063 /* SignupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D4B2AC06C3100E31063 /* SignupRequest.swift */; };
+		10F79D4E2AC06C3A00E31063 /* SignupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D4D2AC06C3A00E31063 /* SignupResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -204,8 +210,14 @@
 		10F79D322AC041CD00E31063 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		10F79D342AC041D600E31063 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		10F79D372AC0447400E31063 /* OAuthTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTarget.swift; sourceTree = "<group>"; };
-		10F79D392AC04BF100E31063 /* OAuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAPI.swift; sourceTree = "<group>"; };
 		10F79D3B2AC0508200E31063 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		10F79D3E2AC059E400E31063 /* UsersTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTarget.swift; sourceTree = "<group>"; };
+		10F79D422AC05B1900E31063 /* DuplicateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateRequest.swift; sourceTree = "<group>"; };
+		10F79D442AC05B2300E31063 /* DuplicateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateResponse.swift; sourceTree = "<group>"; };
+		10F79D472AC05C7C00E31063 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		10F79D492AC05D1800E31063 /* OnboardingAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAccountViewModel.swift; sourceTree = "<group>"; };
+		10F79D4B2AC06C3100E31063 /* SignupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequest.swift; sourceTree = "<group>"; };
+		10F79D4D2AC06C3A00E31063 /* SignupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -445,15 +457,15 @@
 		10831ADF2A7A7F0A00FB460C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				10831AE02A7A7F0A00FB460C /* LikedListDTO.swift */,
+				10F79D412AC05B0500E31063 /* Users */,
+				10F79D402AC05AE400E31063 /* OAuth */,
 				10831AE12A7A7F0A00FB460C /* Stack.swift */,
+				10831AE02A7A7F0A00FB460C /* LikedListDTO.swift */,
 				10831AE22A7A7F0A00FB460C /* Like.swift */,
 				10831AE32A7A7F0A00FB460C /* InstrumentDTO.swift */,
 				10831AE42A7A7F0A00FB460C /* UserDTO.swift */,
 				10831AE52A7A7F0A00FB460C /* Project.swift */,
 				10831AE62A7A7F0A00FB460C /* PostDTO.swift */,
-				10F79D322AC041CD00E31063 /* LoginRequest.swift */,
-				10F79D342AC041D600E31063 /* LoginResponse.swift */,
 			);
 			name = Model;
 			path = Model/Model;
@@ -537,6 +549,7 @@
 			children = (
 				10C31A712ABF461E00C69791 /* OnbaordingAccountViewController.swift */,
 				10C31A732ABF466D00C69791 /* OnboardingAccountView.swift */,
+				10F79D492AC05D1800E31063 /* OnboardingAccountViewModel.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -590,6 +603,7 @@
 		10C9B62B2A7BDC8A00026EE0 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				10F79D462AC05C6F00E31063 /* Observable */,
 				10F79D192AC01B8900E31063 /* RootSwitcher */,
 				10F79D182AC01B7A00E31063 /* Reusable */,
 			);
@@ -634,6 +648,7 @@
 		10F79D2D2AC0385800E31063 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				10F79D3D2AC059D600E31063 /* Users */,
 				10F79D362AC0446800E31063 /* OAuth */,
 			);
 			path = API;
@@ -643,9 +658,44 @@
 			isa = PBXGroup;
 			children = (
 				10F79D372AC0447400E31063 /* OAuthTarget.swift */,
-				10F79D392AC04BF100E31063 /* OAuthAPI.swift */,
 			);
 			path = OAuth;
+			sourceTree = "<group>";
+		};
+		10F79D3D2AC059D600E31063 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				10F79D3E2AC059E400E31063 /* UsersTarget.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		10F79D402AC05AE400E31063 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				10F79D342AC041D600E31063 /* LoginResponse.swift */,
+				10F79D322AC041CD00E31063 /* LoginRequest.swift */,
+				10F79D4B2AC06C3100E31063 /* SignupRequest.swift */,
+				10F79D4D2AC06C3A00E31063 /* SignupResponse.swift */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
+		10F79D412AC05B0500E31063 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				10F79D422AC05B1900E31063 /* DuplicateRequest.swift */,
+				10F79D442AC05B2300E31063 /* DuplicateResponse.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		10F79D462AC05C6F00E31063 /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				10F79D472AC05C7C00E31063 /* Observable.swift */,
+			);
+			path = Observable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -742,10 +792,12 @@
 				10F79D1B2AC01B9500E31063 /* RootSwitcher.swift in Sources */,
 				10831AE72A7A7F0A00FB460C /* LikedListDTO.swift in Sources */,
 				10AB4ACA2A94CD6B00E1B514 /* MainTabBarController.swift in Sources */,
+				10F79D4E2AC06C3A00E31063 /* SignupResponse.swift in Sources */,
 				102089E32A9C582A00A34EFC /* HomeView.swift in Sources */,
 				10F79D302AC038D700E31063 /* APIEventLogger.swift in Sources */,
 				10831AD52A7A772000FB460C /* UserCell.swift in Sources */,
 				102089A72A9A2F2D00A34EFC /* InstButton.swift in Sources */,
+				10F79D4A2AC05D1800E31063 /* OnboardingAccountViewModel.swift in Sources */,
 				10F79D2B2AC0378600E31063 /* HTTPHeaderField.swift in Sources */,
 				102144182AA0B0A300BCCB08 /* CustomTextView.swift in Sources */,
 				10C31A7E2ABF470200C69791 /* OnboardingAgreementViewController.swift in Sources */,
@@ -764,13 +816,14 @@
 				10F79D352AC041D600E31063 /* LoginResponse.swift in Sources */,
 				10831AEC2A7A7F0A00FB460C /* Project.swift in Sources */,
 				10AB4AE12A97123000E1B514 /* CodePopupViewController.swift in Sources */,
+				10F79D4C2AC06C3100E31063 /* SignupRequest.swift in Sources */,
 				102089A52A9A2ED200A34EFC /* UploadViewController.swift in Sources */,
 				102089952A99CA9800A34EFC /* ProfileEditViewController.swift in Sources */,
 				10C31A7C2ABF46F000C69791 /* OnboardingProfileView.swift in Sources */,
 				10831AEA2A7A7F0A00FB460C /* InstrumentDTO.swift in Sources */,
 				102089AB2A9BB53200A34EFC /* RecordUtilButton.swift in Sources */,
-				10F79D3A2AC04BF100E31063 /* OAuthAPI.swift in Sources */,
 				10831AEF2A7A81B100FB460C /* PostCell.swift in Sources */,
+				10F79D452AC05B2300E31063 /* DuplicateResponse.swift in Sources */,
 				10831AD82A7A77DC00FB460C /* BaseVIewController.swift in Sources */,
 				10C31A822ABF471600C69791 /* WelcomeViewController.swift in Sources */,
 				10AB4AC12A94B4B900E1B514 /* ProfileCell.swift in Sources */,
@@ -791,6 +844,7 @@
 				1022BA842AB2ECE70028C2DF /* BottomSheetViewController.swift in Sources */,
 				10C31A602ABD692E00C69791 /* VolumeView.swift in Sources */,
 				107A75D82A7A69F300E9201B /* AppDelegate.swift in Sources */,
+				10F79D3F2AC059E400E31063 /* UsersTarget.swift in Sources */,
 				102089FD2A9C9D0600A34EFC /* ReportPopupViewController.swift in Sources */,
 				102089E72A9C5AB500A34EFC /* ProfileEditView.swift in Sources */,
 				10C9B62F2A7BDCAF00026EE0 /* UITableView+Reuseable.swift in Sources */,
@@ -807,6 +861,7 @@
 				10831AED2A7A7F0A00FB460C /* PostDTO.swift in Sources */,
 				102089E52A9C590500A34EFC /* ProfileView.swift in Sources */,
 				10C31A702ABF460500C69791 /* LoginView.swift in Sources */,
+				10F79D482AC05C7D00E31063 /* Observable.swift in Sources */,
 				1020898D2A987DCA00A34EFC /* LikePopupViewController.swift in Sources */,
 				102089A32A99EFA900A34EFC /* ToolTipView.swift in Sources */,
 				10C31A7A2ABF46E800C69791 /* OnboardingProfileViewController.swift in Sources */,
@@ -824,6 +879,7 @@
 				102089912A989A2800A34EFC /* popupContentButton.swift in Sources */,
 				10C9B6302A7BDCAF00026EE0 /* UICollection+ReusableView.swift in Sources */,
 				10F79D332AC041CD00E31063 /* LoginRequest.swift in Sources */,
+				10F79D432AC05B1900E31063 /* DuplicateRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
