@@ -21,6 +21,7 @@ enum ContentType: String {
 enum Authentication: String {
     case appleIdentity
     case authorization
+    case accessToken
     
     var value: String{
         switch self{
@@ -31,6 +32,9 @@ enum Authentication: String {
              let authorizationCode =
                     UserDefaults.standard.string(forKey: "apple_authorization_code")!
             return "Bearer " + authorizationCode
+        case .accessToken:
+            let accessToken = UserDefaults.standard.string(forKey: "accessToken")!
+            return "Bearer " + accessToken
         }
     }
 }

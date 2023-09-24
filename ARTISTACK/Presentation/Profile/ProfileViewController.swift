@@ -27,12 +27,6 @@ class ProfileViewController: BaseViewController {
         $0.titleLabel.text = "프로필"
     }
     
-    let titleLabel = UILabel().then{
-        $0.text = "프로필"
-        $0.font = .boldSystemFont(ofSize: 18)
-        $0.textColor = .white
-    }
-    
     override func setProperties() {
         setNavigationBar()
         profileView.projectCollectionView.dataSource = self
@@ -70,12 +64,29 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let profileCell: ProfileCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        profileCell.buttonAction = { [weak self] in
-            self?.profileEditButtonDidTap()
+        
+        if indexPath.section == 0 {
+            let profileCell: ProfileCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+            profileCell.buttonAction = { [weak self] in
+                self?.profileEditButtonDidTap()
+            }
+            
+            Network.shared.request(type: MyProfileResponse.self, api: UsersTarget.myProfile) { response in
+                switch response {
+                case .success(let success):
+                    profileCell.configureCell(profile: success.data)
+                case .failure(let failure):
+                    debugPrint(response)
+                }
+            }
+            
+            return profileCell
+        } else if indexPath.section == 1 {
+            let projectCell: ProjectCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+            return projectCell
+        } else {
+            return UICollectionViewCell()
         }
-        let projectCell: ProjectCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        return indexPath.section == 0 ? profileCell : projectCell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

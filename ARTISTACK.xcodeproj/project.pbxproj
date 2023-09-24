@@ -44,6 +44,7 @@
 		1022BA8B2AB2F6D70028C2DF /* EditProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA8A2AB2F6D70028C2DF /* EditProfileImageViewController.swift */; };
 		1049419C2A9CB77B006B52BC /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049419B2A9CB77B006B52BC /* UIColor+.swift */; };
 		1049419E2A9CBB01006B52BC /* CustomBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049419D2A9CBB01006B52BC /* CustomBarButtonItem.swift */; };
+		104D93182AC09F6500EBEAF7 /* MyProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D93172AC09F6500EBEAF7 /* MyProfileResponse.swift */; };
 		107A75D82A7A69F300E9201B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A75D72A7A69F300E9201B /* AppDelegate.swift */; };
 		107A75DA2A7A69F300E9201B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A75D92A7A69F300E9201B /* SceneDelegate.swift */; };
 		107A75DC2A7A69F300E9201B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A75DB2A7A69F300E9201B /* HomeViewController.swift */; };
@@ -112,6 +113,7 @@
 		10F79D4A2AC05D1800E31063 /* OnboardingAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D492AC05D1800E31063 /* OnboardingAccountViewModel.swift */; };
 		10F79D4C2AC06C3100E31063 /* SignupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D4B2AC06C3100E31063 /* SignupRequest.swift */; };
 		10F79D4E2AC06C3A00E31063 /* SignupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D4D2AC06C3A00E31063 /* SignupResponse.swift */; };
+		10F79D512AC077D500E31063 /* MediaPlayerCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D502AC077D500E31063 /* MediaPlayerCustomView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,6 +153,7 @@
 		1022BA8A2AB2F6D70028C2DF /* EditProfileImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileImageViewController.swift; sourceTree = "<group>"; };
 		1049419B2A9CB77B006B52BC /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		1049419D2A9CBB01006B52BC /* CustomBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBarButtonItem.swift; sourceTree = "<group>"; };
+		104D93172AC09F6500EBEAF7 /* MyProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileResponse.swift; sourceTree = "<group>"; };
 		107A75D42A7A69F300E9201B /* ARTISTACK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARTISTACK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		107A75D72A7A69F300E9201B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		107A75D92A7A69F300E9201B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +221,7 @@
 		10F79D492AC05D1800E31063 /* OnboardingAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAccountViewModel.swift; sourceTree = "<group>"; };
 		10F79D4B2AC06C3100E31063 /* SignupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequest.swift; sourceTree = "<group>"; };
 		10F79D4D2AC06C3A00E31063 /* SignupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponse.swift; sourceTree = "<group>"; };
+		10F79D502AC077D500E31063 /* MediaPlayerCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPlayerCustomView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,9 +308,8 @@
 		102089F22A9C690A00A34EFC /* CheckRecord */ = {
 			isa = PBXGroup;
 			children = (
-				10C31A5D2ABD690400C69791 /* Popup */,
-				102089F32A9C691E00A34EFC /* CheckRecordViewController.swift */,
 				102089F52A9C692E00A34EFC /* CheckRecordView.swift */,
+				102089F32A9C691E00A34EFC /* CheckRecordViewController.swift */,
 			);
 			path = CheckRecord;
 			sourceTree = "<group>";
@@ -495,9 +498,9 @@
 			isa = PBXGroup;
 			children = (
 				102089F22A9C690A00A34EFC /* CheckRecord */,
+				10C31A5D2ABD690400C69791 /* Popup */,
 				102089EE2A9C5DD900A34EFC /* Upload */,
-				10AB4ACD2A95BF2800E1B514 /* RecordViewController.swift */,
-				102089EA2A9C5C6600A34EFC /* RecordView.swift */,
+				10F79D4F2AC0778500E31063 /* Record */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -686,6 +689,7 @@
 			children = (
 				10F79D422AC05B1900E31063 /* DuplicateRequest.swift */,
 				10F79D442AC05B2300E31063 /* DuplicateResponse.swift */,
+				104D93172AC09F6500EBEAF7 /* MyProfileResponse.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -696,6 +700,16 @@
 				10F79D472AC05C7C00E31063 /* Observable.swift */,
 			);
 			path = Observable;
+			sourceTree = "<group>";
+		};
+		10F79D4F2AC0778500E31063 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				10F79D502AC077D500E31063 /* MediaPlayerCustomView.swift */,
+				10AB4ACD2A95BF2800E1B514 /* RecordViewController.swift */,
+				102089EA2A9C5C6600A34EFC /* RecordView.swift */,
+			);
+			path = Record;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -823,6 +837,7 @@
 				10831AEA2A7A7F0A00FB460C /* InstrumentDTO.swift in Sources */,
 				102089AB2A9BB53200A34EFC /* RecordUtilButton.swift in Sources */,
 				10831AEF2A7A81B100FB460C /* PostCell.swift in Sources */,
+				104D93182AC09F6500EBEAF7 /* MyProfileResponse.swift in Sources */,
 				10F79D452AC05B2300E31063 /* DuplicateResponse.swift in Sources */,
 				10831AD82A7A77DC00FB460C /* BaseVIewController.swift in Sources */,
 				10C31A822ABF471600C69791 /* WelcomeViewController.swift in Sources */,
@@ -853,6 +868,7 @@
 				1022BA342AB097DC0028C2DF /* VolumeViewController.swift in Sources */,
 				10C929B82A9F73F200BA83D9 /* UILabel+.swift in Sources */,
 				102089EB2A9C5C6600A34EFC /* RecordView.swift in Sources */,
+				10F79D512AC077D500E31063 /* MediaPlayerCustomView.swift in Sources */,
 				10C31A762ABF469B00C69791 /* OnboardingUserNameViewController.swift in Sources */,
 				102089F92A9C82B400A34EFC /* SettingViewController.swift in Sources */,
 				10C31A842ABF4E7F00C69791 /* LoginButton.swift in Sources */,

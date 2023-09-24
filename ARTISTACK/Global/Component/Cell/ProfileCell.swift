@@ -47,6 +47,12 @@ final class ProfileCell: UICollectionViewCell {
         super.prepareForReuse()
         buttonAction = {}
     }
+    
+    func configureCell(profile: UserData){
+        idLabel.text = profile.artistackId
+        nicknameLabel.text = profile.nickname
+        descriptionLabel.text = profile.description ?? ""
+    }
 
     @available(*, unavailable)
     required init?(coder _: NSCoder) {

@@ -5,11 +5,12 @@
 //  Created by 임영준 on 2023/08/28.
 //
 
+import AVFoundation
 import UIKit
 
 class RecordView: BaseView {
     
-  
+//    let playerView = MediaPlayerView(coder: <#NSCoder#>)
     let timerButton = RecordUtilButton(utilType: .timer)
     let switchCameraButton = RecordUtilButton(utilType: .camera)
     
@@ -26,6 +27,19 @@ class RecordView: BaseView {
     }
     let musicProgressView = MusicProgressView()
     
+    lazy var previewlayer: AVCaptureVideoPreviewLayer = {
+        let layer = AVCaptureVideoPreviewLayer()
+        layer.bounds = UIScreen.main.bounds
+        layer.position = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
+        layer.videoGravity = .resizeAspectFill
+        return layer
+    }()
+
+    
+    
+    
+    
+    
     override func setProperties() {
         musicProgressView.do {
             $0.isHidden = true
@@ -33,7 +47,10 @@ class RecordView: BaseView {
 
     }
     override func setLayouts() {
-    
+        
+        layer.addSublayer(previewlayer)
+        print(previewlayer.bounds)
+        
         
         addSubviews(timerButton, switchCameraButton, recordButton, artistackOnLabel, musicTitleLabel, musicProgressView)
         recordButton.snp.makeConstraints {
@@ -62,5 +79,4 @@ class RecordView: BaseView {
             $0.top.equalToSuperview().offset(56)
         }
     }
-
 }

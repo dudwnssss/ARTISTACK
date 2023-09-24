@@ -68,6 +68,8 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
                     if success.code == 5001{
                         RootSwitcher.update(.onboarding)
                     } else {
+                        UserDefaults.standard.set(success.data?.accessToken, forKey: "accessToken")
+                        UserDefaults.standard.set(success.data?.refreshToken, forKey: "refreshToken")
                         RootSwitcher.update(.main)
                     }
                 case .failure(let failure):
