@@ -41,7 +41,7 @@ class AccountViewController: BaseViewController {
         navigationItem.leftItemsSupplementBackButton = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: barButtonItem)
     }
-
+    
 }
 
 extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
@@ -55,8 +55,7 @@ extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
             let accountCell: AccountCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
             accountCell.accountType = .apple
             return accountCell
-        }
-        else {
+        } else {
             let cell = UITableViewCell()
             
             cell.backgroundColor = .clear
@@ -69,5 +68,11 @@ extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return indexPath.row == 0 ? 110 : 55
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 1{
+            RootSwitcher.update(.login)
+        }
     }
 }

@@ -69,7 +69,7 @@ class OnboardingProfileView : BaseView {
         addSubviews(progressImageView, titleLabel, descriptionLabel, separatorView, nextButton, skipButton, textCountLabel, profileImageView, textView)
         
         progressImageView.snp.makeConstraints {
-            $0.top.equalTo(self.safeAreaLayoutGuide).offset(48)
+            $0.top.equalToSuperview().offset(100)
             $0.leading.equalToSuperview().offset(16)
         }
         titleLabel.snp.makeConstraints {

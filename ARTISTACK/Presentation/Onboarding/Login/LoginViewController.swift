@@ -14,4 +14,13 @@ class LoginViewController: BaseViewController {
     override func loadView() {
         self.view = loginView
     }
+    
+    override func setProperties() {
+        loginView.appleLoginButton.addTarget(self, action: #selector(appleLoginButtonDidTap), for: .touchUpInside)
+    }
+    
+    @objc func appleLoginButtonDidTap(){
+        RootSwitcher.update(.onboarding)
+    }
+    
 }

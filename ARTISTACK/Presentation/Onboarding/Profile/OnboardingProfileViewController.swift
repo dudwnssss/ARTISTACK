@@ -10,6 +10,10 @@ import UIKit
 class OnboardingProfileViewController : BaseViewController{
     
     let onboardingProfileView = OnboardingProfileView()
+    override func loadView() {
+        self.view = onboardingProfileView
+    }
+    
     
     var placeholder: String? = "어떤 음악을 하시는지 소개해주세요!\nEx) 기타와 피아노치는것을 좋아합니다."{
         didSet {
@@ -23,16 +27,11 @@ class OnboardingProfileViewController : BaseViewController{
         }
     }
     
-    
-    
-    override func loadView() {
-        self.view = onboardingProfileView
-    }
-    
     override func setProperties() {
         hideKeyboardWhenTappedAround()
         onboardingProfileView.textView.delegate = self
         setPlaceholder()
+        onboardingProfileView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
     }
     
     private func setPlaceholder() {
@@ -43,6 +42,10 @@ class OnboardingProfileViewController : BaseViewController{
         }
     }
     
+    @objc func nextButtonDidTap(){
+        let vc = OnboardingAgreementViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension OnboardingProfileViewController: UITextViewDelegate{

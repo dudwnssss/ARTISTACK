@@ -87,7 +87,7 @@ class OnboardingAccountView: BaseView {
             $0.edges.equalToSuperview()
         }
         progressImageView.snp.makeConstraints {
-            $0.top.equalTo(self.safeAreaLayoutGuide).offset(48)
+            $0.top.equalToSuperview().offset(100)
             $0.leading.equalToSuperview().offset(16)
         }
         titleLabel.snp.makeConstraints {

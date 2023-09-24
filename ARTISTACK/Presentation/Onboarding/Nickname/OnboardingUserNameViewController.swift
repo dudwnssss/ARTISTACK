@@ -14,8 +14,17 @@ class OnboardingUserNameViewController : BaseViewController {
         self.view = onboardingUserNameView
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         onboardingUserNameView.textField.becomeFirstResponder()
+    }
+    
+    override func setProperties() {
+        onboardingUserNameView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
+    }
+    
+    @objc func nextButtonDidTap(){
+        let vc = OnboardingProfileViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

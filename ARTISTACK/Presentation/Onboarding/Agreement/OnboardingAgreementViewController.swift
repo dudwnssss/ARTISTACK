@@ -15,4 +15,13 @@ class OnboardingAgreementViewController: BaseViewController {
         self.view = onboardingAgreementView
     }
     
+    override func setProperties() {
+        onboardingAgreementView.completeButton.addTarget(self, action: #selector(completeButtonDidTap), for: .touchUpInside)
+    }
+    
+    @objc func completeButtonDidTap(){
+        let vc = WelcomViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
 }

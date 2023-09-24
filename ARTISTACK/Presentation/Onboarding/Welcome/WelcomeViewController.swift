@@ -67,6 +67,13 @@ class WelcomViewController: BaseViewController {
         }
         
     }
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tapGesture)
+    }
+    @objc func handleTap(){
+        RootSwitcher.update(.main)
+    }
     
 }
