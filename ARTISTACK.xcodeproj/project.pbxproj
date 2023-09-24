@@ -96,6 +96,16 @@
 		10C9B6302A7BDCAF00026EE0 /* UICollection+ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C9B62D2A7BDCAE00026EE0 /* UICollection+ReusableView.swift */; };
 		10C9B6312A7BDCAF00026EE0 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C9B62E2A7BDCAF00026EE0 /* ReusableView.swift */; };
 		10F79D1B2AC01B9500E31063 /* RootSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D1A2AC01B9500E31063 /* RootSwitcher.swift */; };
+		10F79D202AC0335F00E31063 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 10F79D1F2AC0335F00E31063 /* Alamofire */; };
+		10F79D232AC0336900E31063 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 10F79D222AC0336900E31063 /* Kingfisher */; };
+		10F79D292AC0358700E31063 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D282AC0358700E31063 /* TargetType.swift */; };
+		10F79D2B2AC0378600E31063 /* HTTPHeaderField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D2A2AC0378600E31063 /* HTTPHeaderField.swift */; };
+		10F79D302AC038D700E31063 /* APIEventLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D2F2AC038D700E31063 /* APIEventLogger.swift */; };
+		10F79D332AC041CD00E31063 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D322AC041CD00E31063 /* LoginRequest.swift */; };
+		10F79D352AC041D600E31063 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D342AC041D600E31063 /* LoginResponse.swift */; };
+		10F79D382AC0447400E31063 /* OAuthTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D372AC0447400E31063 /* OAuthTarget.swift */; };
+		10F79D3A2AC04BF100E31063 /* OAuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D392AC04BF100E31063 /* OAuthAPI.swift */; };
+		10F79D3C2AC0508200E31063 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D3B2AC0508200E31063 /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -187,6 +197,15 @@
 		10C9B62D2A7BDCAE00026EE0 /* UICollection+ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollection+ReusableView.swift"; sourceTree = "<group>"; };
 		10C9B62E2A7BDCAF00026EE0 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		10F79D1A2AC01B9500E31063 /* RootSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSwitcher.swift; sourceTree = "<group>"; };
+		10F79D282AC0358700E31063 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
+		10F79D2A2AC0378600E31063 /* HTTPHeaderField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaderField.swift; sourceTree = "<group>"; };
+		10F79D2F2AC038D700E31063 /* APIEventLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEventLogger.swift; sourceTree = "<group>"; };
+		10F79D312AC039FD00E31063 /* ARTISTACK.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ARTISTACK.entitlements; sourceTree = "<group>"; };
+		10F79D322AC041CD00E31063 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		10F79D342AC041D600E31063 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		10F79D372AC0447400E31063 /* OAuthTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTarget.swift; sourceTree = "<group>"; };
+		10F79D392AC04BF100E31063 /* OAuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAPI.swift; sourceTree = "<group>"; };
+		10F79D3B2AC0508200E31063 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,8 +214,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1022BA372AB09B150028C2DF /* FloatingPanel in Frameworks */,
+				10F79D202AC0335F00E31063 /* Alamofire in Frameworks */,
 				10831AD02A7A76C100FB460C /* SnapKit in Frameworks */,
 				10831AD32A7A76CE00FB460C /* Then in Frameworks */,
+				10F79D232AC0336900E31063 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +338,7 @@
 		107A75D62A7A69F300E9201B /* ARTISTACK */ = {
 			isa = PBXGroup;
 			children = (
+				10F79D312AC039FD00E31063 /* ARTISTACK.entitlements */,
 				107A75EE2A7A6DB300E9201B /* Application */,
 				107A75ED2A7A6DA900E9201B /* Global */,
 				10831AD92A7A7D4800FB460C /* Data */,
@@ -430,6 +452,8 @@
 				10831AE42A7A7F0A00FB460C /* UserDTO.swift */,
 				10831AE52A7A7F0A00FB460C /* Project.swift */,
 				10831AE62A7A7F0A00FB460C /* PostDTO.swift */,
+				10F79D322AC041CD00E31063 /* LoginRequest.swift */,
+				10F79D342AC041D600E31063 /* LoginResponse.swift */,
 			);
 			name = Model;
 			path = Model/Model;
@@ -555,6 +579,10 @@
 		10C76ED92AA9AEE900D5AFA6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				10F79D2D2AC0385800E31063 /* API */,
+				10F79D2C2AC0384900E31063 /* OAuth */,
+				10F79D272AC0357D00E31063 /* Base */,
+				10F79D3B2AC0508200E31063 /* Network.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -586,6 +614,40 @@
 			path = RootSwitcher;
 			sourceTree = "<group>";
 		};
+		10F79D272AC0357D00E31063 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				10F79D282AC0358700E31063 /* TargetType.swift */,
+				10F79D2A2AC0378600E31063 /* HTTPHeaderField.swift */,
+				10F79D2F2AC038D700E31063 /* APIEventLogger.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		10F79D2C2AC0384900E31063 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
+		10F79D2D2AC0385800E31063 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				10F79D362AC0446800E31063 /* OAuth */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		10F79D362AC0446800E31063 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				10F79D372AC0447400E31063 /* OAuthTarget.swift */,
+				10F79D392AC04BF100E31063 /* OAuthAPI.swift */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -606,6 +668,8 @@
 				10831ACF2A7A76C100FB460C /* SnapKit */,
 				10831AD22A7A76CE00FB460C /* Then */,
 				1022BA362AB09B150028C2DF /* FloatingPanel */,
+				10F79D1F2AC0335F00E31063 /* Alamofire */,
+				10F79D222AC0336900E31063 /* Kingfisher */,
 			);
 			productName = ARTISTACK;
 			productReference = 107A75D42A7A69F300E9201B /* ARTISTACK.app */;
@@ -639,6 +703,8 @@
 				10831ACE2A7A76C100FB460C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				10831AD12A7A76CE00FB460C /* XCRemoteSwiftPackageReference "Then" */,
 				1022BA352AB09B150028C2DF /* XCRemoteSwiftPackageReference "FloatingPanel" */,
+				10F79D1E2AC0335F00E31063 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				10F79D212AC0336900E31063 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 107A75D52A7A69F300E9201B /* Products */;
 			projectDirPath = "";
@@ -669,6 +735,7 @@
 				10C31A722ABF461E00C69791 /* OnbaordingAccountViewController.swift in Sources */,
 				10AB4ADA2A96DC1E00E1B514 /* SeparatorView.swift in Sources */,
 				10C31A622ABEB9CA00C69791 /* CustomSlider.swift in Sources */,
+				10F79D292AC0358700E31063 /* TargetType.swift in Sources */,
 				10831AEB2A7A7F0A00FB460C /* UserDTO.swift in Sources */,
 				10C31A642ABF3E4300C69791 /* UploadViewModel.swift in Sources */,
 				102089A92A9A719300A34EFC /* CustomTextFieldView.swift in Sources */,
@@ -676,8 +743,10 @@
 				10831AE72A7A7F0A00FB460C /* LikedListDTO.swift in Sources */,
 				10AB4ACA2A94CD6B00E1B514 /* MainTabBarController.swift in Sources */,
 				102089E32A9C582A00A34EFC /* HomeView.swift in Sources */,
+				10F79D302AC038D700E31063 /* APIEventLogger.swift in Sources */,
 				10831AD52A7A772000FB460C /* UserCell.swift in Sources */,
 				102089A72A9A2F2D00A34EFC /* InstButton.swift in Sources */,
+				10F79D2B2AC0378600E31063 /* HTTPHeaderField.swift in Sources */,
 				102144182AA0B0A300BCCB08 /* CustomTextView.swift in Sources */,
 				10C31A7E2ABF470200C69791 /* OnboardingAgreementViewController.swift in Sources */,
 				107A75F32A7A6EF400E9201B /* UIVIew+.swift in Sources */,
@@ -685,12 +754,14 @@
 				1022BA8B2AB2F6D70028C2DF /* EditProfileImageViewController.swift in Sources */,
 				102089F12A9C647B00A34EFC /* MusicProgressView.swift in Sources */,
 				102089992A99D87C00A34EFC /* UIViewController+.swift in Sources */,
+				10F79D3C2AC0508200E31063 /* Network.swift in Sources */,
 				102089F42A9C691E00A34EFC /* CheckRecordViewController.swift in Sources */,
 				1020899B2A99DFE600A34EFC /* CompleteButton.swift in Sources */,
 				102089FB2A9C9ADE00A34EFC /* ReportViewController.swift in Sources */,
 				102089ED2A9C5D3800A34EFC /* CodePopupView.swift in Sources */,
 				107A75DC2A7A69F300E9201B /* HomeViewController.swift in Sources */,
 				1020899D2A99ED6F00A34EFC /* TipView.swift in Sources */,
+				10F79D352AC041D600E31063 /* LoginResponse.swift in Sources */,
 				10831AEC2A7A7F0A00FB460C /* Project.swift in Sources */,
 				10AB4AE12A97123000E1B514 /* CodePopupViewController.swift in Sources */,
 				102089A52A9A2ED200A34EFC /* UploadViewController.swift in Sources */,
@@ -698,6 +769,7 @@
 				10C31A7C2ABF46F000C69791 /* OnboardingProfileView.swift in Sources */,
 				10831AEA2A7A7F0A00FB460C /* InstrumentDTO.swift in Sources */,
 				102089AB2A9BB53200A34EFC /* RecordUtilButton.swift in Sources */,
+				10F79D3A2AC04BF100E31063 /* OAuthAPI.swift in Sources */,
 				10831AEF2A7A81B100FB460C /* PostCell.swift in Sources */,
 				10831AD82A7A77DC00FB460C /* BaseVIewController.swift in Sources */,
 				10C31A822ABF471600C69791 /* WelcomeViewController.swift in Sources */,
@@ -746,10 +818,12 @@
 				10831AE92A7A7F0A00FB460C /* Like.swift in Sources */,
 				107A75DA2A7A69F300E9201B /* SceneDelegate.swift in Sources */,
 				102089F62A9C692E00A34EFC /* CheckRecordView.swift in Sources */,
+				10F79D382AC0447400E31063 /* OAuthTarget.swift in Sources */,
 				1049419C2A9CB77B006B52BC /* UIColor+.swift in Sources */,
 				1049419E2A9CBB01006B52BC /* CustomBarButtonItem.swift in Sources */,
 				102089912A989A2800A34EFC /* popupContentButton.swift in Sources */,
 				10C9B6302A7BDCAF00026EE0 /* UICollection+ReusableView.swift in Sources */,
+				10F79D332AC041CD00E31063 /* LoginRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -886,6 +960,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ARTISTACK/ARTISTACK.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6UJYJPDXP4;
@@ -894,12 +969,13 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.artistack.ARTISTACK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.artistack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -912,6 +988,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ARTISTACK/ARTISTACK.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6UJYJPDXP4;
@@ -920,12 +997,13 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.artistack.ARTISTACK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.artistack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -981,6 +1059,22 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		10F79D1E2AC0335F00E31063 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		10F79D212AC0336900E31063 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -998,6 +1092,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 10831AD12A7A76CE00FB460C /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		10F79D1F2AC0335F00E31063 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10F79D1E2AC0335F00E31063 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		10F79D222AC0336900E31063 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10F79D212AC0336900E31063 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
