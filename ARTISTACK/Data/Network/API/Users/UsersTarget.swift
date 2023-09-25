@@ -11,6 +11,7 @@ import Alamofire
 enum UsersTarget{
     case duplicate(DuplicateRequest)
     case myProfile
+    case editProfile(EditProfileRequest)
 }
 
 extension UsersTarget: TargetType{
@@ -24,6 +25,8 @@ extension UsersTarget: TargetType{
             return .get
         case .myProfile:
             return .get
+        case .editProfile:
+            return .patch
         }
     }
     
@@ -32,6 +35,8 @@ extension UsersTarget: TargetType{
         case .duplicate:
             return "users/duplicate"
         case .myProfile:
+            return "users/me"
+        case .editProfile:
             return "users/me"
         }
     }
@@ -42,7 +47,7 @@ extension UsersTarget: TargetType{
             return [HTTPHeaderField.authentication.rawValue: Authentication.authorization.value,
                     HTTPHeaderField.contentType.rawValue:
                         ContentType.json.rawValue]
-        case .myProfile:
+        default:
             return [HTTPHeaderField.authentication.rawValue: Authentication.accessToken.value,
                     HTTPHeaderField.contentType.rawValue:
                         ContentType.json.rawValue]
@@ -55,6 +60,8 @@ extension UsersTarget: TargetType{
             return .query(request)
         case .myProfile:
             return .query("")
+        case .editProfile(let request):
+            return .body(request)
         }
     }
     

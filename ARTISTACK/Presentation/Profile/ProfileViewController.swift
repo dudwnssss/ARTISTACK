@@ -11,6 +11,13 @@ import PhotosUI
 
 class ProfileViewController: BaseViewController {
 
+    var profile : UserData?{
+        didSet{
+            profileView.projectCollectionView.reloadSections(IndexSet(integer: 0))
+        }
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         StackButton.shared.stackType = .first
@@ -39,8 +46,18 @@ class ProfileViewController: BaseViewController {
         navigationItem.rightBarButtonItem?.tintColor = .artistackSystem6
     }
     
-    @objc func profileEditButtonDidTap(){
+    @objc func profileEditButtonDidTap(profileImage: String?, nickname: String?, description: String?){
         let vc = ProfileEditViewController()
+        if let profileImage {
+            print("이미지 넣기")
+        }
+        if let nickname {
+            vc.profileEditView.nicknameTextFieldView.textField.text = nickname
+        }
+        if let description {
+            vc.profileEditView.descriptionTextView.textView.text = description
+        }
+        
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
         vc.hidesBottomBarWhenPushed = false
@@ -67,19 +84,24 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
         
         if indexPath.section == 0 {
             let profileCell: ProfileCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-            profileCell.buttonAction = { [weak self] in
-                self?.profileEditButtonDidTap()
-            }
-            
             Network.shared.request(type: MyProfileResponse.self, api: UsersTarget.myProfile) { response in
                 switch response {
                 case .success(let success):
-                    profileCell.configureCell(profile: success.data)
+                    let data = success.data
+//                    self.profile = data
+                    profileCell.configureCell(profile: data)
+                    profileCell.buttonAction = { [weak self] in
+                        self?.profileEditButtonDidTap(profileImage: data.profileImgURL, nickname: data.nickname, description: data.description)
+                        self?.profile = data
+                    }
                 case .failure(let failure):
                     debugPrint(response)
                 }
             }
             
+            
+            
+
             return profileCell
         } else if indexPath.section == 1 {
             let projectCell: ProjectCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
