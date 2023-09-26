@@ -22,7 +22,12 @@ class ProfileEditViewController: BaseViewController {
     }
     
     @objc func profileEditButtonDidTap(){
-        let bottomSheetViewController = BottomSheetViewController(type: .profileImage, contentViewController: EditProfileImageViewController())
+        let vc = EditProfileImageViewController()
+        vc.normal = {
+            guard let image = UIImage(named: "profile.normal") else {return}
+            self.profileEditView.profileImageView.profileImageView.image = image
+        }
+        let bottomSheetViewController = BottomSheetViewController(type: .profileImage, contentViewController: vc)
         present(bottomSheetViewController, animated: true)
     }
     

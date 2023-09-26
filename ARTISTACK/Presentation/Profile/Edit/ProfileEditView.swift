@@ -35,10 +35,18 @@ class ProfileEditView: BaseView {
     
     let storeButton = CompleteButton(title: "저장하기")
     
+    override func setProperties() {
+        profileEditButton.do {
+            $0.setImage(UIImage(named: "profile.edit.shadow"), for: .normal)
+            $0.imageView?.contentMode = .scaleAspectFill
+        }
+
+    }
+    
     override func setLayouts() {
         addSubviews(profileImageView, separator1View, nicknameLabel, nicknameTextFieldView, separator2View, descriptionTextView, descriptionLabel, separator3View, storeButton, toolTipView, profileEditButton)
         profileImageView.snp.makeConstraints {
-            $0.size.equalTo(100)
+            $0.size.equalTo(95)
             $0.centerX.equalToSuperview()
             $0.top.equalTo(self.safeAreaLayoutGuide).offset(20)
         }
@@ -46,7 +54,7 @@ class ProfileEditView: BaseView {
             $0.size.equalTo(profileImageView)
             $0.center.equalTo(profileImageView)
         }
-        
+      
         separator1View.snp.makeConstraints {
             $0.top.equalTo(profileImageView.snp.bottom).offset(22)
             $0.horizontalEdges.equalToSuperview()

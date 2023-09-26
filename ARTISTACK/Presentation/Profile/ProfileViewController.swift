@@ -10,8 +10,8 @@ import PhotosUI
 
 
 class ProfileViewController: BaseViewController {
-
-    var profile : UserData?{
+    
+    var profile: UserData?{
         didSet{
             profileView.projectCollectionView.reloadSections(IndexSet(integer: 0))
         }
@@ -46,6 +46,7 @@ class ProfileViewController: BaseViewController {
         navigationItem.rightBarButtonItem?.tintColor = .artistackSystem6
     }
     
+   
     @objc func profileEditButtonDidTap(profileImage: String?, nickname: String?, description: String?){
         let vc = ProfileEditViewController()
         if let profileImage {

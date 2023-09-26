@@ -23,3 +23,7 @@ struct UserData: Decodable {
     let profileImgURL: String?
     let providerType, role: String
 }
+
+struct Test{
+    let hi: String
+}

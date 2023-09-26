@@ -20,11 +20,13 @@ final class ProfileCell: UICollectionViewCell {
     let idLabel = UILabel().then{
         $0.text = "@mikeannn"
         $0.font = .systemFont(ofSize: 15)
+        $0.textColor = .artistackSystem3
     }
     let descriptionLabel = UILabel().then{
         $0.text = "최대글자수최대글자수최대글자수최대글자수최대글자수최대글자수최대글자수최대글"
         $0.numberOfLines = 2
         $0.font = .boldSystemFont(ofSize: 14)
+        $0.textColor = .artistackSystem6
     }
     
     let profileEditButton = UIButton().then{
@@ -49,7 +51,7 @@ final class ProfileCell: UICollectionViewCell {
     }
     
     func configureCell(profile: UserData){
-        idLabel.text = profile.artistackId
+        idLabel.text = "@" + profile.artistackId
         nicknameLabel.text = profile.nickname
         descriptionLabel.text = profile.description ?? ""
     }
@@ -75,11 +77,11 @@ final class ProfileCell: UICollectionViewCell {
         
         nicknameLabel.snp.makeConstraints {
             $0.leading.equalTo(idLabel)
-            $0.bottom.equalTo(idLabel.snp.top).offset(-10)
+            $0.bottom.equalTo(idLabel.snp.top).offset(-9)
             }
         
         descriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(idLabel.snp.bottom).offset(10)
+            $0.top.equalTo(idLabel.snp.bottom).offset(5)
             $0.leading.equalTo(idLabel)
             $0.trailing.lessThanOrEqualToSuperview().offset(-20)
             $0.bottom.lessThanOrEqualTo(profileImageView.snp.bottom)

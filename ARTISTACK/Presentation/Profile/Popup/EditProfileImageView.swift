@@ -43,11 +43,11 @@ class EditProfileImageView: BaseView {
         }
         
         normalButton.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview()
             $0.top.equalTo(separatorView.snp.bottom).offset(25)
         }
         albumButton.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalTo(separatorView.snp.top).offset(-25)
         }
     }

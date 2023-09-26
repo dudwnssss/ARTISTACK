@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 enum EditType{
     case album
@@ -23,10 +24,38 @@ enum EditType{
 
 class EditProfileImageViewController: BaseViewController{
     
+    var normal: (()->Void)?
     let editProfileImageView = EditProfileImageView()
 
     override func loadView() {
         self.view = editProfileImageView
     }
+    
+    override func setProperties() {
+        editProfileImageView.albumButton.addTarget(self, action: #selector(albumButtonDidTap), for: .touchUpInside)
+        editProfileImageView.normalButton.addTarget(self, action: #selector(normalButtonDidTap), for: .touchUpInside)
+    }
+    
+    @objc func albumButtonDidTap(){
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .any(of: [.images])
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+    
+    @objc func normalButtonDidTap(){
+        print(#fileID, #function, #line, "- ")
+        normal?()
+        dismiss(animated: true)
+    }
 
+}
+
+extension EditProfileImageViewController: PHPickerViewControllerDelegate{
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        print(results.description)
+    }
 }
