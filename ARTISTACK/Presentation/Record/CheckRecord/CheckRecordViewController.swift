@@ -20,6 +20,7 @@ class CheckRecordViewController: BaseViewController {
         setNavigationBar()
         checkRecordView.completeButton.addTarget(self, action: #selector(completeButtonDidTap), for: .touchUpInside)
         checkRecordView.volumeButton.addTarget(self, action: #selector(volumeButtonDidTap), for: .touchUpInside)
+        checkRecordView.retakeButton.addTarget(self, action: #selector(retakeButtonDidTap), for: .touchUpInside)
     }
     
     @objc func dismissButtonDidTap(){
@@ -29,7 +30,11 @@ class CheckRecordViewController: BaseViewController {
     @objc func completeButtonDidTap(){
         let vc = UploadViewController()
         navigationController?.isNavigationBarHidden = false
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: false)
+    }
+    
+    @objc func retakeButtonDidTap(){
+        navigationController?.popViewController(animated: true)
     }
     
     @objc func volumeButtonDidTap(){

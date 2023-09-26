@@ -12,7 +12,7 @@ class RecordView: BaseView {
     
 //    let playerView = MediaPlayerView(coder: <#NSCoder#>)
     let timerButton = RecordUtilButton(utilType: .timer)
-    let switchCameraButton = RecordUtilButton(utilType: .camera)
+    let cameraSwapButton = RecordUtilButton(utilType: .camera)
     
     let recordButton = UIButton().then{
         $0.setImage(UIImage(named: "record.start"), for: .normal)
@@ -52,7 +52,7 @@ class RecordView: BaseView {
         print(previewlayer.bounds)
         
         
-        addSubviews(timerButton, switchCameraButton, recordButton, artistackOnLabel, musicTitleLabel, musicProgressView)
+        addSubviews(timerButton, cameraSwapButton, recordButton, artistackOnLabel, musicTitleLabel, musicProgressView)
         recordButton.snp.makeConstraints {
             $0.size.equalTo(82)
             $0.centerX.equalToSuperview()
@@ -62,7 +62,7 @@ class RecordView: BaseView {
             $0.centerY.equalToSuperview().offset(-50)
             $0.trailing.equalToSuperview().offset(-4)
         }
-        switchCameraButton.snp.makeConstraints {
+        cameraSwapButton.snp.makeConstraints {
             $0.centerX.equalTo(timerButton)
             $0.top.equalTo(timerButton.snp.bottom).offset(16)
         }

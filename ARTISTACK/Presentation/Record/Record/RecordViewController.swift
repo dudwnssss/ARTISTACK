@@ -159,10 +159,20 @@ class RecordViewController: BaseViewController {
         dismiss(animated: true)
     }
     
+    @objc func swapButtonDidTap(){
+        swapCameraType()
+    }
+    
     @objc func recordButtonDidTap(){
-        let vc = CheckRecordViewController()
-        navigationController?.pushViewController(vc, animated: false)
-        
+        if videoOutput.isRecording {
+            stopRecording()
+            recordView.recordButton.setImage(UIImage(named: "record.start"), for: .normal)
+            let vc = CheckRecordViewController()
+            navigationController?.pushViewController(vc, animated: false)
+        } else {
+            startRecording()
+            recordView.recordButton.setImage(UIImage(named: "record.stop"), for: .normal)
+        }
     }
     
     func setNavigationBar(){
@@ -173,6 +183,7 @@ class RecordViewController: BaseViewController {
         setNavigationBar()
         view.backgroundColor = .black
         recordView.recordButton.addTarget(self, action: #selector(recordButtonDidTap), for: .touchUpInside)
+        recordView.cameraSwapButton.addTarget(self, action: #selector(swapButtonDidTap), for: .touchUpInside)
         videoDevice = bestDevice(in: .back)
         recordView.previewlayer.session = captureSession
         setupSession()

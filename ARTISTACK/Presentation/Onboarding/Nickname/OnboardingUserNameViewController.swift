@@ -27,6 +27,7 @@ class OnboardingUserNameViewController : BaseViewController {
         let vc = OnboardingProfileViewController()
         let nickname = onboardingUserNameView.textField.text
         UserDefaults.standard.set(nickname, forKey: "nickname")
-        navigationController?.pushViewController(vc, animated: true)
+        vc.modalTransitionStyle = .crossDissolve
+        navigationController?.pushViewController(vc, animated: false)
     }
 }

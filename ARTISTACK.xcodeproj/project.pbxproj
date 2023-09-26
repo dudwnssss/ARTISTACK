@@ -117,7 +117,6 @@
 		10F79D4A2AC05D1800E31063 /* OnboardingAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D492AC05D1800E31063 /* OnboardingAccountViewModel.swift */; };
 		10F79D4C2AC06C3100E31063 /* SignupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D4B2AC06C3100E31063 /* SignupRequest.swift */; };
 		10F79D4E2AC06C3A00E31063 /* SignupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D4D2AC06C3A00E31063 /* SignupResponse.swift */; };
-		10F79D512AC077D500E31063 /* MediaPlayerCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D502AC077D500E31063 /* MediaPlayerCustomView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -229,7 +228,6 @@
 		10F79D492AC05D1800E31063 /* OnboardingAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAccountViewModel.swift; sourceTree = "<group>"; };
 		10F79D4B2AC06C3100E31063 /* SignupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequest.swift; sourceTree = "<group>"; };
 		10F79D4D2AC06C3A00E31063 /* SignupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponse.swift; sourceTree = "<group>"; };
-		10F79D502AC077D500E31063 /* MediaPlayerCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPlayerCustomView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -717,7 +715,6 @@
 		10F79D4F2AC0778500E31063 /* Record */ = {
 			isa = PBXGroup;
 			children = (
-				10F79D502AC077D500E31063 /* MediaPlayerCustomView.swift */,
 				10AB4ACD2A95BF2800E1B514 /* RecordViewController.swift */,
 				102089EA2A9C5C6600A34EFC /* RecordView.swift */,
 			);
@@ -884,7 +881,6 @@
 				1022BA342AB097DC0028C2DF /* VolumeViewController.swift in Sources */,
 				10C929B82A9F73F200BA83D9 /* UILabel+.swift in Sources */,
 				102089EB2A9C5C6600A34EFC /* RecordView.swift in Sources */,
-				10F79D512AC077D500E31063 /* MediaPlayerCustomView.swift in Sources */,
 				10C31A762ABF469B00C69791 /* OnboardingUserNameViewController.swift in Sources */,
 				102089F92A9C82B400A34EFC /* SettingViewController.swift in Sources */,
 				10C31A842ABF4E7F00C69791 /* LoginButton.swift in Sources */,

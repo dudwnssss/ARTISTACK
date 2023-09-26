@@ -44,7 +44,8 @@ class OnboardingProfileViewController : BaseViewController{
     
     @objc func nextButtonDidTap(){
         let vc = OnboardingAgreementViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        vc.modalTransitionStyle = .crossDissolve
+        navigationController?.pushViewController(vc, animated: false)
     }
 }
 

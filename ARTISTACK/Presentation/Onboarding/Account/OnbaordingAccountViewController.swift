@@ -31,7 +31,8 @@ class OnboardingAccountViewController: BaseViewController{
         let vc = OnboardingUserNameViewController()
         let id = onboardingAccountView.textField.text
         UserDefaults.standard.set(id, forKey: "artistackId")
-        navigationController?.pushViewController(vc, animated: true)
+        vc.modalTransitionStyle = .crossDissolve
+        navigationController?.pushViewController(vc, animated: false)
     }
     
     override func bind() {
