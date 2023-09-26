@@ -42,6 +42,7 @@
 		1022BA842AB2ECE70028C2DF /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA832AB2ECE70028C2DF /* BottomSheetViewController.swift */; };
 		1022BA862AB2F14D0028C2DF /* SelfSizingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA852AB2F14D0028C2DF /* SelfSizingTableView.swift */; };
 		1022BA8B2AB2F6D70028C2DF /* EditProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA8A2AB2F6D70028C2DF /* EditProfileImageViewController.swift */; };
+		103EF8F92AC2D70C007496D9 /* WithdrawResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103EF8F82AC2D70C007496D9 /* WithdrawResponse.swift */; };
 		1049419C2A9CB77B006B52BC /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049419B2A9CB77B006B52BC /* UIColor+.swift */; };
 		1049419E2A9CBB01006B52BC /* CustomBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049419D2A9CBB01006B52BC /* CustomBarButtonItem.swift */; };
 		104D93182AC09F6500EBEAF7 /* MyProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D93172AC09F6500EBEAF7 /* MyProfileResponse.swift */; };
@@ -154,6 +155,7 @@
 		1022BA832AB2ECE70028C2DF /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		1022BA852AB2F14D0028C2DF /* SelfSizingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingTableView.swift; sourceTree = "<group>"; };
 		1022BA8A2AB2F6D70028C2DF /* EditProfileImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileImageViewController.swift; sourceTree = "<group>"; };
+		103EF8F82AC2D70C007496D9 /* WithdrawResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawResponse.swift; sourceTree = "<group>"; };
 		1049419B2A9CB77B006B52BC /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		1049419D2A9CBB01006B52BC /* CustomBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBarButtonItem.swift; sourceTree = "<group>"; };
 		104D93172AC09F6500EBEAF7 /* MyProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileResponse.swift; sourceTree = "<group>"; };
@@ -687,6 +689,7 @@
 				10F79D322AC041CD00E31063 /* LoginRequest.swift */,
 				10F79D4B2AC06C3100E31063 /* SignupRequest.swift */,
 				10F79D4D2AC06C3A00E31063 /* SignupResponse.swift */,
+				103EF8F82AC2D70C007496D9 /* WithdrawResponse.swift */,
 			);
 			path = OAuth;
 			sourceTree = "<group>";
@@ -839,6 +842,7 @@
 				1020899D2A99ED6F00A34EFC /* TipView.swift in Sources */,
 				10F79D352AC041D600E31063 /* LoginResponse.swift in Sources */,
 				10831AEC2A7A7F0A00FB460C /* Project.swift in Sources */,
+				103EF8F92AC2D70C007496D9 /* WithdrawResponse.swift in Sources */,
 				10AB4AE12A97123000E1B514 /* CodePopupViewController.swift in Sources */,
 				10F79D4C2AC06C3100E31063 /* SignupRequest.swift in Sources */,
 				102089A52A9A2ED200A34EFC /* UploadViewController.swift in Sources */,

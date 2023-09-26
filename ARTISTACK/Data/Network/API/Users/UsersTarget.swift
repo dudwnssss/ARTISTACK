@@ -12,6 +12,7 @@ enum UsersTarget{
     case duplicate(DuplicateRequest)
     case myProfile
     case editProfile(EditProfileRequest)
+    case withdraw
 }
 
 extension UsersTarget: TargetType{
@@ -27,6 +28,8 @@ extension UsersTarget: TargetType{
             return .get
         case .editProfile:
             return .patch
+        case .withdraw:
+            return .delete
         }
     }
     
@@ -37,6 +40,8 @@ extension UsersTarget: TargetType{
         case .myProfile:
             return "users/me"
         case .editProfile:
+            return "users/me"
+        case .withdraw:
             return "users/me"
         }
     }
@@ -62,6 +67,8 @@ extension UsersTarget: TargetType{
             return .query("")
         case .editProfile(let request):
             return .body(request)
+        case .withdraw:
+            return .query("")
         }
     }
     

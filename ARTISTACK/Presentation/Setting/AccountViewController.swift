@@ -73,6 +73,17 @@ extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 1{
             RootSwitcher.update(.login)
+        } else if indexPath.row == 2{
+            Network.shared.request(type: WithdrawResponse.self, api: UsersTarget.withdraw) { result in
+                switch result {
+                case .success(let success):
+                    if success.data == true{
+                        RootSwitcher.update(.login)
+                    }
+                case .failure(let failure):
+                    debugPrint(result)
+                }
+            }
         }
     }
 }
