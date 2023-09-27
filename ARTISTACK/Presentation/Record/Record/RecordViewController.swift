@@ -6,171 +6,76 @@
 //
 
 import UIKit
-import AVFoundation
 
 class RecordViewController: BaseViewController {
-
+    
     let recordView = RecordView()
+    let mediaManager = MediaManager()
     
     override func loadView() {
         self.view = recordView
     }
     
-
-    var captureSession = AVCaptureSession()
-    var videoDevice: AVCaptureDevice!
-    var videoInput: AVCaptureDeviceInput!
-    var audioInput: AVCaptureDeviceInput!
-    var videoOutput: AVCaptureMovieFileOutput!
-    var deviceOrientation: AVCaptureVideoOrientation = .portrait
     var outputURL: URL?
-
+    var backgroundMusic: Data?
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if !captureSession.isRunning {
+        if !mediaManager.captureSession.isRunning {
             DispatchQueue.global().async {
-                self.captureSession.startRunning()
+                self.mediaManager.captureSession.startRunning()
             }
         }
     }
     
-    private func setupSession() {
-      do {
-        captureSession.beginConfiguration()
-        
-        videoInput = try AVCaptureDeviceInput(device: videoDevice!)
-        if captureSession.canAddInput(videoInput) {
-          captureSession.addInput(videoInput)
-        }
+    func downloadAudio(url: URL, completion: @escaping (Data) -> Void) {
+        recordView.musicTitleLabel.text = "다운로드 시작"
+        recordView.recordButton.setImage(UIImage(named: "record.inactivated"), for: .normal)
 
-        let audioDevice = AVCaptureDevice.default(for: AVMediaType.audio)!
-        audioInput = try AVCaptureDeviceInput(device: audioDevice)
-        if captureSession.canAddInput(audioInput) {
-          captureSession.addInput(audioInput)
+        DispatchQueue.global().async {
+            do {
+                let audioData = try Data(contentsOf: url)
+                DispatchQueue.main.async {
+                    completion(audioData)
+                }
+            } catch {
+                print("Error downloading or playing audio: \(error.localizedDescription)")
+            }
         }
-
-        videoOutput = AVCaptureMovieFileOutput()
-        if captureSession.canAddOutput(videoOutput) {
-          captureSession.addOutput(videoOutput)
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.downloadAudio(url: testURL!) { data in
+            self.recordView.musicTitleLabel.text = "다운로드 완료"
+            UIView.transition(with: self.recordView.recordButton, duration: 0.3, options: .transitionCrossDissolve) {
+                self.recordView.recordButton.setImage(UIImage(named: "record.start"), for: .normal)
+            }
+            self.backgroundMusic = data
         }
-
-        captureSession.commitConfiguration()
-      }
-      catch let error as NSError {
-        NSLog("\(error), \(error.localizedDescription)")
-      }
     }
     
-    private func bestDevice(in position: AVCaptureDevice.Position) -> AVCaptureDevice {
-      var deviceTypes: [AVCaptureDevice.DeviceType]!
-      
-      if #available(iOS 11.1, *) {
-        deviceTypes = [.builtInTrueDepthCamera, .builtInDualCamera, .builtInWideAngleCamera]
-      } else {
-        deviceTypes = [.builtInDualCamera, .builtInWideAngleCamera]
-      }
-      
-      let discoverySession = AVCaptureDevice.DiscoverySession(
-        deviceTypes: deviceTypes,
-        mediaType: .video,
-        position: .unspecified
-      )
-      
-      let devices = discoverySession.devices
-      guard !devices.isEmpty else { fatalError("Missing capture devices.")}
-      
-      return devices.first(where: { device in device.position == position })!
-    }
-    
-    private func swapCameraType() {
-      guard let input = captureSession.inputs.first(where: { input in
-        guard let input = input as? AVCaptureDeviceInput else { return false }
-        return input.device.hasMediaType(.video)
-      }) as? AVCaptureDeviceInput else { return }
-      
-      captureSession.beginConfiguration()
-      defer { captureSession.commitConfiguration() }
-      
-      // Create new capture device
-      var newDevice: AVCaptureDevice?
-      if input.device.position == .back {
-        newDevice = bestDevice(in: .front)
-      } else {
-        newDevice = bestDevice(in: .back)
-      }
-      
-      do {
-        videoInput = try AVCaptureDeviceInput(device: newDevice!)
-      } catch let error {
-        NSLog("\(error), \(error.localizedDescription)")
-        return
-      }
-      
-      // Swap capture device inputs
-      captureSession.removeInput(input)
-      captureSession.addInput(videoInput!)
-    }
-    
-    
-    // MARK:- Recording Methods
-    
-    private func startRecording() {
-      let connection = videoOutput.connection(with: AVMediaType.video)
-      
-      // orientation을 설정해야 가로/세로 방향에 따른 레코딩 출력이 잘 나옴.
-      if (connection?.isVideoOrientationSupported)! {
-        connection?.videoOrientation = self.deviceOrientation
-      }
-      
-      let device = videoInput.device
-      if (device.isSmoothAutoFocusSupported) {
-        do {
-          try device.lockForConfiguration()
-          device.isSmoothAutoFocusEnabled = false
-          device.unlockForConfiguration()
-        } catch {
-          print("Error setting configuration: \(error)")
-        }
-      }
-      
-      outputURL = tempURL()
-      videoOutput.startRecording(to: outputURL!, recordingDelegate: self)
-    }
-    
-    private func stopRecording() {
-      if videoOutput.isRecording {
-        videoOutput.stopRecording()
-      }
-    }
-    
-    
-    private func tempURL() -> URL? {
-      let directory = NSTemporaryDirectory() as NSString
-      
-      if directory != "" {
-        let path = directory.appendingPathComponent(NSUUID().uuidString + ".mp4")
-        return URL(fileURLWithPath: path)
-      }
-      
-      return nil
-    }
+    let testURL = URL(string: "https://artistack.s3.ap-northeast-2.amazonaws.com/video/6df9ec8d-1569-42fb-a086-d98891e187cd.mp4")
     
     @objc func dismissButtonDidTap(){
         dismiss(animated: true)
     }
     
     @objc func swapButtonDidTap(){
-        swapCameraType()
+        mediaManager.swapCameraType()
     }
     
     @objc func recordButtonDidTap(){
-        if videoOutput.isRecording {
-            stopRecording()
+        if mediaManager.videoOutput.isRecording {
+            mediaManager.audioPlayer?.pause()
+            mediaManager.stopRecording()
             recordView.recordButton.setImage(UIImage(named: "record.start"), for: .normal)
             let vc = CheckRecordViewController()
             navigationController?.pushViewController(vc, animated: false)
         } else {
-            startRecording()
+            mediaManager.playAudio(data: backgroundMusic!)
+            mediaManager.startRecording()
             recordView.recordButton.setImage(UIImage(named: "record.stop"), for: .normal)
         }
     }
@@ -184,27 +89,9 @@ class RecordViewController: BaseViewController {
         view.backgroundColor = .black
         recordView.recordButton.addTarget(self, action: #selector(recordButtonDidTap), for: .touchUpInside)
         recordView.cameraSwapButton.addTarget(self, action: #selector(swapButtonDidTap), for: .touchUpInside)
-        videoDevice = bestDevice(in: .back)
-        recordView.previewlayer.session = captureSession
-        setupSession()
+        mediaManager.videoDevice = mediaManager.bestDevice(in: .back)
+        recordView.previewlayer.session = mediaManager.captureSession
+        mediaManager.setupSession()
     }
 }
 
-extension RecordViewController: AVCaptureFileOutputRecordingDelegate {
-  
-  // 레코딩이 시작되면 호출
-  func fileOutput(_ output: AVCaptureFileOutput, didStartRecordingTo fileURL: URL, from connections: [AVCaptureConnection]) {
-    
-  }
-  
-  // 레코딩이 끝나면 호출
-  func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
-    if (error != nil) {
-      print("Error recording movie: \(error!.localizedDescription)")
-    } else {
-      let videoRecorded = outputURL! as URL
-      UISaveVideoAtPathToSavedPhotosAlbum(videoRecorded.path, nil, nil, nil)
-    }
-  }
-  
-}

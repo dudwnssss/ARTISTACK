@@ -100,7 +100,7 @@ final class PostCell: UITableViewCell{
     }
     
     let shareButton = popupContentButton().then{
-        $0.popupTitleLabel.text = "공유하기"
+        $0.popupTitleLabel.text = "프로필로 이동"
         $0.iconImageView.image = UIImage(named: "share")
     }
     let reportButton = popupContentButton().then{
