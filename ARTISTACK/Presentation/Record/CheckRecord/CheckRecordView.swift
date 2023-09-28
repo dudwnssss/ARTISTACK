@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class CheckRecordView: BaseView {
     
@@ -16,8 +17,16 @@ class CheckRecordView: BaseView {
         $0.backgroundImageView.layer.cornerRadius = 22
         $0.backgroundImageView.clipsToBounds = true
     }
+    lazy var playerLayer: AVPlayerLayer = {
+        let layer = AVPlayerLayer()
+        layer.bounds = UIScreen.main.bounds
+        layer.position = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
+        layer.videoGravity = .resizeAspectFill
+        return layer
+    }()
     
     override func setLayouts() {
+        layer.addSublayer(playerLayer)
         addSubviews( volumeButton, retakeButton, replayButton, completeButton)
 
         volumeButton.snp.makeConstraints {

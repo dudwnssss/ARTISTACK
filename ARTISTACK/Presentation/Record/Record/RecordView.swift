@@ -35,11 +35,6 @@ class RecordView: BaseView {
         return layer
     }()
 
-    
-    
-    
-    
-    
     override func setProperties() {
         musicProgressView.do {
             $0.isHidden = true
@@ -48,9 +43,7 @@ class RecordView: BaseView {
     }
     override func setLayouts() {
         
-        layer.addSublayer(previewlayer)
-        print(previewlayer.bounds)
-        
+        layer.addSublayer(previewlayer)        
         
         addSubviews(timerButton, cameraSwapButton, recordButton, artistackOnLabel, musicTitleLabel, musicProgressView)
         recordButton.snp.makeConstraints {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class RecordViewController: BaseViewController {
     
@@ -31,7 +32,7 @@ class RecordViewController: BaseViewController {
     func downloadAudio(url: URL, completion: @escaping (Data) -> Void) {
         recordView.musicTitleLabel.text = "다운로드 시작"
         recordView.recordButton.setImage(UIImage(named: "record.inactivated"), for: .normal)
-
+        
         DispatchQueue.global().async {
             do {
                 let audioData = try Data(contentsOf: url)
@@ -47,16 +48,19 @@ class RecordViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.downloadAudio(url: testURL!) { data in
+        self.downloadAudio(url: loveleeURL!) { data in
             self.recordView.musicTitleLabel.text = "다운로드 완료"
             UIView.transition(with: self.recordView.recordButton, duration: 0.3, options: .transitionCrossDissolve) {
                 self.recordView.recordButton.setImage(UIImage(named: "record.start"), for: .normal)
             }
-            self.backgroundMusic = data
+            self.mediaManager.prepareAudio(data: data)
+            self.mediaManager.prepareRecording()
         }
     }
     
-    let testURL = URL(string: "https://artistack.s3.ap-northeast-2.amazonaws.com/video/6df9ec8d-1569-42fb-a086-d98891e187cd.mp4")
+    let circleURL = URL(string: "https://artistack.s3.ap-northeast-2.amazonaws.com/video/6df9ec8d-1569-42fb-a086-d98891e187cd.mp4")
+    let loveleeURL = URL(string: "https://artistack.s3.ap-northeast-2.amazonaws.com/video/fd1de8f7-f903-47c7-8c72-e8ca74cd7c77.mp4")
+    let aimyonURL = URL(string: "https://artistack.s3.ap-northeast-2.amazonaws.com/video/c99234d2-6d7d-46bd-a06c-651e5f9c83bc.mp4")
     
     @objc func dismissButtonDidTap(){
         dismiss(animated: true)
@@ -68,14 +72,24 @@ class RecordViewController: BaseViewController {
     
     @objc func recordButtonDidTap(){
         if mediaManager.videoOutput.isRecording {
-            mediaManager.audioPlayer?.pause()
-            mediaManager.stopRecording()
+            let queue = DispatchQueue.global(qos: .userInteractive)
+            queue.async { [weak self] in
+                self?.mediaManager.stopAudio()
+                print("stop audio")
+            }
+            queue.async { [weak self] in
+                self?.mediaManager.stopRecording()
+            }
             recordView.recordButton.setImage(UIImage(named: "record.start"), for: .normal)
-            let vc = CheckRecordViewController()
-            navigationController?.pushViewController(vc, animated: false)
         } else {
-            mediaManager.playAudio(data: backgroundMusic!)
-            mediaManager.startRecording()
+            let queue = DispatchQueue.global(qos: .userInteractive)
+            queue.async { [weak self] in
+                self?.mediaManager.playAudio()
+                print("start audio")
+            }
+            queue.async { [weak self] in
+                self?.mediaManager.startRecording()
+            }
             recordView.recordButton.setImage(UIImage(named: "record.stop"), for: .normal)
         }
     }
@@ -92,6 +106,24 @@ class RecordViewController: BaseViewController {
         mediaManager.videoDevice = mediaManager.bestDevice(in: .back)
         recordView.previewlayer.session = mediaManager.captureSession
         mediaManager.setupSession()
+        mediaManager.recordEnd = { [self] data in
+            
+            outputURL = mediaManager.tempURL()
+            //            self.mediaManager.mergeAudioAndVideo(audioURL: self.aimyonURL!, videoURL: data, outputURL: outputURL!) { _ in
+            //                let videoRecorded = outputURL! as URL
+            //                UISaveVideoAtPathToSavedPhotosAlbum(videoRecorded.path, nil, nil, nil)
+            //            }
+            
+            let vc = CheckRecordViewController()
+            self.mediaManager.merge(audioURL: self.loveleeURL!, videoURL: data, outputURL: outputURL!){ data in
+                vc.playerItem = data
+                self.navigationController?.pushViewController(vc, animated: false)
+            }
+//            vc.video = data
+//            if let music = self.backgroundMusic {
+//                vc.backgroundMusic = music
+//            }
+        }
     }
 }
 
