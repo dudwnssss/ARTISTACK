@@ -23,6 +23,7 @@ class CheckRecordViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mediaManager.preparePlayer(playerItem: playerItem!)
         replay2()
     }
     
@@ -74,7 +75,8 @@ class CheckRecordViewController: BaseViewController {
     }
     
     func replay2(){
-        guard let playerItem else {return}
-        self.mediaManager.playComposition(playerItem: playerItem, layer: self.checkRecordView.playerLayer)
+        playerItem?.seek(to: .zero)
+        mediaManager.playComposition(playerItem: playerItem!, layer: checkRecordView.playerLayer)
     }
 }
+ 
