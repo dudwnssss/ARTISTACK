@@ -10,6 +10,9 @@ import UIKit
 
 class MediaManager: NSObject{
     
+    static let shared = MediaManager()
+    
+    
     var captureSession = AVCaptureSession()
     var videoDevice: AVCaptureDevice!
     var videoInput: AVCaptureDeviceInput!
@@ -22,7 +25,7 @@ class MediaManager: NSObject{
     var audioPlayerItem: AVPlayerItem?
     var videoPlayer : AVPlayer?
     var recordEnd: ((URL) -> Void)?
-
+    
     func setupSession() {
         do {
             captureSession.beginConfiguration()
@@ -74,7 +77,7 @@ class MediaManager: NSObject{
     
     func swapCameraType() {
         guard let input = captureSession.inputs.first(where: { input in
-            guard let input = input as? AVCaptureDeviceInput else { return false } 
+            guard let input = input as? AVCaptureDeviceInput else { return false }
             return input.device.hasMediaType(.video)
         }) as? AVCaptureDeviceInput else { return }
         
@@ -100,6 +103,7 @@ class MediaManager: NSObject{
         captureSession.removeInput(input)
         captureSession.addInput(videoInput!)
     }
+    
     
     func prepareRecording(){
         let connection = videoOutput.connection(with: AVMediaType.video)
@@ -152,7 +156,7 @@ class MediaManager: NSObject{
     }
     
     func playAudio(){
-        let timeOffset = audioPlayer!.deviceCurrentTime + 1
+        let timeOffset = audioPlayer!.deviceCurrentTime + 3
         audioPlayer?.play(atTime: timeOffset)
     }
     
@@ -162,14 +166,14 @@ class MediaManager: NSObject{
     }
     
     func prepareAudioPlayer(url: URL){
-      audioPlayer2 =  AVPlayer(url: url)
+        audioPlayer2 =  AVPlayer(url: url)
     }
     
     func playAudioURL(){
         audioPlayer2?.play()
     }
     
-
+    
     func playVideo(url: URL, layer: AVPlayerLayer) {
         do {
             videoPlayer = try AVPlayer(url: url)
@@ -185,7 +189,7 @@ class MediaManager: NSObject{
     }
     
     func playComposition(playerItem: AVPlayerItem, layer: AVPlayerLayer){
-//        videoPlayer = AVPlayer(playerItem: playerItem)
+        //        videoPlayer = AVPlayer(playerItem: playerItem)
         layer.player = videoPlayer
         videoPlayer?.play()
     }
@@ -264,9 +268,10 @@ class MediaManager: NSObject{
         let audioAsset = AVAsset(url: audioURL)
         
         let videoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
+        videoTrack?.preferredTransform = CGAffineTransform(rotationAngle: .pi / 2)
         let audioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
         let audioOfVideoTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
-
+        
         let duration = videoAsset.duration
         do {
             try videoTrack?.insertTimeRange(CMTimeRangeMake(start: .zero, duration: duration),
@@ -277,8 +282,8 @@ class MediaManager: NSObject{
         }
         do {
             try audioOfVideoTrack?.insertTimeRange(CMTimeRangeMake(start: .zero, duration: duration),
-                                            of: videoAsset.tracks(withMediaType: .audio)[0],
-                                            at: .zero)
+                                                   of: videoAsset.tracks(withMediaType: .audio)[0],
+                                                   at: .zero)
         } catch {
             print("Error adding video track: \(error.localizedDescription)")
         }
@@ -289,14 +294,16 @@ class MediaManager: NSObject{
         } catch {
             print("Error adding video track: \(error.localizedDescription)")
         }
-                
+        
         let audioInputParams = AVMutableAudioMixInputParameters(track: composition.tracks(withMediaType: .audio)[0])
         audioInputParams.setVolume(0.1, at: .zero)
         let audioOfVideoInputParmas = AVMutableAudioMixInputParameters(track: composition.tracks(withMediaType: .audio)[1])
-        audioOfVideoInputParmas.setVolume(1.0, at: .zero)
-
+        audioOfVideoInputParmas.setVolume(0.5, at: .zero)
+        
         let audioMix = AVMutableAudioMix()
         audioMix.inputParameters = [audioInputParams, audioOfVideoInputParmas]
+        
+        
         let playerItem = AVPlayerItem(asset: composition)
         playerItem.audioMix = audioMix
         
@@ -316,8 +323,7 @@ class MediaManager: NSObject{
                 }
             }
         })
-        
-}
+    }
     
     func mergeAndExport(audioURL: URL, videoURL: URL, outputURL: URL, completion: @escaping (AVPlayerItem?) -> Void) {
         DispatchQueue.global(qos: .background).async {
@@ -365,7 +371,7 @@ class MediaManager: NSObject{
     func addVideoTrack(from videoURL: URL?, to composition: AVMutableComposition) {
         guard let videoURL = videoURL else { return }
         let videoAsset = AVURLAsset(url: videoURL)
-//        let startTime = CMTime(seconds: 0.3, preferredTimescale: 600)
+        //        let startTime = CMTime(seconds: 0.3, preferredTimescale: 600)
         
         let videoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
         do {
@@ -380,8 +386,8 @@ class MediaManager: NSObject{
     func addAudioofVideoTrack(from videoURL: URL?, to composition: AVMutableComposition) {
         guard let videoURL = videoURL else { return }
         let videoAsset = AVURLAsset(url: videoURL)
-//        let startTime = CMTime(seconds: 0.3, preferredTimescale: 600)
-
+        //        let startTime = CMTime(seconds: 0.3, preferredTimescale: 600)
+        
         let videoTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
         do {
             try videoTrack?.insertTimeRange(CMTimeRangeMake(start: .zero, duration: videoAsset.duration),
@@ -421,15 +427,15 @@ extension MediaManager: AVCaptureFileOutputRecordingDelegate{
     
     // 레코딩이 시작되면 호출
     func fileOutput(_ output: AVCaptureFileOutput, didStartRecordingTo fileURL: URL, from connections: [AVCaptureConnection]) {
- 
+        
     }
     
     // 레코딩이 끝나면 호출
     func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
         stopAudio()
-            let videoRecorded = outputFileURL
-            recordEnd?(videoRecorded)
-//            UISaveVideoAtPathToSavedPhotosAlbum(videoRecorded.path, nil, nil, nil)
+        let videoRecorded = outputFileURL
+        recordEnd?(videoRecorded)
+        UISaveVideoAtPathToSavedPhotosAlbum(videoRecorded.path, nil, nil, nil)
     }
 }
 
