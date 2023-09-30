@@ -42,6 +42,7 @@
 		1022BA842AB2ECE70028C2DF /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA832AB2ECE70028C2DF /* BottomSheetViewController.swift */; };
 		1022BA862AB2F14D0028C2DF /* SelfSizingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA852AB2F14D0028C2DF /* SelfSizingTableView.swift */; };
 		1022BA8B2AB2F6D70028C2DF /* EditProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA8A2AB2F6D70028C2DF /* EditProfileImageViewController.swift */; };
+		10332C5D2AC754F500217BC2 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10332C5C2AC754F500217BC2 /* AudioManager.swift */; };
 		103EF8F92AC2D70C007496D9 /* WithdrawResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103EF8F82AC2D70C007496D9 /* WithdrawResponse.swift */; };
 		1049419C2A9CB77B006B52BC /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049419B2A9CB77B006B52BC /* UIColor+.swift */; };
 		1049419E2A9CBB01006B52BC /* CustomBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049419D2A9CBB01006B52BC /* CustomBarButtonItem.swift */; };
@@ -155,6 +156,7 @@
 		1022BA832AB2ECE70028C2DF /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		1022BA852AB2F14D0028C2DF /* SelfSizingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingTableView.swift; sourceTree = "<group>"; };
 		1022BA8A2AB2F6D70028C2DF /* EditProfileImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileImageViewController.swift; sourceTree = "<group>"; };
+		10332C5C2AC754F500217BC2 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		103EF8F82AC2D70C007496D9 /* WithdrawResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawResponse.swift; sourceTree = "<group>"; };
 		1049419B2A9CB77B006B52BC /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		1049419D2A9CBB01006B52BC /* CustomBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBarButtonItem.swift; sourceTree = "<group>"; };
@@ -627,6 +629,7 @@
 			isa = PBXGroup;
 			children = (
 				10D4B13A2AC3EB400096E995 /* MediaManager.swift */,
+				10332C5C2AC754F500217BC2 /* AudioManager.swift */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -894,6 +897,7 @@
 				102089EB2A9C5C6600A34EFC /* RecordView.swift in Sources */,
 				10C31A762ABF469B00C69791 /* OnboardingUserNameViewController.swift in Sources */,
 				102089F92A9C82B400A34EFC /* SettingViewController.swift in Sources */,
+				10332C5D2AC754F500217BC2 /* AudioManager.swift in Sources */,
 				10C31A842ABF4E7F00C69791 /* LoginButton.swift in Sources */,
 				10C31A742ABF466D00C69791 /* OnboardingAccountView.swift in Sources */,
 				10D4B13B2AC3EB400096E995 /* MediaManager.swift in Sources */,

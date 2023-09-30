@@ -12,6 +12,7 @@ class RecordViewController: BaseViewController {
     
     let recordView = RecordView()
     let mediaManager = MediaManager()
+//    let audioPlayer = AudioPlayer()
     var backgroundMusic: Data?
     
     override func loadView() {
@@ -44,13 +45,19 @@ class RecordViewController: BaseViewController {
             } catch {
                 print("Error downloading or playing audio: \(error.localizedDescription)")
             }
-        }
+//            self.audioPlayer.downloadMP4File(from: self.hyukoh!) { _ in
+//                DispatchQueue.main.async {
+//                    self.audioPlayer.setupAudioEngine()
+//                    completion()
+//                }
+            }
+        
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.downloadAudio(url: loveleeURL!) { data in
+        self.downloadAudio(url: hyukoh!) { data in
             self.recordView.musicTitleLabel.text = "다운로드 완료"
             UIView.transition(with: self.recordView.recordButton, duration: 0.3, options: .transitionCrossDissolve) {
                 self.recordView.recordButton.setImage(UIImage(named: "record.start"), for: .normal)
@@ -86,7 +93,7 @@ class RecordViewController: BaseViewController {
     
     @objc func recordButtonDidTap(){
         if mediaManager.videoOutput.isRecording {
-            let queue = DispatchQueue.global(qos: .userInteractive)
+            let queue = DispatchQueue.global()
             queue.async { [weak self] in
                 self?.mediaManager.videoOutput.stopRecording()
                 DispatchQueue.main.async {
@@ -97,16 +104,17 @@ class RecordViewController: BaseViewController {
         } else {
             DispatchQueue.global().async {
                 self.mediaManager.playAudio()
-                DispatchQueue.main.async { [weak self] in
-                    print(self?.mediaManager.audioPlayer?.isPlaying)
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: { [weak self] in
                     self?.mediaManager.startRecording()
-                   
-                }
+                })
             }
                 recordView.recordButton.setImage(UIImage(named: "record.stop"), for: .normal)
-            
         }
     }
+    
+
+    
+    
     
     func setNavigationBar(){
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "dismiss"), style: .plain, target: self, action: #selector(dismissButtonDidTap))
@@ -125,15 +133,16 @@ class RecordViewController: BaseViewController {
             
             outputURL = mediaManager.tempURL()
             let vc = CheckRecordViewController()
-            self.mediaManager.merge(audioURL: self.loveleeURL!, videoURL: data, outputURL: outputURL!){ data in
+            self.mediaManager.merge(audioURL: self.hyukoh!, videoURL: data, outputURL: outputURL!){ data in
+                UISaveVideoAtPathToSavedPhotosAlbum(outputURL!.path, nil, nil, nil)
                 vc.playerItem = data
                 self.navigationController?.pushViewController(vc, animated: false)
             }
-//                        self.mediaManager.mergeAndExport(audioURL: self.hyukoh!, videoURL: data, outputURL: outputURL!) { item in
-//                            UISaveVideoAtPathToSavedPhotosAlbum(outputURL!.path, nil, nil, nil)
-//                            vc.playerItem = item
-//                            self.navigationController?.pushViewController(vc, animated: false)
-//                        }
+            //                        self.mediaManager.mergeAndExport(audioURL: self.loveleeURL!, videoURL: data, outputURL: outputURL!) { item in
+            //                            UISaveVideoAtPathToSavedPhotosAlbum(outputURL!.path, nil, nil, nil)
+            //                            vc.playerItem = item
+            //                            self.navigationController?.pushViewController(vc, animated: false)
+            //                        }
         }
     }
 }

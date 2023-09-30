@@ -18,6 +18,8 @@ class MediaManager: NSObject{
     var deviceOrientation: AVCaptureVideoOrientation = .portrait
     var outputURL: URL?
     var audioPlayer : AVAudioPlayer?
+    var audioPlayer2 : AVPlayer?
+    var audioPlayerItem: AVPlayerItem?
     var videoPlayer : AVPlayer?
     var recordEnd: ((URL) -> Void)?
 
@@ -72,7 +74,7 @@ class MediaManager: NSObject{
     
     func swapCameraType() {
         guard let input = captureSession.inputs.first(where: { input in
-            guard let input = input as? AVCaptureDeviceInput else { return false }
+            guard let input = input as? AVCaptureDeviceInput else { return false } 
             return input.device.hasMediaType(.video)
         }) as? AVCaptureDeviceInput else { return }
         
@@ -150,7 +152,8 @@ class MediaManager: NSObject{
     }
     
     func playAudio(){
-        audioPlayer?.play()
+        let timeOffset = audioPlayer!.deviceCurrentTime + 1
+        audioPlayer?.play(atTime: timeOffset)
     }
     
     func stopAudio(){
@@ -158,6 +161,15 @@ class MediaManager: NSObject{
         audioPlayer?.currentTime = 0
     }
     
+    func prepareAudioPlayer(url: URL){
+      audioPlayer2 =  AVPlayer(url: url)
+    }
+    
+    func playAudioURL(){
+        audioPlayer2?.play()
+    }
+    
+
     func playVideo(url: URL, layer: AVPlayerLayer) {
         do {
             videoPlayer = try AVPlayer(url: url)
@@ -245,7 +257,7 @@ class MediaManager: NSObject{
         }
     }
     
-    func merge(audioURL: URL, videoURL: URL, outputURL: URL, completion: @escaping (AVPlayerItem) -> Void) {
+    func merge(audioURL: URL, videoURL: URL, outputURL: URL, completion: @escaping (AVPlayerItem?) -> Void) {
         let composition = AVMutableComposition()
         
         let videoAsset = AVAsset(url: videoURL)
@@ -279,7 +291,7 @@ class MediaManager: NSObject{
         }
                 
         let audioInputParams = AVMutableAudioMixInputParameters(track: composition.tracks(withMediaType: .audio)[0])
-        audioInputParams.setVolume(0.5, at: .zero)
+        audioInputParams.setVolume(0.1, at: .zero)
         let audioOfVideoInputParmas = AVMutableAudioMixInputParameters(track: composition.tracks(withMediaType: .audio)[1])
         audioOfVideoInputParmas.setVolume(1.0, at: .zero)
 
@@ -287,8 +299,25 @@ class MediaManager: NSObject{
         audioMix.inputParameters = [audioInputParams, audioOfVideoInputParmas]
         let playerItem = AVPlayerItem(asset: composition)
         playerItem.audioMix = audioMix
-        completion(playerItem)
-    }
+        
+        let exportSession = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetHighestQuality)
+        exportSession?.outputURL = outputURL
+        exportSession?.outputFileType = AVFileType.mp4
+        
+        exportSession?.exportAsynchronously(completionHandler: {
+            if exportSession?.status == .completed {
+                DispatchQueue.main.async {
+                    completion(playerItem)
+                }
+            } else {
+                print("Export failed with error: \(exportSession?.error?.localizedDescription ?? "Unknown error")")
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+            }
+        })
+        
+}
     
     func mergeAndExport(audioURL: URL, videoURL: URL, outputURL: URL, completion: @escaping (AVPlayerItem?) -> Void) {
         DispatchQueue.global(qos: .background).async {
@@ -299,9 +328,9 @@ class MediaManager: NSObject{
             
             
             let videoInputParams = AVMutableAudioMixInputParameters(track: composition.tracks(withMediaType: .audio)[0])
-            videoInputParams.setVolume(0.0, at: .zero)
+            videoInputParams.setVolume(0.5, at: .zero)
             let audioInputParams = AVMutableAudioMixInputParameters(track: composition.tracks(withMediaType: .audio)[1])
-            audioInputParams.setVolume(0.1, at: .zero)
+            audioInputParams.setVolume(0.5, at: .zero)
             let audioMix = AVMutableAudioMix()
             audioMix.inputParameters = [audioInputParams, videoInputParams]
             let playerItem = AVPlayerItem(asset: composition)
@@ -399,8 +428,6 @@ extension MediaManager: AVCaptureFileOutputRecordingDelegate{
     func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
         stopAudio()
             let videoRecorded = outputFileURL
-            print(getVideoDurationInMilliseconds(videoURL: outputFileURL))
-            print(DispatchTime.now())
             recordEnd?(videoRecorded)
 //            UISaveVideoAtPathToSavedPhotosAlbum(videoRecorded.path, nil, nil, nil)
     }
