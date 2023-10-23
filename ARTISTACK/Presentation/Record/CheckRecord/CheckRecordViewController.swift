@@ -60,7 +60,7 @@ class CheckRecordViewController: BaseViewController {
     }
     
     func setNavigationBar(){
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "dismiss"), style: .plain, target: self, action: #selector(dismissButtonDidTap))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: Image.dismiss, style: .plain, target: self, action: #selector(dismissButtonDidTap))
     }
     
     func replay(){

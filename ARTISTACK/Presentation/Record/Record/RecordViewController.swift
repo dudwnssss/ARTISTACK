@@ -32,7 +32,7 @@ class RecordViewController: BaseViewController {
     
     func downloadAudio(url: URL, completion: @escaping (Data) -> Void) {
         recordView.musicTitleLabel.text = "다운로드 시작"
-        recordView.recordButton.setImage(UIImage(named: "record.inactivated"), for: .normal)
+        recordView.recordButton.setImage(Image.recordInactivated, for: .normal)
         DispatchQueue.global().async {
             do {
                 let audioData = try Data(contentsOf: url)
@@ -54,7 +54,7 @@ class RecordViewController: BaseViewController {
         self.downloadAudio(url: aimyonURL!) { data in
             self.recordView.musicTitleLabel.text = "다운로드 완료"
             UIView.transition(with: self.recordView.recordButton, duration: 0.3, options: .transitionCrossDissolve) {
-                self.recordView.recordButton.setImage(UIImage(named: "record.start"), for: .normal)
+                self.recordView.recordButton.setImage(Image.recordStart, for: .normal)
             }
             self.mediaManager.prepareAudio(data: data)
             self.mediaManager.prepareRecording()
@@ -91,7 +91,7 @@ class RecordViewController: BaseViewController {
             queue.async { [weak self] in
                 self?.mediaManager.videoOutput.stopRecording()
                 DispatchQueue.main.async {
-                    self?.recordView.recordButton.setImage(UIImage(named: "record.start"), for: .normal)
+                    self?.recordView.recordButton.setImage(Image.recordStart, for: .normal)
 
                 }
             }
@@ -102,12 +102,12 @@ class RecordViewController: BaseViewController {
                     self?.mediaManager.startRecording()
                 })
             }
-                recordView.recordButton.setImage(UIImage(named: "record.stop"), for: .normal)
+            recordView.recordButton.setImage(Image.recordStop, for: .normal)
         }
     }
     
     func setNavigationBar(){
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "dismiss"), style: .plain, target: self, action: #selector(dismissButtonDidTap))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: Image.dismiss, style: .plain, target: self, action: #selector(dismissButtonDidTap))
     }
     
     override func setProperties() {

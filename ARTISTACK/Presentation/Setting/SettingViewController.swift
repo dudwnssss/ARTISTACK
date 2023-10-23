@@ -26,11 +26,11 @@ enum SettingType: CaseIterable{
     var settingImage: UIImage {
         switch self {
         case .account:
-            return UIImage(named: "account")!
+            return Image.account
         case .terms:
-            return UIImage(named: "terms")!
+            return Image.terms
         case .privacy:
-            return UIImage(named: "privacy")!
+            return Image.privacy
         }
     }
 }
@@ -80,7 +80,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate{
         cell.backgroundColor = .clear
         
         let accessoryImageView = UIImageView().then{
-            $0.image = UIImage(named: "accessory")
+            $0.image = Image.accessory
         }
 
         accessoryImageView.sizeToFit()

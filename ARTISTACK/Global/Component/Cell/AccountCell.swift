@@ -22,9 +22,9 @@ enum AccountType: CaseIterable{
     var image: UIImage {
         switch self {
         case .apple:
-            return UIImage(named: "apple")!
+            return Image.apple
         case .kakao:
-            return UIImage(named: "kakao")!
+            return Image.kakao
         }
     }
 }

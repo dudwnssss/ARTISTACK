@@ -15,11 +15,11 @@ enum Tab: Int, CaseIterable {
     var image: UIImage {
         switch self {
         case .home:
-            return UIImage(named: "home")!
+            return Image.home
         case .record:
-            return UIImage(named: "record")!//StackButton.shared.stackType.buttonImage
+            return Image.record
         case .profile:
-            return UIImage(named: "profile")!
+            return Image.profile
         }
     }
 }

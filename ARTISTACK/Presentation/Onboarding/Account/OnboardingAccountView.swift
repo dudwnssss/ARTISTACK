@@ -25,7 +25,7 @@ class OnboardingAccountView: BaseView {
 
     override func setProperties() {
         progressImageView.do {
-            $0.image = UIImage(named: "onboarding.progress1")
+            $0.image = Image.onboardingProgress1
         }
         titleLabel.do {
             $0.text = "스택을 시작할 계정을\n만들어볼까요?"
@@ -44,7 +44,7 @@ class OnboardingAccountView: BaseView {
             $0.attributedText = attributedString
         }
         nextButton.do {
-            $0.setImage(UIImage(named: "onboarding.next.activated"), for: .normal)
+            $0.setImage(Image.onboardingNextActivated, for: .normal)
             $0.setTitle("다음", for: .normal)
             $0.setTitleColor(Color.white, for: .normal)
         }

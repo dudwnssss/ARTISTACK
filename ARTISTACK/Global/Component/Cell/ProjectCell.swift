@@ -15,21 +15,21 @@ final class ProjectCell: UICollectionViewCell {
         $0.clipsToBounds = true
     }
     let playImageView = UIImageView().then{
-        $0.image = UIImage(named: "play")
+        $0.image = Image.play
     }
     let playCountLabel = UILabel().then{
         $0.text = "124"
         $0.font = Font.bold12
     }
     let stackImageView = UIImageView().then{
-        $0.image = UIImage(named: "stack.profile")
+        $0.image = Image.stackProfile
     }
     let stackCountLabel = UILabel().then{
         $0.text = "5"
         $0.font = Font.medium12
     }
     let likeImageVIew = UIImageView().then{
-        $0.image = UIImage(named: "like.profile")
+        $0.image = Image.likeProfile
     }
     let likeCountLabel = UILabel().then{
         $0.text = "333"

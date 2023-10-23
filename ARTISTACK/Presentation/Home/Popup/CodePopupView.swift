@@ -9,7 +9,7 @@ import UIKit
 
 class CodePopupView: BaseView{
     let darkBackgroundImageView = UIImageView().then{
-        $0.image = UIImage(named: "background.dark.top")
+        $0.image = Image.backgroundDarkTop
         $0.contentMode = .scaleAspectFill
     }
     

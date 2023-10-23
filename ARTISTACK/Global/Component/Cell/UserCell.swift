@@ -10,21 +10,21 @@ import UIKit
 final class UserCell: UITableViewCell {
     
     let backgroundImageView = UIImageView().then{
-        $0.image = UIImage(named: "background.gradient")
+        $0.image = Image.backgroundGradient
     }
     let profileImageView = UIImageView().then{
         $0.backgroundColor = .systemMint
-        $0.image = UIImage(named: "person")
+        $0.image = Image.person
     }
     let instImageView = UIImageView().then{
-        $0.image = UIImage(named: "piano")
+        $0.image = Image.piano
     }
     let nicknameLabel = UILabel().then{
         $0.text = "musician_abc"
         $0.font = Font.bold16
     }
     let lineImageView = UIImageView().then{
-        $0.image = UIImage(named: "line")
+        $0.image = Image.line
 //        $0.backgroundColor = .brown
     }
     

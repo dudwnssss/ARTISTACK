@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             appearance.configureWithTransparentBackground()
             let backButtonAppearance = UIBarButtonItemAppearance()
             backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear, .font: UIFont.systemFont(ofSize: 0)]
-            let backButtonImage = UIImage(named: "back6")
+            let backButtonImage = Image.back
             appearance.setBackIndicatorImage(backButtonImage, transitionMaskImage: backButtonImage)
             appearance.backButtonAppearance = backButtonAppearance
             UINavigationBar.appearance().isTranslucent = true

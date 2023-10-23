@@ -24,7 +24,7 @@ class OnboardingAgreementView: BaseView {
 
     override func setProperties() {
         progressImageView.do {
-            $0.image = UIImage(named: "onboarding.progress4")
+            $0.image = Image.onboardingProgress4
         }
         titleLabel.do {
             $0.text = "다 왔어요!\n이용 약관을 확인해주세요."
@@ -36,7 +36,7 @@ class OnboardingAgreementView: BaseView {
             $0.font = Font.medium18
         }
         allAgreeButton.do {
-            $0.setImage(UIImage(named: "agreement.large"), for: .normal)
+            $0.setImage(Image.agreementLarge, for: .normal)
         }
         termLabel.do {
             $0.font = Font.medium16
@@ -50,7 +50,7 @@ class OnboardingAgreementView: BaseView {
             $0.attributedText = attributedString
         }
         termButton.do {
-            $0.setImage(UIImage(named: "agreement"), for: .normal)
+            $0.setImage(Image.agreement, for: .normal)
         }
         privacyLabel.do {
             $0.font = Font.medium16
@@ -64,7 +64,7 @@ class OnboardingAgreementView: BaseView {
             $0.attributedText = attributedString
         }
         privacyButton.do {
-            $0.setImage(UIImage(named: "agreement"), for: .normal)
+            $0.setImage(Image.agreement, for: .normal)
         }
         marketingLabel.do {
             $0.font = Font.medium16
@@ -78,7 +78,7 @@ class OnboardingAgreementView: BaseView {
             $0.attributedText = attributedString
         }
         marketingButton.do {
-            $0.setImage(UIImage(named: "agreement"), for: .normal)
+            $0.setImage(Image.agreement, for: .normal)
         }
     }
     

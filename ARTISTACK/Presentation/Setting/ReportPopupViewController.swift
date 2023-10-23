@@ -10,7 +10,7 @@ import UIKit
 class ReportPopupViewController: BaseViewController {
 
     let checkImageView = UIImageView().then{
-        $0.image = UIImage(named: "check")
+        $0.image = Image.check
     }
     let confirmButton = UIButton().then{
         $0.setTitle("확인", for: .normal)

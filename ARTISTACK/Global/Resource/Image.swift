@@ -8,31 +8,111 @@
 import UIKit.UIImage
 
 enum Image {
+    static let back = UIImage(named: "back")!
+    static let dismiss = UIImage(named: "dismiss")!
+    static let edit = UIImage(named: "edit")!
+
     
-    static let medium11 = UIFont.systemFont(ofSize: 11)
-    static let medium12 = UIFont.systemFont(ofSize: 12)
-    static let medium13 = UIFont.systemFont(ofSize: 13)
-    static let medium14 = UIFont.systemFont(ofSize: 14)
-    static let medium15 = UIFont.systemFont(ofSize: 15)
-    static let medium16 = UIFont.systemFont(ofSize: 16)
-    static let medium18 = UIFont.systemFont(ofSize: 18)
-    static let medium20 = UIFont.systemFont(ofSize: 20)
-    static let medium22 = UIFont.systemFont(ofSize: 22)
-    static let medium26 = UIFont.systemFont(ofSize: 26)
     
-    static let bold10 = UIFont.boldSystemFont(ofSize: 10)
-    static let bold11 = UIFont.boldSystemFont(ofSize: 11)
-    static let bold12 = UIFont.boldSystemFont(ofSize: 12)
-    static let bold13 = UIFont.boldSystemFont(ofSize: 13)
-    static let bold14 = UIFont.boldSystemFont(ofSize: 14)
-    static let bold15 = UIFont.boldSystemFont(ofSize: 15)
-    static let bold16 = UIFont.boldSystemFont(ofSize: 16)
-    static let bold18 = UIFont.boldSystemFont(ofSize: 18)
-    static let bold19 = UIFont.boldSystemFont(ofSize: 19)
-    static let bold20 = UIFont.boldSystemFont(ofSize: 20)
-    static let bold22 = UIFont.boldSystemFont(ofSize: 22)
-    static let bold23 = UIFont.boldSystemFont(ofSize: 23)
-    static let bold25 = UIFont.boldSystemFont(ofSize: 25)
-    static let bold26 = UIFont.boldSystemFont(ofSize: 26)
+    static let splashBlur = UIImage(named: "splash.blur")
+
+    
+    static let agreementLarge = UIImage(named: "agreement.large")
+    static let agreement = UIImage(named: "agreement")
+    static let accessoryRight = UIImage(named: "accessory.right")
+    static let accessoryLeft = UIImage(named: "accessory.left")
+
+    
+    static let buttonBackgroundActivated = UIImage(named: "button.background.activated")!
+    
+    
+    //like
+    static let likeSmall = UIImage(named: "like.small")!
+    static let playSmall = UIImage(named: "play.small")
+    
+
+    //util
+    static let timer = UIImage(named: "timer")!
+    static let transition = UIImage(named: "transition")!
+    static let retake = UIImage(named: "retake")!
+    static let volume = UIImage(named: "volume")!
+    static let replay = UIImage(named: "replay")!
+
+    
+    //user
+    static let line = UIImage(named: "line")!
+    static let person = UIImage(named: "person")!
+
+    
+    
+    //inst
+    static let piano = UIImage(named: "piano")!
+    static let guitar = UIImage(named: "guitar")!
+    static let bass = UIImage(named: "bass")!
+    static let drum = UIImage(named: "drum")!
+    static let vocal = UIImage(named: "vocal")!
+    static let etc = UIImage(named: "etc")!
+
+    
+    //post
+    static let delete = UIImage(named: "delete")!
+    static let report = UIImage(named: "report")!
+    static let share = UIImage(named: "share")!
+    static let others = UIImage(named: "others")!
+    static let stack = UIImage(named: "stack")!
+    static let like = UIImage(named: "like")!
+    static let code = UIImage(named: "code")!
+
+    
+    
+    //project
+    static let play = UIImage(named: "play")!
+    static let stackProfile = UIImage(named: "stack.profile")!
+    static let likeProfile = UIImage(named: "like.profile")!
+
+    
+    
+    //account
+    static let apple = UIImage(named: "apple")!
+    static let kakao = UIImage(named: "kakao")!
+
+
+    //tab
+    static let profile = UIImage(named: "profile")!
+    static let record = UIImage(named: "record")!
+    static let recordFirst = UIImage(named: "record.first")!
+    static let home = UIImage(named: "home")!
+
+    //onboarding
+    static let onboardingBackground = UIImage(named: "onboarding.background")!
+    static let onboardingNextActivated = UIImage(named: "onboarding.next.activated")
+    static let onboardingProgress1 = UIImage(named: "onboarding.background")!
+    static let onboardingProgress2 = UIImage(named: "onboarding.background")!
+    static let onboardingProgress3 = UIImage(named: "onboarding.background")!
+    static let onboardingProgress4 = UIImage(named: "onboarding.progress4")
+
+    //logo
+    static let logo = UIImage(named: "logo")!
+    static let logoWithText = UIImage(named: "logo.with.text")!
+    static let recordStart = UIImage(named: "record.start")!
+    static let recordStop = UIImage(named: "record.stop")!
+    static let recordInactivated = UIImage(named: "record.inactivated")!
+
+    static let profileEditShadow = UIImage(named: "profile.edit.shadow")!
+    static let profileNormal = UIImage(named: "profile.normal")!
+
+
+    //setting
+    static let setting = UIImage(named: "setting")!
+    static let account = UIImage(named: "account")!
+    static let terms = UIImage(named: "terms")!
+    static let privacy = UIImage(named: "privacy")!
+
+    static let accessory = UIImage(named: "accessory")!
+    static let check = UIImage(named: "check")!
+    
+    static let backgroundDarkTop = UIImage(named: "background.dark.top")!
+    static let backgroundDarkBottom = UIImage(named: "background.dark.bottom")!
+    static let backgroundGradient = UIImage(named: "background.gradient")!
 }
 

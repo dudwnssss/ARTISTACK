@@ -24,14 +24,14 @@ class LoginButton: UIButton {
         switch loginType{
         case .kakao:
             configuration.title = "카카오톡으로 시작하기"
-            configuration.image = UIImage(named: "kakao")
+            configuration.image = Image.kakao
             configuration.background.backgroundColor = UIColor(hex: "#FAE300")
         case .apple:
             var attString = AttributedString.init("Apple로 시작하기")
             attString.font = Font.bold16
             attString.foregroundColor = Color.black
             configuration.attributedTitle = attString
-            configuration.image = UIImage(named: "apple")
+            configuration.image = Image.apple
             configuration.background.backgroundColor = Color.artistackSystem8
         default:
             break

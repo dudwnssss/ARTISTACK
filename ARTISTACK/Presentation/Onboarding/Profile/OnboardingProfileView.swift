@@ -21,7 +21,7 @@ class OnboardingProfileView : BaseView {
     
     override func setProperties() {
         progressImageView.do {
-            $0.image = UIImage(named: "onboarding.progress3")
+            $0.image = Image.onboardingProgress3
         }
         titleLabel.do {
             $0.text = "프로필 사진과\n소개를 설정해주세요."

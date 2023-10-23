@@ -19,14 +19,14 @@ final class LikePopupHeaderView: UITableViewHeaderFooterView {
     }
     let separatorView = SeparatorView()
     let likeImageView = UIImageView().then{
-        $0.image = UIImage(named: "like.small")
+        $0.image = Image.likeSmall
     }
     let likeCountLabel = UILabel().then{
         $0.text = "34"
         $0.font = Font.bold15
     }
     let playImageView = UIImageView().then{
-        $0.image = UIImage(named: "play.small")
+        $0.image = Image.playSmall
     }
     let playCountLabel = UILabel().then{
         $0.text = "1234"

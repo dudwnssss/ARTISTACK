@@ -10,7 +10,7 @@ import UIKit
 class CompleteButton: UIButton {
     
     let backgroundImageView = UIImageView().then{
-        $0.image = UIImage(named: "button.background.activated")
+        $0.image = Image.buttonBackgroundActivated
     }
     
     let buttonTitleLabel = UILabel().then{

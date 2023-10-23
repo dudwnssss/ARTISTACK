@@ -21,11 +21,11 @@ class LoginView: BaseView{
     
     override func setProperties() {
         bgImageView.do {
-            $0.image = UIImage(named: "splash.blur")
+            $0.image = Image.splashBlur
             $0.contentMode = .scaleAspectFill
         }
         logoImageView.do {
-            $0.image = UIImage(named: "logo")
+            $0.image = Image.logo
         }
         titleLabel.do {
             let fullString = "당신의 음악을\n스택해보세요"
@@ -40,10 +40,10 @@ class LoginView: BaseView{
             $0.numberOfLines = 0
         }
         leftAccessoryImageView.do {
-            $0.image = UIImage(named: "accessory.left")
+            $0.image = Image.accessoryLeft
         }
         rightAccessoryImageView.do {
-            $0.image = UIImage(named: "accessory.right")
+            $0.image = Image.accessoryRight
         }
 
         exsitLabel.do {

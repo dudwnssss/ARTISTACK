@@ -15,7 +15,7 @@ class RecordView: BaseView {
     let cameraSwapButton = RecordUtilButton(utilType: .camera)
     
     let recordButton = UIButton().then{
-        $0.setImage(UIImage(named: "record.start"), for: .normal)
+        $0.setImage(Image.recordStart, for: .normal)
     }
     let artistackOnLabel = UILabel().then{
         $0.text = "Artistack on"

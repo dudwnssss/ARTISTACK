@@ -42,7 +42,7 @@ final class PostCell: UITableViewCell{
     }
     
     let darkBackgroundImageView = UIImageView().then{
-        $0.image = UIImage(named: "background.dark.bottom")
+        $0.image = Image.backgroundDarkBottom
         $0.contentMode = .scaleAspectFill
     }
     
@@ -56,10 +56,10 @@ final class PostCell: UITableViewCell{
         $0.backgroundColor = .clear
     }
     let codeButton = UIButton().then{
-        $0.setImage(UIImage(named: "code"), for: .normal)
+        $0.setImage(Image.code, for: .normal)
     }
     let likeButton = UIButton().then{
-        $0.setImage(UIImage(named: "like"), for: .normal)
+        $0.setImage(Image.like, for: .normal)
     }
     let likeCountLabel = UILabel().then{
         $0.text = "34"
@@ -67,7 +67,7 @@ final class PostCell: UITableViewCell{
         
     }
     let stackButton = UIButton().then{
-        $0.setImage(UIImage(named: "stack"), for: .normal)
+        $0.setImage(Image.stack, for: .normal)
     }
     let stackCountLabel = UILabel().then{
         $0.text = "5"
@@ -92,7 +92,7 @@ final class PostCell: UITableViewCell{
         $0.distribution = .fill
     }
     let othersButton = UIButton().then{
-        $0.setImage(UIImage(named: "others"), for: .normal)
+        $0.setImage(Image.others, for: .normal)
     }
     let moreButton = UIButton().then{
         $0.setTitle("더보기", for: .normal)
@@ -101,15 +101,15 @@ final class PostCell: UITableViewCell{
     
     let shareButton = popupContentButton().then{
         $0.popupTitleLabel.text = "프로필로 이동"
-        $0.iconImageView.image = UIImage(named: "share")
+        $0.iconImageView.image = Image.share
     }
     let reportButton = popupContentButton().then{
         $0.popupTitleLabel.text = "신고하기"
-        $0.iconImageView.image = UIImage(named: "report")
+        $0.iconImageView.image = Image.report
     }
     let deleteButton = popupContentButton().then{
         $0.popupTitleLabel.text = "삭제하기"
-        $0.iconImageView.image = UIImage(named: "delete")
+        $0.iconImageView.image = Image.delete
     }
     
     let popupStackView = UIStackView().then{

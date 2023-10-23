@@ -18,11 +18,11 @@ class WelcomViewController: BaseViewController {
     
     override func setProperties() {
         backgroundImageView.do {
-            $0.image = UIImage(named: "onboarding.background")
+            $0.image = Image.onboardingBackground
             $0.contentMode = .scaleAspectFill
         }
         logoImageView.do {
-            $0.image = UIImage(named: "logo.with.text")
+            $0.image = Image.logoWithText
         }
         titleLabel.do {
             let fullString = "\(nickname) 님,\n아티스택에 오신걸 환영합니다.\n같이 스택해요!"
@@ -40,9 +40,8 @@ class WelcomViewController: BaseViewController {
             $0.textColor = Color.artistackSystem7
         }
         accessoryImageView.do {
-            $0.image = UIImage(named: "accessory.right")
+            $0.image = Image.accessoryRight
         }
-
     }
     override func setLayouts() {
         view.addSubviews(backgroundImageView, logoImageView, titleLabel, descriptionLabel, accessoryImageView)

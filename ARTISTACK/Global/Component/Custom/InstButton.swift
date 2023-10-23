@@ -35,17 +35,17 @@ enum InstType: Int, CaseIterable {
     var instImage: UIImage {
         switch self {
         case .piano:
-            return UIImage(named: "piano")!
+            return Image.piano
         case .guitar:
-            return UIImage(named: "guitar")!
+            return Image.guitar
         case .bass:
-            return UIImage(named: "bass")!
+            return Image.bass
         case .drum:
-            return UIImage(named: "drum")!
+            return Image.drum
         case .vocal:
-            return UIImage(named: "vocal")!
+            return Image.vocal
         case .others:
-            return UIImage(named: "etc")!
+            return Image.etc
         }
     }
 }

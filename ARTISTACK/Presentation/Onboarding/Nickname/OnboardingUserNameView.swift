@@ -23,7 +23,7 @@ class OnboardingUserNameView: BaseView {
 
     override func setProperties() {
         progressImageView.do {
-            $0.image = UIImage(named: "onboarding.progress2")
+            $0.image = Image.onboardingProgress2
         }
         titleLabel.do {
             $0.text = "사용자님을 타나낼\n이름을 작성해주세요."
@@ -37,7 +37,7 @@ class OnboardingUserNameView: BaseView {
         }
         
         nextButton.do {
-            $0.setImage(UIImage(named: "onboarding.next.activated"), for: .normal)
+            $0.setImage(Image.onboardingNextActivated, for: .normal)
             $0.setTitle("다음", for: .normal)
             $0.setTitleColor(Color.white, for: .normal)
         }

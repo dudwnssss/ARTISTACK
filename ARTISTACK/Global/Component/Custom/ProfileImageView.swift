@@ -10,15 +10,15 @@ import UIKit
 class ProfileImageView: UIView {
     
     let backgroundImageView = UIImageView().then{
-        $0.image = UIImage(named: "background.gradient")
+        $0.image = Image.backgroundGradient
     }
     let profileImageView = UIImageView().then{
-        $0.image = UIImage(named: "person")
+        $0.image = Image.person
         $0.backgroundColor = .red
         $0.clipsToBounds = true
     }
     let instImageView = UIImageView().then{
-        $0.image = UIImage(named: "piano")
+        $0.image = Image.piano
     }
     
     override init(frame: CGRect) {

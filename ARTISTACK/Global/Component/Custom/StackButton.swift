@@ -14,9 +14,9 @@ enum StackType{
     var buttonImage: UIImage{
         switch self {
         case .first:
-            return UIImage(named: "record.first")!
+            return Image.recordFirst
         case .stack:
-            return UIImage(named: "record")!
+            return Image.record
         }
     }
 }

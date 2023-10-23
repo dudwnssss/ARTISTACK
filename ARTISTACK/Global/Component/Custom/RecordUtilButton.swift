@@ -16,13 +16,13 @@ enum TimerType: Int, CaseIterable{
     var timerImage : UIImage{
         switch self {
         case .none:
-            return UIImage(named: "timer")!
+            return Image.timer
         case .three:
-            return UIImage(named: "timer")!
+            return Image.timer
         case .five:
-            return UIImage(named: "timer")!
+            return Image.timer
         case .ten:
-            return UIImage(named: "timer")!
+            return Image.timer
         }
     }
 }
@@ -52,15 +52,15 @@ enum UtilType: CaseIterable {
     var utilImage: UIImage {
         switch self {
         case .timer:
-            return UIImage(named: "timer")!
+            return Image.timer
         case .camera:
-            return UIImage(named: "transition")!
+            return Image.transition
         case .volume:
-            return UIImage(named: "volume")!
+            return Image.volume
         case .retake:
-            return UIImage(named: "retake")!
+            return Image.retake
         case .replay:
-            return UIImage(named: "replay")!
+            return Image.replay
         }
     }
 }

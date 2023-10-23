@@ -13,7 +13,7 @@ extension UINavigationController {
     func setClearNavigationBarAppearance() {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithTransparentBackground()
-            let backButtonImage = UIImage(named: "back6")
+            let backButtonImage = Image.back
             appearance.setBackIndicatorImage(backButtonImage, transitionMaskImage: backButtonImage)
             navigationBar.isTranslucent = true
             navigationBar.standardAppearance = appearance

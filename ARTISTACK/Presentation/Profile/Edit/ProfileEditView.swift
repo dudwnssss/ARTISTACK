@@ -37,7 +37,7 @@ class ProfileEditView: BaseView {
     
     override func setProperties() {
         profileEditButton.do {
-            $0.setImage(UIImage(named: "profile.edit.shadow"), for: .normal)
+            $0.setImage(Image.profileEditShadow, for: .normal)
             $0.imageView?.contentMode = .scaleAspectFill
         }
 
