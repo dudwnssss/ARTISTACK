@@ -21,7 +21,7 @@ final class UserCell: UITableViewCell {
     }
     let nicknameLabel = UILabel().then{
         $0.text = "musician_abc"
-        $0.font = .boldSystemFont(ofSize: 16)
+        $0.font = Font.bold16
     }
     let lineImageView = UIImageView().then{
         $0.image = UIImage(named: "line")
@@ -84,15 +84,3 @@ final class UserCell: UITableViewCell {
     
 }
 
-#if DEBUG
-
-import SwiftUI
-
-struct UserCell_Previews: PreviewProvider {
-    static var previews: some View {
-        UserCell().getPreview()
-            .previewLayout(.fixed(width: 300, height: 100))
-    }
-}
-
-#endif

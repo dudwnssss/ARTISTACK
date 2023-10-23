@@ -15,17 +15,17 @@ final class ProfileCell: UICollectionViewCell {
     
     let nicknameLabel = UILabel().then{
         $0.text = "dudansthanswkd"
-        $0.font = .boldSystemFont(ofSize: 19)
+        $0.font = Font.bold19
     }
     let idLabel = UILabel().then{
         $0.text = "@mikeannn"
-        $0.font = .systemFont(ofSize: 15)
+        $0.font = Font.medium15
         $0.textColor = Color.artistackSystem3
     }
     let descriptionLabel = UILabel().then{
         $0.text = "최대글자수최대글자수최대글자수최대글자수최대글자수최대글자수최대글자수최대글"
         $0.numberOfLines = 2
-        $0.font = .boldSystemFont(ofSize: 14)
+        $0.font = Font.bold14
         $0.textColor = Color.artistackSystem6
     }
     

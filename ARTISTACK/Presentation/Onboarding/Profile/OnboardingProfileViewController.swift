@@ -38,7 +38,7 @@ class OnboardingProfileViewController : BaseViewController{
         if let placeholderText = placeholder {
             onboardingProfileView.textView.text = placeholderText
             onboardingProfileView.textView.textColor = Color.artistackSystem4
-            onboardingProfileView.textView.font = .systemFont(ofSize: 18)
+            onboardingProfileView.textView.font = Font.medium18
         }
     }
     
@@ -54,7 +54,7 @@ extension OnboardingProfileViewController: UITextViewDelegate{
         if textView.text == placeholder {
             textView.text = ""
             textView.textColor = Color.white
-            textView.font = .systemFont(ofSize: 18)
+            textView.font = Font.medium18
         }
         
         if let text = textView.text, text.count > limitCount {
@@ -68,7 +68,7 @@ extension OnboardingProfileViewController: UITextViewDelegate{
         if textView.text == placeholder {
             textView.text = ""
             textView.textColor = Color.white
-            textView.font = .systemFont(ofSize: 18)
+            textView.font = Font.medium18
         }
         return true
     }

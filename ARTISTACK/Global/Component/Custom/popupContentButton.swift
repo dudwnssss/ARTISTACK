@@ -11,7 +11,7 @@ import SnapKit
 class popupContentButton: UIButton {
     
     let popupTitleLabel = UILabel().then{
-        $0.font = .systemFont(ofSize: 15)
+        $0.font = Font.medium15
     }
     let iconImageView = UIImageView().then{
         $0.contentMode = .scaleAspectFill

@@ -19,11 +19,10 @@ class RecordView: BaseView {
     }
     let artistackOnLabel = UILabel().then{
         $0.text = "Artistack on"
-        $0.font = .boldSystemFont(ofSize: 13)
-    }
+        $0.font = Font.bold13    }
     let musicTitleLabel = UILabel().then{
         $0.text = "최대글자수입니다다다글자수입니다다다"
-        $0.font = .systemFont(ofSize: 14)
+        $0.font = Font.medium14
     }
     let musicProgressView = MusicProgressView()
     

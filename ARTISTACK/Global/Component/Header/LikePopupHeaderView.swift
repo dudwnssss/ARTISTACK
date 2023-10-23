@@ -11,7 +11,7 @@ final class LikePopupHeaderView: UITableViewHeaderFooterView {
     
     let headerTitleLabel = UILabel().then{
         $0.text = "좋아요 한 스태커"
-        $0.font = .boldSystemFont(ofSize: 16)
+        $0.font = Font.bold16
     }
     let popupIndicatorView = UIView().then{
         $0.backgroundColor = .lightGray
@@ -23,14 +23,14 @@ final class LikePopupHeaderView: UITableViewHeaderFooterView {
     }
     let likeCountLabel = UILabel().then{
         $0.text = "34"
-        $0.font = .boldSystemFont(ofSize: 15)
+        $0.font = Font.bold15
     }
     let playImageView = UIImageView().then{
         $0.image = UIImage(named: "play.small")
     }
     let playCountLabel = UILabel().then{
         $0.text = "1234"
-        $0.font = .boldSystemFont(ofSize: 15)
+        $0.font = Font.bold15
     }
     
     override init(reuseIdentifier: String?) {

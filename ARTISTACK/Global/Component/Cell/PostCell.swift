@@ -63,7 +63,7 @@ final class PostCell: UITableViewCell{
     }
     let likeCountLabel = UILabel().then{
         $0.text = "34"
-        $0.font = .boldSystemFont(ofSize: 15)
+        $0.font = Font.bold15
         
     }
     let stackButton = UIButton().then{
@@ -71,17 +71,17 @@ final class PostCell: UITableViewCell{
     }
     let stackCountLabel = UILabel().then{
         $0.text = "5"
-        $0.font = .boldSystemFont(ofSize: 15)
+        $0.font = Font.bold15
     }
     let titleLabel = UILabel().then{
         $0.text = "오랜만에 피아노"
-        $0.font = .boldSystemFont(ofSize: 16)
+        $0.font = Font.bold16
 
     }
     let descriptionLabel = UILabel().then{
         $0.text = "오랜만에피아노라서약간어색하네요최대최대글자수입최대최대최대최대최대최대글자수입니다최대최대최대"
         $0.numberOfLines = 0
-        $0.font = .boldSystemFont(ofSize: 14)
+        $0.font = Font.bold14
         $0.isHidden = true
 
     }
@@ -96,7 +96,7 @@ final class PostCell: UITableViewCell{
     }
     let moreButton = UIButton().then{
         $0.setTitle("더보기", for: .normal)
-        $0.titleLabel?.font = .boldSystemFont(ofSize: 14)
+        $0.titleLabel?.font = Font.bold14
     }
     
     let shareButton = popupContentButton().then{

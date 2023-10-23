@@ -23,7 +23,7 @@ extension UILabel{
             textColor = Color.artistackSystem5
         }
         text = title
-        font = .boldSystemFont(ofSize: 16)
+        font = Font.bold16
     }
 }
 

@@ -14,14 +14,14 @@ class ReportPopupViewController: BaseViewController {
     }
     let confirmButton = UIButton().then{
         $0.setTitle("확인", for: .normal)
-        $0.titleLabel?.font = .boldSystemFont(ofSize: 16)
+        $0.titleLabel?.font = Font.bold16
     }
     let thanksLabel = UILabel().then{
         $0.text = "알려주셔서 감사합니다"
-        $0.font = .boldSystemFont(ofSize: 16)
+        $0.font = Font.bold16
     }
     let descriptionLabel = UILabel().then{
-        $0.font = .systemFont(ofSize: 13)
+        $0.font = Font.medium13
         $0.textAlignment = .center
         $0.numberOfLines = 0
         $0.text = "회원님의 소중한 의견은 Artistack 커뮤니티를\n안전하게 유지하는데 도움이 됩니다."

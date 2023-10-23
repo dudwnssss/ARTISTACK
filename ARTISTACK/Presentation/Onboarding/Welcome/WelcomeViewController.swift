@@ -31,12 +31,12 @@ class WelcomViewController: BaseViewController {
             attributedString.addAttribute(.foregroundColor, value: Color.white, range: range)
             $0.numberOfLines = 0
             $0.textColor = Color.artistackSystem6
-            $0.font = .boldSystemFont(ofSize: 25)
+            $0.font = Font.bold25
             $0.attributedText = attributedString
         }
         descriptionLabel.do {
             $0.text = "클릭하여 홈 화면으로 이동하세요"
-            $0.font = .systemFont(ofSize: 15)
+            $0.font = Font.medium15
             $0.textColor = Color.artistackSystem7
         }
         accessoryImageView.do {

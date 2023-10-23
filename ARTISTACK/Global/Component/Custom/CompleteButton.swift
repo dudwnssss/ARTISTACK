@@ -15,7 +15,7 @@ class CompleteButton: UIButton {
     
     let buttonTitleLabel = UILabel().then{
         $0.textColor = Color.white
-        $0.font = .boldSystemFont(ofSize: 18)
+        $0.font = Font.bold18
     }
     
     init(title: String) {

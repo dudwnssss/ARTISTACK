@@ -9,11 +9,11 @@ import UIKit
 
 class MusicProgressView: BaseView {
     let progressTimeLabel = UILabel().then{
-        $0.font = .boldSystemFont(ofSize: 16)
+        $0.font = Font.bold16
         $0.text = "00:54"
     }
     let totalTimeLabel = UILabel().then{
-        $0.font = .boldSystemFont(ofSize: 16)
+        $0.font = Font.bold16
         $0.textColor = .lightGray
         $0.text = "01:24"
     }

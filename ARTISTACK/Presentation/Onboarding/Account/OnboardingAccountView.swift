@@ -29,17 +29,17 @@ class OnboardingAccountView: BaseView {
         }
         titleLabel.do {
             $0.text = "스택을 시작할 계정을\n만들어볼까요?"
-            $0.font = .boldSystemFont(ofSize: 26)
+            $0.font = Font.bold26
             $0.numberOfLines = 2
         }
         descriptionLabel.do {
             let fullString = "현재 입력하는 아이디는 추후 변경이 불가능합니다.\n스태커님만의 고유한 아이디를 만들어주세요."
             let attributedString = NSMutableAttributedString(string: fullString)
             let range = (fullString as NSString).range(of: "현재 입력하는 아이디는 추후 변경이 불가능합니다.")
-            let font = UIFont.boldSystemFont(ofSize: 15)
+            let font = Font.bold15
             attributedString.addAttributes([.foregroundColor: Color.artistackSystem7, .font: font], range: range)
             $0.numberOfLines = 2
-            $0.font = .systemFont(ofSize: 15)
+            $0.font = Font.medium15
             $0.textColor = Color.artistackSystem4
             $0.attributedText = attributedString
         }
@@ -51,18 +51,18 @@ class OnboardingAccountView: BaseView {
 
         tagLabel.do {
             $0.text = "@"
-            $0.font = .boldSystemFont(ofSize: 26)
+            $0.font = Font.bold26
         }
         
         accessoryLabel.do {
             $0.text = "다음"
-            $0.font = .boldSystemFont(ofSize: 19)
+            $0.font = Font.bold19
         }
 
         textField.do {
             $0.attributedPlaceholder = NSAttributedString(string: "artistack1234", attributes: [.foregroundColor: Color.artistackSystem3])
             $0.textColor = Color.white
-            $0.font = .boldSystemFont(ofSize: 23)
+            $0.font = Font.bold23
             $0.inputAccessoryView = accessoryView
         }
         separatorView.do {
@@ -71,7 +71,7 @@ class OnboardingAccountView: BaseView {
         constraintsLabel.do {
             $0.text = "영문 소문자, 숫자, 밑줄기호 입력 가능 (총 4-17자)"
             $0.textColor = Color.artistackSystem4
-            $0.font = .systemFont(ofSize: 14)
+            $0.font = Font.medium14
         }
     }
     

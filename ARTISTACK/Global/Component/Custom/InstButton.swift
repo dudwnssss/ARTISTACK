@@ -110,12 +110,12 @@ class InstButton: UIButton {
         case true:
             borderColor = Color.artistackSystem5
             backgroundColor = Color.artistackSystem2
-            instTitleLabel.font = .boldSystemFont(ofSize: 13)
+            instTitleLabel.font = Font.bold13
             instTitleLabel.textColor = Color.artistackSystem6
         case false:
             borderColor = Color.artistackSystem4
             backgroundColor = Color.artistackSystem1
-            instTitleLabel.font = .systemFont(ofSize: 13)
+            instTitleLabel.font = Font.medium13
             instTitleLabel.textColor = Color.artistackSystem5
         }
     }

@@ -12,7 +12,7 @@ class CustomTextFieldView: BaseView {
     let underLineView = SeparatorView(isUnderLine: true)
     let textCountLabel = UILabel().then {
         $0.textColor = Color.artistackSystem4
-        $0.font = .systemFont(ofSize: 14)
+        $0.font = Font.medium14
         $0.textAlignment = .right
     }
     let textField = UITextField().then {

@@ -24,16 +24,16 @@ class VolumeView : BaseView {
 
         headerLabel.do {
             $0.text = "볼륨 조절"
-            $0.font = .boldSystemFont(ofSize: 16)
+            $0.font = Font.bold16
         }
         originalSoundLabel.do {
             $0.text = "오리지널 사운드"
-            $0.font = .boldSystemFont(ofSize: 16)
+            $0.font = Font.bold16
             $0.textColor = Color.artistackSystem5
         }
         addedSoundLabel.do {
             $0.text = "추가된 사운드"
-            $0.font = .boldSystemFont(ofSize: 16)
+            $0.font = Font.bold16
             $0.textColor = Color.artistackSystem5
         }
     }

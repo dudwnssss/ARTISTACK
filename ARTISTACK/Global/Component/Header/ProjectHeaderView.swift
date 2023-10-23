@@ -11,11 +11,11 @@ final class ProjectHeaderView: UICollectionReusableView {
         
     let headerTitleLabel = UILabel().then{
         $0.text = "내 연주"
-        $0.font = .systemFont(ofSize: 15)
+        $0.font = Font.medium15
     }
     let projectCountLabel = UILabel().then{
         $0.text = "13"
-        $0.font = .boldSystemFont(ofSize: 15)
+        $0.font = Font.bold15
     }
     let separatorView = SeparatorView()
 

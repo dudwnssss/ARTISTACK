@@ -25,18 +25,18 @@ class OnboardingProfileView : BaseView {
         }
         titleLabel.do {
             $0.text = "프로필 사진과\n소개를 설정해주세요."
-            $0.font = .boldSystemFont(ofSize: 26)
+            $0.font = Font.bold26
             $0.numberOfLines = 2
         }
         descriptionLabel.do {
             $0.text = "추후 변경이 가능합니다."
-            $0.font = .boldSystemFont(ofSize: 15)
+            $0.font = Font.bold15
             $0.textColor = Color.artistackSystem7
         }
         
         skipButton.do {
             $0.setTitle("건너뛰기", for: .normal)
-            $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+            $0.titleLabel?.font = Font.bold18
             $0.setTitleColor(Color.white, for: .normal)
         }
 
@@ -49,7 +49,7 @@ class OnboardingProfileView : BaseView {
             $0.textContainerInset = .zero
             $0.textContainer.lineFragmentPadding = 0
             $0.backgroundColor = .clear
-            $0.font = .systemFont(ofSize: 18)
+            $0.font = Font.medium18
             $0.textContainer.maximumNumberOfLines = 2
             $0.textColor = Color.white
         }
@@ -59,7 +59,7 @@ class OnboardingProfileView : BaseView {
             $0.text = "38"
             $0.textColor = Color.artistackSystem4
             $0.textAlignment = .right
-            $0.font = .systemFont(ofSize: 14)
+            $0.font = Font.medium14
         }
 
     }

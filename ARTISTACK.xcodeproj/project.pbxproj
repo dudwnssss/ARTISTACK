@@ -10,6 +10,7 @@
 		101E39452AE6B738001F4534 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101E39442AE6B738001F4534 /* HomeViewModel.swift */; };
 		101E39472AE6B757001F4534 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101E39462AE6B757001F4534 /* Image.swift */; };
 		101E39492AE6B761001F4534 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101E39482AE6B761001F4534 /* Color.swift */; };
+		101E394B2AE6BCCE001F4534 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101E394A2AE6BCCE001F4534 /* Font.swift */; };
 		1020898D2A987DCA00A34EFC /* LikePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1020898C2A987DCA00A34EFC /* LikePopupViewController.swift */; };
 		1020898F2A988CB700A34EFC /* LikePopupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1020898E2A988CB700A34EFC /* LikePopupHeaderView.swift */; };
 		102089912A989A2800A34EFC /* popupContentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102089902A989A2800A34EFC /* popupContentButton.swift */; };
@@ -128,6 +129,7 @@
 		101E39442AE6B738001F4534 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		101E39462AE6B757001F4534 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		101E39482AE6B761001F4534 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		101E394A2AE6BCCE001F4534 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		1020898C2A987DCA00A34EFC /* LikePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePopupViewController.swift; sourceTree = "<group>"; };
 		1020898E2A988CB700A34EFC /* LikePopupHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePopupHeaderView.swift; sourceTree = "<group>"; };
 		102089902A989A2800A34EFC /* popupContentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popupContentButton.swift; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 				107A75E02A7A69F400E9201B /* Assets.xcassets */,
 				101E39462AE6B757001F4534 /* Image.swift */,
 				101E39482AE6B761001F4534 /* Color.swift */,
+				101E394A2AE6BCCE001F4534 /* Font.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -861,6 +864,7 @@
 				102089ED2A9C5D3800A34EFC /* CodePopupView.swift in Sources */,
 				107A75DC2A7A69F300E9201B /* HomeViewController.swift in Sources */,
 				1020899D2A99ED6F00A34EFC /* TipView.swift in Sources */,
+				101E394B2AE6BCCE001F4534 /* Font.swift in Sources */,
 				10F79D352AC041D600E31063 /* LoginResponse.swift in Sources */,
 				10831AEC2A7A7F0A00FB460C /* Project.swift in Sources */,
 				103EF8F92AC2D70C007496D9 /* WithdrawResponse.swift in Sources */,

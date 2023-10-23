@@ -13,7 +13,7 @@ final class ToolTipView: UIView {
     private let label = UILabel().then{
         $0.numberOfLines = 0
         $0.textAlignment = .center
-        $0.font = .boldSystemFont(ofSize: 13)
+        $0.font = Font.bold13
     }
     private let tipView = TipView()
     

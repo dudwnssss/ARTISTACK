@@ -11,7 +11,7 @@ class HomeView: BaseView {
     
     let headerLabel = UILabel().then{
         $0.text = "최신"
-        $0.font = .boldSystemFont(ofSize: 18)
+        $0.font = Font.bold18
     }
 
     lazy var postTableView = UITableView().then{

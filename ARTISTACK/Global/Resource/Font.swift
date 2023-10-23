@@ -1,13 +1,13 @@
 //
-//  Image.swift
+//  Font.swift
 //  ARTISTACK
 //
 //  Created by 임영준 on 2023/10/23.
 //
 
-import UIKit.UIImage
+import UIKit.UIFont
 
-enum Image {
+enum Font {
     
     static let medium11 = UIFont.systemFont(ofSize: 11)
     static let medium12 = UIFont.systemFont(ofSize: 12)

@@ -69,7 +69,7 @@ class RecordUtilButton: UIButton {
     var utilType: UtilType?
     let utilTitleLabel = UILabel().then{
         $0.text = "temp"
-        $0.font = .boldSystemFont(ofSize: 11)
+        $0.font = Font.bold11
     }
     let utilImageView = UIImageView()
     

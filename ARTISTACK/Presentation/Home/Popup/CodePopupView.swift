@@ -17,23 +17,23 @@ class CodePopupView: BaseView{
     
     let titleLabel = UILabel().then{
         $0.text = "곡정보"
-        $0.font = .boldSystemFont(ofSize: 18)
+        $0.font = Font.bold18
     }
     let codeTitleLabel = UILabel().then{
         $0.text = "코드진행"
-        $0.font = .boldSystemFont(ofSize: 22)
+        $0.font = Font.bold22
     }
     let bpmTitleLabel = UILabel().then{
         $0.text = "BPM"
-        $0.font = .boldSystemFont(ofSize: 22)
+        $0.font = Font.bold22
     }
     let codeLabel = UILabel().then{
         $0.text = "C F Am Dm "
-        $0.font = .systemFont(ofSize: 22)
+        $0.font = Font.medium22
     }
     let bpmLabel = UILabel().then{
         $0.text = "128"
-        $0.font = .systemFont(ofSize: 22)
+        $0.font = Font.medium22
     }
     
     override func setLayouts() {

@@ -28,18 +28,18 @@ class OnboardingAgreementView: BaseView {
         }
         titleLabel.do {
             $0.text = "다 왔어요!\n이용 약관을 확인해주세요."
-            $0.font = .boldSystemFont(ofSize: 26)
+            $0.font = Font.bold26
             $0.numberOfLines = 2
         }
         allAgreeLabel.do {
             $0.text = "아래 약관에 모두 동의하기"
-            $0.font = .systemFont(ofSize: 18)
+            $0.font = Font.medium18
         }
         allAgreeButton.do {
             $0.setImage(UIImage(named: "agreement.large"), for: .normal)
         }
         termLabel.do {
-            $0.font = .systemFont(ofSize: 16)
+            $0.font = Font.medium16
             let fullstring = "(필수) 서비스 이용 약관 동의"
             let attributedString = NSMutableAttributedString(string: fullstring)
             let range1 = (fullstring as NSString).range(of: "(필수)")
@@ -53,7 +53,7 @@ class OnboardingAgreementView: BaseView {
             $0.setImage(UIImage(named: "agreement"), for: .normal)
         }
         privacyLabel.do {
-            $0.font = .systemFont(ofSize: 16)
+            $0.font = Font.medium16
             let fullstring = "(필수) 개인정보 처리방침 동의"
             let attributedString = NSMutableAttributedString(string: fullstring)
             let range1 = (fullstring as NSString).range(of: "(필수)")
@@ -67,7 +67,7 @@ class OnboardingAgreementView: BaseView {
             $0.setImage(UIImage(named: "agreement"), for: .normal)
         }
         marketingLabel.do {
-            $0.font = .systemFont(ofSize: 16)
+            $0.font = Font.medium16
             let fullstring = "(선택) 마케팅 정보 수신 동의"
             let attributedString = NSMutableAttributedString(string: fullstring)
             let range1 = (fullstring as NSString).range(of: "(선택)")

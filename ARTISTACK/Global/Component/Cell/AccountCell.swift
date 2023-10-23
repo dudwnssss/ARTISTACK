@@ -35,11 +35,11 @@ class AccountCell: UITableViewCell {
     
     let titleLabel = UILabel().then{
         $0.text = "나의 계정 정보"
-        $0.font = .boldSystemFont(ofSize: 16)
+        $0.font = Font.bold16
     }
     let accountImageView = UIImageView()
     let accountLabel = UILabel().then{
-        $0.font = .systemFont(ofSize: 14)
+        $0.font = Font.medium14
     }
     let separatorView = UIView().then{
         $0.backgroundColor = Color.artistackSystem2

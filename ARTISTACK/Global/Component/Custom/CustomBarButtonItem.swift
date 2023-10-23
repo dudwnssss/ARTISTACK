@@ -22,7 +22,7 @@ class CustomBarButtonItem: BaseView {
     
     let titleLabel = UILabel().then{
         $0.text = "temp3"
-        $0.font = .boldSystemFont(ofSize: 18)
+        $0.font = Font.bold18
     }
 
     override func setLayouts() {
@@ -42,15 +42,3 @@ class CustomBarButtonItem: BaseView {
     }
 }
 
-#if DEBUG
-
-import SwiftUI
-
-struct CustomBarButtonItem_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomBarButtonItem().getPreview()
-            .previewLayout(.sizeThatFits)
-    }
-}
-
-#endif

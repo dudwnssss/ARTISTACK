@@ -31,10 +31,10 @@ class LoginView: BaseView{
             let fullString = "당신의 음악을\n스택해보세요"
             let attributedString = NSMutableAttributedString(string: fullString)
             let range = (fullString as NSString).range(of: "당신의 음악")
-            let font = UIFont.boldSystemFont(ofSize: 26)
+            let font = Font.bold26
             let color = UIColor.white
             attributedString.addAttributes([.foregroundColor: color, .font: font], range: range)
-            $0.font = .systemFont(ofSize: 26)
+            $0.font = Font.medium26
             $0.attributedText = attributedString
             $0.textAlignment = .center
             $0.numberOfLines = 0
@@ -48,12 +48,12 @@ class LoginView: BaseView{
 
         exsitLabel.do {
             $0.text = "기존 회원이신가요?"
-            $0.font = .systemFont(ofSize: 13)
+            $0.font = Font.medium13
             $0.textColor = Color.artistackSystem8
         }
         descriptionLabel.do {
             $0.text = "기존 가입 경로를 통해 로그인해주세요"
-            $0.font = .systemFont(ofSize: 13)
+            $0.font = Font.medium13
             $0.textColor = Color.artistackSystem8.withAlphaComponent(0.6)
         }
     }

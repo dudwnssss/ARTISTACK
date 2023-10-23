@@ -22,13 +22,13 @@ class EditProfileImageView: BaseView {
         albumButton.do {
             $0.setTitle("앨범에서 선택", for: .normal)
             $0.setTitleColor(Color.white, for: .normal)
-            $0.titleLabel?.font = .boldSystemFont(ofSize: 16)
+            $0.titleLabel?.font = Font.bold16
             
             $0.backgroundColor = .systemPink
         }
         normalButton.do {
             $0.setTitle("기본이미지로 변경", for: .normal)
-            $0.titleLabel?.font = .boldSystemFont(ofSize: 16)
+            $0.titleLabel?.font = Font.bold16
 
             $0.setTitleColor(Color.white, for: .normal)
         }
