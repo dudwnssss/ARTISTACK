@@ -44,10 +44,9 @@ class OnboardingAgreementView: BaseView {
             let attributedString = NSMutableAttributedString(string: fullstring)
             let range1 = (fullstring as NSString).range(of: "(필수)")
             let range2 = (fullstring as NSString).range(of: "동의")
-            guard let color = UIColor.artistackSystem6 else {return}
-            attributedString.addAttribute(.foregroundColor, value: color, range: range1)
-            attributedString.addAttribute(.foregroundColor, value: color, range: range2)
-            $0.textColor = .white
+            attributedString.addAttribute(.foregroundColor, value: Color.artistackSystem6, range: range1)
+            attributedString.addAttribute(.foregroundColor, value: Color.artistackSystem6, range: range2)
+            $0.textColor = Color.white
             $0.attributedText = attributedString
         }
         termButton.do {
@@ -59,10 +58,9 @@ class OnboardingAgreementView: BaseView {
             let attributedString = NSMutableAttributedString(string: fullstring)
             let range1 = (fullstring as NSString).range(of: "(필수)")
             let range2 = (fullstring as NSString).range(of: "동의")
-            guard let color = UIColor.artistackSystem6 else {return}
-            attributedString.addAttribute(.foregroundColor, value: color, range: range1)
-            attributedString.addAttribute(.foregroundColor, value: color, range: range2)
-            $0.textColor = .white
+            attributedString.addAttribute(.foregroundColor, value: Color.artistackSystem6, range: range1)
+            attributedString.addAttribute(.foregroundColor, value: Color.artistackSystem6, range: range2)
+            $0.textColor = Color.white
             $0.attributedText = attributedString
         }
         privacyButton.do {
@@ -74,10 +72,9 @@ class OnboardingAgreementView: BaseView {
             let attributedString = NSMutableAttributedString(string: fullstring)
             let range1 = (fullstring as NSString).range(of: "(선택)")
             let range2 = (fullstring as NSString).range(of: "동의")
-            guard let color = UIColor.artistackSystem6 else {return}
-            attributedString.addAttribute(.foregroundColor, value: color, range: range1)
-            attributedString.addAttribute(.foregroundColor, value: color, range: range2)
-            $0.textColor = .white
+            attributedString.addAttribute(.foregroundColor, value: Color.artistackSystem6, range: range1)
+            attributedString.addAttribute(.foregroundColor, value: Color.artistackSystem6, range: range2)
+            $0.textColor = Color.white
             $0.attributedText = attributedString
         }
         marketingButton.do {

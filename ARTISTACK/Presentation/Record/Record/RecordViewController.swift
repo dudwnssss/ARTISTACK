@@ -112,7 +112,7 @@ class RecordViewController: BaseViewController {
     
     override func setProperties() {
         setNavigationBar()
-        view.backgroundColor = .black
+        view.backgroundColor = Color.black
         recordView.recordButton.addTarget(self, action: #selector(recordButtonDidTap), for: .touchUpInside)
         recordView.cameraSwapButton.addTarget(self, action: #selector(swapButtonDidTap), for: .touchUpInside)
         recordView.timerButton.addTarget(self, action: #selector(timerButtonDidTap), for: .touchUpInside)

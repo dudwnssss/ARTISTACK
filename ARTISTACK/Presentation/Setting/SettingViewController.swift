@@ -46,7 +46,7 @@ class SettingViewController: BaseViewController {
     }
     
     private lazy var tableView = UITableView().then{
-        $0.separatorColor = .artistackSystem2
+        $0.separatorColor = Color.artistackSystem2
         $0.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         $0.delegate = self
         $0.dataSource = self
@@ -87,7 +87,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate{
         cell.accessoryView = accessoryImageView
         var content = cell.defaultContentConfiguration()
         content.text =  settingType[indexPath.row].settingTitle
-        content.textProperties.color = .white
+        content.textProperties.color = Color.white
         content.image = settingType[indexPath.row].settingImage
         cell.contentConfiguration = content
         return cell

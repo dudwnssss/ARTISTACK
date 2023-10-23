@@ -116,7 +116,7 @@ final class PostCell: UITableViewCell{
         $0.axis = .vertical
         $0.distribution = .fillProportionally
         $0.alignment = .fill
-        $0.layer.backgroundColor = (UIColor.artistackSystem1!.cgColor).copy(alpha: 0.95)
+        $0.layer.backgroundColor = (Color.artistackSystem1.cgColor).copy(alpha: 0.95)
         $0.layer.cornerRadius = 5
         $0.isHidden = true
     }
@@ -209,7 +209,7 @@ final class PostCell: UITableViewCell{
         }
     }
     func setProperties(){
-        contentView.backgroundColor = .black
+        contentView.backgroundColor = Color.black
         moreButton.addTarget(self, action: #selector(moreButtonDidTap), for: .touchUpInside)
         othersButton.addTarget(self, action: #selector(othersButtonDidTap), for: .touchUpInside)
     }

@@ -37,18 +37,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UINavigationBar.appearance().isTranslucent = true
             UINavigationBar.appearance().standardAppearance = appearance
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
-            UINavigationBar.appearance().tintColor = .white
+            UINavigationBar.appearance().tintColor = Color.white
             
         }
         
         if #available(iOS 13.0, *) {
             let appearance = UITabBarAppearance()
             appearance.configureWithDefaultBackground()
-            UITabBar.appearance().barTintColor = .artistackSystem1
-            UITabBar.appearance().backgroundColor = .artistackSystem1
+            UITabBar.appearance().barTintColor = Color.artistackSystem1
+            UITabBar.appearance().backgroundColor = Color.artistackSystem1
             UITabBar.appearance().isTranslucent = false
         }
-        UILabel.appearance().textColor = .white
+        UILabel.appearance().textColor = Color.white
         sleep(1)
         return true
     }

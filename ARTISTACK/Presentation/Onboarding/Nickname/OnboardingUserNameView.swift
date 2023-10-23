@@ -33,13 +33,13 @@ class OnboardingUserNameView: BaseView {
         descriptionLabel.do {
             $0.text = "추후 변경이 가능합니다."
             $0.font = .boldSystemFont(ofSize: 15)
-            $0.textColor = .artistackSystem7
+            $0.textColor = Color.artistackSystem7
         }
         
         nextButton.do {
             $0.setImage(UIImage(named: "onboarding.next.activated"), for: .normal)
             $0.setTitle("다음", for: .normal)
-            $0.setTitleColor(.white, for: .normal)
+            $0.setTitleColor(Color.white, for: .normal)
         }
 
         accessoryLabel.do {
@@ -48,17 +48,17 @@ class OnboardingUserNameView: BaseView {
         }
 
         textField.do {
-            $0.attributedPlaceholder = NSAttributedString(string: "Ex) artistacker_12", attributes: [.foregroundColor: UIColor.artistackSystem3!])
-            $0.textColor = .white
+            $0.attributedPlaceholder = NSAttributedString(string: "Ex) artistacker_12", attributes: [.foregroundColor: Color.artistackSystem3])
+            $0.textColor = Color.white
             $0.font = .boldSystemFont(ofSize: 23)
             $0.inputAccessoryView = accessoryView
         }
         separatorView.do {
-            $0.backgroundColor = .artistackSystem4
+            $0.backgroundColor = Color.artistackSystem4
         }
         constraintsLabel.do {
             $0.text = "한글, 영문, 숫자, 특수기호, 이모지 등 입력가능 (총 1-14자)"
-            $0.textColor = .artistackSystem4
+            $0.textColor = Color.artistackSystem4
             $0.font = .systemFont(ofSize: 14)
         }
     }

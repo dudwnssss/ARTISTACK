@@ -45,7 +45,7 @@ class CustomTextView: UIView {
             $0.backgroundColor = .clear
         }
         textCountLabel.do {
-            $0.textColor = .artistackSystem4
+            $0.textColor = Color.artistackSystem4
             $0.textAlignment = .right
             $0.font = .systemFont(ofSize: 14)
         }
@@ -57,7 +57,7 @@ class CustomTextView: UIView {
     private func setPlaceholder() {
         if let placeholderText = placeholder {
             textView.text = placeholderText
-            textView.textColor = .artistackSystem3
+            textView.textColor = Color.artistackSystem3
         }
     }
     
@@ -83,7 +83,7 @@ extension CustomTextView: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         if textView.text == placeholder {
             textView.text = ""
-            textView.textColor = .white
+            textView.textColor = Color.white
         }
         
         if let text = textView.text, text.count > limitCount {
@@ -96,7 +96,7 @@ extension CustomTextView: UITextViewDelegate {
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         if textView.text == placeholder {
             textView.text = ""
-            textView.textColor = .white
+            textView.textColor = Color.white
         }
         return true
     }

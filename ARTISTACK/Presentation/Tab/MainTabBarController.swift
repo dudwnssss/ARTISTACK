@@ -12,7 +12,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         setViewControllers()
         setTabBarItemImageInsets()
-        self.tabBar.tintColor = .white
+        self.tabBar.tintColor = Color.white
         self.delegate = self
     }
 }
@@ -38,13 +38,13 @@ extension MainTabBarController {
         recordVC.tabBarItem = UITabBarItem(title: nil, image: Tab.record.image, tag: 1)
         
         let profileVC = ProfileViewController()
-        let myPageNavigationController = UINavigationController(rootViewController: profileVC)
-        myPageNavigationController.tabBarItem = UITabBarItem(title: nil, image: Tab.profile.image, tag: 2)
+        let profileNavigationController = UINavigationController(rootViewController: profileVC)
+        profileNavigationController.tabBarItem = UITabBarItem(title: nil, image: Tab.profile.image, tag: 2)
         
         super.setViewControllers([
             homeNavigationController,
             recordVC,
-            myPageNavigationController
+            profileNavigationController
         ], animated: true)
     }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		101E39452AE6B738001F4534 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101E39442AE6B738001F4534 /* HomeViewModel.swift */; };
+		101E39472AE6B757001F4534 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101E39462AE6B757001F4534 /* Image.swift */; };
+		101E39492AE6B761001F4534 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101E39482AE6B761001F4534 /* Color.swift */; };
 		1020898D2A987DCA00A34EFC /* LikePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1020898C2A987DCA00A34EFC /* LikePopupViewController.swift */; };
 		1020898F2A988CB700A34EFC /* LikePopupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1020898E2A988CB700A34EFC /* LikePopupHeaderView.swift */; };
 		102089912A989A2800A34EFC /* popupContentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102089902A989A2800A34EFC /* popupContentButton.swift */; };
@@ -122,6 +125,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		101E39442AE6B738001F4534 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		101E39462AE6B757001F4534 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		101E39482AE6B761001F4534 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		1020898C2A987DCA00A34EFC /* LikePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePopupViewController.swift; sourceTree = "<group>"; };
 		1020898E2A988CB700A34EFC /* LikePopupHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePopupHeaderView.swift; sourceTree = "<group>"; };
 		102089902A989A2800A34EFC /* popupContentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popupContentButton.swift; sourceTree = "<group>"; };
@@ -394,6 +400,7 @@
 				10AB4ACB2A94EF3500E1B514 /* Popup */,
 				107A75DB2A7A69F300E9201B /* HomeViewController.swift */,
 				102089E22A9C582A00A34EFC /* HomeView.swift */,
+				101E39442AE6B738001F4534 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -423,6 +430,8 @@
 			children = (
 				107A75E22A7A69F400E9201B /* LaunchScreen.storyboard */,
 				107A75E02A7A69F400E9201B /* Assets.xcassets */,
+				101E39462AE6B757001F4534 /* Image.swift */,
+				101E39482AE6B761001F4534 /* Color.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -836,6 +845,7 @@
 				10831AD52A7A772000FB460C /* UserCell.swift in Sources */,
 				102089A72A9A2F2D00A34EFC /* InstButton.swift in Sources */,
 				10F79D4A2AC05D1800E31063 /* OnboardingAccountViewModel.swift in Sources */,
+				101E39492AE6B761001F4534 /* Color.swift in Sources */,
 				10F79D2B2AC0378600E31063 /* HTTPHeaderField.swift in Sources */,
 				102144182AA0B0A300BCCB08 /* CustomTextView.swift in Sources */,
 				10C31A7E2ABF470200C69791 /* OnboardingAgreementViewController.swift in Sources */,
@@ -888,6 +898,7 @@
 				107A75D82A7A69F300E9201B /* AppDelegate.swift in Sources */,
 				10F79D3F2AC059E400E31063 /* UsersTarget.swift in Sources */,
 				102089FD2A9C9D0600A34EFC /* ReportPopupViewController.swift in Sources */,
+				101E39452AE6B738001F4534 /* HomeViewModel.swift in Sources */,
 				102089E72A9C5AB500A34EFC /* ProfileEditView.swift in Sources */,
 				10C9B62F2A7BDCAF00026EE0 /* UITableView+Reuseable.swift in Sources */,
 				102089E12A9C57E800A34EFC /* BaseView.swift in Sources */,
@@ -899,6 +910,7 @@
 				102089F92A9C82B400A34EFC /* SettingViewController.swift in Sources */,
 				10332C5D2AC754F500217BC2 /* AudioManager.swift in Sources */,
 				10C31A842ABF4E7F00C69791 /* LoginButton.swift in Sources */,
+				101E39472AE6B757001F4534 /* Image.swift in Sources */,
 				10C31A742ABF466D00C69791 /* OnboardingAccountView.swift in Sources */,
 				10D4B13B2AC3EB400096E995 /* MediaManager.swift in Sources */,
 				10831AF12A7A924300FB460C /* UIStackView+.swift in Sources */,

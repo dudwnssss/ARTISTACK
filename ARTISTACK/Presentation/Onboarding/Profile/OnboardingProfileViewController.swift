@@ -37,7 +37,7 @@ class OnboardingProfileViewController : BaseViewController{
     private func setPlaceholder() {
         if let placeholderText = placeholder {
             onboardingProfileView.textView.text = placeholderText
-            onboardingProfileView.textView.textColor = .artistackSystem4
+            onboardingProfileView.textView.textColor = Color.artistackSystem4
             onboardingProfileView.textView.font = .systemFont(ofSize: 18)
         }
     }
@@ -53,7 +53,7 @@ extension OnboardingProfileViewController: UITextViewDelegate{
     func textViewDidChange(_ textView: UITextView) {
         if textView.text == placeholder {
             textView.text = ""
-            textView.textColor = .white
+            textView.textColor = Color.white
             textView.font = .systemFont(ofSize: 18)
         }
         
@@ -67,7 +67,7 @@ extension OnboardingProfileViewController: UITextViewDelegate{
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         if textView.text == placeholder {
             textView.text = ""
-            textView.textColor = .white
+            textView.textColor = Color.white
             textView.font = .systemFont(ofSize: 18)
         }
         return true

@@ -17,10 +17,10 @@ extension UILabel{
     func configureTitle(title: String, titleType: TitleType){
         switch titleType {
         case .main:
-            textColor = .artistackSystem10
+            textColor = Color.artistackSystem10
         
         case .sub:
-            textColor = .artistackSystem5
+            textColor = Color.artistackSystem5
         }
         text = title
         font = .boldSystemFont(ofSize: 16)

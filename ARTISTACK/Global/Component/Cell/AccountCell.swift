@@ -42,7 +42,7 @@ class AccountCell: UITableViewCell {
         $0.font = .systemFont(ofSize: 14)
     }
     let separatorView = UIView().then{
-        $0.backgroundColor = .artistackSystem2
+        $0.backgroundColor = Color.artistackSystem2
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

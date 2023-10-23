@@ -43,7 +43,7 @@ class ProfileViewController: BaseViewController {
     func setNavigationBar(){
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: barButtonItem)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "setting"), style: .plain, target: self, action: #selector(settingButtonDidTap))
-        navigationItem.rightBarButtonItem?.tintColor = .artistackSystem6
+        navigationItem.rightBarButtonItem?.tintColor = Color.artistackSystem6
     }
     
    

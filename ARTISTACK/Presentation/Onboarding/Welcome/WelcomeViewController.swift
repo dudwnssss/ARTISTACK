@@ -28,16 +28,16 @@ class WelcomViewController: BaseViewController {
             let fullString = "\(nickname) 님,\n아티스택에 오신걸 환영합니다.\n같이 스택해요!"
             let attributedString = NSMutableAttributedString(string: fullString)
             let range = (fullString as NSString).range(of: "\(nickname)")
-            attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: range)
+            attributedString.addAttribute(.foregroundColor, value: Color.white, range: range)
             $0.numberOfLines = 0
-            $0.textColor = .artistackSystem6
+            $0.textColor = Color.artistackSystem6
             $0.font = .boldSystemFont(ofSize: 25)
             $0.attributedText = attributedString
         }
         descriptionLabel.do {
             $0.text = "클릭하여 홈 화면으로 이동하세요"
             $0.font = .systemFont(ofSize: 15)
-            $0.textColor = .artistackSystem7
+            $0.textColor = Color.artistackSystem7
         }
         accessoryImageView.do {
             $0.image = UIImage(named: "accessory.right")

@@ -15,7 +15,7 @@ class SeparatorView: BaseView {
         
     init(isUnderLine: Bool = false, inset: Int? = nil){
         self.inset = inset
-        separatorView.backgroundColor = isUnderLine ? .artistackSystem3 : .artistackSystem2
+        separatorView.backgroundColor = isUnderLine ? Color.artistackSystem3 : Color.artistackSystem2
         super.init(frame: .zero)
     }
     
@@ -24,7 +24,7 @@ class SeparatorView: BaseView {
     }
     
     override func setProperties() {
-        separatorView.backgroundColor = .artistackSystem2
+        separatorView.backgroundColor = Color.artistackSystem2
     }
     
     override func setLayouts(){

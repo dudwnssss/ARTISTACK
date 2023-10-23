@@ -35,15 +35,15 @@ final class CustomSlider: UISlider {
 
     private func createBaseLayer() {
         baseLayer.masksToBounds = true
-        baseLayer.backgroundColor = UIColor.artistackSystem4?.cgColor
+        baseLayer.backgroundColor = Color.artistackSystem4.cgColor
         baseLayer.frame = .init(x: 0, y: frame.height / 4, width: frame.width, height: frame.height / 8)
         baseLayer.cornerRadius = baseLayer.frame.height / 2
         layer.insertSublayer(baseLayer, at: 0)
     }
 
     private func configureTrackLayer() {
-        let firstColor = UIColor.artistackPurple?.cgColor
-        let secondColor = UIColor.artistackPink?.cgColor
+        let firstColor = Color.purple.cgColor
+        let secondColor = Color.pink.cgColor
         trackLayer.colors = [firstColor, secondColor]
         trackLayer.startPoint = .init(x: 0, y: 0.5)
         trackLayer.endPoint = .init(x: 1, y: 0.5)
@@ -68,7 +68,7 @@ final class CustomSlider: UISlider {
         let thumbSize = (3 * frame.height) / 4
         
         let thumbView = UIView(frame: .init(x: 0, y: 0, width: thumbSize, height: thumbSize))
-        thumbView.backgroundColor = .artistackSystem10
+        thumbView.backgroundColor = Color.artistackSystem10
         thumbView.center = CGPoint(x: bounds.width * CGFloat(value), y: bounds.height / 2)
         thumbView.layer.cornerRadius = thumbSize / 2
         

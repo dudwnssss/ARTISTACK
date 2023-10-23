@@ -49,12 +49,12 @@ class LoginView: BaseView{
         exsitLabel.do {
             $0.text = "기존 회원이신가요?"
             $0.font = .systemFont(ofSize: 13)
-            $0.textColor = .artistackSystem8
+            $0.textColor = Color.artistackSystem8
         }
         descriptionLabel.do {
             $0.text = "기존 가입 경로를 통해 로그인해주세요"
             $0.font = .systemFont(ofSize: 13)
-            $0.textColor = .artistackSystem8?.withAlphaComponent(0.6)
+            $0.textColor = Color.artistackSystem8.withAlphaComponent(0.6)
         }
     }
     override func setLayouts() {

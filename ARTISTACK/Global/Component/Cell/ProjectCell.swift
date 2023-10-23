@@ -10,7 +10,7 @@ import UIKit
 final class ProjectCell: UICollectionViewCell {
     
     let projectImageView = UIImageView().then{
-        $0.backgroundColor = .black
+        $0.backgroundColor = Color.black
         $0.layer.cornerRadius = 8
         $0.clipsToBounds = true
     }
@@ -102,15 +102,4 @@ final class ProjectCell: UICollectionViewCell {
     }
 }
 
-#if DEBUG
 
-import SwiftUI
-
-struct ProjectCell_Previews: PreviewProvider {
-    static var previews: some View {
-        ProjectCell().getPreview()
-            .previewLayout(.fixed(width: 110, height: 180))
-    }
-}
-
-#endif

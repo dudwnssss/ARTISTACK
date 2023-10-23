@@ -31,17 +31,17 @@ class OnboardingProfileView : BaseView {
         descriptionLabel.do {
             $0.text = "추후 변경이 가능합니다."
             $0.font = .boldSystemFont(ofSize: 15)
-            $0.textColor = .artistackSystem7
+            $0.textColor = Color.artistackSystem7
         }
         
         skipButton.do {
             $0.setTitle("건너뛰기", for: .normal)
             $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-            $0.setTitleColor(.white, for: .normal)
+            $0.setTitleColor(Color.white, for: .normal)
         }
 
         separatorView.do {
-            $0.backgroundColor = .artistackSystem4
+            $0.backgroundColor = Color.artistackSystem4
         }
         
         textView.do {
@@ -51,13 +51,13 @@ class OnboardingProfileView : BaseView {
             $0.backgroundColor = .clear
             $0.font = .systemFont(ofSize: 18)
             $0.textContainer.maximumNumberOfLines = 2
-            $0.textColor = .white
+            $0.textColor = Color.white
         }
 
         
         textCountLabel.do {
             $0.text = "38"
-            $0.textColor = .artistackSystem4
+            $0.textColor = Color.artistackSystem4
             $0.textAlignment = .right
             $0.font = .systemFont(ofSize: 14)
         }

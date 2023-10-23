@@ -29,10 +29,10 @@ class LoginButton: UIButton {
         case .apple:
             var attString = AttributedString.init("Apple로 시작하기")
             attString.font = .boldSystemFont(ofSize: 16)
-            attString.foregroundColor = .black
+            attString.foregroundColor = Color.black
             configuration.attributedTitle = attString
             configuration.image = UIImage(named: "apple")
-            configuration.background.backgroundColor = .artistackSystem8
+            configuration.background.backgroundColor = Color.artistackSystem8
         default:
             break
         }

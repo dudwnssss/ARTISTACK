@@ -27,7 +27,7 @@ final class ProjectHeaderView: UICollectionReusableView {
     }
     
     func setProperties(){
-        backgroundColor = .artistackSystem1
+        backgroundColor = Color.artistackSystem1
     }
     func setLayouts(){
         addSubviews(headerTitleLabel, projectCountLabel, separatorView)

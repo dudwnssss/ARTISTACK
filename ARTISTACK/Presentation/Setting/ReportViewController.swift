@@ -26,7 +26,7 @@ enum ReportType: String, CaseIterable{
 class ReportViewController: BaseViewController {
 
     private lazy var tableView = UITableView().then{
-        $0.separatorColor = .artistackSystem2
+        $0.separatorColor = Color.artistackSystem2
         $0.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         $0.delegate = self
         $0.dataSource = self
@@ -36,7 +36,7 @@ class ReportViewController: BaseViewController {
     let reportType = ReportType.allCases
 
     override func setProperties() {
-        view.backgroundColor = .black
+        view.backgroundColor = Color.black
     }
     
     override func setLayouts() {
@@ -66,7 +66,7 @@ extension ReportViewController: UITableViewDataSource, UITableViewDelegate{
         cell.accessoryView = accessoryImageView
         var content = cell.defaultContentConfiguration()
         content.text = reportType[indexPath.row].rawValue
-        content.textProperties.color = .white
+        content.textProperties.color = Color.white
         return cell
     }
     

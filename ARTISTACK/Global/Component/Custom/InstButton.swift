@@ -108,15 +108,15 @@ class InstButton: UIButton {
     func configureButton(){
         switch isTapped{
         case true:
-            borderColor = .artistackSystem5!
-            backgroundColor = .artistackSystem2
+            borderColor = Color.artistackSystem5
+            backgroundColor = Color.artistackSystem2
             instTitleLabel.font = .boldSystemFont(ofSize: 13)
-            instTitleLabel.textColor = .artistackSystem6
+            instTitleLabel.textColor = Color.artistackSystem6
         case false:
-            borderColor = .artistackSystem4!
-            backgroundColor = .artistackSystem1
+            borderColor = Color.artistackSystem4
+            backgroundColor = Color.artistackSystem1
             instTitleLabel.font = .systemFont(ofSize: 13)
-            instTitleLabel.textColor = .artistackSystem5
+            instTitleLabel.textColor = Color.artistackSystem5
         }
     }
 }

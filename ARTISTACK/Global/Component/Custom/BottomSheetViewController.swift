@@ -51,19 +51,19 @@ final class BottomSheetViewController: FloatingPanelController{
         
         let appearance = SurfaceAppearance().then{
             $0.cornerRadius = 5
-            $0.backgroundColor = .white
+            $0.backgroundColor = Color.white
         }
         
         surfaceView.do {
             $0.grabberHandle.isHidden = false
-            $0.grabberHandle.backgroundColor = .artistackSystem3?.withAlphaComponent(0.5)
+            $0.grabberHandle.backgroundColor = Color.artistackSystem3.withAlphaComponent(0.5)
             $0.grabberHandleSize = .init(width: 35, height: 3)
             $0.appearance = appearance
         }
         
         backdropView.do {
             $0.dismissalTapGestureRecognizer.isEnabled = true
-            let backdropColor = UIColor.black
+            let backdropColor = Color.black
             $0.backgroundColor = backdropColor
         }
         

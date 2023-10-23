@@ -37,17 +37,16 @@ class OnboardingAccountView: BaseView {
             let attributedString = NSMutableAttributedString(string: fullString)
             let range = (fullString as NSString).range(of: "현재 입력하는 아이디는 추후 변경이 불가능합니다.")
             let font = UIFont.boldSystemFont(ofSize: 15)
-            guard let color = UIColor.artistackSystem7 else {return}
-            attributedString.addAttributes([.foregroundColor: color, .font: font], range: range)
+            attributedString.addAttributes([.foregroundColor: Color.artistackSystem7, .font: font], range: range)
             $0.numberOfLines = 2
             $0.font = .systemFont(ofSize: 15)
-            $0.textColor = .artistackSystem4
+            $0.textColor = Color.artistackSystem4
             $0.attributedText = attributedString
         }
         nextButton.do {
             $0.setImage(UIImage(named: "onboarding.next.activated"), for: .normal)
             $0.setTitle("다음", for: .normal)
-            $0.setTitleColor(.white, for: .normal)
+            $0.setTitleColor(Color.white, for: .normal)
         }
 
         tagLabel.do {
@@ -61,17 +60,17 @@ class OnboardingAccountView: BaseView {
         }
 
         textField.do {
-            $0.attributedPlaceholder = NSAttributedString(string: "artistack1234", attributes: [.foregroundColor: UIColor.artistackSystem3!])
-            $0.textColor = .white
+            $0.attributedPlaceholder = NSAttributedString(string: "artistack1234", attributes: [.foregroundColor: Color.artistackSystem3])
+            $0.textColor = Color.white
             $0.font = .boldSystemFont(ofSize: 23)
             $0.inputAccessoryView = accessoryView
         }
         separatorView.do {
-            $0.backgroundColor = .artistackSystem4
+            $0.backgroundColor = Color.artistackSystem4
         }
         constraintsLabel.do {
             $0.text = "영문 소문자, 숫자, 밑줄기호 입력 가능 (총 4-17자)"
-            $0.textColor = .artistackSystem4
+            $0.textColor = Color.artistackSystem4
             $0.font = .systemFont(ofSize: 14)
         }
     }

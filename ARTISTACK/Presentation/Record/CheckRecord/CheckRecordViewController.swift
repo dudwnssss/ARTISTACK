@@ -28,7 +28,7 @@ class CheckRecordViewController: BaseViewController {
     }
     
     override func setProperties() {
-        view.backgroundColor = .black
+        view.backgroundColor = Color.black
         setNavigationBar()
         checkRecordView.completeButton.addTarget(self, action: #selector(completeButtonDidTap), for: .touchUpInside)
         checkRecordView.volumeButton.addTarget(self, action: #selector(volumeButtonDidTap), for: .touchUpInside)

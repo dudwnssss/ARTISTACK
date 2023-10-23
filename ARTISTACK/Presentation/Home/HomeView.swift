@@ -17,14 +17,14 @@ class HomeView: BaseView {
     lazy var postTableView = UITableView().then{
         $0.register(cell: PostCell.self)
         $0.isPagingEnabled = true
-        $0.backgroundColor = .black
+        $0.backgroundColor = Color.black
         $0.showsVerticalScrollIndicator = false
         $0.contentInsetAdjustmentBehavior = .never
     }
 
     
     let progressView = UIView().then{
-        $0.backgroundColor = .white
+        $0.backgroundColor = Color.white
     }
     
     

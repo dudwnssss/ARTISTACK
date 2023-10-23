@@ -17,11 +17,11 @@ class LikePopupViewController: BaseViewController {
         $0.delegate = self
         $0.dataSource = self
         $0.separatorStyle = .none
-        $0.backgroundColor = .black
+        $0.backgroundColor = Color.black
     }
     
     override func setProperties() {
-        view.backgroundColor = .white
+        view.backgroundColor = Color.white
     }
     
     override func setLayouts() {

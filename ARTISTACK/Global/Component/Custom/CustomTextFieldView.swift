@@ -11,12 +11,12 @@ class CustomTextFieldView: BaseView {
     
     let underLineView = SeparatorView(isUnderLine: true)
     let textCountLabel = UILabel().then {
-        $0.textColor = .artistackSystem4
+        $0.textColor = Color.artistackSystem4
         $0.font = .systemFont(ofSize: 14)
         $0.textAlignment = .right
     }
     let textField = UITextField().then {
-        $0.textColor = .white
+        $0.textColor = Color.white
     }
     
     var limitCount: Int = 0
@@ -25,7 +25,7 @@ class CustomTextFieldView: BaseView {
         self.limitCount = limitCount
         super.init(frame: .zero)
         textField.font = isBold ? .boldSystemFont(ofSize: fontSize) : .systemFont(ofSize: fontSize)
-        textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: UIColor.artistackSystem3!, .font: UIFont.systemFont(ofSize: fontSize)])
+        textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: Color.artistackSystem3, .font: UIFont.systemFont(ofSize: fontSize)])
         underLineView.isHidden = !isUnderLined
         textCountLabel.text = "\(limitCount)"
         setProperties()

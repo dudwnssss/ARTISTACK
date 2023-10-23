@@ -16,7 +16,7 @@ class AccountViewController: BaseViewController {
 
     private lazy var tableView = UITableView().then{
         $0.register(cell: AccountCell.self)
-        $0.separatorColor = .artistackSystem2
+        $0.separatorColor = Color.artistackSystem2
         $0.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         $0.delegate = self
         $0.dataSource = self
@@ -61,7 +61,7 @@ extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
             cell.backgroundColor = .clear
             var content = cell.defaultContentConfiguration()
             content.text = systemType[indexPath.row - 1].rawValue
-            content.textProperties.color = .white
+            content.textProperties.color = Color.white
             cell.contentConfiguration = content
             return cell
         }
