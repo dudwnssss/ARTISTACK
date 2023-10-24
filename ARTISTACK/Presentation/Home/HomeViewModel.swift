@@ -9,4 +9,6 @@ import Foundation
 
 class HomeViewModel {
     
+    var projectList: Observable<[Project]> = Observable([])
+    
 }

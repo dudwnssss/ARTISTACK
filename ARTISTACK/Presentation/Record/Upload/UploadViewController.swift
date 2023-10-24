@@ -20,14 +20,13 @@ class UploadViewController: BaseViewController {
    
     override func setProperties() {
         hideKeyboardWhenTappedAround()
-        setNavigationBar()
         uploadView.uploadButon.addTarget(self, action: #selector(uploadButtonDidTap), for: .touchUpInside)
         for item in uploadView.instButtonList{
             item.addTarget(self, action: #selector(instButtonDidTap(sender:)), for: .touchUpInside)
         }
     }
     
-    func setNavigationBar(){
+    override func setNavigationBar(){
         navigationItem.leftItemsSupplementBackButton = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: barButtonItem)
         navigationController?.navigationBar.topItem?.title = ""

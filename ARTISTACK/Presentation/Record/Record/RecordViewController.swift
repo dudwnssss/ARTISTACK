@@ -106,12 +106,11 @@ class RecordViewController: BaseViewController {
         }
     }
     
-    func setNavigationBar(){
+    override func setNavigationBar(){
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: Image.dismiss, style: .plain, target: self, action: #selector(dismissButtonDidTap))
     }
     
     override func setProperties() {
-        setNavigationBar()
         view.backgroundColor = Color.black
         recordView.recordButton.addTarget(self, action: #selector(recordButtonDidTap), for: .touchUpInside)
         recordView.cameraSwapButton.addTarget(self, action: #selector(swapButtonDidTap), for: .touchUpInside)

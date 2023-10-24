@@ -23,10 +23,7 @@ class ProfileView: BaseView {
         $0.showsVerticalScrollIndicator = false
         $0.backgroundColor = .clear
     }
-    
-    override func setProperties() {
-        backgroundColor = .systemIndigo
-    }
+  
     override func setLayouts() {
         addSubviews(projectCollectionView)
         projectCollectionView.snp.makeConstraints {

@@ -33,11 +33,8 @@ class AccountViewController: BaseViewController {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
-    override func setProperties() {
-        setNavigationBar()
-    }
     
-    func setNavigationBar(){
+    override func setNavigationBar(){
         navigationItem.leftItemsSupplementBackButton = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: barButtonItem)
     }

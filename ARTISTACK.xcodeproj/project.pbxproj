@@ -11,6 +11,8 @@
 		101E39472AE6B757001F4534 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101E39462AE6B757001F4534 /* Image.swift */; };
 		101E39492AE6B761001F4534 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101E39482AE6B761001F4534 /* Color.swift */; };
 		101E394B2AE6BCCE001F4534 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101E394A2AE6BCCE001F4534 /* Font.swift */; };
+		101E394E2AE7A8D6001F4534 /* ProjectsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101E394D2AE7A8D6001F4534 /* ProjectsTarget.swift */; };
+		101E39512AE7B337001F4534 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101E39502AE7B337001F4534 /* ProfileViewModel.swift */; };
 		1020898D2A987DCA00A34EFC /* LikePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1020898C2A987DCA00A34EFC /* LikePopupViewController.swift */; };
 		1020898F2A988CB700A34EFC /* LikePopupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1020898E2A988CB700A34EFC /* LikePopupHeaderView.swift */; };
 		102089912A989A2800A34EFC /* popupContentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102089902A989A2800A34EFC /* popupContentButton.swift */; };
@@ -130,6 +132,8 @@
 		101E39462AE6B757001F4534 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		101E39482AE6B761001F4534 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		101E394A2AE6BCCE001F4534 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		101E394D2AE7A8D6001F4534 /* ProjectsTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTarget.swift; sourceTree = "<group>"; };
+		101E39502AE7B337001F4534 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		1020898C2A987DCA00A34EFC /* LikePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePopupViewController.swift; sourceTree = "<group>"; };
 		1020898E2A988CB700A34EFC /* LikePopupHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePopupHeaderView.swift; sourceTree = "<group>"; };
 		102089902A989A2800A34EFC /* popupContentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popupContentButton.swift; sourceTree = "<group>"; };
@@ -258,6 +262,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		101E394C2AE7A8AB001F4534 /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				101E394D2AE7A8D6001F4534 /* ProjectsTarget.swift */,
+			);
+			path = Projects;
+			sourceTree = "<group>";
+		};
+		101E394F2AE7ACAD001F4534 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				10831AE52A7A7F0A00FB460C /* Project.swift */,
+			);
+			name = Project;
+			sourceTree = "<group>";
+		};
 		1020899E2A99EE4200A34EFC /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -483,6 +503,7 @@
 		10831ADF2A7A7F0A00FB460C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				101E394F2AE7ACAD001F4534 /* Project */,
 				10F79D412AC05B0500E31063 /* Users */,
 				10F79D402AC05AE400E31063 /* OAuth */,
 				10831AE12A7A7F0A00FB460C /* Stack.swift */,
@@ -490,7 +511,6 @@
 				10831AE22A7A7F0A00FB460C /* Like.swift */,
 				10831AE32A7A7F0A00FB460C /* InstrumentDTO.swift */,
 				10831AE42A7A7F0A00FB460C /* UserDTO.swift */,
-				10831AE52A7A7F0A00FB460C /* Project.swift */,
 				10831AE62A7A7F0A00FB460C /* PostDTO.swift */,
 			);
 			name = Model;
@@ -535,6 +555,7 @@
 				102089EF2A9C5DE900A34EFC /* Edit */,
 				10B067712A9485C100BFA002 /* ProfileViewController.swift */,
 				102089E42A9C590500A34EFC /* ProfileView.swift */,
+				101E39502AE7B337001F4534 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -684,6 +705,7 @@
 		10F79D2D2AC0385800E31063 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				101E394C2AE7A8AB001F4534 /* Projects */,
 				10F79D3D2AC059D600E31063 /* Users */,
 				10F79D362AC0446800E31063 /* OAuth */,
 			);
@@ -853,6 +875,7 @@
 				102144182AA0B0A300BCCB08 /* CustomTextView.swift in Sources */,
 				10C31A7E2ABF470200C69791 /* OnboardingAgreementViewController.swift in Sources */,
 				107A75F32A7A6EF400E9201B /* UIVIew+.swift in Sources */,
+				101E394E2AE7A8D6001F4534 /* ProjectsTarget.swift in Sources */,
 				10AB4AC82A94CCF700E1B514 /* Tab.swift in Sources */,
 				1022BA8B2AB2F6D70028C2DF /* EditProfileImageViewController.swift in Sources */,
 				102089F12A9C647B00A34EFC /* MusicProgressView.swift in Sources */,
@@ -893,6 +916,7 @@
 				102089E92A9C5BC800A34EFC /* UploadView.swift in Sources */,
 				10B067722A9485C100BFA002 /* ProfileViewController.swift in Sources */,
 				10C31A782ABF46B400C69791 /* OnboardingUserNameView.swift in Sources */,
+				101E39512AE7B337001F4534 /* ProfileViewModel.swift in Sources */,
 				10C9B6312A7BDCAF00026EE0 /* ReusableView.swift in Sources */,
 				102089932A99AB8400A34EFC /* popupMenuButton.swift in Sources */,
 				10C375032AB4773E00462A1B /* EditProfileImageView.swift in Sources */,

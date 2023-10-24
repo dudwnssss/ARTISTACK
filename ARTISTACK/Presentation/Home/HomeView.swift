@@ -7,27 +7,29 @@
 
 import UIKit
 
-class HomeView: BaseView {
+final class HomeView: BaseView {
     
-    let headerLabel = UILabel().then{
-        $0.text = "최신"
-        $0.font = Font.bold18
+    let headerLabel = UILabel()
+    lazy var postTableView = UITableView()
+    let progressView = UIView()
+    
+    override func setProperties() {
+        headerLabel.do {
+            $0.text = "최신"
+            $0.font = Font.bold18
+        }
+        postTableView.do {
+            $0.register(cell: PostCell.self)
+            $0.isPagingEnabled = true
+            $0.backgroundColor = Color.black
+            $0.showsVerticalScrollIndicator = false
+            $0.contentInsetAdjustmentBehavior = .never
+        }
+        progressView.do {
+            $0.backgroundColor = Color.white
+        }
     }
 
-    lazy var postTableView = UITableView().then{
-        $0.register(cell: PostCell.self)
-        $0.isPagingEnabled = true
-        $0.backgroundColor = Color.black
-        $0.showsVerticalScrollIndicator = false
-        $0.contentInsetAdjustmentBehavior = .never
-    }
-
-    
-    let progressView = UIView().then{
-        $0.backgroundColor = Color.white
-    }
-    
-    
     override func setLayouts() {
         addSubviews(postTableView, headerLabel, progressView)
         postTableView.snp.makeConstraints {

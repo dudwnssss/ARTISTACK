@@ -16,10 +16,12 @@ class BaseViewController: UIViewController {
         view.backgroundColor = Color.artistackSystem1
         setProperties()
         setLayouts()
+        setNavigationBar()
         bind()
     }
     
     func setProperties(){}
     func setLayouts(){}
+    func setNavigationBar(){}
     func bind(){}
 }

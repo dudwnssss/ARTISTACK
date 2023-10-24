@@ -15,7 +15,7 @@ enum UsersTarget{
     case withdraw
 }
 
-extension UsersTarget: TargetType{
+extension UsersTarget: TargetType {
     var baseURL: String {
         return "https://dev.artistack.xyz/"
     }

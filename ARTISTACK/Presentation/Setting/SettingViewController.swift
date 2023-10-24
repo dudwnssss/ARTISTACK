@@ -62,7 +62,7 @@ class SettingViewController: BaseViewController {
         }
     }
     
-    func setNavigationBar(){
+    override func setNavigationBar(){
         navigationItem.leftItemsSupplementBackButton = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: barButtonItem)
     }

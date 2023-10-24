@@ -7,16 +7,15 @@
 
 import Foundation
 
-struct Project : Codable {
+struct ProjectResponse : Codable {
     var success: Bool
     var code: Int
     var message: String
-    var data: CallInfo?
-    
+    var data: ProjectData?
 }
 
-struct CallInfo: Codable {
-    var content: [EachProject?]
+struct ProjectData: Codable {
+    var content: [Project?]
     var pageable: Pageable
     var totalElements: Int
     var totalPages: Int
@@ -29,7 +28,7 @@ struct CallInfo: Codable {
     var empty: Bool
 }
 
-struct EachProject: Codable {
+struct Project: Codable {
     var id: Int
     var videoUrl: String
     var title: String?

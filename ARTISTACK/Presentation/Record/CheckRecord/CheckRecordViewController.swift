@@ -29,7 +29,6 @@ class CheckRecordViewController: BaseViewController {
     
     override func setProperties() {
         view.backgroundColor = Color.black
-        setNavigationBar()
         checkRecordView.completeButton.addTarget(self, action: #selector(completeButtonDidTap), for: .touchUpInside)
         checkRecordView.volumeButton.addTarget(self, action: #selector(volumeButtonDidTap), for: .touchUpInside)
         checkRecordView.retakeButton.addTarget(self, action: #selector(retakeButtonDidTap), for: .touchUpInside)
@@ -59,7 +58,7 @@ class CheckRecordViewController: BaseViewController {
         present(vc, animated: true)
     }
     
-    func setNavigationBar(){
+    override func setNavigationBar(){
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: Image.dismiss, style: .plain, target: self, action: #selector(dismissButtonDidTap))
     }
     

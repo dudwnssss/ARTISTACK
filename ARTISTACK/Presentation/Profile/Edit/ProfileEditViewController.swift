@@ -10,13 +10,13 @@ import UIKit
 class ProfileEditViewController: BaseViewController {
     
     let profileEditView =  ProfileEditView()
-    let profileEditViewModel = ProfileEditViewModel()
+    let viewModel = ProfileEditViewModel()
     
     let barButtonItem = CustomBarButtonItem(isTitleWithBackButton: true).then{
         $0.titleLabel.text = "프로필 수정"
     }
     
-    func setNavigationBar(){
+    override func setNavigationBar(){
         navigationItem.leftItemsSupplementBackButton = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: barButtonItem)
     }
@@ -55,17 +55,6 @@ class ProfileEditViewController: BaseViewController {
             $0.profileEditButton.addTarget(self, action: #selector(profileEditButtonDidTap), for: .touchUpInside)
             $0.storeButton.addTarget(self, action: #selector(storeButtonDidTap), for: .touchUpInside)
         }
-
         hideKeyboardWhenTappedAround()
-        setNavigationBar()
     }
-    
-//    override func bind() {
-//        if let nickname = profileEditView.nicknameTextFieldView.textField.text{
-//            profileEditViewModel.nicknameText.value = nickname
-//        }
-//        if let description = profileEditView.descriptionTextView.textView.text{
-//            profileEditViewModel.descriptionText.value = description
-//        }
-//    }
 }

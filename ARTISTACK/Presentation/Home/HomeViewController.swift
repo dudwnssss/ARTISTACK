@@ -8,9 +8,10 @@
 import UIKit
 
 
-class HomeViewController: BaseViewController {
+final class HomeViewController: BaseViewController {
     
-    let homeView = HomeView()
+   private  let homeView = HomeView()
+    let viewModel = HomeViewModel()
     
     override func loadView() {
         self.view = homeView
@@ -22,16 +23,21 @@ class HomeViewController: BaseViewController {
         print(UserDefaults.standard.string(forKey: "accessToken"))
     }
     
+    override func bind() {
+        viewModel.projectList.bind { [weak self] _ in
+            self?.homeView.postTableView.reloadData()
+        }
+    }
+    
 
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return viewModel.projectList.value.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PostCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.contentView.backgroundColor = [UIColor.red, UIColor.blue, UIColor.purple, UIColor.darkGray, UIColor.black].randomElement()
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
