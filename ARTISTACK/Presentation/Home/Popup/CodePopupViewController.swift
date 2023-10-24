@@ -16,7 +16,7 @@ class CodePopupViewController: BaseViewController {
     }
     
     override func setProperties() {
-        view.backgroundColor = Color.white
+        view.backgroundColor = .clear
     }
     
     

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import AVFoundation
+
 
 enum stackCount: Int, CaseIterable {
     case one = 1
@@ -33,8 +35,18 @@ enum stackCount: Int, CaseIterable {
     }
 }
 
+protocol CodeButtonDelegate {
+    func codeButtonDidTap(showHeader: Bool)
+}
+
 final class PostCell: UITableViewCell{
         
+    let playerView = VideoPlayerView()
+    
+    var delegateCodeButton: CodeButtonDelegate?
+    
+    let codePopupView = CodePopupView()
+    
     let count: stackCount = .three
     
     let contentBackgroundView = UIView().then{
@@ -123,11 +135,14 @@ final class PostCell: UITableViewCell{
     
     let separator1View = SeparatorView( inset: 5)
     let separator2View = SeparatorView( inset: 5)
-
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         popupStackView.isHidden = true
         descriptionLabel.isHidden = true
+        codePopupView.isHidden = true
+        codeButton.setImage(Image.code, for: .normal)
+        playerView.cancelAllLoadingRequest()
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -142,8 +157,12 @@ final class PostCell: UITableViewCell{
     }
     
     func setLayouts() {
-        contentView.addSubviews(darkBackgroundImageView, othersButton, stackButton, stackCountLabel, likeButton, likeCountLabel, codeButton, infoStackView, moreButton, userTableView, popupStackView)
         
+        contentView.addSubviews(playerView, darkBackgroundImageView, othersButton, stackButton, stackCountLabel, likeButton, likeCountLabel, codeButton, infoStackView, moreButton, userTableView, popupStackView, codePopupView)
+        
+        playerView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
         //todo
         darkBackgroundImageView.snp.makeConstraints {
             $0.bottom.equalToSuperview()
@@ -207,12 +226,24 @@ final class PostCell: UITableViewCell{
             $0.width.equalToSuperview().multipliedBy(0.45)
             $0.bottom.equalTo(othersButton.snp.top)
         }
+        
+        codePopupView.snp.makeConstraints {
+            $0.top.horizontalEdges.equalToSuperview()
+            $0.height.equalToSuperview().multipliedBy(0.5)
+        }
     }
     func setProperties(){
-        contentView.backgroundColor = Color.black
+        playerView.do {
+            $0.backgroundColor = .blue
+        }
+
+        codePopupView.isHidden = true
         moreButton.addTarget(self, action: #selector(moreButtonDidTap), for: .touchUpInside)
         othersButton.addTarget(self, action: #selector(othersButtonDidTap), for: .touchUpInside)
+        codeButton.addTarget(self, action: #selector(codeButtonDidTap), for: .touchUpInside)
     }
+    
+
     
     //확장됐는지 아닌지 상태를 저장하고 있어야함
     @objc func moreButtonDidTap(){
@@ -224,6 +255,23 @@ final class PostCell: UITableViewCell{
     @objc func othersButtonDidTap(){
         popupStackView.isHidden.toggle()
     }
+    
+    @objc func codeButtonDidTap(){
+        codePopupView.isHidden.toggle()
+        codePopupView.isHidden ? codeButton.setImage(Image.code, for: .normal) : codeButton.setImage(Image.codeFill, for: .normal)
+        delegateCodeButton?.codeButtonDidTap(showHeader: codePopupView.isHidden)
+    }
+    
+    func configureCell(project: Project){
+        likeCountLabel.text = "\(project.likeCount)"
+        stackCountLabel.text = "\(project.stackCount)"
+        titleLabel.text = project.title
+        descriptionLabel.text = project.description
+        codePopupView.bpmLabel.text = project.bpm
+        codePopupView.codeLabel.text = project.codeFlow
+    }
+    
+
 }
 
 extension PostCell: UITableViewDelegate, UITableViewDataSource{

@@ -11,4 +11,22 @@ class HomeViewModel {
     
     var projectList: Observable<[Project]> = Observable([])
     
+    init(){
+        fetchProjectList()
+    }
+}
+
+extension HomeViewModel {
+    
+    func fetchProjectList(){
+        Network.shared.request(type: ProjectResponse.self, api: ProjectsTarget.projectList) { response in
+            switch response {
+            case .success(let success):
+                self.projectList.value = success.data.content
+            case .failure(let _):
+                debugPrint(response)
+            }
+        }
+    }
+    
 }

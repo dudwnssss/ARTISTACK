@@ -11,7 +11,8 @@ class ProfileEditViewController: BaseViewController {
     
     let profileEditView =  ProfileEditView()
     let viewModel = ProfileEditViewModel()
-    
+    var passPop: (()->Void)?
+
     let barButtonItem = CustomBarButtonItem(isTitleWithBackButton: true).then{
         $0.titleLabel.text = "프로필 수정"
     }
@@ -19,6 +20,28 @@ class ProfileEditViewController: BaseViewController {
     override func setNavigationBar(){
         navigationItem.leftItemsSupplementBackButton = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: barButtonItem)
+    }
+    
+    override func setProperties() {
+        profileEditView.do {
+            $0.profileEditButton.addTarget(self, action: #selector(profileEditButtonDidTap), for: .touchUpInside)
+            $0.storeButton.addTarget(self, action: #selector(storeButtonDidTap), for: .touchUpInside)
+        }
+        
+        hideKeyboardWhenTappedAround()
+    }
+    
+    override func bind() {
+        viewModel.nicknameText.bind { [weak self] text in
+            self?.profileEditView.nicknameTextFieldView.textField.text = text
+        }
+        viewModel.descriptionText.bind { [weak self] text in
+            self?.profileEditView.descriptionTextView.textView.text = text
+        }
+        viewModel.profileData.bind { [weak self] data in
+            self?.profileEditView.nicknameTextFieldView.textField.text = data?.nickname
+            self?.profileEditView.descriptionTextView.textView.text = data?.description
+        }
     }
     
     @objc func profileEditButtonDidTap(){
@@ -31,30 +54,14 @@ class ProfileEditViewController: BaseViewController {
     }
     
     @objc func storeButtonDidTap(){
-        let nickname = profileEditView.nicknameTextFieldView.textField.text ?? ""
-        let description = profileEditView.descriptionTextView.textView.text ?? ""
-        let request = EditProfileRequest(nickname: nickname,description: description)
-        Network.shared.request(type: UserData.self, api: UsersTarget.editProfile(request)) { response in
-            switch response{
-            case .success(let success):
-                debugPrint(response)
-            case .failure(_):
-                debugPrint(response)
-            }
-        }
+        viewModel.nicknameText.value = profileEditView.nicknameTextFieldView.textField.text
+        viewModel.descriptionText.value = profileEditView.descriptionTextView.textView.text
+        viewModel.updateProfile()
         navigationController?.popViewController(animated: true)
+        passPop?()
     }
     
     override func loadView() {
         self.view = profileEditView
-    }
-    
-    
-    override func setProperties() {
-        profileEditView.do {
-            $0.profileEditButton.addTarget(self, action: #selector(profileEditButtonDidTap), for: .touchUpInside)
-            $0.storeButton.addTarget(self, action: #selector(storeButtonDidTap), for: .touchUpInside)
-        }
-        hideKeyboardWhenTappedAround()
     }
 }

@@ -13,6 +13,7 @@ class ProfileViewController: BaseViewController {
     
     let profileView = ProfileView()
     let viewModel = ProfileViewModel()
+    var header: ProjectHeaderView?
     
     override func loadView() {
         self.view = profileView
@@ -41,19 +42,15 @@ class ProfileViewController: BaseViewController {
     
     @objc func profileEditButtonDidTap(profileImage: String?, nickname: String?, description: String?){
         let vc = ProfileEditViewController()
-        if let profileImage {
-            print("이미지 넣기")
-        }
-        if let nickname {
-            vc.profileEditView.nicknameTextFieldView.textField.text = nickname
-        }
-        if let description {
-            vc.profileEditView.descriptionTextView.textView.text = description
-        }
+        vc.viewModel.profileData.value = viewModel.myProfileData.value
+        
         
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
         vc.hidesBottomBarWhenPushed = false
+        vc.passPop = { [weak self] in
+            self?.viewModel.fetchMyProfile()
+        }
     }
     
     @objc func settingButtonDidTap(){
@@ -70,7 +67,7 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 0 ? 1 : 30
+        return section == 0 ? 1 : viewModel.projectList.value.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -85,6 +82,7 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
                 }
             }
             return profileCell
+            
         } else if indexPath.section == 1 {
             let projectCell: ProjectCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
             return projectCell
@@ -97,6 +95,7 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
         if indexPath.section == 1 {
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProjectHeaderView.reuseIdentifier, for: indexPath) as!
             ProjectHeaderView
+            header.projectCountLabel.text = "\(viewModel.projectCount.value)"
             return header
         } else {
             return UICollectionReusableView()
@@ -106,8 +105,8 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             let vc = HomeViewController()
-            //            vc.homeView.headerLabel.isHidden = true
-            navigationController?.pushViewController(vc, animated: true)
+            vc.viewModel.projectList.value = [viewModel.projectList.value[indexPath.item]]
+            present(vc, animated: true)
         }
     }
     

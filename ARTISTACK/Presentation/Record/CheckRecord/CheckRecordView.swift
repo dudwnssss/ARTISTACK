@@ -47,4 +47,4 @@ class CheckRecordView: BaseView {
             $0.centerY.equalTo(retakeButton)
         }
     }
-}
+} 

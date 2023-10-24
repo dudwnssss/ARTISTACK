@@ -10,6 +10,7 @@ import Alamofire
 
 enum ProjectsTarget{
     case projectList
+    case myProject
 }
 
 extension ProjectsTarget: TargetType {
@@ -21,6 +22,8 @@ extension ProjectsTarget: TargetType {
         switch self {
         case .projectList:
             return .get
+        case .myProject:
+            return .get
         }
     }
     
@@ -28,6 +31,8 @@ extension ProjectsTarget: TargetType {
         switch self {
         case .projectList:
             return "projects/search"
+        case .myProject:
+            return "projects/me"
         }
     }
     
@@ -40,6 +45,8 @@ extension ProjectsTarget: TargetType {
     var parameters: RequestParams {
         switch self {
         case .projectList:
+            return .query("")
+        case .myProject:
             return .query("")
         }
     }

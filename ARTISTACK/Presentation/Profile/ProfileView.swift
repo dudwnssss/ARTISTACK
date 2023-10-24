@@ -31,6 +31,7 @@ class ProfileView: BaseView {
         }
     }
     
+    
     private func createLayout() -> UICollectionViewLayout {
         
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in

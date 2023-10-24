@@ -11,23 +11,16 @@ class ProfileEditView: BaseView {
     
     var isToolTipHidden = true
     
-    let profileImageView = ProfileImageView()
-    let separator1View = SeparatorView()
-    let separator2View = SeparatorView()
-    let separator3View = SeparatorView()
+    var profileImageView = ProfileImageView()
+    private let separator1View = SeparatorView()
+    private let separator2View = SeparatorView()
+    private let separator3View = SeparatorView()
     let profileEditButton = UIButton()
     
     
-    lazy var toolTipView = ToolTipView(title: "닉네임은 1-14자까지 설정가능합니다.", tipPosition: .top).then{
-        $0.isHidden = isToolTipHidden
-    }
-    
-    let nicknameLabel = UILabel().then{
-        $0.configureTitle(title: "닉네임", titleType: .sub)
-    }
-    let descriptionLabel = UILabel().then{
-        $0.configureTitle(title: "소개", titleType: .sub)
-    }
+    lazy var toolTipView = ToolTipView(title: "닉네임은 1-14자까지 설정가능합니다.", tipPosition: .top)
+    private let nicknameLabel = UILabel()
+    private let descriptionLabel = UILabel()
     
     let nicknameTextFieldView = CustomTextFieldView(placeholder: "4-14자 (영문 소문자, 숫자, 밑줄 가능)", limitCount: 14, fontSize: 14, isBold: true)
 
@@ -35,7 +28,19 @@ class ProfileEditView: BaseView {
     
     let storeButton = CompleteButton(title: "저장하기")
     
+    
+    
+    
     override func setProperties() {
+        toolTipView.do {
+            $0.isHidden = isToolTipHidden
+        }
+        nicknameLabel.do {
+            $0.configureTitle(title: "닉네임", titleType: .sub)
+        }
+        descriptionLabel.do {
+            $0.configureTitle(title: "소개", titleType: .sub)
+        }
         profileEditButton.do {
             $0.setImage(Image.profileEditShadow, for: .normal)
             $0.imageView?.contentMode = .scaleAspectFill
@@ -116,5 +121,4 @@ class ProfileEditView: BaseView {
         }
         
     }
-    
 }

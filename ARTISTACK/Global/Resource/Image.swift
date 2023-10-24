@@ -62,6 +62,8 @@ enum Image {
     static let stack = UIImage(named: "stack")!
     static let like = UIImage(named: "like")!
     static let code = UIImage(named: "code")!
+    static let codeFill = UIImage(named: "code.fill")!
+
 
     
     

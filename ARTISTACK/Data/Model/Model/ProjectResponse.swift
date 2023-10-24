@@ -11,11 +11,11 @@ struct ProjectResponse : Codable {
     var success: Bool
     var code: Int
     var message: String
-    var data: ProjectData?
+    var data: ProjectData
 }
 
 struct ProjectData: Codable {
-    var content: [Project?]
+    var content: [Project]
     var pageable: Pageable
     var totalElements: Int
     var totalPages: Int

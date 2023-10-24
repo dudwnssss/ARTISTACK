@@ -32,6 +32,7 @@ final class HomeView: BaseView {
 
     override func setLayouts() {
         addSubviews(postTableView, headerLabel, progressView)
+        
         postTableView.snp.makeConstraints {
             $0.leading.trailing.top.equalToSuperview()
             $0.bottom.equalTo(progressView.snp.top)

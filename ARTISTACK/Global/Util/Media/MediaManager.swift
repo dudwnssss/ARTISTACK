@@ -173,12 +173,21 @@ class MediaManager: NSObject{
         audioPlayer2?.play()
     }
     
-    
     func playVideo(url: URL, layer: AVPlayerLayer) {
         do {
             videoPlayer = try AVPlayer(url: url)
             layer.player = videoPlayer
             videoPlayer?.play()
+        } catch {
+            print("Error playing video: \(error.localizedDescription)")
+        }
+    }
+    
+    func stopVideo(url: URL, layer: AVPlayerLayer) {
+        do {
+            videoPlayer = try AVPlayer(url: url)
+            layer.player = videoPlayer
+            videoPlayer?.pause()
         } catch {
             print("Error playing video: \(error.localizedDescription)")
         }
