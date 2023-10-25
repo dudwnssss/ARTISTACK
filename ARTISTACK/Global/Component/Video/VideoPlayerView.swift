@@ -87,41 +87,41 @@ class VideoPlayerView: UIView {
         
         self.playerLooper = AVPlayerLooper(player: self.queuePlayer!, templateItem: self.queuePlayer!.currentItem!)
         self.avPlayerLayer.player = self.queuePlayer
-        
-        /*
-        VideoCacheManager.shared.queryURLFromCache(key: url.absoluteString, fileExtension: fileExtension, completion: {[weak self] (data) in
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                if let path = data as? String {
-                    self.videoURL = URL(fileURLWithPath: path)
-                } else {
-                    // Add Redirect URL (customized prefix schema) to trigger AVAssetResourceLoaderDelegate
-                    guard let redirectURL = url.convertToRedirectURL(scheme: "streaming") else {
-                        print("\(url)\nCould not convert the url to a redirect url.")
-                        return
-                    }
-                    self.videoURL = redirectURL
-                }
-                self.originalURL = url
-                
-                self.asset = AVURLAsset(url: self.videoURL!)
-                self.asset!.resourceLoader.setDelegate(self, queue: .main)
-                
-                self.playerItem = AVPlayerItem(asset: self.asset!)
-                self.addObserverToPlayerItem()
-                
-                if let queuePlayer = self.queuePlayer {
-                    queuePlayer.replaceCurrentItem(with: self.playerItem)
-                } else {
-                    self.queuePlayer = AVQueuePlayer(playerItem: self.playerItem)
-                }
-                
-                self.playerLooper = AVPlayerLooper(player: self.queuePlayer!, templateItem: self.queuePlayer!.currentItem!)
-                self.avPlayerLayer.player = self.queuePlayer
-            }
-        })
-         */
+    
+//        VideoCacheManager.shared.queryURLFromCache(key: url.absoluteString, fileExtension: fileExtension, completion: {[weak self] (data) in
+//            DispatchQueue.main.async { [weak self] in
+//                guard let self = self else { return }
+//                if let path = data as? String {
+//                    self.videoURL = URL(fileURLWithPath: path)
+//                } else {
+//                     Add Redirect URL (customized prefix schema) to trigger AVAssetResourceLoaderDelegate
+//                    guard let redirectURL = url.convertToRedirectURL(scheme: "streaming") else {
+//                        print("\(url)\nCould not convert the url to a redirect url.")
+//                        return
+//                    }
+//                    self.videoURL = redirectURL
+//                }
+//                self.originalURL = url
+//
+//                self.asset = AVURLAsset(url: self.videoURL!)
+//                self.asset!.resourceLoader.setDelegate(self, queue: .main)
+//
+//                self.playerItem = AVPlayerItem(asset: self.asset!)
+//                self.addObserverToPlayerItem()
+//
+//                if let queuePlayer = self.queuePlayer {
+//                    queuePlayer.replaceCurrentItem(with: self.playerItem)
+//                } else {
+//                    self.queuePlayer = AVQueuePlayer(playerItem: self.playerItem)
+//                }
+//
+//                self.playerLooper = AVPlayerLooper(player: self.queuePlayer!, templateItem: self.queuePlayer!.currentItem!)
+//                self.avPlayerLayer.player = self.queuePlayer
+//            }
+//        })
     }
+    
+    
     
     // clear all remote or local request
     func cancelAllLoadingRequest() {

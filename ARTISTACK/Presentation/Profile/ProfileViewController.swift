@@ -104,8 +104,8 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-            let vc = HomeViewController()
-            vc.viewModel.projectList.value = [viewModel.projectList.value[indexPath.item]]
+            let vc = ProjectViewController()
+            vc.viewModel.projectList.value = [viewModel.projectList.value[indexPath.row]]
             present(vc, animated: true)
         }
     }

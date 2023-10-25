@@ -149,6 +149,12 @@ final class PostCell: UITableViewCell{
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setLayouts()
         setProperties()
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+        }
+        catch {
+            print("Setting category to AVAudioSessionCategoryPlayback failed.")
+        }
     }
 
     @available(*, unavailable)
@@ -233,10 +239,7 @@ final class PostCell: UITableViewCell{
         }
     }
     func setProperties(){
-        playerView.do {
-            $0.backgroundColor = .blue
-        }
-
+        backgroundColor = .black
         codePopupView.isHidden = true
         moreButton.addTarget(self, action: #selector(moreButtonDidTap), for: .touchUpInside)
         othersButton.addTarget(self, action: #selector(othersButtonDidTap), for: .touchUpInside)

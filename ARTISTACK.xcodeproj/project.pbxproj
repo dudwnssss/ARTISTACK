@@ -111,6 +111,8 @@
 		10C9B6312A7BDCAF00026EE0 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C9B62E2A7BDCAF00026EE0 /* ReusableView.swift */; };
 		10D40D5A2AE8214D00786D7D /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D40D592AE8214D00786D7D /* VideoPlayerView.swift */; };
 		10D40D5C2AE821CD00786D7D /* VideoCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D40D5B2AE821CD00786D7D /* VideoCacheManager.swift */; };
+		10D40D622AE8E1B300786D7D /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D40D612AE8E1B300786D7D /* ProjectViewController.swift */; };
+		10D40D642AE8E1D900786D7D /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D40D632AE8E1D900786D7D /* ProjectViewModel.swift */; };
 		10D4B13B2AC3EB400096E995 /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D4B13A2AC3EB400096E995 /* MediaManager.swift */; };
 		10F79D1B2AC01B9500E31063 /* RootSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F79D1A2AC01B9500E31063 /* RootSwitcher.swift */; };
 		10F79D202AC0335F00E31063 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 10F79D1F2AC0335F00E31063 /* Alamofire */; };
@@ -233,6 +235,8 @@
 		10C9B62E2A7BDCAF00026EE0 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		10D40D592AE8214D00786D7D /* VideoPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		10D40D5B2AE821CD00786D7D /* VideoCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCacheManager.swift; sourceTree = "<group>"; };
+		10D40D612AE8E1B300786D7D /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
+		10D40D632AE8E1D900786D7D /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		10D4B13A2AC3EB400096E995 /* MediaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaManager.swift; sourceTree = "<group>"; };
 		10F79D1A2AC01B9500E31063 /* RootSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSwitcher.swift; sourceTree = "<group>"; };
 		10F79D282AC0358700E31063 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
@@ -560,6 +564,7 @@
 		10B067702A94859400BFA002 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				10D40D602AE8E1A800786D7D /* Project */,
 				1022BA892AB2F6960028C2DF /* Popup */,
 				102089EF2A9C5DE900A34EFC /* Edit */,
 				10B067712A9485C100BFA002 /* ProfileViewController.swift */,
@@ -674,6 +679,15 @@
 				10D40D5B2AE821CD00786D7D /* VideoCacheManager.swift */,
 			);
 			path = Video;
+			sourceTree = "<group>";
+		};
+		10D40D602AE8E1A800786D7D /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				10D40D612AE8E1B300786D7D /* ProjectViewController.swift */,
+				10D40D632AE8E1D900786D7D /* ProjectViewModel.swift */,
+			);
+			path = Project;
 			sourceTree = "<group>";
 		};
 		10D4B1392AC3EB2D0096E995 /* Media */ = {
@@ -913,6 +927,7 @@
 				10F79D352AC041D600E31063 /* LoginResponse.swift in Sources */,
 				10831AEC2A7A7F0A00FB460C /* ProjectResponse.swift in Sources */,
 				103EF8F92AC2D70C007496D9 /* WithdrawResponse.swift in Sources */,
+				10D40D642AE8E1D900786D7D /* ProjectViewModel.swift in Sources */,
 				10AB4AE12A97123000E1B514 /* CodePopupViewController.swift in Sources */,
 				10F79D4C2AC06C3100E31063 /* SignupRequest.swift in Sources */,
 				102089A52A9A2ED200A34EFC /* UploadViewController.swift in Sources */,
@@ -942,6 +957,7 @@
 				101E39512AE7B337001F4534 /* ProfileViewModel.swift in Sources */,
 				10C9B6312A7BDCAF00026EE0 /* ReusableView.swift in Sources */,
 				102089932A99AB8400A34EFC /* popupMenuButton.swift in Sources */,
+				10D40D622AE8E1B300786D7D /* ProjectViewController.swift in Sources */,
 				10C375032AB4773E00462A1B /* EditProfileImageView.swift in Sources */,
 				1020898F2A988CB700A34EFC /* LikePopupHeaderView.swift in Sources */,
 				1022BA842AB2ECE70028C2DF /* BottomSheetViewController.swift in Sources */,

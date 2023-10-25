@@ -23,7 +23,7 @@ extension HomeViewModel {
             switch response {
             case .success(let success):
                 self.projectList.value = success.data.content
-            case .failure(let _):
+            case .failure(_):
                 debugPrint(response)
             }
         }

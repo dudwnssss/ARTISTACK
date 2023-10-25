@@ -1,56 +1,47 @@
 //
-//  ViewController.swift
+//  ProjectViewController.swift
 //  ARTISTACK
 //
-//  Created by 임영준 on 2023/08/02.
+//  Created by 임영준 on 2023/10/25.
 //
 
 import UIKit
 
-
-final class HomeViewController: BaseViewController {
+class ProjectViewController: BaseViewController {
     
-    private  let homeView = HomeView()
-    let viewModel = HomeViewModel()
+    let projectView = HomeView()
+    let viewModel = ProjectViewModel()
     var currentPageIndex: Int = 0
     
     override func loadView() {
-        self.view = homeView
+        self.view = projectView
     }
-
     
     override func setProperties() {
-        homeView.postTableView.delegate = self
-        homeView.postTableView.dataSource = self
-        print(UserDefaults.standard.string(forKey: "accessToken"))
+        projectView.postTableView.delegate = self
+        projectView.postTableView.dataSource = self
     }
     
     override func bind() {
         viewModel.projectList.bind { [weak self] playlist in
-            self?.homeView.postTableView.reloadData()
+            self?.projectView.postTableView.reloadData()
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if let cell = homeView.postTableView.visibleCells.first as? PostCell {
-            print(#fileID, #function, #line, "- ")
-            cell.playerView.play()
-        }
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        if let cell = homeView.postTableView.visibleCells.first as? PostCell {
-            cell.playerView.pause()
-        }
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        if let cell = projectView.postTableView.visibleCells.first as? PostCell {
+//            cell.playerView.replay()
+//        }
+//    }
 }
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
+extension ProjectViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.projectList.value.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PostCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         cell.delegateCodeButton = self
@@ -60,12 +51,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         }
         return cell
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return homeView.postTableView.frame.height
-    }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return projectView.postTableView.frame.height
     }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -79,16 +67,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
 }
 
-extension HomeViewController: UIScrollViewDelegate {
+extension ProjectViewController: UIScrollViewDelegate {
+    
         func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-            if let cell = homeView.postTableView.cellForRow(at: IndexPath(row: currentPageIndex, section: 0)) as? PostCell {
+            if let cell = projectView.postTableView.cellForRow(at: IndexPath(row: currentPageIndex, section: 0)) as? PostCell {
                 cell.playerView.replay()
             }
            }
 }
 
-extension HomeViewController: CodeButtonDelegate {
+extension ProjectViewController: CodeButtonDelegate {
     func codeButtonDidTap(showHeader: Bool) {
-        homeView.headerLabel.isHidden = !showHeader
+        projectView.headerLabel.isHidden = !showHeader
     }
 }

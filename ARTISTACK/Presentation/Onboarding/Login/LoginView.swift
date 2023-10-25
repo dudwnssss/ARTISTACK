@@ -28,7 +28,7 @@ class LoginView: BaseView{
             $0.image = Image.logo
         }
         titleLabel.do {
-            let fullString = "당신의 음악을\n스택해보세요"
+            let fullString = "당신의 음악을\n스택하세요"
             let attributedString = NSMutableAttributedString(string: fullString)
             let range = (fullString as NSString).range(of: "당신의 음악")
             let font = Font.bold26
