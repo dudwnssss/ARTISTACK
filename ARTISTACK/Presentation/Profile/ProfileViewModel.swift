@@ -9,9 +9,9 @@ import Foundation
 
 class ProfileViewModel {
     
-    var myProfileData: Observable<UserData?> = Observable(nil)
-    var projectList: Observable<[Project]> = Observable([])
-    var projectCount: Observable<Int> = Observable(0)
+    var myProfileData: CustomObservable<UserData?> = CustomObservable(nil)
+    var projectList: CustomObservable<[Project]> = CustomObservable([])
+    var projectCount: CustomObservable<Int> = CustomObservable(0)
     
     init(){
         fetchMyProfile()

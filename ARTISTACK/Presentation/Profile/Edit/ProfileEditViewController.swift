@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ProfileEditViewController: BaseViewController {
     
+    let disposeBag = DisposeBag()
     let profileEditView =  ProfileEditView()
     let viewModel = ProfileEditViewModel()
     var passPop: (()->Void)?
@@ -25,23 +28,34 @@ class ProfileEditViewController: BaseViewController {
     override func setProperties() {
         profileEditView.do {
             $0.profileEditButton.addTarget(self, action: #selector(profileEditButtonDidTap), for: .touchUpInside)
-            $0.storeButton.addTarget(self, action: #selector(storeButtonDidTap), for: .touchUpInside)
         }
         
         hideKeyboardWhenTappedAround()
     }
     
     override func bind() {
-        viewModel.nicknameText.bind { [weak self] text in
-            self?.profileEditView.nicknameTextFieldView.textField.text = text
-        }
-        viewModel.descriptionText.bind { [weak self] text in
-            self?.profileEditView.descriptionTextView.textView.text = text
-        }
         viewModel.profileData.bind { [weak self] data in
             self?.profileEditView.nicknameTextFieldView.textField.text = data?.nickname
             self?.profileEditView.descriptionTextView.textView.text = data?.description
         }
+        profileEditView.nicknameTextFieldView.textField.rx.text.orEmpty
+            .bind(to: viewModel.input.nickname)
+            .disposed(by: disposeBag)
+        
+        profileEditView.descriptionTextView.textView.rx.text
+            .orEmpty
+            .bind(to: viewModel.input.description)
+            .disposed(by: disposeBag)
+        
+        profileEditView.storeButton.rx.tap
+            .bind { [weak self] _ in
+                print("버튼터치됨")
+            }.disposed(by: disposeBag)
+        
+        viewModel.output.userDataFinishedTrigger
+            .bind { <#()#> in
+                <#code#>
+            }
     }
     
     @objc func profileEditButtonDidTap(){
@@ -54,8 +68,6 @@ class ProfileEditViewController: BaseViewController {
     }
     
     @objc func storeButtonDidTap(){
-        viewModel.nicknameText.value = profileEditView.nicknameTextFieldView.textField.text
-        viewModel.descriptionText.value = profileEditView.descriptionTextView.textView.text
         viewModel.updateProfile()
         navigationController?.popViewController(animated: true)
         passPop?()

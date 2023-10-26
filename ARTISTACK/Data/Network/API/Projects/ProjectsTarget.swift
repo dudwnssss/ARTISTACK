@@ -11,6 +11,8 @@ import Alamofire
 enum ProjectsTarget{
     case projectList
     case myProject
+    case like(projectId: Int)
+    case likeCancel(projectId: Int)
 }
 
 extension ProjectsTarget: TargetType {
@@ -24,6 +26,10 @@ extension ProjectsTarget: TargetType {
             return .get
         case .myProject:
             return .get
+        case .like:
+            return .post
+        case .likeCancel:
+            return .delete
         }
     }
     
@@ -33,6 +39,10 @@ extension ProjectsTarget: TargetType {
             return "projects/search"
         case .myProject:
             return "projects/me"
+        case .like(let projectId):
+            return "projects/\(projectId)/like"
+        case .likeCancel(let projectId):
+            return "projects/\(projectId)/like"
         }
     }
     
@@ -47,6 +57,10 @@ extension ProjectsTarget: TargetType {
         case .projectList:
             return .query("")
         case .myProject:
+            return .query("")
+        case .like:
+            return .query("")
+        case .likeCancel:
             return .query("")
         }
     }

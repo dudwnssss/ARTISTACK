@@ -7,7 +7,8 @@
 
 import UIKit
 import AVFoundation
-
+import RxSwift
+import RxCocoa
 
 enum stackCount: Int, CaseIterable {
     case one = 1
@@ -39,11 +40,21 @@ protocol CodeButtonDelegate {
     func codeButtonDidTap(showHeader: Bool)
 }
 
+protocol ReportButtonDelegate {
+    func reportButtonDidTap()
+}
+
 final class PostCell: UITableViewCell{
-        
-    let playerView = VideoPlayerView()
     
     var delegateCodeButton: CodeButtonDelegate?
+    var delegateReportButton: ReportButtonDelegate?
+    
+    var disposeBag = DisposeBag()
+    var viewModel =  PostCellViewModel()
+    
+    let playerView = VideoPlayerView()
+    
+
     
     let codePopupView = CodePopupView()
     
@@ -156,14 +167,66 @@ final class PostCell: UITableViewCell{
             print("Setting category to AVAudioSessionCategoryPlayback failed.")
         }
     }
-
+    
+    //확장됐는지 아닌지 상태를 저장하고 있어야함
+    @objc func moreButtonDidTap(){
+        descriptionLabel.isHidden.toggle()
+        contentView.layoutIfNeeded()
+    }
+    
+    
+    @objc func othersButtonDidTap(){
+        popupStackView.isHidden.toggle()
+    }
+    
+    
+    @objc func codeButtonDidTap(){
+        codePopupView.isHidden.toggle()
+        codePopupView.isHidden ? codeButton.setImage(Image.code, for: .normal) : codeButton.setImage(Image.codeFill, for: .normal)
+        delegateCodeButton?.codeButtonDidTap(showHeader: codePopupView.isHidden)
+    }
+    
+    @objc func reportButtonDidTap(){
+        delegateReportButton?.reportButtonDidTap()
+    }
+    
+    func configureCell(project: Project){
+        likeCountLabel.text = "\(project.likeCount)"
+        stackCountLabel.text = "\(project.stackCount)"
+        titleLabel.text = project.title
+        descriptionLabel.text = project.description
+        codePopupView.bpmLabel.text = project.bpm
+        codePopupView.codeLabel.text = project.codeFlow
+        project.isLiked ? likeButton.setImage(Image.likeFill, for: .normal) : likeButton.setImage(Image.like, for: .normal)
+    }
+    
+    func bind(){
+        likeButton.rx.tap
+            .bind { [weak self] _ in
+                self?.viewModel.like()
+            }.disposed(by: disposeBag)
+    }
+    
     @available(*, unavailable)
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+}
+
+extension PostCell {
+    
+    func setProperties(){
+        backgroundColor = .black
+        codePopupView.isHidden = true
+        moreButton.addTarget(self, action: #selector(moreButtonDidTap), for: .touchUpInside)
+        othersButton.addTarget(self, action: #selector(othersButtonDidTap), for: .touchUpInside)
+        codeButton.addTarget(self, action: #selector(codeButtonDidTap), for: .touchUpInside)
+        reportButton.addTarget(self, action: #selector(reportButtonDidTap), for: .touchUpInside)
+        bind()
+    }
+    
     func setLayouts() {
-        
         contentView.addSubviews(playerView, darkBackgroundImageView, othersButton, stackButton, stackCountLabel, likeButton, likeCountLabel, codeButton, infoStackView, moreButton, userTableView, popupStackView, codePopupView)
         
         playerView.snp.makeConstraints {
@@ -238,43 +301,7 @@ final class PostCell: UITableViewCell{
             $0.height.equalToSuperview().multipliedBy(0.5)
         }
     }
-    func setProperties(){
-        backgroundColor = .black
-        codePopupView.isHidden = true
-        moreButton.addTarget(self, action: #selector(moreButtonDidTap), for: .touchUpInside)
-        othersButton.addTarget(self, action: #selector(othersButtonDidTap), for: .touchUpInside)
-        codeButton.addTarget(self, action: #selector(codeButtonDidTap), for: .touchUpInside)
-    }
     
-
-    
-    //확장됐는지 아닌지 상태를 저장하고 있어야함
-    @objc func moreButtonDidTap(){
-        descriptionLabel.isHidden.toggle()
-        contentView.layoutIfNeeded()
-    }
-    
-    
-    @objc func othersButtonDidTap(){
-        popupStackView.isHidden.toggle()
-    }
-    
-    @objc func codeButtonDidTap(){
-        codePopupView.isHidden.toggle()
-        codePopupView.isHidden ? codeButton.setImage(Image.code, for: .normal) : codeButton.setImage(Image.codeFill, for: .normal)
-        delegateCodeButton?.codeButtonDidTap(showHeader: codePopupView.isHidden)
-    }
-    
-    func configureCell(project: Project){
-        likeCountLabel.text = "\(project.likeCount)"
-        stackCountLabel.text = "\(project.stackCount)"
-        titleLabel.text = project.title
-        descriptionLabel.text = project.description
-        codePopupView.bpmLabel.text = project.bpm
-        codePopupView.codeLabel.text = project.codeFlow
-    }
-    
-
 }
 
 extension PostCell: UITableViewDelegate, UITableViewDataSource{

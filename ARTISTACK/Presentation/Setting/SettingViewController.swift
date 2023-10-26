@@ -41,10 +41,6 @@ class SettingViewController: BaseViewController {
         $0.titleLabel.text = "설정"
     }
     
-    override func setProperties() {
-        setNavigationBar()
-    }
-    
     private lazy var tableView = UITableView().then{
         $0.separatorColor = Color.artistackSystem2
         $0.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)

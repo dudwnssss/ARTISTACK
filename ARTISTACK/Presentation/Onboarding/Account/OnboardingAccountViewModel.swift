@@ -8,10 +8,10 @@
 import Foundation
 
 class OnboardingAccountViewModel{
-    var idText: Observable<String?> = Observable(nil)
-    var constaintText: Observable<String?> = Observable("영문 소문자, 숫자, 밑줄기호 입력 가능 (총 4-17자)")
-    var isValid = Observable(false)
-    var isDuplicated = Observable(true)
+    var idText: CustomObservable<String?> = CustomObservable(nil)
+    var constaintText: CustomObservable<String?> = CustomObservable("영문 소문자, 숫자, 밑줄기호 입력 가능 (총 4-17자)")
+    var isValid = CustomObservable(false)
+    var isDuplicated = CustomObservable(true)
     
     func checkValidate() {
         // 입력이 4-17자 사이인지 확인

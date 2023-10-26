@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 
 final class HomeViewController: BaseViewController {
@@ -17,18 +19,19 @@ final class HomeViewController: BaseViewController {
     override func loadView() {
         self.view = homeView
     }
-
     
     override func setProperties() {
         homeView.postTableView.delegate = self
         homeView.postTableView.dataSource = self
         print(UserDefaults.standard.string(forKey: "accessToken"))
+        
     }
     
     override func bind() {
         viewModel.projectList.bind { [weak self] playlist in
             self?.homeView.postTableView.reloadData()
         }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,7 +57,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PostCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         cell.delegateCodeButton = self
+        cell.delegateReportButton = self
         cell.configureCell(project: viewModel.projectList.value[indexPath.row])
+        cell.viewModel.data = viewModel.projectList.value[indexPath.row]
         if let url = NSURL(string: viewModel.projectList.value[indexPath.row].videoUrl) {
             cell.playerView.configure(url: url, fileExtension: "mp4", size: (Int(tableView.frame.width), Int(tableView.frame.height)))
         }
@@ -90,5 +95,14 @@ extension HomeViewController: UIScrollViewDelegate {
 extension HomeViewController: CodeButtonDelegate {
     func codeButtonDidTap(showHeader: Bool) {
         homeView.headerLabel.isHidden = !showHeader
+    }
+}
+
+extension HomeViewController: ReportButtonDelegate {
+    func reportButtonDidTap() {
+        let vc = ReportViewController()
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
 }

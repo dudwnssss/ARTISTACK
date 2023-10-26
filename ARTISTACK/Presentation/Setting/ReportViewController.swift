@@ -25,6 +25,16 @@ enum ReportType: String, CaseIterable{
 
 class ReportViewController: BaseViewController {
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print(navigationController?.isNavigationBarHidden)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    let barButtonItem = CustomBarButtonItem(isTitleWithBackButton: true).then{
+        $0.titleLabel.text = "신고하기"
+    }
+    
     private lazy var tableView = UITableView().then{
         $0.separatorColor = Color.artistackSystem2
         $0.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -36,7 +46,7 @@ class ReportViewController: BaseViewController {
     let reportType = ReportType.allCases
 
     override func setProperties() {
-        view.backgroundColor = Color.black
+        view.backgroundColor = Color.artistackSystem1
     }
     
     override func setLayouts() {
@@ -45,6 +55,12 @@ class ReportViewController: BaseViewController {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
+    
+    override func setNavigationBar() {
+        navigationItem.leftItemsSupplementBackButton = true
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: barButtonItem)
+    }
+
 
 }
 
@@ -67,6 +83,8 @@ extension ReportViewController: UITableViewDataSource, UITableViewDelegate{
         var content = cell.defaultContentConfiguration()
         content.text = reportType[indexPath.row].rawValue
         content.textProperties.color = Color.white
+        content.textProperties.font = Font.medium16
+        cell.contentConfiguration = content
         return cell
     }
     
@@ -76,6 +94,6 @@ extension ReportViewController: UITableViewDataSource, UITableViewDelegate{
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overFullScreen
 //        navigationController?.pushViewController(vc, animated: false)
-        present(vc, animated: false)
+        present(vc, animated: true)
     }
 }

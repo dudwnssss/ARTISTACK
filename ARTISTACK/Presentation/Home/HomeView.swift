@@ -39,7 +39,7 @@ final class HomeView: BaseView {
         }
         headerLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(20)
-            $0.top.equalTo(self.safeAreaLayoutGuide).offset(20)
+            $0.top.equalTo(self.safeAreaLayoutGuide).offset(-24)
         }
         progressView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()

@@ -6,12 +6,18 @@
 //
 
 import Foundation
+import RxCocoa
+import RxSwift
 
 class HomeViewModel {
     
-    var projectList: Observable<[Project]> = Observable([])
+    var projectList: CustomObservable<[Project]> = CustomObservable([])
+    let cellLikeButtonTapped = PublishRelay<Void>()
     
+    var disposeBag = DisposeBag()
+        
     init(){
+        bind()
         fetchProjectList()
     }
 }
@@ -29,4 +35,15 @@ extension HomeViewModel {
         }
     }
     
+}
+
+extension HomeViewModel {
+    private func bind() {
+        cellLikeButtonTapped
+            .bind { [weak self] _ in
+                guard let self else { return }
+                //네트워크 통신
+            }
+            .disposed(by: disposeBag)
+    }
 }

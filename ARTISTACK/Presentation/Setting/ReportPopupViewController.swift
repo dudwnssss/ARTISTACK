@@ -25,10 +25,11 @@ class ReportPopupViewController: BaseViewController {
         $0.textAlignment = .center
         $0.numberOfLines = 0
         $0.text = "회원님의 소중한 의견은 Artistack 커뮤니티를\n안전하게 유지하는데 도움이 됩니다."
+        $0.textColor = Color.artistackSystem4
     }
     let separatorView = SeparatorView()
     let containerView = UIView().then{
-        $0.backgroundColor = .blue
+        $0.backgroundColor = Color.artistackSystem1
         $0.layer.cornerRadius = 5
     }
     
@@ -39,7 +40,7 @@ class ReportPopupViewController: BaseViewController {
     
     @objc func confirmButtonDidTap(){
 //        navigationController?.popToRootViewController(animated: true)
-        dismiss(animated: false)
+        dismiss(animated: true)
     }
     
     

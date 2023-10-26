@@ -32,7 +32,6 @@ extension MainTabBarController {
         let homeVC = HomeViewController()
         let homeNavigationController = UINavigationController(rootViewController: homeVC)
         homeNavigationController.tabBarItem = UITabBarItem(title: nil, image: Tab.home.image, tag: 0)
-        homeNavigationController.navigationBar.isHidden = true
         
         let recordVC = RecordViewController()
         recordVC.tabBarItem = UITabBarItem(title: nil, image: Tab.record.image, tag: 1)

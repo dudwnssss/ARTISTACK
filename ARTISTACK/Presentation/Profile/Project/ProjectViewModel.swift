@@ -9,6 +9,6 @@ import Foundation
 
 class ProjectViewModel {
     
-    var projectList: Observable<[Project]> = Observable([])
+    var projectList: CustomObservable<[Project]> = CustomObservable([])
     
 }
