@@ -38,6 +38,14 @@ class CompleteButton: UIButton {
         }
     }
     
+    func configureButton(isValid: Bool){
+        if isValid {
+            backgroundImageView.image = Image.buttonBackgroundActivated
+        } else {
+            backgroundImageView.image = Image.buttonBackground
+        }
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -42,7 +42,7 @@ class ProfileViewController: BaseViewController {
     
     @objc func profileEditButtonDidTap(profileImage: String?, nickname: String?, description: String?){
         let vc = ProfileEditViewController()
-        vc.viewModel.profileData.value = viewModel.myProfileData.value
+//        vc.viewModel.profileData.value = viewModel.myProfileData.value
         
         
         vc.hidesBottomBarWhenPushed = true

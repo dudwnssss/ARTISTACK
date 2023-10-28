@@ -23,6 +23,7 @@ enum Image {
     static let accessoryLeft = UIImage(named: "accessory.left")
 
     
+    static let buttonBackground = UIImage(named: "button.background")!
     static let buttonBackgroundActivated = UIImage(named: "button.background.activated")!
     
     

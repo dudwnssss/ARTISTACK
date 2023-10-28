@@ -9,22 +9,38 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class ProfileEditViewModel{
+protocol ViewModel {
+    associatedtype Input
+    associatedtype Output
     
-    let input = Input()
-    let output = Output()
+    var disposeBag: DisposeBag {get set}
+    func transform(input: Input) -> Output
+}
+
+class ProfileEditViewModel: ViewModel{
     
     struct Input {
-        var nickname = BehaviorRelay<String>(value: "")
-        var description = BehaviorRelay<String>(value: "")
-        var completeButtonDidTap = PublishSubject<Void>()
+        let nickname: ControlProperty<String?>
+        let description: ControlProperty<String?>
+        let tapCompleteButton: ControlEvent<Void>
     }
     
     struct Output {
-        let userDataFinishedTrigger = PublishRelay<Void>()
+        let validation: Observable<Bool>
     }
     
-    var profileData: CustomObservable<UserData?> = CustomObservable(nil)
+    var disposeBag = DisposeBag()
+
+    func transform(input: Input) -> Output {
+        let valid = input.nickname
+            .orEmpty
+            .map { $0.count >= 4 }
+        
+        return Output(validation: valid)
+    }
+    
+
+    
 }
 
 extension ProfileEditViewModel {
@@ -32,19 +48,20 @@ extension ProfileEditViewModel {
     func bind(){
         
     }
-
-    func updateProfile(){
-        let nickname = input.nickname.value
-        let description = input.description.value
-        let request = EditProfileRequest(nickname: nickname,description: description)
-        Network.shared.request(type: UserData.self, api: UsersTarget.editProfile(request)) { response in
-            switch response{
-            case .success(let success):
-                debugPrint(response)
-                self.output.userDataFinishedTrigger.accept(())
-            case .failure(_):
-                debugPrint(response)
-            }
-        }
-    }
+    
+//    func updateProfile(){
+//        let nickname = nickname.value
+//        let description = description.value
+//        let request = EditProfileRequest(nickname: nickname,description: description)
+//        Network.shared.request(type: UserData.self, api: UsersTarget.editProfile(request)) { response in
+//            switch response{
+//            case .success(let success):
+//                debugPrint(response)
+//                self.userDataFinishedTrigger.accept(())
+//            case .failure(_):
+//                debugPrint(response)
+//            }
+//        }
+//    }
+    
 }
