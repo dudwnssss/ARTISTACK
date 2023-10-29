@@ -36,32 +36,28 @@ class ProfileEditViewModel: ViewModel{
             .orEmpty
             .map { $0.count >= 4 }
         
+        input.tapCompleteButton.bind { _ in
+            print("hihi")
+        }.disposed(by: disposeBag)
+        
+        
         return Output(validation: valid)
     }
-    
-
     
 }
 
 extension ProfileEditViewModel {
     
-    func bind(){
-        
+    func updateProfile(nickname: String, description: String){
+        let request = EditProfileRequest(nickname: nickname,description: description)
+        Network.shared.request(type: UserData.self, api: UsersTarget.editProfile(request)) { response in
+            switch response{
+            case .success(let success):
+                debugPrint(response)
+            case .failure(_):
+                debugPrint(response)
+            }
+        }
     }
-    
-//    func updateProfile(){
-//        let nickname = nickname.value
-//        let description = description.value
-//        let request = EditProfileRequest(nickname: nickname,description: description)
-//        Network.shared.request(type: UserData.self, api: UsersTarget.editProfile(request)) { response in
-//            switch response{
-//            case .success(let success):
-//                debugPrint(response)
-//                self.userDataFinishedTrigger.accept(())
-//            case .failure(_):
-//                debugPrint(response)
-//            }
-//        }
-//    }
     
 }
