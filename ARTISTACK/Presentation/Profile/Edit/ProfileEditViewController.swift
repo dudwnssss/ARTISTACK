@@ -34,13 +34,33 @@ class ProfileEditViewController: BaseViewController {
     }
     
     override func bind() {
-        let input = ProfileEditViewModel.Input(nickname: profileEditView.nicknameTextFieldView.textField.rx.text,
-                                               description: profileEditView.descriptionTextView.textView.rx.text, tapCompleteButton: profileEditView.storeButton.rx.tap)
-        let output = viewModel.transform(input: input)
-        output.validation
-            .withUnretained(self)
-            .bind { vc, value in
-                vc.profileEditView.storeButton.configureButton(isValid: value)
+        
+        //Input
+        profileEditView.nicknameTextFieldView.textField.rx.text
+            .orEmpty
+            .bind(to: viewModel.nickname)
+            .disposed(by: disposeBag)
+        
+        profileEditView.descriptionTextView.textView.rx.text
+            .orEmpty
+            .bind(to: viewModel.description)
+            .disposed(by: disposeBag)
+        
+        profileEditView.storeButton.rx.tap
+            .bind(to: viewModel.tapCompleteButton)
+            .disposed(by: disposeBag)
+        
+        //Output
+        viewModel.validation
+            .bind(with: self) { owner, value in
+                owner.profileEditView.storeButton.isEnabled = value
+                owner.profileEditView.storeButton.configureButton(isValid: value)
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.updateSuccess
+            .bind(with: self) { owner, _ in
+                owner.navigationController?.popViewController(animated: true)
             }
             .disposed(by: disposeBag)
         
