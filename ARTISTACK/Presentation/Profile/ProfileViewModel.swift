@@ -61,8 +61,7 @@ extension ProfileViewModel {
             switch response {
             case .success(let success):
                 let items = success.data.content.map { SectionItem.projectItem(data: $0) }
-                self.projectSection.accept(MultipleSectionModel.projectSection(items: items))
-//                self.projectCount.accept(MultipleSectionModel.projectSection(items: items))
+                self.projectSection.accept(MultipleSectionModel.projectSection(count: items.count, items: items))
             case .failure(_):
                 debugPrint(response)
             }

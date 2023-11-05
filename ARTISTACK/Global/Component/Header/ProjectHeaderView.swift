@@ -46,6 +46,10 @@ final class ProjectHeaderView: UICollectionReusableView {
         }
     }
     
+    func configureHeader(count: Int) {
+        projectCountLabel.text = "\(count)"
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

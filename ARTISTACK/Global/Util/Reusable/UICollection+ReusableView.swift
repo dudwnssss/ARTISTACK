@@ -29,7 +29,6 @@ extension UICollectionView {
         }
         return view
     }
-    
 
     func dequeueFooterView<T: UICollectionReusableView>(forIndexPath indexPath: IndexPath) -> T {
         guard let view = dequeueReusableSupplementaryView(
@@ -52,4 +51,10 @@ extension UICollectionView {
     ) where T: UICollectionViewCell {
         register(cell, forCellWithReuseIdentifier: reuseIdentifier)
     }
+    
+    func register<T>(
+        header: T.Type,
+        forCellWithReuseIdentifier reuseIdentifier: String = T.reuseIdentifier) where T: UICollectionReusableView{
+            register(header, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: reuseIdentifier)
+        }
 }

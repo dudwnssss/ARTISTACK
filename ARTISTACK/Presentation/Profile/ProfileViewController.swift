@@ -32,8 +32,16 @@ class ProfileViewController: BaseViewController {
     lazy var dataSource = setDataSource()
     
     override func setProperties() {
-//        profileView.projectCollectionView.dataSource = self
-//        profileView.projectCollectionView.delegate = self
+        self.dataSource.configureSupplementaryView = { datasource, collectionView, kind, indexPath in
+            switch datasource.sectionModels[indexPath.section] {
+            case .profileSection(_):
+                return UICollectionReusableView()
+            case .projectSection(let count, _):
+                let header: ProjectHeaderView = collectionView.dequeueHeaderView(forIndexPath: indexPath)
+                header.configureHeader(count: count)
+                return header
+            }
+        }
     }
     
     override func setNavigationBar(){
@@ -48,9 +56,6 @@ class ProfileViewController: BaseViewController {
     
     @objc func profileEditButtonDidTap(profileImage: String?, nickname: String?, description: String?){
         let vc = ProfileEditViewController()
-//        vc.viewModel.profileData.value = viewModel.myProfileData.value
-        
-        
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
         vc.hidesBottomBarWhenPushed = false
@@ -66,61 +71,6 @@ class ProfileViewController: BaseViewController {
     }
 }
 
-//extension ProfileViewController : UICollectionViewDelegate, UICollectionViewDataSource{
-//    
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return 2
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return section == 0 ? 1 : viewModel.projectList.value.count
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        
-//        if indexPath.section == 0 {
-//            let profileCell: ProfileCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-//            
-//            let data = viewModel.profile
-//            
-//            if let data = viewModel.myProfileData.value {
-//                profileCell.configureCell(profile: data)
-//                profileCell.buttonAction = { [weak self] in
-//                    self?.profileEditButtonDidTap(profileImage: data.profileImgURL, nickname: data.nickname, description: data.description)
-//                    self?.viewModel.myProfileData.value = data
-//                }
-//            }
-//            return profileCell
-//            
-//        } else if indexPath.section == 1 {
-//            let projectCell: ProjectCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-//            return projectCell
-//        } else {
-//            return UICollectionViewCell()
-//        }
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        if indexPath.section == 1 {
-//            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProjectHeaderView.reuseIdentifier, for: indexPath) as!
-//            ProjectHeaderView
-//            header.projectCountLabel.text = "\(viewModel.projectCount.value)"
-//            return header
-//        } else {
-//            return UICollectionReusableView()
-//        }
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        if indexPath.section == 1 {
-//            let vc = ProjectViewController()
-//            vc.viewModel.projectList.value = [viewModel.projectList.value[indexPath.row]]
-//            present(vc, animated: true)
-//        }
-//    }
-//    
-//}
-
 extension ProfileViewController {
     func setDataSource() -> RxCollectionViewSectionedReloadDataSource<MultipleSectionModel> {
         return RxCollectionViewSectionedReloadDataSource<MultipleSectionModel> { dataSource, collectionView, indexPath, _ in
@@ -134,14 +84,13 @@ extension ProfileViewController {
                 cell.configureCell(project: data)
                 return cell
             }
-
         }
     }
 }
 
 enum MultipleSectionModel {
     case profileSection(items: [SectionItem])
-    case projectSection(items: [SectionItem])
+    case projectSection(count: Int, items: [SectionItem])
 }
 
 enum SectionItem {
@@ -156,7 +105,7 @@ extension MultipleSectionModel: SectionModelType {
         switch self {
         case .profileSection(let items):
             return items.map { $0 }
-        case .projectSection(let items):
+        case .projectSection(_, let items):
             return items.map { $0 }
         }
     }
@@ -165,8 +114,8 @@ extension MultipleSectionModel: SectionModelType {
         switch original {
         case .profileSection(let items):
             self = .profileSection(items: items)
-        case .projectSection(let items):
-            self = .projectSection(items: items)
+        case .projectSection(let count, let items):
+            self = .projectSection(count: count, items: items)
         }
     }
 }

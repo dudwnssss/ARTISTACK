@@ -19,7 +19,7 @@ class ProfileView: BaseView {
     lazy var projectCollectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout()).then{
         $0.register(cell: ProjectCell.self)
         $0.register(cell: ProfileCell.self)
-        $0.register(ProjectHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ProjectHeaderView.reuseIdentifier)
+        $0.register(header: ProjectHeaderView.self)
         $0.showsVerticalScrollIndicator = false
         $0.backgroundColor = .clear
     }
