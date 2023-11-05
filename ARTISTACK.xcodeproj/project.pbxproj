@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1008FF612AF6838800799857 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 1008FF602AF6838800799857 /* Differentiator */; };
+		1008FF632AF6838800799857 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 1008FF622AF6838800799857 /* RxDataSources */; };
 		101E39452AE6B738001F4534 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101E39442AE6B738001F4534 /* HomeViewModel.swift */; };
 		101E39472AE6B757001F4534 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101E39462AE6B757001F4534 /* Image.swift */; };
 		101E39492AE6B761001F4534 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101E39482AE6B761001F4534 /* Color.swift */; };
@@ -269,7 +271,9 @@
 				1089160B2AEEB76D001075A3 /* Alamofire in Frameworks */,
 				1022BA372AB09B150028C2DF /* FloatingPanel in Frameworks */,
 				10831AD02A7A76C100FB460C /* SnapKit in Frameworks */,
+				1008FF612AF6838800799857 /* Differentiator in Frameworks */,
 				10831AD32A7A76CE00FB460C /* Then in Frameworks */,
+				1008FF632AF6838800799857 /* RxDataSources in Frameworks */,
 				10F79D232AC0336900E31063 /* Kingfisher in Frameworks */,
 				108916082AEEB207001075A3 /* RxSwift in Frameworks */,
 			);
@@ -839,6 +843,8 @@
 				108916052AEEB207001075A3 /* RxCocoa */,
 				108916072AEEB207001075A3 /* RxSwift */,
 				1089160A2AEEB76D001075A3 /* Alamofire */,
+				1008FF602AF6838800799857 /* Differentiator */,
+				1008FF622AF6838800799857 /* RxDataSources */,
 			);
 			productName = ARTISTACK;
 			productReference = 107A75D42A7A69F300E9201B /* ARTISTACK.app */;
@@ -875,6 +881,7 @@
 				10F79D212AC0336900E31063 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				108916042AEEB207001075A3 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				108916092AEEB76D001075A3 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				1008FF5F2AF6838800799857 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = 107A75D52A7A69F300E9201B /* Products */;
 			projectDirPath = "";
@@ -1232,6 +1239,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1008FF5F2AF6838800799857 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
 		1022BA352AB09B150028C2DF /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scenee/FloatingPanel";
@@ -1283,6 +1298,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1008FF602AF6838800799857 /* Differentiator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1008FF5F2AF6838800799857 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
+		};
+		1008FF622AF6838800799857 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1008FF5F2AF6838800799857 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
+		};
 		1022BA362AB09B150028C2DF /* FloatingPanel */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1022BA352AB09B150028C2DF /* XCRemoteSwiftPackageReference "FloatingPanel" */;

@@ -9,7 +9,13 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol ProfileEditProtocol: AnyObject {
+    func profileDidEdit()
+}
+
 class ProfileEditViewController: BaseViewController {
+    
+    var delegate: ProfileEditProtocol?
     
     let disposeBag = DisposeBag()
     let profileEditView =  ProfileEditView()
@@ -61,6 +67,7 @@ class ProfileEditViewController: BaseViewController {
         viewModel.updateSuccess
             .bind(with: self) { owner, _ in
                 owner.navigationController?.popViewController(animated: true)
+//                delegate?.profileDidEdit()
             }
             .disposed(by: disposeBag)
         

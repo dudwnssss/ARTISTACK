@@ -42,18 +42,27 @@ final class ProjectCell: UICollectionViewCell {
         setLayouts()
     }
     
-//    override func prepareForReuse() {
-//        super.prepareForReuse()
-//        projectImageView.image = nil
-//        likeCountLabel.text = nil
-//        playCountLabel.text = nil
-//        stackCountLabel.text = nil
-//    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        projectImageView.image = nil
+        likeCountLabel.text = nil
+        playCountLabel.text = nil
+        stackCountLabel.text = nil
+    }
 
     @available(*, unavailable)
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func configureCell(project: Project){
+        likeCountLabel.text = "\(project.likeCount)"
+        stackCountLabel.text = "\(project.stackCount)"
+    }
+ 
+}
+
+extension ProjectCell {
     
     func setLayouts(){
         contentView.addSubviews(projectImageView, playImageView, playCountLabel, stackImageView, stackCountLabel, likeImageVIew, likeCountLabel)
@@ -100,6 +109,5 @@ final class ProjectCell: UICollectionViewCell {
     func setProperties(){
         
     }
+
 }
-
-
