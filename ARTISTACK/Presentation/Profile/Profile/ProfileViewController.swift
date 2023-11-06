@@ -89,9 +89,19 @@ extension ProfileViewController {
     }
 }
 
+extension ProfileViewController {
+    private func pushEditProfileViewController(userData: UserData) {
+        let vc = ProfileEditViewController()
+        vc.viewModel.nickname.accept(userData.nickname)
+        vc.viewModel.description.accept(userData.description)
+        vc.delegate = self
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
 extension ProfileViewController: ProfileEditProtocol {
     func profileDidEdit() {
-        print(#fileID, #function, #line, "- ")
         viewModel.fetchMyProfile()
     }
 }

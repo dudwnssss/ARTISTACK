@@ -81,6 +81,7 @@
 		108916082AEEB207001075A3 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 108916072AEEB207001075A3 /* RxSwift */; };
 		1089160B2AEEB76D001075A3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1089160A2AEEB76D001075A3 /* Alamofire */; };
 		109B90E42AA4C024009958F1 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B90E32AA4C024009958F1 /* UINavigationController+.swift */; };
+		10AA4C482AFA297C0009D43E /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AA4C472AFA297C0009D43E /* ViewModel.swift */; };
 		10AB4AC12A94B4B900E1B514 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB4AC02A94B4B900E1B514 /* ProfileCell.swift */; };
 		10AB4AC32A94B4F300E1B514 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB4AC22A94B4F300E1B514 /* ProjectCell.swift */; };
 		10AB4AC52A94C3B000E1B514 /* ProjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB4AC42A94C3B000E1B514 /* ProjectHeaderView.swift */; };
@@ -206,6 +207,7 @@
 		10831AEE2A7A81B100FB460C /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		10831AF02A7A924300FB460C /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		109B90E32AA4C024009958F1 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
+		10AA4C472AFA297C0009D43E /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		10AB4AC02A94B4B900E1B514 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		10AB4AC22A94B4F300E1B514 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		10AB4AC42A94C3B000E1B514 /* ProjectHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderView.swift; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 				107A75F12A7A6E0E00E9201B /* Component */,
 				107A75F02A7A6DFC00E9201B /* Extension */,
 				107A75EF2A7A6DD700E9201B /* Resource */,
+				10AA4C472AFA297C0009D43E /* ViewModel.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -539,6 +542,16 @@
 			path = Model/Model;
 			sourceTree = "<group>";
 		};
+		10AA4C462AFA29050009D43E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				10B067712A9485C100BFA002 /* ProfileViewController.swift */,
+				101E39502AE7B337001F4534 /* ProfileViewModel.swift */,
+				102089E42A9C590500A34EFC /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		10AB4AC62A94CCEC00E1B514 /* Tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -573,12 +586,10 @@
 		10B067702A94859400BFA002 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				10AA4C462AFA29050009D43E /* Profile */,
+				102089EF2A9C5DE900A34EFC /* Edit */,
 				10D40D602AE8E1A800786D7D /* Project */,
 				1022BA892AB2F6960028C2DF /* Popup */,
-				102089EF2A9C5DE900A34EFC /* Edit */,
-				10B067712A9485C100BFA002 /* ProfileViewController.swift */,
-				102089E42A9C590500A34EFC /* ProfileView.swift */,
-				101E39502AE7B337001F4534 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -919,6 +930,7 @@
 				10C31A642ABF3E4300C69791 /* UploadViewModel.swift in Sources */,
 				102089A92A9A719300A34EFC /* CustomTextFieldView.swift in Sources */,
 				10F79D1B2AC01B9500E31063 /* RootSwitcher.swift in Sources */,
+				10AA4C482AFA297C0009D43E /* ViewModel.swift in Sources */,
 				10831AE72A7A7F0A00FB460C /* LikedListDTO.swift in Sources */,
 				10AB4ACA2A94CD6B00E1B514 /* MainTabBarController.swift in Sources */,
 				10F79D4E2AC06C3A00E31063 /* SignupResponse.swift in Sources */,

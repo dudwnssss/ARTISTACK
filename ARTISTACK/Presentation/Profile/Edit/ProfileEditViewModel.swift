@@ -9,7 +9,32 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class ProfileEditViewModel{
+class ProfileEditViewModel: ViewModel{
+
+
+    struct Input {
+        let nickname: ControlProperty<String>
+        let description: ControlProperty<String?>
+        let tap: ControlEvent<Void>
+    }
+    
+    struct Output {
+        let validation: Observable<Bool>
+        let nickname: Observable<String>
+        let description: Observable<String?>
+        let edit: PublishSubject<Void>
+    }
+    
+    func transform(input: Input) -> Output {
+        let inputInfo = Observable.combineLatest(nickname, description)
+        
+        let validation = inputInfo
+            .map { $0.0.count >= 4 }
+        
+        return Output(validation: validation, nickname: input.nickname.asObservable(), description: input.description.asObservable(), edit: <#T##PublishSubject<Void>#>)
+        
+    }
+    
     
     //Input
     let nickname = PublishRelay<String>()
@@ -45,8 +70,8 @@ extension ProfileEditViewModel {
         
         tapCompleteButton
             .withLatestFrom(nickAndDescription)
-            .bind(with: self, onNext: { owner, tuple in
-                owner.updateProfile(nickname: tuple.0, description: tuple.1)
+            .bind(with: self, onNext: { owner, data in
+                owner.editProfile(nickname: data.0, description: data.1)
             })
             .disposed(by: disposeBag)
         
@@ -60,16 +85,12 @@ extension ProfileEditViewModel {
     }
     
     
-    func updateProfile(nickname: String, description: String?){
+    func editProfile(nickname: String, description: String?){
         let request = EditProfileRequest(nickname: nickname,description: description)
-        Network.shared.request(type: MyProfileResponse.self, api: UsersTarget.editProfile(request)) { [weak self] response in
-            switch response{
-            case .success(_):
-                self?.updateSuccess.accept(())
-            case .failure(_):
-                debugPrint(response)
-            }
-        }
+        
+        let result = Network.shared.requestRx(type: MyProfileResponse.self, api: UsersTarget.editProfile(request))
     }
+    
+    //Single
     
 }

@@ -23,4 +23,18 @@ class Network{
             }
         }
     }
+    
+    func requestRx<T: Decodable>(type: T.Type, api: TargetType) -> Observable<Result<T, Error>> {
+        return Observable.create { observer -> Disposable in
+            AF.request(api).responseDecodable(of: T.self) { response in
+                switch response.result{
+                case .success(let data):
+                    observer.onNext(.success(data))
+                case .failure(let error):
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
+        }
+    }
 }
