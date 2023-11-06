@@ -12,14 +12,14 @@ import RxCocoa
 class ProfileViewModel {
     
     let disposeBag = DisposeBag()
-    
-    var profileEdit = PublishRelay<Void>()
-    
+        
     var profileSection = PublishRelay<MultipleSectionModel>()
     var projectSection = PublishRelay<MultipleSectionModel>()
     var projectCount: CustomObservable<Int> = CustomObservable(0)
     
     var sections = BehaviorRelay<[MultipleSectionModel]>(value: [])
+    
+    var profile: UserData?
     
     init(){
         fetchMyProfile()
@@ -31,17 +31,10 @@ class ProfileViewModel {
 extension ProfileViewModel {
 
     func bind() {
-        profileEdit
-            .bind(with: self) { owner, _ in
-                owner.fetchMyProfile()
-            }
-            .disposed(by: disposeBag)
-        
         Observable.combineLatest(profileSection, projectSection)
             .map { [$0.0, $0.1] }
             .bind(to: sections)
             .disposed(by: disposeBag)
-            
     }
     
     
@@ -49,6 +42,7 @@ extension ProfileViewModel {
         Network.shared.request(type: MyProfileResponse.self, api: UsersTarget.myProfile) { response in
             switch response {
             case .success(let success):
+                self.profile = success.data
                 self.profileSection.accept(MultipleSectionModel.profileSection(items: [.profileItem(data: success.data)]))
             case .failure(let failure):
                 debugPrint(failure)

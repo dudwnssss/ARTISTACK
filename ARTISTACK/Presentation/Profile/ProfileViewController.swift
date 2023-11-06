@@ -53,17 +53,6 @@ class ProfileViewController: BaseViewController {
         navigationItem.rightBarButtonItem?.tintColor = Color.artistackSystem6
     }
     
-    
-    @objc func profileEditButtonDidTap(profileImage: String?, nickname: String?, description: String?){
-        let vc = ProfileEditViewController()
-        vc.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(vc, animated: true)
-        vc.hidesBottomBarWhenPushed = false
-        vc.passPop = { [weak self] in
-            self?.viewModel.fetchMyProfile()
-        }
-    }
-    
     @objc func settingButtonDidTap(){
         let vc = SettingViewController()
         vc.hidesBottomBarWhenPushed = true
@@ -77,6 +66,18 @@ extension ProfileViewController {
             switch dataSource[indexPath] {
             case .profileItem(let data):
                 let cell: ProfileCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+                cell.profileEditButton.rx.tap
+                    .bind(with: self) { owner, _ in
+                        let vc = ProfileEditViewController()
+                        if let profile = owner.viewModel.profile {
+                            vc.viewModel.nickname.accept(profile.nickname)
+                            vc.viewModel.description.accept(profile.description)
+                            vc.delegate = self
+                            vc.hidesBottomBarWhenPushed = true
+                            owner.navigationController?.pushViewController(vc, animated: true)
+                        }
+                    }
+                    .disposed(by: cell.disposeBag)
                 cell.configureCell(profile: data)
                 return cell
             case .projectItem(let data):
@@ -85,6 +86,13 @@ extension ProfileViewController {
                 return cell
             }
         }
+    }
+}
+
+extension ProfileViewController: ProfileEditProtocol {
+    func profileDidEdit() {
+        print(#fileID, #function, #line, "- ")
+        viewModel.fetchMyProfile()
     }
 }
 

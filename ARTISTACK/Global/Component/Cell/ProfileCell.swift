@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class ProfileCell: UICollectionViewCell {
     
+    var disposeBag = DisposeBag()
     var buttonAction : ()->Void = {}
 
     let profileImageView = ProfileImageView()
@@ -47,7 +50,7 @@ final class ProfileCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        buttonAction = {}
+        disposeBag = DisposeBag()
     }
     
     func configureCell(profile: UserData){

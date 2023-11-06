@@ -13,13 +13,15 @@ class ProfileEditViewModel{
     
     //Input
     let nickname = PublishRelay<String>()
-    let description = PublishRelay<String>()
+    let description = PublishRelay<String?>()
     let tapCompleteButton = PublishRelay<Void>()
     
     
     //Output
     let validation = BehaviorRelay<Bool>(value: false)
     let updateSuccess = PublishRelay<Void>()
+    let nicknameOutput = PublishRelay<String>()
+    let descriptionOutput = PublishRelay<String?>()
     
     var disposeBag = DisposeBag()
     
@@ -32,7 +34,6 @@ class ProfileEditViewModel{
 extension ProfileEditViewModel {
     
     func bind() {
-        
         let nickAndDescription = Observable.combineLatest(nickname, description)
         
         nickAndDescription
@@ -49,10 +50,17 @@ extension ProfileEditViewModel {
             })
             .disposed(by: disposeBag)
         
+        nickname
+            .bind(to: nicknameOutput)
+            .disposed(by: disposeBag)
+        
+        description
+            .bind(to: descriptionOutput)
+            .disposed(by: disposeBag)
     }
     
     
-    func updateProfile(nickname: String, description: String){
+    func updateProfile(nickname: String, description: String?){
         let request = EditProfileRequest(nickname: nickname,description: description)
         Network.shared.request(type: MyProfileResponse.self, api: UsersTarget.editProfile(request)) { [weak self] response in
             switch response{

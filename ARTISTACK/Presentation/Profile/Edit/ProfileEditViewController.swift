@@ -15,7 +15,7 @@ protocol ProfileEditProtocol: AnyObject {
 
 class ProfileEditViewController: BaseViewController {
     
-    var delegate: ProfileEditProtocol?
+    weak var delegate: ProfileEditProtocol?
     
     let disposeBag = DisposeBag()
     let profileEditView =  ProfileEditView()
@@ -66,9 +66,17 @@ class ProfileEditViewController: BaseViewController {
         
         viewModel.updateSuccess
             .bind(with: self) { owner, _ in
+                owner.delegate?.profileDidEdit()
                 owner.navigationController?.popViewController(animated: true)
-//                delegate?.profileDidEdit()
             }
+            .disposed(by: disposeBag)
+        
+        viewModel.nicknameOutput
+            .bind(to: profileEditView.nicknameTextFieldView.textField.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.descriptionOutput
+            .bind(to: profileEditView.descriptionTextView.textView.rx.text)
             .disposed(by: disposeBag)
         
     }

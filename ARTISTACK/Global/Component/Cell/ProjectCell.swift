@@ -83,7 +83,7 @@ extension ProjectCell {
         }
         
         likeCountLabel.snp.makeConstraints {
-            $0.trailing.equalToSuperview().offset(-4)
+            $0.trailing.equalToSuperview().offset(-10)
             $0.bottom.equalToSuperview().offset(-10)
         }
         

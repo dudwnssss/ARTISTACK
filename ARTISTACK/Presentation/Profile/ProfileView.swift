@@ -9,13 +9,6 @@ import UIKit
 
 class ProfileView: BaseView {
     
-    let layout = UICollectionViewFlowLayout().then{
-        let spacing : CGFloat = 10
-        let width = UIScreen.main.bounds.width - (4 * spacing)
-        $0.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
-        $0.itemSize = CGSize(width: width/3 , height: width/3 * 1.63)
-        $0.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width , height: 44)
-    }
     lazy var projectCollectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout()).then{
         $0.register(cell: ProjectCell.self)
         $0.register(cell: ProfileCell.self)
@@ -53,7 +46,7 @@ class ProfileView: BaseView {
                 
                 item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
                 
-                let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(UIScreen.main.bounds.width), heightDimension: .absolute((UIScreen.main.bounds.width * 1.5 / 3)))
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(18/39))
                 
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 

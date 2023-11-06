@@ -81,11 +81,6 @@ class CustomTextView: UIView {
 
 extension CustomTextView: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        if textView.text == placeholder {
-            textView.text = ""
-            textView.textColor = Color.white
-        }
-        
         if let text = textView.text, text.count > limitCount {
             let index = text.index(text.startIndex, offsetBy: limitCount)
             textView.text = String(text.prefix(upTo: index))
@@ -93,21 +88,18 @@ extension CustomTextView: UITextViewDelegate {
         updateCountLabel()
     }
     
-    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        if textView.text == placeholder {
-            textView.text = ""
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == Color.artistackSystem3 {
+            textView.text = nil
             textView.textColor = Color.white
         }
-        return true
     }
     
-    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+    func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             setPlaceholder()
         }
-        return true
     }
-    
     
     func updateCountLabel() {
         let remainingCount = limitCount - (textView.text?.count ?? 0)
