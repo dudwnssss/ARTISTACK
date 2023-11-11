@@ -23,27 +23,20 @@
 - **etc** : AVFoundation, AVKit, Social Login, RxDataSource, PHPicker
 
 ## Experience
-- **AVFoundation**:  AVMutableComposition을 활용한 비디오 오디오 병합 기능 구현
-  AVQueuePlayer를 사용하여 페이징이 가능한 숏폼 UI 구현
-AVVideoPlayer, AVAudioPlayer
-    
-- **커스텀 카메라 구현**
-Apple 공식 문서를 기반으로 **** AVFoundadtion의 활용하여 ****카메라 전환, 타이머, 다시재생 기능 등을 포함한 동영상 녹화용 커스텀 카메라를 구현
-동영상 촬영 중 음악재생 기능을 구현
-
--  **RxDataSource 적용**
-    RxDataSource를 활용하여 열거형을 활용하여, MultiSection MultipleCell 컬렉션뷰 구현. Animation효과를 통한 사용자 경험 향상
-    
-- **소셜 로그인 구현** 
-    Apple Login 및 Kakao Login 구현, Alamofire의 interceptor를 활용하여, accessToken 만료 시, 자동으로 토큰 재발급 구현
-    
-- **Alamofire 추상화 및 네트워크 통신 모듈화**
-URLRequestConvertible을 채택, ****Router 패턴을 활용하여 Network Layer를 추상화. 재사용성과 확장성 확보 및 개발시간 단축
-
--  **Multipart form data** 
-    동영상 업로드, 프로필 사진 업로드를 위해 Multipart Form 형태로  서버 통신
-    보다 개선된 ImagePicker기능이 도입된 PHPicker를 사용하여 갤러리 접근
-
+- **AVFoundation**:  <br>
+동영상과 음원의 병합을 위해, AVMutableComposition을 사용, VideoAsset과 AudioAsset 분리 및 믹싱 기능 구현.<br>
+숏폼 UI 구현을 위해, AVQueuePlayer를 사용, AVPlayer를 사용했을 때보다,  테이블 뷰 페이징 시 로딩 시간을 단축하여 사용자 경험 개선
+- **커스텀 카메라 구현**: <br>
+Apple 공식 문서를 기반으로  AVFoundadtion의 다양한 기능을 활용하여 카메라 전환, 타이머, 다시 재생 기능 등을 포함한 동영상 녹화용 커스텀 카메라 구현
+-  **RxDataSource 적용**: <br>
+RxDataSource와 열거형을 활용하여, MultiSection MultipleCell 컬렉션뷰 구현 데이터 변화에 따른 UI 업데이트를 비동기적으로 처리 및 Animation 효과를 통한 사용자 경험 향상    
+- **소셜 로그인 구현** : <br>
+Apple Login 및 Kakao Login 구현, Alamofire의 RequestInterceptor를 활용하여, accessToken 만료 시, refreshToken을 사용하여 자동으로 토큰 갱신 구현    
+- **Alamofire 추상화 및 네트워크 통신 모듈화**: <br>
+URLRequestConvertible을 채택, Router 패턴을 활용하여 Network Layer를 추상화. 재사용성과 확장성 확보 및 개발시간 단축
+-  **MultiPart 통신**: <br>
+    동영상, 프로필 사진 업로드를 위해, Alamofire의 Multipart를 활용하여 서버 통신<br>
+갤러리 접근 시, 기존 UIImagePicker를 모던한 방식으로 대체한 PHPicker를 사용하여 사용자 경험 향상
 
 ## Trouble Shooting
 - **Apple 로그인 Authrization Code, Idendtity Token**: <br>
