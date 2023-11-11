@@ -3,7 +3,7 @@
 
 ## Topic
 - **[Artistack - 뮤지션을 위한 음악 협업 플랫폼]**
-- **맡은 역할** :  iOS 리드 개발, 서비스 기획, PM (UMC 2기 - 디자이너 1명, 서버 3명, iOS 3명)
+- **맡은 역할** :  iOS 리드 개발, 서비스 기획, PM (디자이너 1명, 서버 3명, iOS 3명)
 - **개발 기간** : 2022.06 ~ 2022.09 (3개월)
 - 전체 프로젝트 1인 리팩토링 진행 중
 
@@ -40,7 +40,7 @@ URLRequestConvertible을 채택, Router 패턴을 활용하여 Network Layer를 
 
 ## Trouble Shooting
 - **Apple 로그인 Authrization Code, Idendtity Token**: <br>
-서버측에서 애플 로그인을 통한 사용자 식별과, 온보딩 후, 회원가입 시 서버에게 Authorization Code를 보내는 방식으로 구현하려 했으나, Authrization Code는 애플로그인 시 한번만 발급받을 수 있기 때문에, 회원가입 시 한번 더 애플로그인을 해야하는 문제가 발생. 애플 로그인의 인증은 서버에 Identity Token을 보내서 애플에게 유효성 검사를 요청하는 방식으로 처리하고, 회원가입 시에는 Authorization Code를 사용해 Access Token과 Refresh Token을 얻는 방법으로 해결
+서버측에서 애플 로그인을 통한 사용자 식별과, 온보딩 후, 회원가입 시 서버에게 Authorization Code를 보내는 방식으로 구현하려 했으나, Authrization Code는 애플로그인 시 한번만 발급받을 수 있기 때문에, 회원가입 시 한번 더 애플로그인을 해야하는 문제가 발생했습니다. 애플 로그인의 인증은 서버에 Identity Token을 보내서 애플에게 유효성 검사를 요청하는 방식으로 처리하고, 회원가입 시에는 Authorization Code를 사용해 Access Token과 Refresh Token을 얻는 방법으로 해결하였습니다.
 
 
 - **AVMutableCompostion 영상과 음악의 싱크 문제**: <br>
