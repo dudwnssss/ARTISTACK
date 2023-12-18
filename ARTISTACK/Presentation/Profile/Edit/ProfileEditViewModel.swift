@@ -9,88 +9,70 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class ProfileEditViewModel: ViewModel{
-
-
+class ProfileEditViewModel: ViewModelType {
+    
+    private let userdata: UserData
+    private let disposeBag = DisposeBag()
+    private let editSuccessTrigger = PublishSubject<UserData>()
+    
+    init(userdata: UserData) {
+        self.userdata = userdata
+    }
+    
     struct Input {
-        let nickname: ControlProperty<String>
-        let description: ControlProperty<String?>
-        let tap: ControlEvent<Void>
+        let nickname: Observable<String>
+        let description: Observable<String>
+        let storeButtonDidTap: Observable<Void>
     }
     
     struct Output {
-        let validation: Observable<Bool>
-        let nickname: Observable<String>
-        let description: Observable<String?>
-        let edit: PublishSubject<Void>
+        let nickname = BehaviorRelay<String>(value: "")
+        let description = BehaviorRelay<String>(value: "")
+        let editComplete = PublishRelay<UserData>()
     }
     
     func transform(input: Input) -> Output {
-        let inputInfo = Observable.combineLatest(nickname, description)
+        let output = Output()
         
-        let validation = inputInfo
-            .map { $0.0.count >= 4 }
+        input.nickname
+            .bind(to: output.nickname)
+            .disposed(by: disposeBag)
         
-        return Output(validation: validation, nickname: input.nickname.asObservable(), description: input.description.asObservable(), edit: <#T##PublishSubject<Void>#>)
+        input.description
+            .bind(to: output.description)
+            .disposed(by: disposeBag)
         
-    }
+        input.storeButtonDidTap
+            .subscribe(with: self) { owner, _ in
+                owner.updateProfile(nickname: output.nickname.value, description: output.description.value)
+            }
+            .disposed(by: disposeBag)
+        
+        editSuccessTrigger
+            .bind(to: output.editComplete)
+            .disposed(by: disposeBag)
+        
+        output.nickname.accept(userdata.nickname)
+        output.description.accept(userdata.description!)
     
-    
-    //Input
-    let nickname = PublishRelay<String>()
-    let description = PublishRelay<String?>()
-    let tapCompleteButton = PublishRelay<Void>()
-    
-    
-    //Output
-    let validation = BehaviorRelay<Bool>(value: false)
-    let updateSuccess = PublishRelay<Void>()
-    let nicknameOutput = PublishRelay<String>()
-    let descriptionOutput = PublishRelay<String?>()
-    
-    var disposeBag = DisposeBag()
-    
-    init(){
-        bind()
+        return output
     }
 
 }
 
 extension ProfileEditViewModel {
     
-    func bind() {
-        let nickAndDescription = Observable.combineLatest(nickname, description)
-        
-        nickAndDescription
-            .map({ nickname, description in
-                nickname.count > 4
-            })
-            .bind(to: validation)
-            .disposed(by: disposeBag)
-        
-        tapCompleteButton
-            .withLatestFrom(nickAndDescription)
-            .bind(with: self, onNext: { owner, data in
-                owner.editProfile(nickname: data.0, description: data.1)
-            })
-            .disposed(by: disposeBag)
-        
-        nickname
-            .bind(to: nicknameOutput)
-            .disposed(by: disposeBag)
-        
-        description
-            .bind(to: descriptionOutput)
+    func updateProfile(nickname: String?, description: String?) {
+        let request = EditProfileRequest(nickname: nickname, description: description)
+        Network.shared.requestRx(type: MyProfileResponse.self, api: UsersTarget.editProfile(request))
+            .subscribe(with: self) { owner, response in
+                switch response {
+                case .success(let result):
+                    owner.editSuccessTrigger.onNext(result.data)
+                case .failure(_):
+                    debugPrint(response)
+                }
+            }
             .disposed(by: disposeBag)
     }
-    
-    
-    func editProfile(nickname: String, description: String?){
-        let request = EditProfileRequest(nickname: nickname,description: description)
-        
-        let result = Network.shared.requestRx(type: MyProfileResponse.self, api: UsersTarget.editProfile(request))
-    }
-    
-    //Single
-    
 }

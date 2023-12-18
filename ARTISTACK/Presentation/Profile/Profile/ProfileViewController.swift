@@ -68,14 +68,12 @@ extension ProfileViewController {
                 let cell: ProfileCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.profileEditButton.rx.tap
                     .bind(with: self) { owner, _ in
-                        let vc = ProfileEditViewController()
-                        if let profile = owner.viewModel.profile {
-                            vc.viewModel.nickname.accept(profile.nickname)
-                            vc.viewModel.description.accept(profile.description)
-                            vc.delegate = self
-                            vc.hidesBottomBarWhenPushed = true
-                            owner.navigationController?.pushViewController(vc, animated: true)
-                        }
+                        let vm = ProfileEditViewModel(userdata: owner.viewModel.profile!)
+                        let vc = ProfileEditViewController(viewModel: vm)
+                        vc.delegate = self
+                        vc.hidesBottomBarWhenPushed = true
+                        owner.navigationController?.pushViewController(vc, animated: true)
+                        
                     }
                     .disposed(by: cell.disposeBag)
                 cell.configureCell(profile: data)
@@ -91,18 +89,17 @@ extension ProfileViewController {
 
 extension ProfileViewController {
     private func pushEditProfileViewController(userData: UserData) {
-        let vc = ProfileEditViewController()
-        vc.viewModel.nickname.accept(userData.nickname)
-        vc.viewModel.description.accept(userData.description)
+        let vm = ProfileEditViewModel(userdata: userData)
+        let vc = ProfileEditViewController(viewModel: vm)
         vc.delegate = self
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
-extension ProfileViewController: ProfileEditProtocol {
-    func profileDidEdit() {
-        viewModel.fetchMyProfile()
+extension ProfileViewController: ProfileEditDelegate {
+    func profileDidEdit(userData: UserData) {
+        viewModel.updateProfile(data: userData)
     }
 }
 

@@ -10,12 +10,7 @@ import SnapKit
 
 class CustomTextView: UIView {
     
-    var placeholder: String? {
-        didSet {
-            setPlaceholder()
-        }
-    }
-    
+    var placeholder: String?
     var limitCount: Int = 0 {
         didSet {
             updateCountLabel()
@@ -36,8 +31,19 @@ class CustomTextView: UIView {
         setLayouts()
     }
     
+    private func setPlaceholder() {
+        if textView.text.isEmpty {
+            if let placeholderText = placeholder {
+                print("아 나 호출됨")
+                textView.text = placeholderText
+                textView.textColor = Color.artistackSystem3
+            }
+        }
+    }
+    
     func setProperties() {
         textView.do {
+            $0.textColor = Color.white
             $0.delegate = self
             $0.isScrollEnabled = false
             $0.textContainerInset = .zero
@@ -49,16 +55,7 @@ class CustomTextView: UIView {
             $0.textAlignment = .right
             $0.font = .systemFont(ofSize: 14)
         }
-
-
         setPlaceholder()
-    }
-    
-    private func setPlaceholder() {
-        if let placeholderText = placeholder {
-            textView.text = placeholderText
-            textView.textColor = Color.artistackSystem3
-        }
     }
     
     func setLayouts() {

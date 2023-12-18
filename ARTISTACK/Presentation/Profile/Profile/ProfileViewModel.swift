@@ -37,6 +37,10 @@ extension ProfileViewModel {
             .disposed(by: disposeBag)
     }
     
+    func updateProfile(data: UserData) {
+        profileSection.accept(MultipleSectionModel.profileSection(items: [.profileItem(data: data)]))
+    }
+    
     
     func fetchMyProfile() {
         Network.shared.request(type: MyProfileResponse.self, api: UsersTarget.myProfile) { response in
