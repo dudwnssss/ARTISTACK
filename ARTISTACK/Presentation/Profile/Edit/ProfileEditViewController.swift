@@ -17,6 +17,7 @@ class ProfileEditViewController: BaseViewController {
     
     private let profileEditView = ProfileEditView()
     private let viewModel: ProfileEditViewModel
+    private let changeProfileImageTrigger = PublishRelay<Data>()
     private let disposeBag = DisposeBag()
     weak var delegate: ProfileEditDelegate?
     
@@ -39,8 +40,18 @@ class ProfileEditViewController: BaseViewController {
     override func bind() {
         let input = ProfileEditViewModel.Input(nickname: profileEditView.nicknameTextFieldView.textField.rx.text.orEmpty.asObservable(),
                                                description: profileEditView.descriptionTextView.textView.rx.text.orEmpty.asObservable(),
-                                               storeButtonDidTap: profileEditView.storeButton.rx.tap.asObservable())
+                                               storeButtonDidTap: profileEditView.storeButton.rx.tap.asObservable(), profileImage: changeProfileImageTrigger.asObservable())
         let output = viewModel.transform(input: input)
+        
+        profileEditView.profileEditButton.rx.tap
+            .asDriver()
+            .drive(with: self) { owner, _ in
+                let vc = EditProfileImageViewController()
+                vc.delegate = self
+                let bottomVC = BottomSheetViewController(type: .profileImage, contentViewController: vc)
+                owner.present(bottomVC, animated: true)
+            }
+            .disposed(by: disposeBag)
         
         output.nickname
             .debug()
@@ -63,5 +74,12 @@ class ProfileEditViewController: BaseViewController {
     
     override func setProperties() {
         hideKeyboardWhenTappedAround()
+    }
+}
+
+extension ProfileEditViewController: profileImageChangeDelegate {
+    func changeProfileImage(image: UIImage) {
+        profileEditView.profileImageView.profileImageView.image = image
+        changeProfileImageTrigger.accept(image.pngData()!)
     }
 }

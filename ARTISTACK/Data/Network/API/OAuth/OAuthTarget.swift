@@ -27,10 +27,6 @@ extension OAuthTarget: TargetType {
         }
     }
     
-    var baseURL: String {
-        return "https://dev.artistack.xyz/"
-    }
-    
     var method: Alamofire.HTTPMethod {
         switch self {
         case .login:

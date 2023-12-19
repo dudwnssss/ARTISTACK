@@ -62,7 +62,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
                    print("useridentifier: \(userIdentifier)")
                    
             let request = LoginRequest(providerType: "APPLE")
-            Network.shared.request(type: LoginResponse.self, api: OAuthTarget.login(request)) { response in
+            NetworkManager.shared.request(type: LoginResponse.self, api: OAuthTarget.login(request)) { response in
                 switch response {
                 case .success(let success):
                     if success.code == 5001{

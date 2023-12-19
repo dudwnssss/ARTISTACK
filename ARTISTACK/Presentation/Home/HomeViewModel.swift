@@ -25,7 +25,7 @@ class HomeViewModel {
 extension HomeViewModel {
     
     func fetchProjectList(){
-        Network.shared.request(type: ProjectResponse.self, api: ProjectsTarget.projectList) { response in
+        NetworkManager.shared.request(type: ProjectResponse.self, api: ProjectsTarget.projectList) { response in
             switch response {
             case .success(let success):
                 self.projectList.value = success.data.content

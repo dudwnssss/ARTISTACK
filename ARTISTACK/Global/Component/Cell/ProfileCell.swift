@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 final class ProfileCell: UICollectionViewCell {
     
@@ -57,6 +58,11 @@ final class ProfileCell: UICollectionViewCell {
         idLabel.text = "@" + profile.artistackId
         nicknameLabel.text = profile.nickname
         descriptionLabel.text = profile.description ?? ""
+        guard let urlString = profile.profileImgURL,
+              let url = URL(string: urlString) else {
+            print("외안돼")
+            return}
+        profileImageView.profileImageView.kf.setImage(with: url)
     }
 
     @available(*, unavailable)

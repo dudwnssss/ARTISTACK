@@ -16,6 +16,7 @@ enum HTTPHeaderField: String {
 
 enum ContentType: String {
     case json = "application/json;charset=UTF-8"
+    case multipart = "multipart/form-data"
 }
 
 enum Authentication: String {

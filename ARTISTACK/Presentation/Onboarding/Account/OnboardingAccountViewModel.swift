@@ -37,7 +37,7 @@ class OnboardingAccountViewModel{
     func checkDuplicate(){
         guard let idText = idText.value else {return}
         let request = DuplicateRequest(value: idText)
-        Network.shared.request(type: DuplicateResponse.self, api: UsersTarget.duplicate(request)) { response in
+        NetworkManager.shared.request(type: DuplicateResponse.self, api: UsersTarget.duplicate(request)) { response in
             switch response {
             case .success(let success):
                 switch success.data{

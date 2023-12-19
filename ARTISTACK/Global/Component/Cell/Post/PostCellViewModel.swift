@@ -18,7 +18,7 @@ extension PostCellViewModel {
     
     func like(){
         guard let data else {return}
-        Network.shared.request(type: LikeResponse.self, api: ProjectsTarget.like(projectId: data.id)) { result in
+        NetworkManager.shared.request(type: LikeResponse.self, api: ProjectsTarget.like(projectId: data.id)) { result in
             switch result {
             case .success(_):
                 print("success")
@@ -30,7 +30,7 @@ extension PostCellViewModel {
     
     func cancelLike(){
         guard let data else {return}
-        Network.shared.request(type: LikeResponse.self, api: ProjectsTarget.like(projectId: data.id)) { result in
+        NetworkManager.shared.request(type: LikeResponse.self, api: ProjectsTarget.like(projectId: data.id)) { result in
             switch result {
             case .success(_):
                 print("success")

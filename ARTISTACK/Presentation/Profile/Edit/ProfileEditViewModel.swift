@@ -14,6 +14,7 @@ class ProfileEditViewModel: ViewModelType {
     private let userdata: UserData
     private let disposeBag = DisposeBag()
     private let editSuccessTrigger = PublishSubject<UserData>()
+    private let profileSuccessTrigger = PublishSubject<URL>()
     
     init(userdata: UserData) {
         self.userdata = userdata
@@ -23,6 +24,7 @@ class ProfileEditViewModel: ViewModelType {
         let nickname: Observable<String>
         let description: Observable<String>
         let storeButtonDidTap: Observable<Void>
+        let profileImage: Observable<Data>
     }
     
     struct Output {
@@ -43,11 +45,13 @@ class ProfileEditViewModel: ViewModelType {
             .disposed(by: disposeBag)
         
         input.storeButtonDidTap
-            .subscribe(with: self) { owner, _ in
+            .withLatestFrom(input.profileImage)
+            .subscribe(with: self) { owner, imageData in
+                owner.updateProfileImage(imageData: imageData)
                 owner.updateProfile(nickname: output.nickname.value, description: output.description.value)
             }
             .disposed(by: disposeBag)
-        
+                
         editSuccessTrigger
             .bind(to: output.editComplete)
             .disposed(by: disposeBag)
@@ -64,11 +68,27 @@ extension ProfileEditViewModel {
     
     func updateProfile(nickname: String?, description: String?) {
         let request = EditProfileRequest(nickname: nickname, description: description)
-        Network.shared.requestRx(type: MyProfileResponse.self, api: UsersTarget.editProfile(request))
+        NetworkManager.shared.request(type: MyProfileResponse.self, api: UsersTarget.editProfile(request))
             .subscribe(with: self) { owner, response in
                 switch response {
                 case .success(let result):
                     owner.editSuccessTrigger.onNext(result.data)
+                case .failure(_):
+                    debugPrint(response)
+                }
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func updateProfileImage(imageData: Data) {
+        let request = UploadRequest(multiple: "false")
+        NetworkManager.shared.upload(type: UploadResponse.self, api: UploadTarget.profile(imageData: imageData, request: request))
+            .subscribe(with: self) { owner, response in
+                switch response {
+                case .success(let value):
+                    debugPrint(response)
+                    guard let urlString = value.data, let url = URL(string: urlString) else {return}
+                    owner.profileSuccessTrigger.onNext(url)
                 case .failure(_):
                     debugPrint(response)
                 }

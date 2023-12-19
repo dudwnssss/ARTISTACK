@@ -16,9 +16,6 @@ enum ProjectsTarget{
 }
 
 extension ProjectsTarget: TargetType {
-    var baseURL: String {
-        return "https://dev.artistack.xyz/"
-    }
     
     var method: Alamofire.HTTPMethod {
         switch self {

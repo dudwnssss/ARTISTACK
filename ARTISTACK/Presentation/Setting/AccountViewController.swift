@@ -71,7 +71,7 @@ extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row == 1{
             RootSwitcher.update(.login)
         } else if indexPath.row == 2{
-            Network.shared.request(type: WithdrawResponse.self, api: UsersTarget.withdraw) { result in
+            NetworkManager.shared.request(type: WithdrawResponse.self, api: UsersTarget.withdraw) { result in
                 switch result {
                 case .success(let success):
                     if success.data == true{

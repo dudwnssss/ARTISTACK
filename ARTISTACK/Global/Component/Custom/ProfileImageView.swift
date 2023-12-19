@@ -13,7 +13,7 @@ class ProfileImageView: UIView {
         $0.image = Image.backgroundGradient
     }
     let profileImageView = UIImageView().then{
-        $0.image = Image.person
+        $0.image = Image.profileNormal
         $0.backgroundColor = .red
         $0.clipsToBounds = true
     }

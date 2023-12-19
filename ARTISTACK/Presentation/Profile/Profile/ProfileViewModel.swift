@@ -43,7 +43,7 @@ extension ProfileViewModel {
     
     
     func fetchMyProfile() {
-        Network.shared.request(type: MyProfileResponse.self, api: UsersTarget.myProfile) { response in
+        NetworkManager.shared.request(type: MyProfileResponse.self, api: UsersTarget.myProfile) { response in
             switch response {
             case .success(let success):
                 self.profile = success.data
@@ -55,7 +55,7 @@ extension ProfileViewModel {
     }
     
     func fetchMyProject() {
-        Network.shared.request(type: ProjectResponse.self, api: ProjectsTarget.myProject) { response in
+        NetworkManager.shared.request(type: ProjectResponse.self, api: ProjectsTarget.myProject) { response in
             switch response {
             case .success(let success):
                 let items = success.data.content.map { SectionItem.projectItem(data: $0) }

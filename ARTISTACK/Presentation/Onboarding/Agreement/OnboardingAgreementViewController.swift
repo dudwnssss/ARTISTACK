@@ -26,7 +26,7 @@ class OnboardingAgreementViewController: BaseViewController {
         
         let request = SignupRequest(artistackId: artistackId, nickname: nickname, description: nil, providerType: "APPLE", profileImgUrl: nil, instruments: nil)
         
-        Network.shared.request(type: LoginResponse.self, api: OAuthTarget.signup(request)) { response in
+        NetworkManager.shared.request(type: LoginResponse.self, api: OAuthTarget.signup(request)) { response in
             switch response {
             case .success(let success):
                 if success.success == true{

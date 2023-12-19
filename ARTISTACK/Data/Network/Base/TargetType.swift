@@ -14,10 +14,19 @@ protocol TargetType: URLRequestConvertible {
     var path: String {get}
     var headers: HTTPHeaders {get}
     var parameters: RequestParams {get}
+    var multipart: MultipartFormData {get}
 }
 
 extension TargetType {
 
+    var baseURL: String {
+        return URLConstant.baseURL
+    }
+    
+    var multipart: MultipartFormData {
+        return MultipartFormData()
+    }
+    
     func asURLRequest() throws -> URLRequest {
         let url = try baseURL.asURL()
         var urlRequest = try URLRequest(url: url.appendingPathComponent(path), method: method)
