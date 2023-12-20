@@ -117,4 +117,12 @@ class ProfileEditView: BaseView {
         }
         
     }
+    
+    func configureProfileImage(urlString: String?) {
+        guard let urlString, let url = URL(string: urlString) else {
+            profileImageView.profileImageView.image = Image.profileNormal
+            return
+        }
+        profileImageView.profileImageView.kf.setImage(with: url)
+    }
 }

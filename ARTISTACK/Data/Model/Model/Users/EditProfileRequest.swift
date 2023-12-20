@@ -10,4 +10,5 @@ import Foundation
 struct EditProfileRequest: Encodable{
     let nickname: String?
     let description: String?
+    let profileImgUrl: String?
 }

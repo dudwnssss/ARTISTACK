@@ -47,7 +47,6 @@ extension ProfileViewModel {
             switch response {
             case .success(let success):
                 self.profile = success.data
-                print(#fileID, #function, #line, "- ", success.data)
                 self.profileSection.accept(MultipleSectionModel.profileSection(items: [.profileItem(data: success.data)]))
             case .failure(let failure):
                 debugPrint(failure)

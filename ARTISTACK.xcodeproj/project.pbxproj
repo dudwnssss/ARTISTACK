@@ -55,6 +55,7 @@
 		1022BA8B2AB2F6D70028C2DF /* EditProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022BA8A2AB2F6D70028C2DF /* EditProfileImageViewController.swift */; };
 		10332C5D2AC754F500217BC2 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10332C5C2AC754F500217BC2 /* AudioManager.swift */; };
 		1039B8A82B32C5520052C788 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1039B8A72B32C5520052C788 /* Const.swift */; };
+		1039B8AE2B32DCFC0052C788 /* Reactive+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1039B8AD2B32DCFC0052C788 /* Reactive+.swift */; };
 		103B9BDA2AFF2DD000F84940 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 103B9BD92AFF2DD000F84940 /* README.md */; };
 		103EF8F92AC2D70C007496D9 /* WithdrawResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103EF8F82AC2D70C007496D9 /* WithdrawResponse.swift */; };
 		1049419C2A9CB77B006B52BC /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049419B2A9CB77B006B52BC /* UIColor+.swift */; };
@@ -191,6 +192,7 @@
 		1022BA8A2AB2F6D70028C2DF /* EditProfileImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileImageViewController.swift; sourceTree = "<group>"; };
 		10332C5C2AC754F500217BC2 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		1039B8A72B32C5520052C788 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		1039B8AD2B32DCFC0052C788 /* Reactive+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+.swift"; sourceTree = "<group>"; };
 		103B9BD92AFF2DD000F84940 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		103EF8F82AC2D70C007496D9 /* WithdrawResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawResponse.swift; sourceTree = "<group>"; };
 		1049419B2A9CB77B006B52BC /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -391,9 +393,8 @@
 		102089EF2A9C5DE900A34EFC /* Edit */ = {
 			isa = PBXGroup;
 			children = (
-				102089942A99CA9800A34EFC /* ProfileEditViewController.swift */,
-				102089E62A9C5AB500A34EFC /* ProfileEditView.swift */,
-				104D93A22AC1D6D300EBEAF7 /* ProfileEditViewModel.swift */,
+				1039B8AC2B32DC7D0052C788 /* View */,
+				1039B8AB2B32DC780052C788 /* ViewModel */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -442,6 +443,23 @@
 				10F79D492AC05D1800E31063 /* OnboardingAccountViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1039B8AB2B32DC780052C788 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				104D93A22AC1D6D300EBEAF7 /* ProfileEditViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1039B8AC2B32DC7D0052C788 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				102089E62A9C5AB500A34EFC /* ProfileEditView.swift */,
+				102089942A99CA9800A34EFC /* ProfileEditViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		107A75CB2A7A69F300E9201B = {
@@ -536,6 +554,7 @@
 		107A75F02A7A6DFC00E9201B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1039B8AD2B32DCFC0052C788 /* Reactive+.swift */,
 				107A75F22A7A6EF400E9201B /* UIVIew+.swift */,
 				10831AF02A7A924300FB460C /* UIStackView+.swift */,
 				102089982A99D87C00A34EFC /* UIViewController+.swift */,
@@ -1059,6 +1078,7 @@
 				10C31A802ABF470D00C69791 /* OnboardingAgreementView.swift in Sources */,
 				10D40D5A2AE8214D00786D7D /* VideoPlayerView.swift in Sources */,
 				102089E92A9C5BC800A34EFC /* UploadView.swift in Sources */,
+				1039B8AE2B32DCFC0052C788 /* Reactive+.swift in Sources */,
 				10B067722A9485C100BFA002 /* ProfileViewController.swift in Sources */,
 				10C31A782ABF46B400C69791 /* OnboardingUserNameView.swift in Sources */,
 				101E39512AE7B337001F4534 /* ProfileViewModel.swift in Sources */,

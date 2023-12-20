@@ -14,7 +14,6 @@ protocol ProfileEditDelegate: AnyObject {
 }
 
 class ProfileEditViewController: BaseViewController {
-    
     private let profileEditView = ProfileEditView()
     private let viewModel: ProfileEditViewModel
     private let changeProfileImageTrigger = PublishRelay<Data>()
@@ -67,6 +66,12 @@ class ProfileEditViewController: BaseViewController {
             .bind(with: self) { owner, data in
                 owner.delegate?.profileDidEdit(userData: data)
                 owner.navigationController?.popViewController(animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        output.profileImage
+            .bind(with: self) { owner, urlString in
+                owner.profileEditView.configureProfileImage(urlString: urlString)
             }
             .disposed(by: disposeBag)
         

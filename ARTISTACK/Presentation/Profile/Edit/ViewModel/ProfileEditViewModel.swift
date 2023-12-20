@@ -14,7 +14,7 @@ class ProfileEditViewModel: ViewModelType {
     private let userdata: UserData
     private let disposeBag = DisposeBag()
     private let editSuccessTrigger = PublishSubject<UserData>()
-    private let profileSuccessTrigger = PublishSubject<URL>()
+    private let profileSuccessTrigger = PublishSubject<String?>()
     
     init(userdata: UserData) {
         self.userdata = userdata
@@ -30,6 +30,7 @@ class ProfileEditViewModel: ViewModelType {
     struct Output {
         let nickname = BehaviorRelay<String>(value: "")
         let description = BehaviorRelay<String>(value: "")
+        let profileImage = BehaviorRelay<String?>(value: nil)
         let editComplete = PublishRelay<UserData>()
     }
     
@@ -42,18 +43,26 @@ class ProfileEditViewModel: ViewModelType {
         input.description
             .bind(to: output.description)
             .disposed(by: disposeBag)
+        
         input.storeButtonDidTap
-            .withLatestFrom(input.profileImage)
+            .withLatestFrom(input.profileImage.startWith(Data()))
+            .debug("뭐여")
             .subscribe(with: self) { owner, imageData in
                 owner.uploadProfileImage(imageData: imageData)
-                owner.updateProfile(nickname: output.nickname.value, description: output.description.value)
             }
             .disposed(by: disposeBag)
-    
+        
+        profileSuccessTrigger
+            .bind(with: self) { owner, urlString in
+                print("urlstring", urlString)
+                owner.updateProfile(nickname: output.nickname.value, description: output.description.value, imageData: urlString)
+            }
+            .disposed(by: disposeBag)
         editSuccessTrigger
             .bind(to: output.editComplete)
             .disposed(by: disposeBag)
         
+        output.profileImage.accept(userdata.profileImgUrl)
         output.nickname.accept(userdata.nickname)
         output.description.accept(userdata.description!)
     
@@ -64,8 +73,22 @@ class ProfileEditViewModel: ViewModelType {
 
 extension ProfileEditViewModel {
     
-    func updateProfile(nickname: String?, description: String?) {
-        let request = EditProfileRequest(nickname: nickname, description: description)
+    func uploadProfileImage(imageData: Data) {
+        let request = UploadRequest(multiple: "false")
+        NetworkManager.shared.upload(type: UploadResponse.self, api: UploadTarget.profile(imageData: imageData, request: request))
+            .subscribe(with: self) { owner, response in
+                switch response {
+                case .success(let value):
+                    owner.profileSuccessTrigger.onNext(value.data)
+                case .failure(_):
+                    debugPrint(response)
+                }
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func updateProfile(nickname: String?, description: String?, imageData: String?) {
+        let request = EditProfileRequest(nickname: nickname, description: description, profileImgUrl: imageData)
         NetworkManager.shared.request(type: MyProfileResponse.self, api: UsersTarget.editProfile(request))
             .subscribe(with: self) { owner, response in
                 switch response {
@@ -78,19 +101,5 @@ extension ProfileEditViewModel {
             .disposed(by: disposeBag)
     }
     
-    func uploadProfileImage(imageData: Data) {
-        let request = UploadRequest(multiple: "false")
-        NetworkManager.shared.upload(type: UploadResponse.self, api: UploadTarget.profile(imageData: imageData, request: request))
-            .subscribe(with: self) { owner, response in
-                switch response {
-                case .success(let value):
-                    debugPrint(response)
-                    guard let urlString = value.data, let url = URL(string: urlString) else {return}
-                    owner.profileSuccessTrigger.onNext(url)
-                case .failure(_):
-                    debugPrint(response)
-                }
-            }
-            .disposed(by: disposeBag)
-    }
+
 }

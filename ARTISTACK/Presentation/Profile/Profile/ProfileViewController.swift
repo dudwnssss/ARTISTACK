@@ -12,12 +12,10 @@ import RxCocoa
 import RxDataSources
 
 class ProfileViewController: BaseViewController {
-    
-    let disposeBag = DisposeBag()
-    let profileView = ProfileView()
+    private let disposeBag = DisposeBag()
+    private let profileView = ProfileView()
     let viewModel = ProfileViewModel()
     var header: ProjectHeaderView?
-    
     
     override func loadView() {
         self.view = profileView
