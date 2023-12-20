@@ -16,6 +16,7 @@ class OnboardingProfileView : BaseView {
     let skipButton = UIButton()
     let textCountLabel = UILabel()
     let profileImageView = ProfileImageView()
+    let profileButton = UIButton()
     let textView = UITextView()
 
     
@@ -33,17 +34,14 @@ class OnboardingProfileView : BaseView {
             $0.font = Font.bold15
             $0.textColor = Color.artistackSystem7
         }
-        
         skipButton.do {
             $0.setTitle("건너뛰기", for: .normal)
             $0.titleLabel?.font = Font.bold18
             $0.setTitleColor(Color.white, for: .normal)
         }
-
         separatorView.do {
             $0.backgroundColor = Color.artistackSystem4
         }
-        
         textView.do {
             $0.isScrollEnabled = false
             $0.textContainerInset = .zero
@@ -53,20 +51,20 @@ class OnboardingProfileView : BaseView {
             $0.textContainer.maximumNumberOfLines = 2
             $0.textColor = Color.white
         }
-
-        
         textCountLabel.do {
             $0.text = "38"
             $0.textColor = Color.artistackSystem4
             $0.textAlignment = .right
             $0.font = Font.medium14
         }
-
+        profileButton.do {
+            $0.setImage(Image.profileEditShadowLarge, for: .normal)
+            $0.imageView?.contentMode = .scaleAspectFill
+        }
     }
     
     override func setLayouts() {
-        
-        addSubviews(progressImageView, titleLabel, descriptionLabel, separatorView, nextButton, skipButton, textCountLabel, profileImageView, textView)
+        addSubviews(progressImageView, titleLabel, descriptionLabel, separatorView, nextButton, skipButton, textCountLabel, profileImageView, textView, profileButton)
         
         progressImageView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(100)
@@ -80,31 +78,30 @@ class OnboardingProfileView : BaseView {
             $0.top.equalTo(titleLabel.snp.bottom).offset(8)
             $0.leading.equalTo(titleLabel)
         }
-        
         profileImageView.snp.makeConstraints {
             $0.size.equalTo(122)
             $0.centerX.equalToSuperview()
             $0.centerY.equalToSuperview().offset(-64)
         }
-        
+        profileButton.snp.makeConstraints {
+            $0.size.equalTo(profileImageView)
+            $0.center.equalTo(profileImageView)
+        }
         textView.snp.makeConstraints {
             $0.top.equalTo(profileImageView.snp.bottom).offset(44)
             $0.leading.equalTo(titleLabel)
             $0.height.equalTo(52)
             $0.trailing.equalToSuperview().offset(-27)
         }
-        
         separatorView.snp.makeConstraints {
             $0.leading.equalTo(titleLabel)
             $0.trailing.equalTo(textView)
             $0.top.equalTo(textView.snp.bottom)
         }
-        
         textCountLabel.snp.makeConstraints {
             $0.trailing.equalTo(separatorView)
             $0.top.equalTo(separatorView.snp.bottom).offset(8)
         }
-        
         skipButton.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(33)
             $0.bottom.equalToSuperview().offset(-57)
@@ -114,5 +111,9 @@ class OnboardingProfileView : BaseView {
             $0.trailing.equalToSuperview().offset(-27)
             $0.centerY.equalTo(skipButton)
         }
+    }
+    
+    func configureProfileImage(image: UIImage) {
+        profileImageView.profileImageView.image = image
     }
 }

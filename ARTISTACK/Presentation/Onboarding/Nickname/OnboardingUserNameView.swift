@@ -7,8 +7,8 @@
 
 import UIKit
 
-class OnboardingUserNameView: BaseView {
-    let progressImageView = UIImageView()
+final class OnboardingUserNameView: BaseView {
+    private let progressImageView = UIImageView()
     let titleLabel = UILabel()
     let descriptionLabel = UILabel()
     let textField = UITextField()
@@ -35,18 +35,15 @@ class OnboardingUserNameView: BaseView {
             $0.font = Font.bold15
             $0.textColor = Color.artistackSystem7
         }
-        
         nextButton.do {
             $0.setImage(Image.onboardingNextActivated, for: .normal)
             $0.setTitle("다음", for: .normal)
             $0.setTitleColor(Color.white, for: .normal)
         }
-
         accessoryLabel.do {
             $0.text = "다음"
             $0.font = Font.bold19
         }
-
         textField.do {
             $0.attributedPlaceholder = NSAttributedString(string: "Ex) artistacker_12", attributes: [.foregroundColor: Color.artistackSystem3])
             $0.textColor = Color.white
@@ -65,8 +62,8 @@ class OnboardingUserNameView: BaseView {
     
     override func setLayouts() {
         accessoryView.addSubviews(nextButton, accessoryLabel)
-        
         addSubviews(progressImageView, titleLabel, descriptionLabel, separatorView, textField, constraintsLabel)
+
         accessoryLabel.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
@@ -101,6 +98,10 @@ class OnboardingUserNameView: BaseView {
             $0.leading.equalTo(separatorView)
         }
     }
-    
-  
 }
+
+@available(iOS 17.0, *)
+#Preview {
+    OnboardingUserNameView()
+}
+

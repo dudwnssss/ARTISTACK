@@ -5,13 +5,16 @@
 //  Created by 임영준 on 2023/09/24.
 //
 
-import Foundation
+import UIKit
+
+import RxSwift
+import RxCocoa
 
 class OnboardingAccountViewController: BaseViewController{
-    
-    let onboardingAccountView = OnboardingAccountView()
+    private let onboardingAccountView = OnboardingAccountView()
     let onboardingAccountViewModel = OnboardingAccountViewModel()
     var timer: Timer?
+    private let disposeBag = DisposeBag()
     
     override func loadView() {
         self.view = onboardingAccountView
@@ -31,14 +34,17 @@ class OnboardingAccountViewController: BaseViewController{
         let vc = OnboardingUserNameViewController()
         let id = onboardingAccountView.textField.text
         UserDefaults.standard.set(id, forKey: "artistackId")
-        vc.modalTransitionStyle = .crossDissolve
         navigationController?.pushViewController(vc, animated: false)
     }
     
     override func bind() {
-        onboardingAccountViewModel.idText.bind { [weak self] text in
-            self?.onboardingAccountView.textField.text = text
-        }
+        let input = OnboardingAccountViewModel.Input(idText: onboardingAccountView.textField.rx.text.orEmpty.asObservable())
+        let output = onboardingAccountViewModel.transform(input: input)
+        
+        output.idText
+            .bind(to: onboardingAccountView.textField.rx.text)
+            .disposed(by: disposeBag)
+
         onboardingAccountViewModel.constaintText.bind { [weak self] text in
             self?.onboardingAccountView.constraintsLabel.text = text
         }
@@ -55,3 +61,4 @@ class OnboardingAccountViewController: BaseViewController{
     }
     
 }
+

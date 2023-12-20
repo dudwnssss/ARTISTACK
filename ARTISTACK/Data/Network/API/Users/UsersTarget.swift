@@ -34,11 +34,7 @@ extension UsersTarget: TargetType {
         switch self {
         case .duplicate:
             return "users/duplicate"
-        case .myProfile:
-            return "users/me"
-        case .editProfile:
-            return "users/me"
-        case .withdraw:
+        default:
             return "users/me"
         }
     }
@@ -46,9 +42,7 @@ extension UsersTarget: TargetType {
     var headers: Alamofire.HTTPHeaders {
         switch self{
         case .duplicate(_):
-            return [HTTPHeaderField.authentication.rawValue: Authentication.authorization.value,
-                    HTTPHeaderField.contentType.rawValue:
-                        ContentType.json.rawValue]
+            return []
         default:
             return [HTTPHeaderField.authentication.rawValue: Authentication.accessToken.value,
                     HTTPHeaderField.contentType.rawValue:

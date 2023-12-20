@@ -23,8 +23,12 @@ class OnboardingAgreementViewController: BaseViewController {
         
         guard let artistackId = UserDefaults.standard.string(forKey: "artistackId") else {return}
         guard let nickname = UserDefaults.standard.string(forKey: "nickname") else {return}
+        let description = UserDefaults.standard.string(forKey: "description")
+        let profileImageUrl = UserDefaults.standard.string(forKey: "profileImgUrl")
         
-        let request = SignupRequest(artistackId: artistackId, nickname: nickname, description: nil, providerType: "APPLE", profileImgUrl: nil, instruments: nil)
+        print(profileImageUrl)
+        
+        let request = SignupRequest(artistackId: artistackId, nickname: nickname, description: description, providerType: "APPLE", profileImgUrl: profileImageUrl, instruments: nil)
         
         NetworkManager.shared.request(type: LoginResponse.self, api: OAuthTarget.signup(request)) { response in
             switch response {

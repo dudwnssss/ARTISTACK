@@ -41,9 +41,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
                case let appleIDCredential as ASAuthorizationAppleIDCredential:
-                   // You can create an account in your system.
                    let userIdentifier = appleIDCredential.user
-                   
                    if  let authorizationCode = appleIDCredential.authorizationCode,
                        let identityToken = appleIDCredential.identityToken,
                        let authCodeString = String(data: authorizationCode, encoding: .utf8),
@@ -56,7 +54,6 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
                        
                        UserDefaults.standard.set(identifyTokenString, forKey: "apple_identity_token")
                        UserDefaults.standard.set(authCodeString, forKey: "apple_authorization_code")
-
                    }
                    
                    print("useridentifier: \(userIdentifier)")

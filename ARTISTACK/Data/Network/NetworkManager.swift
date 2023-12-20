@@ -23,7 +23,7 @@ final class NetworkManager{
     private init() {}
     
     func request<T: Decodable>(type: T.Type, api: TargetType, completion: @escaping (Result<T, Error>) -> Void) {
-        AF.request(api).responseDecodable(of: T.self) { response in
+        API.session.request(api).responseDecodable(of: T.self) { response in
             switch response.result{
             case .success(let data): completion(.success(data))
             case .failure(_):

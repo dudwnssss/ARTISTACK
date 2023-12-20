@@ -55,14 +55,13 @@ final class ProfileCell: UICollectionViewCell {
     }
     
     func configureCell(profile: UserData){
+        print(profile)
         idLabel.text = "@" + profile.artistackId
         nicknameLabel.text = profile.nickname
-        descriptionLabel.text = profile.description ?? ""
-        guard let urlString = profile.profileImgURL,
-              let url = URL(string: urlString) else {
-            print("외안돼")
-            return}
-        profileImageView.profileImageView.kf.setImage(with: url)
+        descriptionLabel.text = profile.description
+        if let urlString = profile.profileImgUrl, let url = URL(string: urlString) {
+            profileImageView.profileImageView.kf.setImage(with: url)
+        }
     }
 
     @available(*, unavailable)

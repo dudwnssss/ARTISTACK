@@ -39,19 +39,17 @@ class ProfileEditViewModel: ViewModelType {
         input.nickname
             .bind(to: output.nickname)
             .disposed(by: disposeBag)
-        
         input.description
             .bind(to: output.description)
             .disposed(by: disposeBag)
-        
         input.storeButtonDidTap
             .withLatestFrom(input.profileImage)
             .subscribe(with: self) { owner, imageData in
-                owner.updateProfileImage(imageData: imageData)
+                owner.uploadProfileImage(imageData: imageData)
                 owner.updateProfile(nickname: output.nickname.value, description: output.description.value)
             }
             .disposed(by: disposeBag)
-                
+    
         editSuccessTrigger
             .bind(to: output.editComplete)
             .disposed(by: disposeBag)
@@ -80,7 +78,7 @@ extension ProfileEditViewModel {
             .disposed(by: disposeBag)
     }
     
-    func updateProfileImage(imageData: Data) {
+    func uploadProfileImage(imageData: Data) {
         let request = UploadRequest(multiple: "false")
         NetworkManager.shared.upload(type: UploadResponse.self, api: UploadTarget.profile(imageData: imageData, request: request))
             .subscribe(with: self) { owner, response in

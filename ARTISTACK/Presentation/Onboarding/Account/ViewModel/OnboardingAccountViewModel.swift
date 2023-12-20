@@ -7,11 +7,37 @@
 
 import Foundation
 
-class OnboardingAccountViewModel{
+import RxSwift
+import RxCocoa
+
+class OnboardingAccountViewModel: ViewModelType {
     var idText: CustomObservable<String?> = CustomObservable(nil)
     var constaintText: CustomObservable<String?> = CustomObservable("영문 소문자, 숫자, 밑줄기호 입력 가능 (총 4-17자)")
     var isValid = CustomObservable(false)
     var isDuplicated = CustomObservable(true)
+    private let disposeBag = DisposeBag()
+    
+    struct Input {
+        let idText: Observable<String>
+    }
+    
+    struct Output {
+        let idText = PublishSubject<String>()
+    }
+    
+    func transform(input: Input) -> Output {
+        let output = Output()
+        
+        input.idText
+            .map { $0.lowercased() }
+            .bind(to: output.idText)
+            .disposed(by: disposeBag)
+        
+        return output
+    }
+    
+    
+
     
     func checkValidate() {
         // 입력이 4-17자 사이인지 확인

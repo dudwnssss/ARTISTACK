@@ -8,16 +8,12 @@
 import UIKit
 
 class ProfileEditView: BaseView {
-    
     var isToolTipHidden = true
-    
     var profileImageView = ProfileImageView()
     private let separator1View = SeparatorView()
     private let separator2View = SeparatorView()
     private let separator3View = SeparatorView()
     let profileEditButton = UIButton()
-    
-    
     lazy var toolTipView = ToolTipView(title: "닉네임은 1-14자까지 설정가능합니다.", tipPosition: .top)
     private let nicknameLabel = UILabel()
     private let descriptionLabel = UILabel()

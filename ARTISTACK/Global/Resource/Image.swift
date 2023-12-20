@@ -11,25 +11,20 @@ enum Image {
     static let back = UIImage(named: "back")!
     static let dismiss = UIImage(named: "dismiss")!
     static let edit = UIImage(named: "edit")!
+    static let splashBlur = UIImage(named: "splash.blur")!
 
-    
-    
-    static let splashBlur = UIImage(named: "splash.blur")
+    static let agreementLarge = UIImage(named: "agreement.large")!
+    static let agreement = UIImage(named: "agreement")!
+    static let accessoryRight = UIImage(named: "accessory.right")!
+    static let accessoryLeft = UIImage(named: "accessory.left")!
 
-    
-    static let agreementLarge = UIImage(named: "agreement.large")
-    static let agreement = UIImage(named: "agreement")
-    static let accessoryRight = UIImage(named: "accessory.right")
-    static let accessoryLeft = UIImage(named: "accessory.left")
-
-    
     static let buttonBackground = UIImage(named: "button.background")!
     static let buttonBackgroundActivated = UIImage(named: "button.background.activated")!
     
     
     //like
     static let likeSmall = UIImage(named: "like.small")!
-    static let playSmall = UIImage(named: "play.small")
+    static let playSmall = UIImage(named: "play.small")!
     
 
     //util
@@ -89,11 +84,11 @@ enum Image {
 
     //onboarding
     static let onboardingBackground = UIImage(named: "onboarding.background")!
-    static let onboardingNextActivated = UIImage(named: "onboarding.next.activated")
-    static let onboardingProgress1 = UIImage(named: "onboarding.background")!
-    static let onboardingProgress2 = UIImage(named: "onboarding.background")!
-    static let onboardingProgress3 = UIImage(named: "onboarding.background")!
-    static let onboardingProgress4 = UIImage(named: "onboarding.progress4")
+    static let onboardingNextActivated = UIImage(named: "onboarding.next.activated")!
+    static let onboardingProgress1 = UIImage(named: "onboarding.progress1")!
+    static let onboardingProgress2 = UIImage(named: "onboarding.progress2")!
+    static let onboardingProgress3 = UIImage(named: "onboarding.progress3")!
+    static let onboardingProgress4 = UIImage(named: "onboarding.progress4")!
 
     //logo
     static let logo = UIImage(named: "logo")!
@@ -103,6 +98,7 @@ enum Image {
     static let recordInactivated = UIImage(named: "record.inactivated")!
 
     static let profileEditShadow = UIImage(named: "profile.edit.shadow")!
+    static let profileEditShadowLarge = UIImage(named: "profile.edit.shadow.large")!
     static let profileNormal = UIImage(named: "profile.normal")!
 
 

@@ -20,7 +20,7 @@ struct UserData: Decodable {
     let artistackId: String
     let nickname: String
     let description: String?
-    let profileImgURL: String?
+    let profileImgUrl: String?
     let providerType, role: String
 }
 

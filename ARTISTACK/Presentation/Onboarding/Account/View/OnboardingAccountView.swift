@@ -8,7 +8,6 @@
 import UIKit
 
 class OnboardingAccountView: BaseView {
-    
     let progressImageView = UIImageView()
     let titleLabel = UILabel()
     let descriptionLabel = UILabel()
@@ -119,6 +118,10 @@ class OnboardingAccountView: BaseView {
             $0.leading.equalTo(separatorView)
         }
     }
-    
-  
 }
+
+@available(iOS 17.0, *)
+#Preview {
+    OnboardingAccountView()
+}
+
